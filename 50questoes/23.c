@@ -7,6 +7,7 @@ void invertstring(char* s){
 	for(i=l-1; i>=0;i--){
 		temp[(l-1)-i]=s[i];
 	}
+	temp[l]='\0';
 	strcpy(s, temp);
 }
 
