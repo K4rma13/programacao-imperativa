@@ -3,7 +3,6 @@
 #include <stdbool.h>
 #define MAXSEQ 10000
 
-char aux[MAXSEQ];
 
 bool palindrome(char* s1,int n){
 	int i;
