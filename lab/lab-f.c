@@ -6,7 +6,7 @@
 
 
 typedef struct dic{
-	char key[30];
+	char key[9000];
 	int value;
 }Dic;
 
@@ -57,18 +57,16 @@ int keyToInd(Dic* d, char* str, int n){
 	return -1;
 }
 
+
 int addLineToDic(Dic* d,int n, char* str){
 	int i,j,l=strlen(str);
-	char aux[5];
+	char aux[10];
 	for(i=0;i<l;i++){
 		if(str[i]>='A'&&str[i]<='Z'){
 			
 			aux[0]=str[i];
 			aux[1]='\0';
 			int index=keyToInd(d,aux,n);
-			printf("--%s\n",str);
-			printf("%s\n",aux);
-			
 			if(index!=-1){
 				
 				d[index].value++;
@@ -84,22 +82,31 @@ int addLineToDic(Dic* d,int n, char* str){
 					aux[0]=str[i];
 					aux[1]=str[j];
 					aux[2]='\0';
-					printf("-%s\n",aux);
 					int index=keyToInd(d,aux,n);
 					if(index!=-1){
 						d[index].value++;
 					}
+
 					else{
 						strcpy(d[n].key,aux);
 						d[n].value=1;
 						n++;
 					}
+
 				}
 			}
 		}
 	}
 	return n;
 }
+int addTabToDic(Dic* d, int c,char tab[][MAXS],int m){
+	int i;
+	for(i=0;i<m;i++){
+		c=addLineToDic(d,c,tab[i]);
+	}
+	return c;
+}
+
 
 
 int main(){
@@ -109,14 +116,12 @@ int main(){
 
 	if(scanf("%d",&freq)==1){
 		while(getchar()!='\n');
-		while(*(fgets(produtos[i],MAXS,stdin))!='\n'){
+		while((fgets(produtos[i],MAXS,stdin))!=NULL){
 			produtos[i][strlen(produtos[i])-1]='\0';
 			ordena(produtos[i]);
 			i++;
 		}
-		for(j=0;j<i;j++){
-			current=addLineToDic(orgprodutos,current,produtos[j]);
-		}
+		current=addTabToDic(orgprodutos,current,produtos,i);
 		ordenaDic(orgprodutos,current);
 		for(j=0;j<=current;j++){
 			if(orgprodutos[j].value>=freq){
