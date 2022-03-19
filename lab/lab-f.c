@@ -1,12 +1,13 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdbool.h>
+#include <stdlib.h>
 #define MAXN 700
 #define MAXS 8500
 
 
 typedef struct dic{
-	char key[9000];
+	char* key;
 	int value;
 }Dic;
 
@@ -16,11 +17,11 @@ void ordenaDic(Dic* d, int curr){
 	char temp[20];
 	while(flag){
 		flag=false;
-		for(i=0;i<curr;i++){
+		for(i=0;i<curr-1;i++){
 			if(strcmp(d[i].key,d[i+1].key)>0){
-				strcpy(temp,d[i].key);
-				strcpy(d[i].key,d[i+1].key);
-				strcpy(d[i+1].key,temp);
+				memcpy(temp,d[i].key,3);
+				memcpy(d[i].key,d[i+1].key,3);
+				memcpy(d[i+1].key,temp,3);
 				itemp=d[i].value;
 				d[i].value=d[i+1].value;
 				d[i+1].value=itemp;
@@ -60,10 +61,10 @@ int keyToInd(Dic* d, char* str, int n){
 
 int addLineToDic(Dic* d,int n, char* str){
 	int i,j,l=strlen(str);
-	char aux[10];
+	char* aux;
 	for(i=0;i<l;i++){
 		if(str[i]>='A'&&str[i]<='Z'){
-			
+			aux=(char*)malloc(2);
 			aux[0]=str[i];
 			aux[1]='\0';
 			int index=keyToInd(d,aux,n);
@@ -72,13 +73,15 @@ int addLineToDic(Dic* d,int n, char* str){
 				d[index].value++;
 			}
 			else{
-				strcpy(d[n].key,aux);
+				d[n].key= (char*)malloc(2);
+				memcpy(d[n].key,aux,2);
 				d[n].value=1;
 				n++;
 			}
+			free(aux);
 			for(j=i+1;j<l;j++){
 				if(str[j]>='A'&&str[j]<='Z'){
-					
+					aux=(char*)malloc(3);
 					aux[0]=str[i];
 					aux[1]=str[j];
 					aux[2]='\0';
@@ -88,10 +91,12 @@ int addLineToDic(Dic* d,int n, char* str){
 					}
 
 					else{
-						strcpy(d[n].key,aux);
+						d[n].key=(char*)malloc(3);
+						memmove(d[n].key,aux,3);
 						d[n].value=1;
 						n++;
 					}
+					free(aux);
 
 				}
 			}
@@ -99,7 +104,7 @@ int addLineToDic(Dic* d,int n, char* str){
 	}
 	return n;
 }
-int addTabToDic(Dic* d, int c,char tab[][MAXS],int m){
+int addTabToDic(Dic* d, int c,char* tab[],int m){
 	int i;
 	for(i=0;i<m;i++){
 		c=addLineToDic(d,c,tab[i]);
@@ -111,12 +116,15 @@ int addTabToDic(Dic* d, int c,char tab[][MAXS],int m){
 
 int main(){
 	int i=0,j,current=0,freq;
-	char produtos[MAXN][MAXS];
+	char* produtos[MAXN];
+	char aux[MAXS];
 	Dic orgprodutos[26^2];
 
 	if(scanf("%d",&freq)==1){
 		while(getchar()!='\n');
-		while((fgets(produtos[i],MAXS,stdin))!=NULL){
+		while(*(fgets(aux,MAXS,stdin))!='\n'){
+			produtos[i]=malloc(strlen(aux)+1);
+			memcpy(produtos[i],aux,strlen(aux));
 			produtos[i][strlen(produtos[i])-1]='\0';
 			ordena(produtos[i]);
 			i++;
