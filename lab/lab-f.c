@@ -69,7 +69,6 @@ int addLineToDic(Dic* d,int n, char* str){
 			aux[1]='\0';
 			int index=keyToInd(d,aux,n);
 			if(index!=-1){
-				
 				d[index].value++;
 			}
 			else{
