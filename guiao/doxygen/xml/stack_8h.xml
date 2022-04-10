@@ -1,0 +1,121 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="stack_8h" kind="file" language="C++">
+    <compoundname>stack.h</compoundname>
+    <includes local="no">stdio.h</includes>
+    <includedby refid="guiao1_8c" local="yes">guiao1.c</includedby>
+    <includedby refid="mat_8h" local="yes">mat.h</includedby>
+    <includedby refid="stack_8c" local="yes">stack.c</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>stack.h</label>
+        <link refid="stack_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>stdio.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="4">
+        <label>mat.c</label>
+        <link refid="mat_8c"/>
+      </node>
+      <node id="3">
+        <label>mat.h</label>
+        <link refid="mat_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>guiao1.c</label>
+        <link refid="guiao1_8c"/>
+      </node>
+      <node id="5">
+        <label>stack.c</label>
+        <link refid="stack_8c"/>
+      </node>
+      <node id="1">
+        <label>stack.h</label>
+        <link refid="stack_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="structSTCK" prot="public">STCK</innerclass>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="stack_8h_1aacca6649d32984be8e1aa076bf42fe46" prot="public" static="no">
+        <name>MAXSTACK</name>
+        <initializer>1000</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="stack.h" line="5" column="10" bodyfile="stack.h" bodystart="5" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="stack_8h_1af9c94bf76d813977b391547f01ee1e27" prot="public" static="no">
+        <type>struct <ref refid="structSTCK" kindref="compound">STCK</ref></type>
+        <definition>typedef struct STCK STCK</definition>
+        <argsstring></argsstring>
+        <name>STCK</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="stack.h" line="9" column="5"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="stack_8h_1a3a8371bcd9e71fad357defd8e77f8434" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void printstack</definition>
+        <argsstring>(STCK stack)</argsstring>
+        <name>printstack</name>
+        <param>
+          <type><ref refid="structSTCK" kindref="compound">STCK</ref></type>
+          <declname>stack</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="stack.h" line="11" column="6" bodyfile="stack.c" bodystart="3" bodyend="7" declfile="stack.h" declline="11" declcolumn="6"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>__STACK_H__</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>__STACK_H__</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdio.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5" refid="stack_8h_1aacca6649d32984be8e1aa076bf42fe46" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MAXSTACK<sp/>1000</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6" refid="structSTCK" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structSTCK" kindref="compound">STCK</ref>{</highlight></codeline>
+<codeline lineno="7" refid="structSTCK_1a6e402e15150676c7edbc8f7f6aa05684" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="structSTCK_1a6e402e15150676c7edbc8f7f6aa05684" kindref="member">val</ref>[<ref refid="stack_8h_1aacca6649d32984be8e1aa076bf42fe46" kindref="member">MAXSTACK</ref>];</highlight></codeline>
+<codeline lineno="8" refid="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" kindref="member">esp</ref>;</highlight></codeline>
+<codeline lineno="9" refid="stack_8h_1af9c94bf76d813977b391547f01ee1e27" refkind="member"><highlight class="normal">}<ref refid="stack_8h_1af9c94bf76d813977b391547f01ee1e27" kindref="member">STCK</ref>;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="stack_8h_1a3a8371bcd9e71fad357defd8e77f8434" kindref="member">printstack</ref>(<ref refid="structSTCK" kindref="compound">STCK</ref><sp/>stack);</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="stack.h"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="stack_8c" kind="file" language="C++">
+    <compoundname>stack.c</compoundname>
+    <includes refid="stack_8h" local="yes">stack.h</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>stack.c</label>
+        <link refid="stack_8c"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>stack.h</label>
+        <link refid="stack_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>stdio.h</label>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="stack_8c_1a3a8371bcd9e71fad357defd8e77f8434" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void printstack</definition>
+        <argsstring>(STCK stack)</argsstring>
+        <name>printstack</name>
+        <param>
+          <type><ref refid="structSTCK" kindref="compound">STCK</ref></type>
+          <declname>stack</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="stack.c" line="3" column="6" bodyfile="stack.c" bodystart="3" bodyend="7"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;<ref refid="stack_8h" kindref="compound">stack.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="stack_8c_1a3a8371bcd9e71fad357defd8e77f8434" kindref="member">printstack</ref>(<ref refid="structSTCK" kindref="compound">STCK</ref><sp/>stack){</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i=0;i&lt;=stack.<ref refid="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" kindref="member">esp</ref>;i++){</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;%d&quot;</highlight><highlight class="normal">,stack.<ref refid="structSTCK_1a6e402e15150676c7edbc8f7f6aa05684" kindref="member">val</ref>[stack.<ref refid="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" kindref="member">esp</ref>]);</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="7"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="stack.c"/>
+  </compounddef>
+</doxygen>

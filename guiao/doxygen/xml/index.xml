@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.9.1" xml:lang="en-US">
+  <compound refid="structSTCK" kind="struct"><name>STCK</name>
+    <member refid="structSTCK_1a6e402e15150676c7edbc8f7f6aa05684" kind="variable"><name>val</name></member>
+    <member refid="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" kind="variable"><name>esp</name></member>
+  </compound>
+  <compound refid="guiao1_8c" kind="file"><name>guiao1.c</name>
+    <member refid="guiao1_8c_1ab99d560990b64f0b33f9d1ff11fae4ea" kind="function"><name>valor</name></member>
+    <member refid="guiao1_8c_1af72dedd4418899680c0a27d9f7e61ba0" kind="function"><name>handler</name></member>
+    <member refid="guiao1_8c_1ae66f6b31b5ad750f1fe042a706a4e3d4" kind="function"><name>main</name></member>
+  </compound>
+  <compound refid="mat_8c" kind="file"><name>mat.c</name>
+    <member refid="mat_8c_1ab9097fc1c2819dc4e8e259cbc24988b9" kind="function"><name>potencia</name></member>
+    <member refid="mat_8c_1af5e3dd39a55bf6264b51cf6d9e596aa3" kind="function"><name>add</name></member>
+    <member refid="mat_8c_1aebac5b1209e7c0f16e7d4cb03a9722ea" kind="function"><name>sub</name></member>
+    <member refid="mat_8c_1ac3440da6134dbed0b4055f528bba2338" kind="function"><name>divisao</name></member>
+    <member refid="mat_8c_1a4566559094a7ee1abead04b130a5dce3" kind="function"><name>mul</name></member>
+    <member refid="mat_8c_1af886e313002ac8c230ca64e60f1db668" kind="function"><name>incr</name></member>
+    <member refid="mat_8c_1ad8c16d88523592d92cde7f83ec54c5d6" kind="function"><name>decr</name></member>
+    <member refid="mat_8c_1a10872927e5bc4d19b7b5b0fa217592a0" kind="function"><name>module</name></member>
+    <member refid="mat_8c_1a3a2a12ec5b0397929d42dea052e6cd1c" kind="function"><name>and</name></member>
+    <member refid="mat_8c_1a9759eeeac4495ee96d8f24e7611bfeec" kind="function"><name>or</name></member>
+    <member refid="mat_8c_1a25f499f2994be33325cbd0c0fb4e43fd" kind="function"><name>xor</name></member>
+    <member refid="mat_8c_1a633f6b4e9f63180a615d44695ec78ed7" kind="function"><name>not</name></member>
+  </compound>
+  <compound refid="mat_8h" kind="file"><name>mat.h</name>
+    <member refid="mat_8h_1ab9097fc1c2819dc4e8e259cbc24988b9" kind="function"><name>potencia</name></member>
+    <member refid="mat_8h_1af5e3dd39a55bf6264b51cf6d9e596aa3" kind="function"><name>add</name></member>
+    <member refid="mat_8h_1aebac5b1209e7c0f16e7d4cb03a9722ea" kind="function"><name>sub</name></member>
+    <member refid="mat_8h_1ac3440da6134dbed0b4055f528bba2338" kind="function"><name>divisao</name></member>
+    <member refid="mat_8h_1a4566559094a7ee1abead04b130a5dce3" kind="function"><name>mul</name></member>
+    <member refid="mat_8h_1af886e313002ac8c230ca64e60f1db668" kind="function"><name>incr</name></member>
+    <member refid="mat_8h_1ad8c16d88523592d92cde7f83ec54c5d6" kind="function"><name>decr</name></member>
+    <member refid="mat_8h_1a10872927e5bc4d19b7b5b0fa217592a0" kind="function"><name>module</name></member>
+    <member refid="mat_8h_1a3a2a12ec5b0397929d42dea052e6cd1c" kind="function"><name>and</name></member>
+    <member refid="mat_8h_1a9759eeeac4495ee96d8f24e7611bfeec" kind="function"><name>or</name></member>
+    <member refid="mat_8h_1a25f499f2994be33325cbd0c0fb4e43fd" kind="function"><name>xor</name></member>
+    <member refid="mat_8h_1a633f6b4e9f63180a615d44695ec78ed7" kind="function"><name>not</name></member>
+  </compound>
+  <compound refid="stack_8c" kind="file"><name>stack.c</name>
+    <member refid="stack_8c_1a3a8371bcd9e71fad357defd8e77f8434" kind="function"><name>printstack</name></member>
+  </compound>
+  <compound refid="stack_8h" kind="file"><name>stack.h</name>
+    <member refid="stack_8h_1aacca6649d32984be8e1aa076bf42fe46" kind="define"><name>MAXSTACK</name></member>
+    <member refid="stack_8h_1af9c94bf76d813977b391547f01ee1e27" kind="typedef"><name>STCK</name></member>
+    <member refid="stack_8h_1a3a8371bcd9e71fad357defd8e77f8434" kind="function"><name>printstack</name></member>
+  </compound>
+</doxygenindex>

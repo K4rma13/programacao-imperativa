@@ -1,0 +1,75 @@
+\hypertarget{guiao1_8c}{}\doxysection{guiao1.\+c File Reference}
+\label{guiao1_8c}\index{guiao1.c@{guiao1.c}}
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}stack.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}mat.\+h\char`\"{}}\newline
+Include dependency graph for guiao1.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{guiao1_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{guiao1_8c_ab99d560990b64f0b33f9d1ff11fae4ea}{valor}} (\mbox{\hyperlink{structSTCK}{STCK}} $\ast$stack, char $\ast$token)
+\begin{DoxyCompactList}\small\item\em Esta funcao adiciona valores no topo da stack. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{guiao1_8c_af72dedd4418899680c0a27d9f7e61ba0}{handler}} (\mbox{\hyperlink{structSTCK}{STCK}} $\ast$stack, char $\ast$token)
+\begin{DoxyCompactList}\small\item\em Esta funcao decide qual é a funcao que deve ser executada dependendo do valor que foi lido do input. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{guiao1_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\begin{DoxyCompactList}\small\item\em Funcao main Inicia variaveis e le a linha do input para ser passada para o handler. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{guiao1_8c_af72dedd4418899680c0a27d9f7e61ba0}\label{guiao1_8c_af72dedd4418899680c0a27d9f7e61ba0}} 
+\index{guiao1.c@{guiao1.c}!handler@{handler}}
+\index{handler@{handler}!guiao1.c@{guiao1.c}}
+\doxysubsubsection{\texorpdfstring{handler()}{handler()}}
+{\footnotesize\ttfamily void handler (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structSTCK}{STCK}} $\ast$}]{stack,  }\item[{char $\ast$}]{token }\end{DoxyParamCaption})}
+
+
+
+Esta funcao decide qual é a funcao que deve ser executada dependendo do valor que foi lido do input. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em stack} & A stack \\
+\hline
+{\em token} & Valor a ser interpretado \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{guiao1_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}\label{guiao1_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}} 
+\index{guiao1.c@{guiao1.c}!main@{main}}
+\index{main@{main}!guiao1.c@{guiao1.c}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Funcao main Inicia variaveis e le a linha do input para ser passada para o handler. 
+
+\mbox{\Hypertarget{guiao1_8c_ab99d560990b64f0b33f9d1ff11fae4ea}\label{guiao1_8c_ab99d560990b64f0b33f9d1ff11fae4ea}} 
+\index{guiao1.c@{guiao1.c}!valor@{valor}}
+\index{valor@{valor}!guiao1.c@{guiao1.c}}
+\doxysubsubsection{\texorpdfstring{valor()}{valor()}}
+{\footnotesize\ttfamily int valor (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structSTCK}{STCK}} $\ast$}]{stack,  }\item[{char $\ast$}]{token }\end{DoxyParamCaption})}
+
+
+
+Esta funcao adiciona valores no topo da stack. 
+
+\begin{DoxyReturn}{Returns}
+Retorna 1 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em stack} & A stack \\
+\hline
+{\em token} & Valor a ser interpretado \\
+\hline
+\end{DoxyParams}
