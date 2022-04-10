@@ -1,0 +1,180 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="guiao1_8c" kind="file" language="C++">
+    <compoundname>guiao1.c</compoundname>
+    <includes local="no">stdio.h</includes>
+    <includes local="no">stdlib.h</includes>
+    <includes local="no">string.h</includes>
+    <includes local="no">stdbool.h</includes>
+    <includes refid="math_8h" local="yes">math.h</includes>
+    <incdepgraph>
+      <node id="5">
+        <label>stdbool.h</label>
+      </node>
+      <node id="3">
+        <label>stdlib.h</label>
+      </node>
+      <node id="1">
+        <label>guiao1.c</label>
+        <link refid="guiao1_8c"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>string.h</label>
+      </node>
+      <node id="6">
+        <label>math.h</label>
+        <link refid="math_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>stdio.h</label>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="guiao1_8c_1ab99d560990b64f0b33f9d1ff11fae4ea" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int valor</definition>
+        <argsstring>(STCK *stack, char *token)</argsstring>
+        <name>valor</name>
+        <param>
+          <type><ref refid="structSTCK" kindref="compound">STCK</ref> *</type>
+          <declname>stack</declname>
+        </param>
+        <param>
+          <type>char *</type>
+          <declname>token</declname>
+        </param>
+        <briefdescription>
+<para>Esta funcao adiciona valores no topo da stack. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>Retorna 1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="guiao1.c" line="17" column="5" bodyfile="guiao1.c" bodystart="17" bodyend="21"/>
+      </memberdef>
+      <memberdef kind="function" id="guiao1_8c_1af72dedd4418899680c0a27d9f7e61ba0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void handler</definition>
+        <argsstring>(STCK *stack, char *token)</argsstring>
+        <name>handler</name>
+        <param>
+          <type><ref refid="structSTCK" kindref="compound">STCK</ref> *</type>
+          <declname>stack</declname>
+        </param>
+        <param>
+          <type>char *</type>
+          <declname>token</declname>
+        </param>
+        <briefdescription>
+<para>Esta funcao decide qual é a funcao que deve ser executada dependendo do valor que foi lido do input. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>stack</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A stack </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>token</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Valor a ser interpretado </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="guiao1.c" line="28" column="6" bodyfile="guiao1.c" bodystart="28" bodyend="32"/>
+      </memberdef>
+      <memberdef kind="function" id="guiao1_8c_1ae66f6b31b5ad750f1fe042a706a4e3d4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int main</definition>
+        <argsstring>()</argsstring>
+        <name>main</name>
+        <briefdescription>
+<para>Funcao main Inicia variaveis e le a linha do input para ser passada para o handler. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="guiao1.c" line="39" column="5" bodyfile="guiao1.c" bodystart="39" bodyend="59"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdio.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdlib.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;string.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdbool.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="math_8h" kindref="compound">math.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="guiao1_8c_1ab99d560990b64f0b33f9d1ff11fae4ea" kindref="member">valor</ref>(<ref refid="structSTCK" kindref="compound">STCK</ref>*<sp/>stack,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>token){</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/>stack-&gt;<ref refid="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" kindref="member">esp</ref>++;</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/>stack-&gt;<ref refid="structSTCK_1a6e402e15150676c7edbc8f7f6aa05684" kindref="member">val</ref>[stack-&gt;<ref refid="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" kindref="member">esp</ref>]=atoi(token);<sp/></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>1;</highlight></codeline>
+<codeline lineno="21"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="guiao1_8c_1af72dedd4418899680c0a27d9f7e61ba0" kindref="member">handler</ref>(<ref refid="structSTCK" kindref="compound">STCK</ref>*<sp/>stack,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>token){</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="math_8c_1ab9097fc1c2819dc4e8e259cbc24988b9" kindref="member">potencia</ref>(stack,token)<sp/>||<sp/><ref refid="math_8c_1af5e3dd39a55bf6264b51cf6d9e596aa3" kindref="member">add</ref>(stack,token)<sp/>||<sp/><ref refid="math_8c_1aebac5b1209e7c0f16e7d4cb03a9722ea" kindref="member">sub</ref>(stack,token)<sp/>||<sp/><ref refid="math_8c_1a4566559094a7ee1abead04b130a5dce3" kindref="member">mul</ref>(stack,token)<sp/>||<sp/></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="math_8c_1af886e313002ac8c230ca64e60f1db668" kindref="member">incr</ref>(stack,token)<sp/>||<sp/><ref refid="math_8c_1ad8c16d88523592d92cde7f83ec54c5d6" kindref="member">decr</ref>(stack,token)<sp/>||<sp/><ref refid="math_8c_1ac3440da6134dbed0b4055f528bba2338" kindref="member">divisao</ref>(stack,token)<sp/>||<sp/><ref refid="math_8c_1a10872927e5bc4d19b7b5b0fa217592a0" kindref="member">module</ref>(stack,token)||</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="math_8c_1a3a2a12ec5b0397929d42dea052e6cd1c" kindref="member">and</ref>(stack,token)<sp/>||<sp/><ref refid="math_8c_1a9759eeeac4495ee96d8f24e7611bfeec" kindref="member">or</ref>(stack,token)<sp/>||<sp/><ref refid="math_8c_1a25f499f2994be33325cbd0c0fb4e43fd" kindref="member">xor</ref>(stack,token)<sp/>||<sp/><ref refid="math_8c_1a633f6b4e9f63180a615d44695ec78ed7" kindref="member">not</ref>(stack,token)<sp/>||<sp/><ref refid="guiao1_8c_1ab99d560990b64f0b33f9d1ff11fae4ea" kindref="member">valor</ref>(stack,token);</highlight></codeline>
+<codeline lineno="32"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="guiao1_8c_1ae66f6b31b5ad750f1fe042a706a4e3d4" kindref="member">main</ref>(){</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structSTCK" kindref="compound">STCK</ref><sp/>stack;</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/>stack.<ref refid="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" kindref="member">esp</ref>=-1;</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>n=0;</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>buffer[200],<sp/>aux[10],*b;</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/>fgets(buffer,<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(buffer),<sp/>stdin);</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/>buffer[strlen(buffer)-1]=</highlight><highlight class="charliteral">&apos;\0&apos;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/>b=buffer;</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal">(*b!=</highlight><highlight class="charliteral">&apos;\0&apos;</highlight><highlight class="normal">){</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>sscanf(b,</highlight><highlight class="stringliteral">&quot;%s<sp/>%n&quot;</highlight><highlight class="normal">,aux,&amp;n);</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>b+=n;</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="guiao1_8c_1af72dedd4418899680c0a27d9f7e61ba0" kindref="member">handler</ref>(&amp;stack,aux);</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i=stack.<ref refid="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" kindref="member">esp</ref>;i&gt;=0;i--){</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;+-----------+\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;|<sp/>%5d<sp/><sp/><sp/><sp/><sp/>|\n&quot;</highlight><highlight class="normal">,stack.<ref refid="structSTCK_1a6e402e15150676c7edbc8f7f6aa05684" kindref="member">val</ref>[i]);</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;+-----------+\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
+<codeline lineno="59"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="guiao1.c"/>
+  </compounddef>
+</doxygen>

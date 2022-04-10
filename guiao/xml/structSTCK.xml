@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structSTCK" kind="struct" language="C++" prot="public">
+    <compoundname>STCK</compoundname>
+    <includes refid="math_8h" local="no">math.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structSTCK_1a6e402e15150676c7edbc8f7f6aa05684" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int STCK::val[MAXSTACK]</definition>
+        <argsstring>[MAXSTACK]</argsstring>
+        <name>val</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="math.h" line="11" column="5" bodyfile="math.h" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int STCK::esp</definition>
+        <argsstring></argsstring>
+        <name>esp</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="math.h" line="12" column="5" bodyfile="math.h" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="math.h" line="10" column="1" bodyfile="math.h" bodystart="10" bodyend="13"/>
+    <listofallmembers>
+      <member refid="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" prot="public" virt="non-virtual"><scope>STCK</scope><name>esp</name></member>
+      <member refid="structSTCK_1a6e402e15150676c7edbc8f7f6aa05684" prot="public" virt="non-virtual"><scope>STCK</scope><name>val</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

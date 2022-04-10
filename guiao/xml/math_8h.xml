@@ -1,0 +1,637 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="math_8h" kind="file" language="C++">
+    <compoundname>math.h</compoundname>
+    <includes local="no">stdio.h</includes>
+    <includes local="no">stdlib.h</includes>
+    <includes local="no">string.h</includes>
+    <includes refid="math_8h" local="no">math.h</includes>
+    <includedby refid="guiao1_8c" local="yes">guiao1.c</includedby>
+    <includedby refid="math_8c" local="yes">math.c</includedby>
+    <includedby refid="math_8h" local="no">math.h</includedby>
+    <incdepgraph>
+      <node id="3">
+        <label>stdlib.h</label>
+      </node>
+      <node id="4">
+        <label>string.h</label>
+      </node>
+      <node id="1">
+        <label>math.h</label>
+        <link refid="math_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="1" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>stdio.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="2">
+        <label>guiao1.c</label>
+        <link refid="guiao1_8c"/>
+      </node>
+      <node id="3">
+        <label>math.c</label>
+        <link refid="math_8c"/>
+      </node>
+      <node id="1">
+        <label>math.h</label>
+        <link refid="math_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="1" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="structSTCK" prot="public">STCK</innerclass>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="math_8h_1aacca6649d32984be8e1aa076bf42fe46" prot="public" static="no">
+        <name>MAXSTACK</name>
+        <initializer>1000</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="math.h" line="4" column="9" bodyfile="math.h" bodystart="4" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="math_8h_1af9c94bf76d813977b391547f01ee1e27" prot="public" static="no">
+        <type>struct <ref refid="structSTCK" kindref="compound">STCK</ref></type>
+        <definition>typedef struct STCK STCK</definition>
+        <argsstring></argsstring>
+        <name>STCK</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="math.h" line="13" column="5"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="math_8h_1ab9097fc1c2819dc4e8e259cbc24988b9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int potencia</definition>
+        <argsstring>(STCK *stack, char *token)</argsstring>
+        <name>potencia</name>
+        <param>
+          <type><ref refid="structSTCK" kindref="compound">STCK</ref> *</type>
+          <declname>stack</declname>
+        </param>
+        <param>
+          <type>char *</type>
+          <declname>token</declname>
+        </param>
+        <briefdescription>
+<para>Esta funcao exponencia o segundo valor no topo da stack pelo primeiro. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>stack</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A stack </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>token</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Valor a ser interpretado </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Retorna 1 se o token for o correto se nao retorna 0 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="math.h" line="15" column="5" bodyfile="math.c" bodystart="9" bodyend="16" declfile="math.h" declline="15" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="math_8h_1af5e3dd39a55bf6264b51cf6d9e596aa3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int add</definition>
+        <argsstring>(STCK *stack, char *token)</argsstring>
+        <name>add</name>
+        <param>
+          <type><ref refid="structSTCK" kindref="compound">STCK</ref> *</type>
+          <declname>stack</declname>
+        </param>
+        <param>
+          <type>char *</type>
+          <declname>token</declname>
+        </param>
+        <briefdescription>
+<para>Esta funcao adiciona os dois valores no topo da stack. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>stack</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A stack </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>token</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Valor a ser interpretado </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Retorna 1 se o token for o correto se nao retorna 0 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="math.h" line="17" column="5" bodyfile="math.c" bodystart="23" bodyend="30" declfile="math.h" declline="17" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="math_8h_1aebac5b1209e7c0f16e7d4cb03a9722ea" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int sub</definition>
+        <argsstring>(STCK *stack, char *token)</argsstring>
+        <name>sub</name>
+        <param>
+          <type><ref refid="structSTCK" kindref="compound">STCK</ref> *</type>
+          <declname>stack</declname>
+        </param>
+        <param>
+          <type>char *</type>
+          <declname>token</declname>
+        </param>
+        <briefdescription>
+<para>Esta funcao subtrai o segundo valor no topo da stack pelo primeiro. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>stack</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A stack </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>token</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Valor a ser interpretado </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Retorna 1 se o token for o correto se nao retorna 0 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="math.h" line="19" column="5" bodyfile="math.c" bodystart="37" bodyend="44" declfile="math.h" declline="19" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="math_8h_1ac3440da6134dbed0b4055f528bba2338" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int divisao</definition>
+        <argsstring>(STCK *stack, char *token)</argsstring>
+        <name>divisao</name>
+        <param>
+          <type><ref refid="structSTCK" kindref="compound">STCK</ref> *</type>
+          <declname>stack</declname>
+        </param>
+        <param>
+          <type>char *</type>
+          <declname>token</declname>
+        </param>
+        <briefdescription>
+<para>Esta funcao divide o segundo valor no topo da stack pelo primeiro. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>stack</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A stack </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>token</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Valor a ser interpretado </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Retorna 1 se o token for o correto se nao retorna 0 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="math.h" line="21" column="5" bodyfile="math.c" bodystart="51" bodyend="58" declfile="math.h" declline="21" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="math_8h_1a4566559094a7ee1abead04b130a5dce3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int mul</definition>
+        <argsstring>(STCK *stack, char *token)</argsstring>
+        <name>mul</name>
+        <param>
+          <type><ref refid="structSTCK" kindref="compound">STCK</ref> *</type>
+          <declname>stack</declname>
+        </param>
+        <param>
+          <type>char *</type>
+          <declname>token</declname>
+        </param>
+        <briefdescription>
+<para>Esta funcao multiplica os dois valores no topo da stack. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>stack</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A stack </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>token</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Valor a ser interpretado </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Retorna 1 se o token for o correto se nao retorna 0 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="math.h" line="23" column="5" bodyfile="math.c" bodystart="65" bodyend="72" declfile="math.h" declline="23" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="math_8h_1af886e313002ac8c230ca64e60f1db668" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int incr</definition>
+        <argsstring>(STCK *stack, char *token)</argsstring>
+        <name>incr</name>
+        <param>
+          <type><ref refid="structSTCK" kindref="compound">STCK</ref> *</type>
+          <declname>stack</declname>
+        </param>
+        <param>
+          <type>char *</type>
+          <declname>token</declname>
+        </param>
+        <briefdescription>
+<para>Esta funcao incrementa o valor no topo da stack. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>stack</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A stack </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>token</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Valor a ser interpretado </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Retorna 1 se o token for o correto se nao retorna 0 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="math.h" line="25" column="5" bodyfile="math.c" bodystart="79" bodyend="85" declfile="math.h" declline="25" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="math_8h_1ad8c16d88523592d92cde7f83ec54c5d6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int decr</definition>
+        <argsstring>(STCK *stack, char *token)</argsstring>
+        <name>decr</name>
+        <param>
+          <type><ref refid="structSTCK" kindref="compound">STCK</ref> *</type>
+          <declname>stack</declname>
+        </param>
+        <param>
+          <type>char *</type>
+          <declname>token</declname>
+        </param>
+        <briefdescription>
+<para>Esta funcao decrementa o valor no topo da stack. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>stack</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A stack </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>token</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Valor a ser interpretado </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Retorna 1 se o token for o correto se nao retorna 0 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="math.h" line="27" column="5" bodyfile="math.c" bodystart="92" bodyend="98" declfile="math.h" declline="27" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="math_8h_1a10872927e5bc4d19b7b5b0fa217592a0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int module</definition>
+        <argsstring>(STCK *stack, char *token)</argsstring>
+        <name>module</name>
+        <param>
+          <type><ref refid="structSTCK" kindref="compound">STCK</ref> *</type>
+          <declname>stack</declname>
+        </param>
+        <param>
+          <type>char *</type>
+          <declname>token</declname>
+        </param>
+        <briefdescription>
+<para>Esta funcao calcula o modulo do valor no topo da stack. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>stack</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A stack </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>token</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Valor a ser interpretado </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Retorna 1 se o token for o correto se nao retorna 0 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="math.h" line="29" column="5" bodyfile="math.c" bodystart="105" bodyend="113" declfile="math.h" declline="29" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="math_8h_1a3a2a12ec5b0397929d42dea052e6cd1c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int and</definition>
+        <argsstring>(STCK *stack, char *token)</argsstring>
+        <name>and</name>
+        <param>
+          <type><ref refid="structSTCK" kindref="compound">STCK</ref> *</type>
+          <declname>stack</declname>
+        </param>
+        <param>
+          <type>char *</type>
+          <declname>token</declname>
+        </param>
+        <briefdescription>
+<para>Esta funcao calcula o &quot;and(bitwise)&quot; entre os dois valores no topo da stack. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>stack</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A stack </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>token</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Valor a ser interpretado </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Retorna 1 se o token for o correto se nao retorna 0 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="math.h" line="31" column="5" bodyfile="math.c" bodystart="120" bodyend="127" declfile="math.h" declline="31" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="math_8h_1a9759eeeac4495ee96d8f24e7611bfeec" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int or</definition>
+        <argsstring>(STCK *stack, char *token)</argsstring>
+        <name>or</name>
+        <param>
+          <type><ref refid="structSTCK" kindref="compound">STCK</ref> *</type>
+          <declname>stack</declname>
+        </param>
+        <param>
+          <type>char *</type>
+          <declname>token</declname>
+        </param>
+        <briefdescription>
+<para>Esta funcao calcula o &quot;or(bitwise)&quot; entre os dois valores no topo da stack. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>stack</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A stack </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>token</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Valor a ser interpretado </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Retorna 1 se o token for o correto se nao retorna 0 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="math.h" line="33" column="5" bodyfile="math.c" bodystart="134" bodyend="141" declfile="math.h" declline="33" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="math_8h_1a25f499f2994be33325cbd0c0fb4e43fd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int xor</definition>
+        <argsstring>(STCK *stack, char *token)</argsstring>
+        <name>xor</name>
+        <param>
+          <type><ref refid="structSTCK" kindref="compound">STCK</ref> *</type>
+          <declname>stack</declname>
+        </param>
+        <param>
+          <type>char *</type>
+          <declname>token</declname>
+        </param>
+        <briefdescription>
+<para>Esta funcao calcula o &quot;xor(bitwise)&quot; entre os dois valores no topo da stack. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>stack</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A stack </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>token</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Valor a ser interpretado </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Retorna 1 se o token for o correto se nao retorna 0 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="math.h" line="35" column="5" bodyfile="math.c" bodystart="148" bodyend="155" declfile="math.h" declline="35" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="math_8h_1a633f6b4e9f63180a615d44695ec78ed7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int not</definition>
+        <argsstring>(STCK *stack, char *token)</argsstring>
+        <name>not</name>
+        <param>
+          <type><ref refid="structSTCK" kindref="compound">STCK</ref> *</type>
+          <declname>stack</declname>
+        </param>
+        <param>
+          <type>char *</type>
+          <declname>token</declname>
+        </param>
+        <briefdescription>
+<para>Esta funcao calcula o &quot;not(bitwise)&quot; do valor no topo da stack. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>stack</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A stack </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>token</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Valor a ser interpretado </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Retorna 1 se o token for o correto se nao retorna 0 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="math.h" line="37" column="5" bodyfile="math.c" bodystart="162" bodyend="168" declfile="math.h" declline="37" declcolumn="5"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>MATH_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MATH_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4" refid="math_8h_1aacca6649d32984be8e1aa076bf42fe46" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MAXSTACK<sp/>1000</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdio.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdlib.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;string.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="math_8h" kindref="compound">math.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10" refid="structSTCK" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structSTCK" kindref="compound">STCK</ref>{</highlight></codeline>
+<codeline lineno="11" refid="structSTCK_1a6e402e15150676c7edbc8f7f6aa05684" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="structSTCK_1a6e402e15150676c7edbc8f7f6aa05684" kindref="member">val</ref>[<ref refid="math_8h_1aacca6649d32984be8e1aa076bf42fe46" kindref="member">MAXSTACK</ref>];</highlight></codeline>
+<codeline lineno="12" refid="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" kindref="member">esp</ref>;</highlight></codeline>
+<codeline lineno="13" refid="math_8h_1af9c94bf76d813977b391547f01ee1e27" refkind="member"><highlight class="normal">}<ref refid="math_8h_1af9c94bf76d813977b391547f01ee1e27" kindref="member">STCK</ref>;</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="math_8h_1ab9097fc1c2819dc4e8e259cbc24988b9" kindref="member">potencia</ref>(<ref refid="structSTCK" kindref="compound">STCK</ref>*<sp/>stack,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>token);</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="math_8h_1af5e3dd39a55bf6264b51cf6d9e596aa3" kindref="member">add</ref>(<ref refid="structSTCK" kindref="compound">STCK</ref>*<sp/>stack,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>token);</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="math_8h_1aebac5b1209e7c0f16e7d4cb03a9722ea" kindref="member">sub</ref>(<ref refid="structSTCK" kindref="compound">STCK</ref>*<sp/>stack,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>token);</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="math_8h_1ac3440da6134dbed0b4055f528bba2338" kindref="member">divisao</ref>(<ref refid="structSTCK" kindref="compound">STCK</ref>*<sp/>stack,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>token);</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="math_8h_1a4566559094a7ee1abead04b130a5dce3" kindref="member">mul</ref>(<ref refid="structSTCK" kindref="compound">STCK</ref>*<sp/>stack,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>token);</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="math_8h_1af886e313002ac8c230ca64e60f1db668" kindref="member">incr</ref>(<ref refid="structSTCK" kindref="compound">STCK</ref>*<sp/>stack,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>token);</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="math_8h_1ad8c16d88523592d92cde7f83ec54c5d6" kindref="member">decr</ref>(<ref refid="structSTCK" kindref="compound">STCK</ref>*<sp/>stack,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>token);</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="math_8h_1a10872927e5bc4d19b7b5b0fa217592a0" kindref="member">module</ref>(<ref refid="structSTCK" kindref="compound">STCK</ref>*<sp/>stack,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>token);</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="math_8h_1a3a2a12ec5b0397929d42dea052e6cd1c" kindref="member">and</ref>(<ref refid="structSTCK" kindref="compound">STCK</ref>*<sp/>stack,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>token);</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="math_8h_1a9759eeeac4495ee96d8f24e7611bfeec" kindref="member">or</ref>(<ref refid="structSTCK" kindref="compound">STCK</ref>*<sp/>stack,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>token);</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="math_8h_1a25f499f2994be33325cbd0c0fb4e43fd" kindref="member">xor</ref>(<ref refid="structSTCK" kindref="compound">STCK</ref>*<sp/>stack,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>token);</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="math_8h_1a633f6b4e9f63180a615d44695ec78ed7" kindref="member">not</ref>(<ref refid="structSTCK" kindref="compound">STCK</ref>*<sp/>stack,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>token);</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="math.h"/>
+  </compounddef>
+</doxygen>
