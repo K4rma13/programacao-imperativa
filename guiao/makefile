@@ -1,2 +1,2 @@
 guiao1: guiao1.c
-	gcc guiao1.c -o guiao1 -lm
+	gcc -Wall -Wextra -pedantic-errors -O2 guiao1.c -lm -o guiao1
