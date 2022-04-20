@@ -8,7 +8,7 @@
  */
 int potencia(STCK* stack, char* token){
 	if(strcmp(token,"#")==0){
-		stack->val[stack->esp-1].i=pow(stack->val[stack->esp-1].i,stack->val[stack->esp].i);
+		stack->val[stack->esp-1]=pow(stack->val[stack->esp-1],stack->val[stack->esp]);
 		stack->esp--;
 		return 1;
 	}
@@ -22,7 +22,7 @@ int potencia(STCK* stack, char* token){
  */
 int add(STCK* stack, char* token){
 	if(strcmp(token,"+")==0){
-		stack->val[stack->esp-1].i=stack->val[stack->esp-1].i+stack->val[stack->esp].i;
+		stack->val[stack->esp-1]=stack->val[stack->esp-1]+stack->val[stack->esp];
 		stack->esp--;
 		return 1;
 	}
@@ -36,7 +36,7 @@ int add(STCK* stack, char* token){
  */
 int sub(STCK* stack, char* token){
 	if(strcmp(token,"-")==0){
-		stack->val[stack->esp-1].i=stack->val[stack->esp-1].i-stack->val[stack->esp].i;
+		stack->val[stack->esp-1]=stack->val[stack->esp-1]-stack->val[stack->esp];
 		stack->esp--;
 		return 1;
 	}
@@ -50,7 +50,7 @@ int sub(STCK* stack, char* token){
  */
 int divisao(STCK* stack, char* token){
 	if(strcmp(token,"/")==0){
-		stack->val[stack->esp-1].i=stack->val[stack->esp-1].i/stack->val[stack->esp].i;
+		stack->val[stack->esp-1]=stack->val[stack->esp-1]/stack->val[stack->esp];
 		stack->esp--;
 		return 1;
 	}
@@ -64,7 +64,7 @@ int divisao(STCK* stack, char* token){
  */
 int mul(STCK* stack, char* token){
 	if(strcmp(token,"*")==0){
-		stack->val[stack->esp-1].i=stack->val[stack->esp-1].i*stack->val[stack->esp].i;
+		stack->val[stack->esp-1]=stack->val[stack->esp-1]*stack->val[stack->esp];
 		stack->esp--;
 		return 1;
 	}
@@ -78,7 +78,7 @@ int mul(STCK* stack, char* token){
  */
 int incr(STCK* stack, char* token){
 	if(strcmp(token,")")==0){
-		stack->val[stack->esp].i++;
+		stack->val[stack->esp]++;
 		return 1;
 	}
 	return 0;
@@ -91,7 +91,7 @@ int incr(STCK* stack, char* token){
  */
 int decr(STCK* stack, char* token){
 	if(strcmp(token,"(")==0){
-		stack->val[stack->esp].i--;
+		stack->val[stack->esp]--;
 		return 1;
 	}
 	return 0;
@@ -104,7 +104,7 @@ int decr(STCK* stack, char* token){
  */
 int module(STCK* stack, char* token){
 	if(strcmp(token,"%")==0){
-		stack->val[stack->esp-1].i=stack->val[stack->esp-1].i%stack->val[stack->esp].i;
+		stack->val[stack->esp-1]=stack->val[stack->esp-1]%stack->val[stack->esp];
 		stack->esp--;
 		return 1;
 	}
@@ -118,7 +118,7 @@ int module(STCK* stack, char* token){
  */
 int and(STCK* stack, char* token){
 	if(strcmp(token,"&")==0){
-		stack->val[stack->esp-1].i=stack->val[stack->esp-1].i&stack->val[stack->esp].i;
+		stack->val[stack->esp-1]=stack->val[stack->esp-1]&stack->val[stack->esp];
 		stack->esp--;
 		return 1;
 	}
@@ -132,7 +132,7 @@ int and(STCK* stack, char* token){
  */
 int or(STCK* stack, char* token){
 	if(strcmp(token,"|")==0){
-		stack->val[stack->esp-1].i=stack->val[stack->esp-1].i|stack->val[stack->esp].i;
+		stack->val[stack->esp-1]=stack->val[stack->esp-1]|stack->val[stack->esp];
 		stack->esp--;
 		return 1;
 	}
@@ -146,7 +146,7 @@ int or(STCK* stack, char* token){
  */
 int xor(STCK* stack, char* token){
 	if(strcmp(token,"^")==0){
-		stack->val[stack->esp-1].i=stack->val[stack->esp-1].i^stack->val[stack->esp].i;
+		stack->val[stack->esp-1]=stack->val[stack->esp-1]^stack->val[stack->esp];
 		stack->esp--;
 		return 1;
 	}
@@ -160,7 +160,7 @@ int xor(STCK* stack, char* token){
  */
 int not(STCK* stack, char* token){
 	if(strcmp(token,"~")==0){
-		stack->val[stack->esp].i= ~stack->val[stack->esp].i;
+		stack->val[stack->esp]= ~stack->val[stack->esp];
 		return 1;
 	}
 	return 0;
