@@ -1,16 +1,19 @@
 \hypertarget{stack_8h}{}\doxysection{stack.\+h File Reference}
 \label{stack_8h}\index{stack.h@{stack.h}}
 {\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$assert.\+h$>$}\newline
 Include dependency graph for stack.\+h\+:
 \nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=132pt]{stack_8h__incl}
+\includegraphics[width=350pt]{stack_8h__incl}
 \end{center}
 \end{figure}
-This graph shows which files directly or indirectly include this file\+:
-\nopagebreak
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -20,23 +23,82 @@ This graph shows which files directly or indirectly include this file\+:
 \doxysubsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
+struct \mbox{\hyperlink{structDADOS}{DADOS}}
+\item 
 struct \mbox{\hyperlink{structSTCK}{STCK}}
 \end{DoxyCompactItemize}
 \doxysubsection*{Macros}
 \begin{DoxyCompactItemize}
 \item 
 \#define \mbox{\hyperlink{stack_8h_aacca6649d32984be8e1aa076bf42fe46}{MAXSTACK}}~1000
+\item 
+\#define \mbox{\hyperlink{stack_8h_a09959b52f894904e21fe912c201de4c1}{PROTO\+\_\+\+FSTACK}}(\+\_\+name,  \+\_\+type)
 \end{DoxyCompactItemize}
 \doxysubsection*{Typedefs}
 \begin{DoxyCompactItemize}
 \item 
+typedef struct \mbox{\hyperlink{structDADOS}{DADOS}} \mbox{\hyperlink{stack_8h_a133f3a5b355bb2095c107028dcdc38fd}{DADOS}}
+\item 
 typedef struct \mbox{\hyperlink{structSTCK}{STCK}} \mbox{\hyperlink{stack_8h_af9c94bf76d813977b391547f01ee1e27}{STCK}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{stack_8h_a0bc6723d5d4776ab7cdc646728b775f7}{TYPE}} \{ \mbox{\hyperlink{stack_8h_a0bc6723d5d4776ab7cdc646728b775f7a06f714e9a671f730d047d38bd4f59edb}{CHR}} = 0
+, \mbox{\hyperlink{stack_8h_a0bc6723d5d4776ab7cdc646728b775f7a03789e2426cb0fa2831e1db323804f08}{LNG}} = 1
+, \mbox{\hyperlink{stack_8h_a0bc6723d5d4776ab7cdc646728b775f7aec41e801b43cfbec49d343c900360bf9}{STR}} =2
+, \mbox{\hyperlink{stack_8h_a0bc6723d5d4776ab7cdc646728b775f7a33465d1d419b1074fb259ef444609e92}{DOUBLE}} =3
+ \}
 \end{DoxyCompactItemize}
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
+void \mbox{\hyperlink{stack_8h_aee09561e0f65dd8f32359f3ce910ae5d}{push\+\_\+\+LNG}} (\mbox{\hyperlink{structSTCK}{STCK}} $\ast$stack, long int value)
+\begin{DoxyCompactList}\small\item\em Esta função da push a uma variavel do tipo LNG $\ast$. \end{DoxyCompactList}\item 
+long int \mbox{\hyperlink{stack_8h_a2d335f43a2ee3bc3365a0b57428b2f22}{pop\+\_\+\+LNG}} (\mbox{\hyperlink{structSTCK}{STCK}} $\ast$stack)
+\begin{DoxyCompactList}\small\item\em Esta função da pop a uma variavel do tipo LNG $\ast$. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{stack_8h_a101c9c46ae8368531d4af416cf9fe8d0}{push\+\_\+\+CHR}} (\mbox{\hyperlink{structSTCK}{STCK}} $\ast$stack, char value)
+\begin{DoxyCompactList}\small\item\em Esta função da push a uma variavel do tipo CHR $\ast$. \end{DoxyCompactList}\item 
+char \mbox{\hyperlink{stack_8h_ab6b3dad462dee835919defac7fe302da}{pop\+\_\+\+CHR}} (\mbox{\hyperlink{structSTCK}{STCK}} $\ast$stack)
+\begin{DoxyCompactList}\small\item\em Esta função da pop a uma variavel do tipo CHR $\ast$. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{stack_8h_a12352ea6201aec3a1ce20a11812a9b4d}{push\+\_\+\+STR}} (\mbox{\hyperlink{structSTCK}{STCK}} $\ast$stack, char $\ast$value)
+\begin{DoxyCompactList}\small\item\em Esta função da push a uma variavel do tipo string. \end{DoxyCompactList}\item 
+char $\ast$ \mbox{\hyperlink{stack_8h_aa133d9fbddf9da6cc7e47d1b4f810560}{pop\+\_\+\+STR}} (\mbox{\hyperlink{structSTCK}{STCK}} $\ast$stack)
+\begin{DoxyCompactList}\small\item\em Esta função da pop a uma variavel do tipo string ~\newline
+ \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{stack_8h_ac31322a8f3e64a94f3d9e9dbe6053502}{push\+\_\+\+DOUBLE}} (\mbox{\hyperlink{structSTCK}{STCK}} $\ast$stack, double value)
+\begin{DoxyCompactList}\small\item\em Esta função da push a uma variavel do tipo DOUBLE $\ast$. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{stack_8h_acea163cdcc493c9c59f5168502bb64f3}{pop\+\_\+\+DOUBLE}} (\mbox{\hyperlink{structSTCK}{STCK}} $\ast$stack)
+\begin{DoxyCompactList}\small\item\em Esta função da pop a uma variavel do tipo DOUBLE $\ast$. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{stack_8h_ac9f012eb4dc51ca67047fa45e47fe2d5}{hastype}} (\mbox{\hyperlink{structDADOS}{DADOS}} dado, \mbox{\hyperlink{stack_8h_a0bc6723d5d4776ab7cdc646728b775f7}{TYPE}} tipo)
+\begin{DoxyCompactList}\small\item\em Ve se o tipo do dado é o mesmo do tipo fornecido ~\newline
+ \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{stack_8h_a91c2fe69e03b8331244324bfcac8c7b5}{lestring}} (\mbox{\hyperlink{structSTCK}{STCK}} $\ast$stack, char $\ast$token)
+\begin{DoxyCompactList}\small\item\em Esta funcao le uma string do stdin e faz push. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{stack_8h_a3a8371bcd9e71fad357defd8e77f8434}{printstack}} (\mbox{\hyperlink{structSTCK}{STCK}} stack)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Imprime para o stdout a stack fornecida. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{stack_8h_a4c67bde564de81c9d7d8d65aec27bd37}{isdecimal}} (char $\ast$token)
+\begin{DoxyCompactList}\small\item\em Testa se uma string tem um \textquotesingle{}.\textquotesingle{}. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{stack_8h_ab99d560990b64f0b33f9d1ff11fae4ea}{valor}} (\mbox{\hyperlink{structSTCK}{STCK}} $\ast$stack, char $\ast$token)
+\begin{DoxyCompactList}\small\item\em Esta funcao adiciona valores no topo da stack. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{stack_8h_a330799f36d0f454ed9d5b29bf756c3df}{valor\+\_\+\+Double}} (\mbox{\hyperlink{structSTCK}{STCK}} $\ast$stack, char $\ast$token)
+\begin{DoxyCompactList}\small\item\em Esta funcao adiciona valores decimais no topo da stack. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{stack_8h_a625a986b17beb38129097bf9ac403feb}{to\+LNG}} (\mbox{\hyperlink{structSTCK}{STCK}} $\ast$stack, char $\ast$token)
+\begin{DoxyCompactList}\small\item\em Esta funcao muda o tipo da variavel no topo da stack para LONG. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{stack_8h_a596ca2d5b13b268c1714e5979ed65b42}{to\+Double}} (\mbox{\hyperlink{structSTCK}{STCK}} $\ast$stack, char $\ast$token)
+\begin{DoxyCompactList}\small\item\em Esta funcao muda o tipo da variavel no topo da stack para DOUBLE. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{stack_8h_a0c4d2dda9d8387985cef75414ee7a1bd}{cpy\+Stack}} (\mbox{\hyperlink{structSTCK}{STCK}} $\ast$stack, char $\ast$token)
+\begin{DoxyCompactList}\small\item\em Esta funcao faz push a uma copia do valor na nºesima posicao. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{stack_8h_a9ec0a1d2de19f5140e265199df8cf606}{long\+To\+CHR}} (\mbox{\hyperlink{structSTCK}{STCK}} $\ast$stack, char $\ast$token)
+\begin{DoxyCompactList}\small\item\em Esta funcao muda o tipo da variavel no topo da stack de LONG para CHAR. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{stack_8h_a854928d7006572f68e68d51141b58fe0}{rodar}} (\mbox{\hyperlink{structSTCK}{STCK}} $\ast$stack, char $\ast$token)
+\begin{DoxyCompactList}\small\item\em Esta funcao roda os 3 elementos no topo da stack. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{stack_8h_a4c79ff9c81bbdc5761d03270bb82029a}{trocar}} (\mbox{\hyperlink{structSTCK}{STCK}} $\ast$stack, char $\ast$token)
+\begin{DoxyCompactList}\small\item\em Esta funcao troca os 2 valores no topo da stack. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{stack_8h_ab0eed3e0da6b16dfb8650f1cd824c627}{duplicar}} (\mbox{\hyperlink{structSTCK}{STCK}} $\ast$stack, char $\ast$token)
+\begin{DoxyCompactList}\small\item\em Esta funcao faz push a uma copia do valor no topo da stack. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{stack_8h_af005ea1c2e5e98f020cbb8165af6d9d0}{remove\+Top}} (\mbox{\hyperlink{structSTCK}{STCK}} $\ast$stack, char $\ast$token)
+\begin{DoxyCompactList}\small\item\em Esta funcao faz \char`\"{}\char`\"{}Pop\char`\"{}\char`\"{}. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Macro Definition Documentation}
@@ -46,9 +108,27 @@ void \mbox{\hyperlink{stack_8h_a3a8371bcd9e71fad357defd8e77f8434}{printstack}} (
 \doxysubsubsection{\texorpdfstring{MAXSTACK}{MAXSTACK}}
 {\footnotesize\ttfamily \#define MAXSTACK~1000}
 
+\mbox{\Hypertarget{stack_8h_a09959b52f894904e21fe912c201de4c1}\label{stack_8h_a09959b52f894904e21fe912c201de4c1}} 
+\index{stack.h@{stack.h}!PROTO\_FSTACK@{PROTO\_FSTACK}}
+\index{PROTO\_FSTACK@{PROTO\_FSTACK}!stack.h@{stack.h}}
+\doxysubsubsection{\texorpdfstring{PROTO\_FSTACK}{PROTO\_FSTACK}}
+{\footnotesize\ttfamily \#define PROTO\+\_\+\+FSTACK(\begin{DoxyParamCaption}\item[{}]{\+\_\+name,  }\item[{}]{\+\_\+type }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{    \textcolor{keywordtype}{void} push\_\#\#\_name(\mbox{\hyperlink{structSTCK}{STCK}}* stack, \_type value);    \(\backslash\)}
+\DoxyCodeLine{    \_type pop\_\#\#\_name(\mbox{\hyperlink{structSTCK}{STCK}}* stack);                 \(\backslash\)}
+
+\end{DoxyCode}
 
 
 \doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{stack_8h_a133f3a5b355bb2095c107028dcdc38fd}\label{stack_8h_a133f3a5b355bb2095c107028dcdc38fd}} 
+\index{stack.h@{stack.h}!DADOS@{DADOS}}
+\index{DADOS@{DADOS}!stack.h@{stack.h}}
+\doxysubsubsection{\texorpdfstring{DADOS}{DADOS}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structDADOS}{DADOS}} \mbox{\hyperlink{structDADOS}{DADOS}}}
+
 \mbox{\Hypertarget{stack_8h_af9c94bf76d813977b391547f01ee1e27}\label{stack_8h_af9c94bf76d813977b391547f01ee1e27}} 
 \index{stack.h@{stack.h}!STCK@{STCK}}
 \index{STCK@{STCK}!stack.h@{stack.h}}
@@ -57,10 +137,456 @@ void \mbox{\hyperlink{stack_8h_a3a8371bcd9e71fad357defd8e77f8434}{printstack}} (
 
 
 
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{stack_8h_a0bc6723d5d4776ab7cdc646728b775f7}\label{stack_8h_a0bc6723d5d4776ab7cdc646728b775f7}} 
+\index{stack.h@{stack.h}!TYPE@{TYPE}}
+\index{TYPE@{TYPE}!stack.h@{stack.h}}
+\doxysubsubsection{\texorpdfstring{TYPE}{TYPE}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{stack_8h_a0bc6723d5d4776ab7cdc646728b775f7}{TYPE}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CHR@{CHR}!stack.h@{stack.h}}\index{stack.h@{stack.h}!CHR@{CHR}}}\mbox{\Hypertarget{stack_8h_a0bc6723d5d4776ab7cdc646728b775f7a06f714e9a671f730d047d38bd4f59edb}\label{stack_8h_a0bc6723d5d4776ab7cdc646728b775f7a06f714e9a671f730d047d38bd4f59edb}} 
+CHR&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LNG@{LNG}!stack.h@{stack.h}}\index{stack.h@{stack.h}!LNG@{LNG}}}\mbox{\Hypertarget{stack_8h_a0bc6723d5d4776ab7cdc646728b775f7a03789e2426cb0fa2831e1db323804f08}\label{stack_8h_a0bc6723d5d4776ab7cdc646728b775f7a03789e2426cb0fa2831e1db323804f08}} 
+LNG&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{STR@{STR}!stack.h@{stack.h}}\index{stack.h@{stack.h}!STR@{STR}}}\mbox{\Hypertarget{stack_8h_a0bc6723d5d4776ab7cdc646728b775f7aec41e801b43cfbec49d343c900360bf9}\label{stack_8h_a0bc6723d5d4776ab7cdc646728b775f7aec41e801b43cfbec49d343c900360bf9}} 
+STR&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DOUBLE@{DOUBLE}!stack.h@{stack.h}}\index{stack.h@{stack.h}!DOUBLE@{DOUBLE}}}\mbox{\Hypertarget{stack_8h_a0bc6723d5d4776ab7cdc646728b775f7a33465d1d419b1074fb259ef444609e92}\label{stack_8h_a0bc6723d5d4776ab7cdc646728b775f7a33465d1d419b1074fb259ef444609e92}} 
+DOUBLE&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
 \doxysubsection{Function Documentation}
+\mbox{\Hypertarget{stack_8h_a0c4d2dda9d8387985cef75414ee7a1bd}\label{stack_8h_a0c4d2dda9d8387985cef75414ee7a1bd}} 
+\index{stack.h@{stack.h}!cpyStack@{cpyStack}}
+\index{cpyStack@{cpyStack}!stack.h@{stack.h}}
+\doxysubsubsection{\texorpdfstring{cpyStack()}{cpyStack()}}
+{\footnotesize\ttfamily int cpy\+Stack (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structSTCK}{STCK}} $\ast$}]{stack,  }\item[{char $\ast$}]{token }\end{DoxyParamCaption})}
+
+
+
+Esta funcao faz push a uma copia do valor na nºesima posicao. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em stack} & A stack \\
+\hline
+{\em token} & Valor a ser interpretado \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Retorna 1 se o token for o correto se nao retorna 0 
+\end{DoxyReturn}
+\mbox{\Hypertarget{stack_8h_ab0eed3e0da6b16dfb8650f1cd824c627}\label{stack_8h_ab0eed3e0da6b16dfb8650f1cd824c627}} 
+\index{stack.h@{stack.h}!duplicar@{duplicar}}
+\index{duplicar@{duplicar}!stack.h@{stack.h}}
+\doxysubsubsection{\texorpdfstring{duplicar()}{duplicar()}}
+{\footnotesize\ttfamily int duplicar (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structSTCK}{STCK}} $\ast$}]{stack,  }\item[{char $\ast$}]{token }\end{DoxyParamCaption})}
+
+
+
+Esta funcao faz push a uma copia do valor no topo da stack. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em stack} & A stack \\
+\hline
+{\em token} & Valor a ser interpretado \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Retorna 1 se o token for o correto se nao retorna 0 
+\end{DoxyReturn}
+\mbox{\Hypertarget{stack_8h_ac9f012eb4dc51ca67047fa45e47fe2d5}\label{stack_8h_ac9f012eb4dc51ca67047fa45e47fe2d5}} 
+\index{stack.h@{stack.h}!hastype@{hastype}}
+\index{hastype@{hastype}!stack.h@{stack.h}}
+\doxysubsubsection{\texorpdfstring{hastype()}{hastype()}}
+{\footnotesize\ttfamily bool hastype (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structDADOS}{DADOS}}}]{dado,  }\item[{\mbox{\hyperlink{stack_8h_a0bc6723d5d4776ab7cdc646728b775f7}{TYPE}}}]{tipo }\end{DoxyParamCaption})}
+
+
+
+Ve se o tipo do dado é o mesmo do tipo fornecido ~\newline
+ 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dado} & O Dado a ser comparado \\
+\hline
+{\em tipo} & O Tipo a ser testado \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true se o dado tiver o mesmo tipo ou caso contrario false ~\newline
+ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{stack_8h_a4c67bde564de81c9d7d8d65aec27bd37}\label{stack_8h_a4c67bde564de81c9d7d8d65aec27bd37}} 
+\index{stack.h@{stack.h}!isdecimal@{isdecimal}}
+\index{isdecimal@{isdecimal}!stack.h@{stack.h}}
+\doxysubsubsection{\texorpdfstring{isdecimal()}{isdecimal()}}
+{\footnotesize\ttfamily bool isdecimal (\begin{DoxyParamCaption}\item[{char $\ast$}]{token }\end{DoxyParamCaption})}
+
+
+
+Testa se uma string tem um \textquotesingle{}.\textquotesingle{}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em token} & String a ser testada \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true se a string possuir um \textquotesingle{}.\textquotesingle{}, caso contrario false ~\newline
+ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{stack_8h_a91c2fe69e03b8331244324bfcac8c7b5}\label{stack_8h_a91c2fe69e03b8331244324bfcac8c7b5}} 
+\index{stack.h@{stack.h}!lestring@{lestring}}
+\index{lestring@{lestring}!stack.h@{stack.h}}
+\doxysubsubsection{\texorpdfstring{lestring()}{lestring()}}
+{\footnotesize\ttfamily int lestring (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structSTCK}{STCK}} $\ast$}]{stack,  }\item[{char $\ast$}]{token }\end{DoxyParamCaption})}
+
+
+
+Esta funcao le uma string do stdin e faz push. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em stack} & A stack \\
+\hline
+{\em token} & Valor a ser interpretado \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Retorna 1 se o token for o correto se nao retorna 0 
+\end{DoxyReturn}
+\mbox{\Hypertarget{stack_8h_a9ec0a1d2de19f5140e265199df8cf606}\label{stack_8h_a9ec0a1d2de19f5140e265199df8cf606}} 
+\index{stack.h@{stack.h}!longToCHR@{longToCHR}}
+\index{longToCHR@{longToCHR}!stack.h@{stack.h}}
+\doxysubsubsection{\texorpdfstring{longToCHR()}{longToCHR()}}
+{\footnotesize\ttfamily int long\+To\+CHR (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structSTCK}{STCK}} $\ast$}]{stack,  }\item[{char $\ast$}]{token }\end{DoxyParamCaption})}
+
+
+
+Esta funcao muda o tipo da variavel no topo da stack de LONG para CHAR. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em stack} & A stack \\
+\hline
+{\em token} & Valor a ser interpretado \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Retorna 1 se o token for o correto se nao retorna 0 
+\end{DoxyReturn}
+\mbox{\Hypertarget{stack_8h_ab6b3dad462dee835919defac7fe302da}\label{stack_8h_ab6b3dad462dee835919defac7fe302da}} 
+\index{stack.h@{stack.h}!pop\_CHR@{pop\_CHR}}
+\index{pop\_CHR@{pop\_CHR}!stack.h@{stack.h}}
+\doxysubsubsection{\texorpdfstring{pop\_CHR()}{pop\_CHR()}}
+{\footnotesize\ttfamily char pop\+\_\+\+CHR (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structSTCK}{STCK}} $\ast$}]{stack }\end{DoxyParamCaption})}
+
+
+
+Esta função da pop a uma variavel do tipo CHR $\ast$. 
+
+$\ast$
+\begin{DoxyParams}{Parameters}
+{\em stack} & A stack $\ast$ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+O valor no topo da stack ~\newline
+ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{stack_8h_acea163cdcc493c9c59f5168502bb64f3}\label{stack_8h_acea163cdcc493c9c59f5168502bb64f3}} 
+\index{stack.h@{stack.h}!pop\_DOUBLE@{pop\_DOUBLE}}
+\index{pop\_DOUBLE@{pop\_DOUBLE}!stack.h@{stack.h}}
+\doxysubsubsection{\texorpdfstring{pop\_DOUBLE()}{pop\_DOUBLE()}}
+{\footnotesize\ttfamily double pop\+\_\+\+DOUBLE (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structSTCK}{STCK}} $\ast$}]{stack }\end{DoxyParamCaption})}
+
+
+
+Esta função da pop a uma variavel do tipo DOUBLE $\ast$. 
+
+$\ast$
+\begin{DoxyParams}{Parameters}
+{\em stack} & A stack $\ast$ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+O valor no topo da stack ~\newline
+ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{stack_8h_a2d335f43a2ee3bc3365a0b57428b2f22}\label{stack_8h_a2d335f43a2ee3bc3365a0b57428b2f22}} 
+\index{stack.h@{stack.h}!pop\_LNG@{pop\_LNG}}
+\index{pop\_LNG@{pop\_LNG}!stack.h@{stack.h}}
+\doxysubsubsection{\texorpdfstring{pop\_LNG()}{pop\_LNG()}}
+{\footnotesize\ttfamily long int pop\+\_\+\+LNG (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structSTCK}{STCK}} $\ast$}]{stack }\end{DoxyParamCaption})}
+
+
+
+Esta função da pop a uma variavel do tipo LNG $\ast$. 
+
+$\ast$
+\begin{DoxyParams}{Parameters}
+{\em stack} & A stack $\ast$ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+O valor no topo da stack ~\newline
+ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{stack_8h_aa133d9fbddf9da6cc7e47d1b4f810560}\label{stack_8h_aa133d9fbddf9da6cc7e47d1b4f810560}} 
+\index{stack.h@{stack.h}!pop\_STR@{pop\_STR}}
+\index{pop\_STR@{pop\_STR}!stack.h@{stack.h}}
+\doxysubsubsection{\texorpdfstring{pop\_STR()}{pop\_STR()}}
+{\footnotesize\ttfamily char$\ast$ pop\+\_\+\+STR (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structSTCK}{STCK}} $\ast$}]{stack }\end{DoxyParamCaption})}
+
+
+
+Esta função da pop a uma variavel do tipo string ~\newline
+ 
+
+
+\begin{DoxyParams}{Parameters}
+{\em stack} & A stack ~\newline
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+O valor no topo da stack ~\newline
+ 
+\end{DoxyReturn}
 \mbox{\Hypertarget{stack_8h_a3a8371bcd9e71fad357defd8e77f8434}\label{stack_8h_a3a8371bcd9e71fad357defd8e77f8434}} 
 \index{stack.h@{stack.h}!printstack@{printstack}}
 \index{printstack@{printstack}!stack.h@{stack.h}}
 \doxysubsubsection{\texorpdfstring{printstack()}{printstack()}}
 {\footnotesize\ttfamily void printstack (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structSTCK}{STCK}}}]{stack }\end{DoxyParamCaption})}
 
+
+
+Imprime para o stdout a stack fornecida. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em stack} & A stack \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{stack_8h_a101c9c46ae8368531d4af416cf9fe8d0}\label{stack_8h_a101c9c46ae8368531d4af416cf9fe8d0}} 
+\index{stack.h@{stack.h}!push\_CHR@{push\_CHR}}
+\index{push\_CHR@{push\_CHR}!stack.h@{stack.h}}
+\doxysubsubsection{\texorpdfstring{push\_CHR()}{push\_CHR()}}
+{\footnotesize\ttfamily void push\+\_\+\+CHR (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structSTCK}{STCK}} $\ast$}]{stack,  }\item[{char}]{value }\end{DoxyParamCaption})}
+
+
+
+Esta função da push a uma variavel do tipo CHR $\ast$. 
+
+$\ast$
+\begin{DoxyParams}{Parameters}
+{\em stack} & A stack $\ast$\\
+\hline
+{\em value} & Valor a colocado no topo da stack ~\newline
+ \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{stack_8h_ac31322a8f3e64a94f3d9e9dbe6053502}\label{stack_8h_ac31322a8f3e64a94f3d9e9dbe6053502}} 
+\index{stack.h@{stack.h}!push\_DOUBLE@{push\_DOUBLE}}
+\index{push\_DOUBLE@{push\_DOUBLE}!stack.h@{stack.h}}
+\doxysubsubsection{\texorpdfstring{push\_DOUBLE()}{push\_DOUBLE()}}
+{\footnotesize\ttfamily void push\+\_\+\+DOUBLE (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structSTCK}{STCK}} $\ast$}]{stack,  }\item[{double}]{value }\end{DoxyParamCaption})}
+
+
+
+Esta função da push a uma variavel do tipo DOUBLE $\ast$. 
+
+$\ast$
+\begin{DoxyParams}{Parameters}
+{\em stack} & A stack $\ast$\\
+\hline
+{\em value} & Valor a colocado no topo da stack ~\newline
+ \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{stack_8h_aee09561e0f65dd8f32359f3ce910ae5d}\label{stack_8h_aee09561e0f65dd8f32359f3ce910ae5d}} 
+\index{stack.h@{stack.h}!push\_LNG@{push\_LNG}}
+\index{push\_LNG@{push\_LNG}!stack.h@{stack.h}}
+\doxysubsubsection{\texorpdfstring{push\_LNG()}{push\_LNG()}}
+{\footnotesize\ttfamily void push\+\_\+\+LNG (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structSTCK}{STCK}} $\ast$}]{stack,  }\item[{long int}]{value }\end{DoxyParamCaption})}
+
+
+
+Esta função da push a uma variavel do tipo LNG $\ast$. 
+
+$\ast$
+\begin{DoxyParams}{Parameters}
+{\em stack} & A stack $\ast$\\
+\hline
+{\em value} & Valor a colocado no topo da stack ~\newline
+ \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{stack_8h_a12352ea6201aec3a1ce20a11812a9b4d}\label{stack_8h_a12352ea6201aec3a1ce20a11812a9b4d}} 
+\index{stack.h@{stack.h}!push\_STR@{push\_STR}}
+\index{push\_STR@{push\_STR}!stack.h@{stack.h}}
+\doxysubsubsection{\texorpdfstring{push\_STR()}{push\_STR()}}
+{\footnotesize\ttfamily void push\+\_\+\+STR (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structSTCK}{STCK}} $\ast$}]{stack,  }\item[{char $\ast$}]{value }\end{DoxyParamCaption})}
+
+
+
+Esta função da push a uma variavel do tipo string. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em stack} & A stack \\
+\hline
+{\em value} & Valor a colocado no topo da stack \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{stack_8h_af005ea1c2e5e98f020cbb8165af6d9d0}\label{stack_8h_af005ea1c2e5e98f020cbb8165af6d9d0}} 
+\index{stack.h@{stack.h}!removeTop@{removeTop}}
+\index{removeTop@{removeTop}!stack.h@{stack.h}}
+\doxysubsubsection{\texorpdfstring{removeTop()}{removeTop()}}
+{\footnotesize\ttfamily int remove\+Top (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structSTCK}{STCK}} $\ast$}]{stack,  }\item[{char $\ast$}]{token }\end{DoxyParamCaption})}
+
+
+
+Esta funcao faz \char`\"{}\char`\"{}Pop\char`\"{}\char`\"{}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em stack} & A stack \\
+\hline
+{\em token} & Valor a ser interpretado \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Retorna 1 se o token for o correto se nao retorna 0 
+\end{DoxyReturn}
+\mbox{\Hypertarget{stack_8h_a854928d7006572f68e68d51141b58fe0}\label{stack_8h_a854928d7006572f68e68d51141b58fe0}} 
+\index{stack.h@{stack.h}!rodar@{rodar}}
+\index{rodar@{rodar}!stack.h@{stack.h}}
+\doxysubsubsection{\texorpdfstring{rodar()}{rodar()}}
+{\footnotesize\ttfamily int rodar (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structSTCK}{STCK}} $\ast$}]{stack,  }\item[{char $\ast$}]{token }\end{DoxyParamCaption})}
+
+
+
+Esta funcao roda os 3 elementos no topo da stack. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em stack} & A stack \\
+\hline
+{\em token} & Valor a ser interpretado \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Retorna 1 se o token for o correto se nao retorna 0 
+\end{DoxyReturn}
+\mbox{\Hypertarget{stack_8h_a596ca2d5b13b268c1714e5979ed65b42}\label{stack_8h_a596ca2d5b13b268c1714e5979ed65b42}} 
+\index{stack.h@{stack.h}!toDouble@{toDouble}}
+\index{toDouble@{toDouble}!stack.h@{stack.h}}
+\doxysubsubsection{\texorpdfstring{toDouble()}{toDouble()}}
+{\footnotesize\ttfamily int to\+Double (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structSTCK}{STCK}} $\ast$}]{stack,  }\item[{char $\ast$}]{token }\end{DoxyParamCaption})}
+
+
+
+Esta funcao muda o tipo da variavel no topo da stack para DOUBLE. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em stack} & A stack \\
+\hline
+{\em token} & Valor a ser interpretado \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Retorna 1 se o token for o correto se nao retorna 0 
+\end{DoxyReturn}
+\mbox{\Hypertarget{stack_8h_a625a986b17beb38129097bf9ac403feb}\label{stack_8h_a625a986b17beb38129097bf9ac403feb}} 
+\index{stack.h@{stack.h}!toLNG@{toLNG}}
+\index{toLNG@{toLNG}!stack.h@{stack.h}}
+\doxysubsubsection{\texorpdfstring{toLNG()}{toLNG()}}
+{\footnotesize\ttfamily int to\+LNG (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structSTCK}{STCK}} $\ast$}]{stack,  }\item[{char $\ast$}]{token }\end{DoxyParamCaption})}
+
+
+
+Esta funcao muda o tipo da variavel no topo da stack para LONG. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em stack} & A stack \\
+\hline
+{\em token} & Valor a ser interpretado \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Retorna 1 se o token for o correto se nao retorna 0 
+\end{DoxyReturn}
+\mbox{\Hypertarget{stack_8h_a4c79ff9c81bbdc5761d03270bb82029a}\label{stack_8h_a4c79ff9c81bbdc5761d03270bb82029a}} 
+\index{stack.h@{stack.h}!trocar@{trocar}}
+\index{trocar@{trocar}!stack.h@{stack.h}}
+\doxysubsubsection{\texorpdfstring{trocar()}{trocar()}}
+{\footnotesize\ttfamily int trocar (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structSTCK}{STCK}} $\ast$}]{stack,  }\item[{char $\ast$}]{token }\end{DoxyParamCaption})}
+
+
+
+Esta funcao troca os 2 valores no topo da stack. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em stack} & A stack \\
+\hline
+{\em token} & Valor a ser interpretado \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Retorna 1 se o token for o correto se nao retorna 0 
+\end{DoxyReturn}
+\mbox{\Hypertarget{stack_8h_ab99d560990b64f0b33f9d1ff11fae4ea}\label{stack_8h_ab99d560990b64f0b33f9d1ff11fae4ea}} 
+\index{stack.h@{stack.h}!valor@{valor}}
+\index{valor@{valor}!stack.h@{stack.h}}
+\doxysubsubsection{\texorpdfstring{valor()}{valor()}}
+{\footnotesize\ttfamily int valor (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structSTCK}{STCK}} $\ast$}]{stack,  }\item[{char $\ast$}]{token }\end{DoxyParamCaption})}
+
+
+
+Esta funcao adiciona valores no topo da stack. 
+
+\begin{DoxyReturn}{Returns}
+Retorna 1 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em stack} & A stack \\
+\hline
+{\em token} & Valor a ser interpretado \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{stack_8h_a330799f36d0f454ed9d5b29bf756c3df}\label{stack_8h_a330799f36d0f454ed9d5b29bf756c3df}} 
+\index{stack.h@{stack.h}!valor\_Double@{valor\_Double}}
+\index{valor\_Double@{valor\_Double}!stack.h@{stack.h}}
+\doxysubsubsection{\texorpdfstring{valor\_Double()}{valor\_Double()}}
+{\footnotesize\ttfamily int valor\+\_\+\+Double (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structSTCK}{STCK}} $\ast$}]{stack,  }\item[{char $\ast$}]{token }\end{DoxyParamCaption})}
+
+
+
+Esta funcao adiciona valores decimais no topo da stack. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em stack} & A stack \\
+\hline
+{\em token} & Valor a ser interpretado \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Retorna 1 se o token for o correto se nao retorna 0 
+\end{DoxyReturn}

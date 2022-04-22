@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['xor_24',['xor',['../mat_8c.html#a25f499f2994be33325cbd0c0fb4e43fd',1,'xor(STCK *stack, char *token):&#160;mat.c'],['../mat_8h.html#a25f499f2994be33325cbd0c0fb4e43fd',1,'xor(STCK *stack, char *token):&#160;mat.c']]]
+  ['removetop_48',['removeTop',['../stack_8c.html#af005ea1c2e5e98f020cbb8165af6d9d0',1,'removeTop(STCK *stack, char *token):&#160;stack.c'],['../stack_8h.html#af005ea1c2e5e98f020cbb8165af6d9d0',1,'removeTop(STCK *stack, char *token):&#160;stack.c']]],
+  ['rodar_49',['rodar',['../stack_8c.html#a854928d7006572f68e68d51141b58fe0',1,'rodar(STCK *stack, char *token):&#160;stack.c'],['../stack_8h.html#a854928d7006572f68e68d51141b58fe0',1,'rodar(STCK *stack, char *token):&#160;stack.c']]]
 ];

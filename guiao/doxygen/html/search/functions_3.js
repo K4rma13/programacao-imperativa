@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['incr_36',['incr',['../mat_8c.html#af886e313002ac8c230ca64e60f1db668',1,'incr(STCK *stack, char *token):&#160;mat.c'],['../mat_8h.html#af886e313002ac8c230ca64e60f1db668',1,'incr(STCK *stack, char *token):&#160;mat.c']]]
+  ['handler_82',['handler',['../guiao1_8c.html#af72dedd4418899680c0a27d9f7e61ba0',1,'guiao1.c']]],
+  ['hastype_83',['hastype',['../stack_8c.html#ac9f012eb4dc51ca67047fa45e47fe2d5',1,'hastype(DADOS dado, TYPE tipo):&#160;stack.c'],['../stack_8h.html#ac9f012eb4dc51ca67047fa45e47fe2d5',1,'hastype(DADOS dado, TYPE tipo):&#160;stack.c']]]
 ];

@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['main_37',['main',['../guiao1_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4',1,'guiao1.c']]],
-  ['module_38',['module',['../mat_8c.html#a10872927e5bc4d19b7b5b0fa217592a0',1,'module(STCK *stack, char *token):&#160;mat.c'],['../mat_8h.html#a10872927e5bc4d19b7b5b0fa217592a0',1,'module(STCK *stack, char *token):&#160;mat.c']]],
-  ['mul_39',['mul',['../mat_8c.html#a4566559094a7ee1abead04b130a5dce3',1,'mul(STCK *stack, char *token):&#160;mat.c'],['../mat_8h.html#a4566559094a7ee1abead04b130a5dce3',1,'mul(STCK *stack, char *token):&#160;mat.c']]]
+  ['incr_84',['incr',['../mat_8c.html#af886e313002ac8c230ca64e60f1db668',1,'incr(STCK *stack, char *token):&#160;mat.c'],['../mat_8h.html#af886e313002ac8c230ca64e60f1db668',1,'incr(STCK *stack, char *token):&#160;mat.c']]],
+  ['isdecimal_85',['isdecimal',['../stack_8c.html#a4c67bde564de81c9d7d8d65aec27bd37',1,'isdecimal(char *token):&#160;stack.c'],['../stack_8h.html#a4c67bde564de81c9d7d8d65aec27bd37',1,'isdecimal(char *token):&#160;stack.c']]]
 ];

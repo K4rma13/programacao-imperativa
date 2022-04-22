@@ -4,10 +4,10 @@
     <compoundname>STCK</compoundname>
     <includes refid="stack_8h" local="no">stack.h</includes>
       <sectiondef kind="public-attrib">
-      <memberdef kind="variable" id="structSTCK_1a6e402e15150676c7edbc8f7f6aa05684" prot="public" static="no" mutable="no">
-        <type>int</type>
-        <definition>int STCK::val[MAXSTACK]</definition>
-        <argsstring>[MAXSTACK]</argsstring>
+      <memberdef kind="variable" id="structSTCK_1a17103f2db12ee943761c3da86afa0257" prot="public" static="no" mutable="no">
+        <type><ref refid="structDADOS" kindref="compound">DADOS</ref></type>
+        <definition>DADOS STCK::val[1000]</definition>
+        <argsstring>[1000]</argsstring>
         <name>val</name>
         <briefdescription>
         </briefdescription>
@@ -15,7 +15,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="stack.h" line="7" column="5" bodyfile="stack.h" bodystart="7" bodyend="-1"/>
+        <location file="stack.h" line="25" column="7" bodyfile="stack.h" bodystart="25" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" prot="public" static="no" mutable="no">
         <type>int</type>
@@ -28,17 +28,30 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="stack.h" line="8" column="5" bodyfile="stack.h" bodystart="8" bodyend="-1"/>
+        <location file="stack.h" line="26" column="5" bodyfile="stack.h" bodystart="26" bodyend="-1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="stack.h" line="6" column="1" bodyfile="stack.h" bodystart="6" bodyend="9"/>
+    <collaborationgraph>
+      <node id="2">
+        <label>DADOS</label>
+        <link refid="structDADOS"/>
+      </node>
+      <node id="1">
+        <label>STCK</label>
+        <link refid="structSTCK"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>val</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="stack.h" line="24" column="1" bodyfile="stack.h" bodystart="24" bodyend="27"/>
     <listofallmembers>
       <member refid="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" prot="public" virt="non-virtual"><scope>STCK</scope><name>esp</name></member>
-      <member refid="structSTCK_1a6e402e15150676c7edbc8f7f6aa05684" prot="public" virt="non-virtual"><scope>STCK</scope><name>val</name></member>
+      <member refid="structSTCK_1a17103f2db12ee943761c3da86afa0257" prot="public" virt="non-virtual"><scope>STCK</scope><name>val</name></member>
     </listofallmembers>
   </compounddef>
 </doxygen>

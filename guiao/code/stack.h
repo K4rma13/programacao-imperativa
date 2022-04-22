@@ -30,10 +30,10 @@ typedef struct STCK{
 	void push_##_name(STCK* stack, _type value);	\
 	_type pop_##_name(STCK* stack);					\
 
-PROTO_FSTACK(LNG,long int);
-PROTO_FSTACK(CHR,char);
-PROTO_FSTACK(STR,char*);
-PROTO_FSTACK(DOUBLE,double);
+PROTO_FSTACK(LNG,long int)
+PROTO_FSTACK(CHR,char)
+PROTO_FSTACK(STR,char*)
+PROTO_FSTACK(DOUBLE,double)
 
 bool hastype(DADOS dado, TYPE tipo);
 
@@ -47,9 +47,9 @@ int valor(STCK* stack, char* token);
 
 int valor_Double(STCK* stack, char* token);
 
-int stringToLNG(STCK* stack, char* token);
+int toLNG(STCK* stack, char* token);
 
-int stringToDouble(STCK* stack, char* token);
+int toDouble(STCK* stack, char* token);
 
 int cpyStack(STCK* stack, char* token);
 

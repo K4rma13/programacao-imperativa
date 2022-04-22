@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['stck_49',['STCK',['../stack_8h.html#af9c94bf76d813977b391547f01ee1e27',1,'stack.h']]]
+  ['dados_123',['DADOS',['../stack_8h.html#a133f3a5b355bb2095c107028dcdc38fd',1,'stack.h']]]
 ];

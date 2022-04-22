@@ -1,0 +1,86 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structDADOS" kind="struct" language="C++" prot="public">
+    <compoundname>DADOS</compoundname>
+    <includes refid="stack_8h" local="no">stack.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structDADOS_1ae9e10266fc33543efc50d1a474ccc253" prot="public" static="no" mutable="no">
+        <type><ref refid="stack_8h_1a0bc6723d5d4776ab7cdc646728b775f7" kindref="member">TYPE</ref></type>
+        <definition>TYPE DADOS::type</definition>
+        <argsstring></argsstring>
+        <name>type</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="stack.h" line="17" column="6" bodyfile="stack.h" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structDADOS_1a6fd3fd46a4f510ab6de67d740faaa3e6" prot="public" static="no" mutable="no">
+        <type>char</type>
+        <definition>char DADOS::CHR</definition>
+        <argsstring></argsstring>
+        <name>CHR</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="stack.h" line="18" column="6" bodyfile="stack.h" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structDADOS_1a0eb2004f87d37dba7146d7fb15d687c5" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* DADOS::STR</definition>
+        <argsstring></argsstring>
+        <name>STR</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="stack.h" line="19" column="6" bodyfile="stack.h" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structDADOS_1a7ed43f8ac7af42bd57146ce46860fd20" prot="public" static="no" mutable="no">
+        <type>long int</type>
+        <definition>long int DADOS::LNG</definition>
+        <argsstring></argsstring>
+        <name>LNG</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="stack.h" line="20" column="10" bodyfile="stack.h" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structDADOS_1ab3c8b5db467f41229e732cbf95eedd93" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double DADOS::DOUBLE</definition>
+        <argsstring></argsstring>
+        <name>DOUBLE</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="stack.h" line="21" column="8" bodyfile="stack.h" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="stack.h" line="16" column="1" bodyfile="stack.h" bodystart="16" bodyend="22"/>
+    <listofallmembers>
+      <member refid="structDADOS_1a6fd3fd46a4f510ab6de67d740faaa3e6" prot="public" virt="non-virtual"><scope>DADOS</scope><name>CHR</name></member>
+      <member refid="structDADOS_1ab3c8b5db467f41229e732cbf95eedd93" prot="public" virt="non-virtual"><scope>DADOS</scope><name>DOUBLE</name></member>
+      <member refid="structDADOS_1a7ed43f8ac7af42bd57146ce46860fd20" prot="public" virt="non-virtual"><scope>DADOS</scope><name>LNG</name></member>
+      <member refid="structDADOS_1a0eb2004f87d37dba7146d7fb15d687c5" prot="public" virt="non-virtual"><scope>DADOS</scope><name>STR</name></member>
+      <member refid="structDADOS_1ae9e10266fc33543efc50d1a474ccc253" prot="public" virt="non-virtual"><scope>DADOS</scope><name>type</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

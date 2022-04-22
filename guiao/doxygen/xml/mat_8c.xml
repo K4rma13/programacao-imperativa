@@ -4,6 +4,12 @@
     <compoundname>mat.c</compoundname>
     <includes refid="mat_8h" local="yes">mat.h</includes>
     <incdepgraph>
+      <node id="8">
+        <label>stdbool.h</label>
+      </node>
+      <node id="9">
+        <label>assert.h</label>
+      </node>
       <node id="1">
         <label>mat.c</label>
         <link refid="mat_8c"/>
@@ -32,6 +38,14 @@
         <link refid="stack_8h"/>
         <childnode refid="3" relation="include">
         </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
       </node>
       <node id="5">
         <label>string.h</label>
@@ -43,7 +57,205 @@
         <label>stdio.h</label>
       </node>
     </incdepgraph>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="mat_8c_1a701404759312a78f01ae0801093ba508" prot="public" static="no">
+        <name>OPERATION_SGN</name>
+        <param><defname>_name</defname></param>
+        <param><defname>_sinal</defname></param>
+        <initializer>	double double_##_name(<ref refid="structDADOS" kindref="compound">DADOS</ref> b,<ref refid="structDADOS" kindref="compound">DADOS</ref> a){		\
+		if(<ref refid="stack_8h_1ac9f012eb4dc51ca67047fa45e47fe2d5" kindref="member">hastype</ref>(a,<ref refid="stack_8h_1a0bc6723d5d4776ab7cdc646728b775f7a33465d1d419b1074fb259ef444609e92" kindref="member">DOUBLE</ref>)){					\
+			if(<ref refid="stack_8h_1ac9f012eb4dc51ca67047fa45e47fe2d5" kindref="member">hastype</ref>(b,<ref refid="stack_8h_1a0bc6723d5d4776ab7cdc646728b775f7a33465d1d419b1074fb259ef444609e92" kindref="member">DOUBLE</ref>)){				\
+				return <ref refid="stack_8h_1a0bc6723d5d4776ab7cdc646728b775f7a33465d1d419b1074fb259ef444609e92" kindref="member">a.DOUBLE</ref> _sinal <ref refid="stack_8h_1a0bc6723d5d4776ab7cdc646728b775f7a33465d1d419b1074fb259ef444609e92" kindref="member">b.DOUBLE</ref>;\
+			}									\
+			else{								\
+				return <ref refid="stack_8h_1a0bc6723d5d4776ab7cdc646728b775f7a33465d1d419b1074fb259ef444609e92" kindref="member">a.DOUBLE</ref> _sinal <ref refid="stack_8h_1a0bc6723d5d4776ab7cdc646728b775f7a03789e2426cb0fa2831e1db323804f08" kindref="member">b.LNG</ref>;	\
+			}									\
+		}										\
+		else{									\
+			return <ref refid="stack_8h_1a0bc6723d5d4776ab7cdc646728b775f7a03789e2426cb0fa2831e1db323804f08" kindref="member">a.LNG</ref> _sinal <ref refid="stack_8h_1a0bc6723d5d4776ab7cdc646728b775f7a33465d1d419b1074fb259ef444609e92" kindref="member">b.DOUBLE</ref>;		\
+		}										\
+	}											\
+	long int long_##_name(<ref refid="structDADOS" kindref="compound">DADOS</ref> b,<ref refid="structDADOS" kindref="compound">DADOS</ref> a){		\
+		return <ref refid="stack_8h_1a0bc6723d5d4776ab7cdc646728b775f7a03789e2426cb0fa2831e1db323804f08" kindref="member">a.LNG</ref> _sinal <ref refid="stack_8h_1a0bc6723d5d4776ab7cdc646728b775f7a03789e2426cb0fa2831e1db323804f08" kindref="member">b.LNG</ref>;				\
+	}											\</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="mat.c" line="3" column="9" bodyfile="mat.c" bodystart="3" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
       <sectiondef kind="func">
+      <memberdef kind="function" id="mat_8c_1a77bc1ace73e81f8216c8ae00aa8be593" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double double_ADD</definition>
+        <argsstring>(DADOS b, DADOS a)</argsstring>
+        <name>double_ADD</name>
+        <param>
+          <type><ref refid="structDADOS" kindref="compound">DADOS</ref></type>
+          <declname>b</declname>
+        </param>
+        <param>
+          <type><ref refid="structDADOS" kindref="compound">DADOS</ref></type>
+          <declname>a</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="mat.c" line="21" column="8" bodyfile="mat.c" bodystart="21" bodyend="21"/>
+      </memberdef>
+      <memberdef kind="function" id="mat_8c_1a4d37d74f058a5abc49ac5bed738eef88" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>long int</type>
+        <definition>long int long_ADD</definition>
+        <argsstring>(DADOS b, DADOS a)</argsstring>
+        <name>long_ADD</name>
+        <param>
+          <type><ref refid="structDADOS" kindref="compound">DADOS</ref></type>
+          <declname>b</declname>
+        </param>
+        <param>
+          <type><ref refid="structDADOS" kindref="compound">DADOS</ref></type>
+          <declname>a</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="mat.c" line="21" column="199" bodyfile="mat.c" bodystart="21" bodyend="21"/>
+      </memberdef>
+      <memberdef kind="function" id="mat_8c_1acab2490213ff96d50b3a523f01b173c0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double double_SUB</definition>
+        <argsstring>(DADOS b, DADOS a)</argsstring>
+        <name>double_SUB</name>
+        <param>
+          <type><ref refid="structDADOS" kindref="compound">DADOS</ref></type>
+          <declname>b</declname>
+        </param>
+        <param>
+          <type><ref refid="structDADOS" kindref="compound">DADOS</ref></type>
+          <declname>a</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="mat.c" line="22" column="8" bodyfile="mat.c" bodystart="22" bodyend="22"/>
+      </memberdef>
+      <memberdef kind="function" id="mat_8c_1ab6cd0dab5baac6ab5df3bfb1b956ffcc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>long int</type>
+        <definition>long int long_SUB</definition>
+        <argsstring>(DADOS b, DADOS a)</argsstring>
+        <name>long_SUB</name>
+        <param>
+          <type><ref refid="structDADOS" kindref="compound">DADOS</ref></type>
+          <declname>b</declname>
+        </param>
+        <param>
+          <type><ref refid="structDADOS" kindref="compound">DADOS</ref></type>
+          <declname>a</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="mat.c" line="22" column="199" bodyfile="mat.c" bodystart="22" bodyend="22"/>
+      </memberdef>
+      <memberdef kind="function" id="mat_8c_1a7576cd142d98654bd4bacf5d7826719e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double double_MUL</definition>
+        <argsstring>(DADOS b, DADOS a)</argsstring>
+        <name>double_MUL</name>
+        <param>
+          <type><ref refid="structDADOS" kindref="compound">DADOS</ref></type>
+          <declname>b</declname>
+        </param>
+        <param>
+          <type><ref refid="structDADOS" kindref="compound">DADOS</ref></type>
+          <declname>a</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="mat.c" line="23" column="8" bodyfile="mat.c" bodystart="23" bodyend="23"/>
+      </memberdef>
+      <memberdef kind="function" id="mat_8c_1a5b8fb17bb9a402b258b3b77edd4eb9da" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>long int</type>
+        <definition>long int long_MUL</definition>
+        <argsstring>(DADOS b, DADOS a)</argsstring>
+        <name>long_MUL</name>
+        <param>
+          <type><ref refid="structDADOS" kindref="compound">DADOS</ref></type>
+          <declname>b</declname>
+        </param>
+        <param>
+          <type><ref refid="structDADOS" kindref="compound">DADOS</ref></type>
+          <declname>a</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="mat.c" line="23" column="199" bodyfile="mat.c" bodystart="23" bodyend="23"/>
+      </memberdef>
+      <memberdef kind="function" id="mat_8c_1a6bc70857908c44ae8157b214a3d30121" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double double_DIV</definition>
+        <argsstring>(DADOS b, DADOS a)</argsstring>
+        <name>double_DIV</name>
+        <param>
+          <type><ref refid="structDADOS" kindref="compound">DADOS</ref></type>
+          <declname>b</declname>
+        </param>
+        <param>
+          <type><ref refid="structDADOS" kindref="compound">DADOS</ref></type>
+          <declname>a</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="mat.c" line="24" column="8" bodyfile="mat.c" bodystart="24" bodyend="24"/>
+      </memberdef>
+      <memberdef kind="function" id="mat_8c_1a928e5d3a807e1eb0314c0d34326e1f76" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>long int</type>
+        <definition>long int long_DIV</definition>
+        <argsstring>(DADOS b, DADOS a)</argsstring>
+        <name>long_DIV</name>
+        <param>
+          <type><ref refid="structDADOS" kindref="compound">DADOS</ref></type>
+          <declname>b</declname>
+        </param>
+        <param>
+          <type><ref refid="structDADOS" kindref="compound">DADOS</ref></type>
+          <declname>a</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="mat.c" line="24" column="196" bodyfile="mat.c" bodystart="24" bodyend="24"/>
+      </memberdef>
       <memberdef kind="function" id="mat_8c_1ab9097fc1c2819dc4e8e259cbc24988b9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
         <definition>int potencia</definition>
@@ -84,7 +296,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="mat.c" line="9" column="5" bodyfile="mat.c" bodystart="9" bodyend="16"/>
+        <location file="mat.c" line="34" column="5" bodyfile="mat.c" bodystart="34" bodyend="65"/>
       </memberdef>
       <memberdef kind="function" id="mat_8c_1af5e3dd39a55bf6264b51cf6d9e596aa3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -126,7 +338,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="mat.c" line="23" column="5" bodyfile="mat.c" bodystart="23" bodyend="30"/>
+        <location file="mat.c" line="73" column="5" bodyfile="mat.c" bodystart="73" bodyend="88"/>
       </memberdef>
       <memberdef kind="function" id="mat_8c_1aebac5b1209e7c0f16e7d4cb03a9722ea" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -168,7 +380,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="mat.c" line="37" column="5" bodyfile="mat.c" bodystart="37" bodyend="44"/>
+        <location file="mat.c" line="95" column="5" bodyfile="mat.c" bodystart="95" bodyend="110"/>
       </memberdef>
       <memberdef kind="function" id="mat_8c_1ac3440da6134dbed0b4055f528bba2338" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -210,7 +422,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="mat.c" line="51" column="5" bodyfile="mat.c" bodystart="51" bodyend="58"/>
+        <location file="mat.c" line="117" column="5" bodyfile="mat.c" bodystart="117" bodyend="132"/>
       </memberdef>
       <memberdef kind="function" id="mat_8c_1a4566559094a7ee1abead04b130a5dce3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -252,7 +464,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="mat.c" line="65" column="5" bodyfile="mat.c" bodystart="65" bodyend="72"/>
+        <location file="mat.c" line="139" column="5" bodyfile="mat.c" bodystart="139" bodyend="154"/>
       </memberdef>
       <memberdef kind="function" id="mat_8c_1af886e313002ac8c230ca64e60f1db668" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -294,7 +506,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="mat.c" line="79" column="5" bodyfile="mat.c" bodystart="79" bodyend="85"/>
+        <location file="mat.c" line="162" column="5" bodyfile="mat.c" bodystart="162" bodyend="176"/>
       </memberdef>
       <memberdef kind="function" id="mat_8c_1ad8c16d88523592d92cde7f83ec54c5d6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -336,7 +548,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="mat.c" line="92" column="5" bodyfile="mat.c" bodystart="92" bodyend="98"/>
+        <location file="mat.c" line="185" column="5" bodyfile="mat.c" bodystart="185" bodyend="199"/>
       </memberdef>
       <memberdef kind="function" id="mat_8c_1a10872927e5bc4d19b7b5b0fa217592a0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -378,7 +590,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="mat.c" line="105" column="5" bodyfile="mat.c" bodystart="105" bodyend="112"/>
+        <location file="mat.c" line="207" column="5" bodyfile="mat.c" bodystart="207" bodyend="217"/>
       </memberdef>
       <memberdef kind="function" id="mat_8c_1a3a2a12ec5b0397929d42dea052e6cd1c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -420,7 +632,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="mat.c" line="119" column="5" bodyfile="mat.c" bodystart="119" bodyend="126"/>
+        <location file="mat.c" line="224" column="5" bodyfile="mat.c" bodystart="224" bodyend="234"/>
       </memberdef>
       <memberdef kind="function" id="mat_8c_1a9759eeeac4495ee96d8f24e7611bfeec" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -462,7 +674,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="mat.c" line="133" column="5" bodyfile="mat.c" bodystart="133" bodyend="140"/>
+        <location file="mat.c" line="241" column="5" bodyfile="mat.c" bodystart="241" bodyend="251"/>
       </memberdef>
       <memberdef kind="function" id="mat_8c_1a25f499f2994be33325cbd0c0fb4e43fd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -504,7 +716,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="mat.c" line="147" column="5" bodyfile="mat.c" bodystart="147" bodyend="154"/>
+        <location file="mat.c" line="258" column="5" bodyfile="mat.c" bodystart="258" bodyend="268"/>
       </memberdef>
       <memberdef kind="function" id="mat_8c_1a633f6b4e9f63180a615d44695ec78ed7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -546,7 +758,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="mat.c" line="161" column="5" bodyfile="mat.c" bodystart="161" bodyend="167"/>
+        <location file="mat.c" line="277" column="5" bodyfile="mat.c" bodystart="277" bodyend="285"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -556,99 +768,211 @@
     <programlisting>
 <codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;<ref refid="mat_8h" kindref="compound">mat.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="2"><highlight class="normal"></highlight></codeline>
-<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="mat_8c_1ab9097fc1c2819dc4e8e259cbc24988b9" kindref="member">potencia</ref>(<ref refid="structSTCK" kindref="compound">STCK</ref>*<sp/>stack,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>token){</highlight></codeline>
-<codeline lineno="10"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(strcmp(token,</highlight><highlight class="stringliteral">&quot;#&quot;</highlight><highlight class="normal">)==0){</highlight></codeline>
-<codeline lineno="11"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>stack-&gt;<ref refid="structSTCK_1a6e402e15150676c7edbc8f7f6aa05684" kindref="member">val</ref>[stack-&gt;<ref refid="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" kindref="member">esp</ref>-1]=pow(stack-&gt;<ref refid="structSTCK_1a6e402e15150676c7edbc8f7f6aa05684" kindref="member">val</ref>[stack-&gt;<ref refid="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" kindref="member">esp</ref>-1],stack-&gt;<ref refid="structSTCK_1a6e402e15150676c7edbc8f7f6aa05684" kindref="member">val</ref>[stack-&gt;<ref refid="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" kindref="member">esp</ref>]);</highlight></codeline>
-<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>stack-&gt;<ref refid="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" kindref="member">esp</ref>--;</highlight></codeline>
-<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>1;</highlight></codeline>
-<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
-<codeline lineno="16"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="23"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="mat_8c_1af5e3dd39a55bf6264b51cf6d9e596aa3" kindref="member">add</ref>(<ref refid="structSTCK" kindref="compound">STCK</ref>*<sp/>stack,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>token){</highlight></codeline>
-<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(strcmp(token,</highlight><highlight class="stringliteral">&quot;+&quot;</highlight><highlight class="normal">)==0){</highlight></codeline>
-<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>stack-&gt;<ref refid="structSTCK_1a6e402e15150676c7edbc8f7f6aa05684" kindref="member">val</ref>[stack-&gt;<ref refid="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" kindref="member">esp</ref>-1]=stack-&gt;<ref refid="structSTCK_1a6e402e15150676c7edbc8f7f6aa05684" kindref="member">val</ref>[stack-&gt;<ref refid="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" kindref="member">esp</ref>-1]+stack-&gt;<ref refid="structSTCK_1a6e402e15150676c7edbc8f7f6aa05684" kindref="member">val</ref>[stack-&gt;<ref refid="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" kindref="member">esp</ref>];</highlight></codeline>
-<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>stack-&gt;<ref refid="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" kindref="member">esp</ref>--;</highlight></codeline>
-<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>1;</highlight></codeline>
-<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
-<codeline lineno="30"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="37"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="mat_8c_1aebac5b1209e7c0f16e7d4cb03a9722ea" kindref="member">sub</ref>(<ref refid="structSTCK" kindref="compound">STCK</ref>*<sp/>stack,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>token){</highlight></codeline>
-<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(strcmp(token,</highlight><highlight class="stringliteral">&quot;-&quot;</highlight><highlight class="normal">)==0){</highlight></codeline>
-<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>stack-&gt;<ref refid="structSTCK_1a6e402e15150676c7edbc8f7f6aa05684" kindref="member">val</ref>[stack-&gt;<ref refid="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" kindref="member">esp</ref>-1]=stack-&gt;<ref refid="structSTCK_1a6e402e15150676c7edbc8f7f6aa05684" kindref="member">val</ref>[stack-&gt;<ref refid="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" kindref="member">esp</ref>-1]-stack-&gt;<ref refid="structSTCK_1a6e402e15150676c7edbc8f7f6aa05684" kindref="member">val</ref>[stack-&gt;<ref refid="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" kindref="member">esp</ref>];</highlight></codeline>
-<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>stack-&gt;<ref refid="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" kindref="member">esp</ref>--;</highlight></codeline>
-<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>1;</highlight></codeline>
-<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
-<codeline lineno="44"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="51"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="mat_8c_1ac3440da6134dbed0b4055f528bba2338" kindref="member">divisao</ref>(<ref refid="structSTCK" kindref="compound">STCK</ref>*<sp/>stack,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>token){</highlight></codeline>
-<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(strcmp(token,</highlight><highlight class="stringliteral">&quot;/&quot;</highlight><highlight class="normal">)==0){</highlight></codeline>
-<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>stack-&gt;<ref refid="structSTCK_1a6e402e15150676c7edbc8f7f6aa05684" kindref="member">val</ref>[stack-&gt;<ref refid="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" kindref="member">esp</ref>-1]=stack-&gt;<ref refid="structSTCK_1a6e402e15150676c7edbc8f7f6aa05684" kindref="member">val</ref>[stack-&gt;<ref refid="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" kindref="member">esp</ref>-1]/stack-&gt;<ref refid="structSTCK_1a6e402e15150676c7edbc8f7f6aa05684" kindref="member">val</ref>[stack-&gt;<ref refid="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" kindref="member">esp</ref>];</highlight></codeline>
-<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>stack-&gt;<ref refid="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" kindref="member">esp</ref>--;</highlight></codeline>
-<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>1;</highlight></codeline>
-<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
-<codeline lineno="58"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="65"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="mat_8c_1a4566559094a7ee1abead04b130a5dce3" kindref="member">mul</ref>(<ref refid="structSTCK" kindref="compound">STCK</ref>*<sp/>stack,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>token){</highlight></codeline>
-<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(strcmp(token,</highlight><highlight class="stringliteral">&quot;*&quot;</highlight><highlight class="normal">)==0){</highlight></codeline>
-<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>stack-&gt;<ref refid="structSTCK_1a6e402e15150676c7edbc8f7f6aa05684" kindref="member">val</ref>[stack-&gt;<ref refid="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" kindref="member">esp</ref>-1]=stack-&gt;<ref refid="structSTCK_1a6e402e15150676c7edbc8f7f6aa05684" kindref="member">val</ref>[stack-&gt;<ref refid="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" kindref="member">esp</ref>-1]*stack-&gt;<ref refid="structSTCK_1a6e402e15150676c7edbc8f7f6aa05684" kindref="member">val</ref>[stack-&gt;<ref refid="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" kindref="member">esp</ref>];</highlight></codeline>
-<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>stack-&gt;<ref refid="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" kindref="member">esp</ref>--;</highlight></codeline>
-<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>1;</highlight></codeline>
-<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
-<codeline lineno="72"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="79"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="mat_8c_1af886e313002ac8c230ca64e60f1db668" kindref="member">incr</ref>(<ref refid="structSTCK" kindref="compound">STCK</ref>*<sp/>stack,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>token){</highlight></codeline>
-<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(strcmp(token,</highlight><highlight class="stringliteral">&quot;)&quot;</highlight><highlight class="normal">)==0){</highlight></codeline>
-<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>stack-&gt;<ref refid="structSTCK_1a6e402e15150676c7edbc8f7f6aa05684" kindref="member">val</ref>[stack-&gt;<ref refid="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" kindref="member">esp</ref>]++;</highlight></codeline>
-<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>1;</highlight></codeline>
-<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
-<codeline lineno="85"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="92"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="mat_8c_1ad8c16d88523592d92cde7f83ec54c5d6" kindref="member">decr</ref>(<ref refid="structSTCK" kindref="compound">STCK</ref>*<sp/>stack,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>token){</highlight></codeline>
-<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(strcmp(token,</highlight><highlight class="stringliteral">&quot;(&quot;</highlight><highlight class="normal">)==0){</highlight></codeline>
-<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>stack-&gt;<ref refid="structSTCK_1a6e402e15150676c7edbc8f7f6aa05684" kindref="member">val</ref>[stack-&gt;<ref refid="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" kindref="member">esp</ref>]--;</highlight></codeline>
-<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>1;</highlight></codeline>
-<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
-<codeline lineno="98"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="105"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="mat_8c_1a10872927e5bc4d19b7b5b0fa217592a0" kindref="member">module</ref>(<ref refid="structSTCK" kindref="compound">STCK</ref>*<sp/>stack,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>token){</highlight></codeline>
-<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(strcmp(token,</highlight><highlight class="stringliteral">&quot;%&quot;</highlight><highlight class="normal">)==0){</highlight></codeline>
-<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>stack-&gt;<ref refid="structSTCK_1a6e402e15150676c7edbc8f7f6aa05684" kindref="member">val</ref>[stack-&gt;<ref refid="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" kindref="member">esp</ref>-1]=stack-&gt;<ref refid="structSTCK_1a6e402e15150676c7edbc8f7f6aa05684" kindref="member">val</ref>[stack-&gt;<ref refid="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" kindref="member">esp</ref>-1]%stack-&gt;<ref refid="structSTCK_1a6e402e15150676c7edbc8f7f6aa05684" kindref="member">val</ref>[stack-&gt;<ref refid="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" kindref="member">esp</ref>];</highlight></codeline>
-<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>stack-&gt;<ref refid="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" kindref="member">esp</ref>--;</highlight></codeline>
-<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>1;</highlight></codeline>
-<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
-<codeline lineno="112"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="119"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="mat_8c_1a3a2a12ec5b0397929d42dea052e6cd1c" kindref="member">and</ref>(<ref refid="structSTCK" kindref="compound">STCK</ref>*<sp/>stack,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>token){</highlight></codeline>
-<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(strcmp(token,</highlight><highlight class="stringliteral">&quot;&amp;&quot;</highlight><highlight class="normal">)==0){</highlight></codeline>
-<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>stack-&gt;<ref refid="structSTCK_1a6e402e15150676c7edbc8f7f6aa05684" kindref="member">val</ref>[stack-&gt;<ref refid="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" kindref="member">esp</ref>-1]=stack-&gt;<ref refid="structSTCK_1a6e402e15150676c7edbc8f7f6aa05684" kindref="member">val</ref>[stack-&gt;<ref refid="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" kindref="member">esp</ref>-1]&amp;stack-&gt;<ref refid="structSTCK_1a6e402e15150676c7edbc8f7f6aa05684" kindref="member">val</ref>[stack-&gt;<ref refid="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" kindref="member">esp</ref>];</highlight></codeline>
-<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>stack-&gt;<ref refid="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" kindref="member">esp</ref>--;</highlight></codeline>
-<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>1;</highlight></codeline>
-<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
-<codeline lineno="126"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="133"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="mat_8c_1a9759eeeac4495ee96d8f24e7611bfeec" kindref="member">or</ref>(<ref refid="structSTCK" kindref="compound">STCK</ref>*<sp/>stack,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>token){</highlight></codeline>
-<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(strcmp(token,</highlight><highlight class="stringliteral">&quot;|&quot;</highlight><highlight class="normal">)==0){</highlight></codeline>
-<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>stack-&gt;<ref refid="structSTCK_1a6e402e15150676c7edbc8f7f6aa05684" kindref="member">val</ref>[stack-&gt;<ref refid="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" kindref="member">esp</ref>-1]=stack-&gt;<ref refid="structSTCK_1a6e402e15150676c7edbc8f7f6aa05684" kindref="member">val</ref>[stack-&gt;<ref refid="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" kindref="member">esp</ref>-1]|stack-&gt;<ref refid="structSTCK_1a6e402e15150676c7edbc8f7f6aa05684" kindref="member">val</ref>[stack-&gt;<ref refid="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" kindref="member">esp</ref>];</highlight></codeline>
-<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>stack-&gt;<ref refid="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" kindref="member">esp</ref>--;</highlight></codeline>
-<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>1;</highlight></codeline>
-<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
-<codeline lineno="140"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="147"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="mat_8c_1a25f499f2994be33325cbd0c0fb4e43fd" kindref="member">xor</ref>(<ref refid="structSTCK" kindref="compound">STCK</ref>*<sp/>stack,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>token){</highlight></codeline>
-<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(strcmp(token,</highlight><highlight class="stringliteral">&quot;^&quot;</highlight><highlight class="normal">)==0){</highlight></codeline>
-<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>stack-&gt;<ref refid="structSTCK_1a6e402e15150676c7edbc8f7f6aa05684" kindref="member">val</ref>[stack-&gt;<ref refid="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" kindref="member">esp</ref>-1]=stack-&gt;<ref refid="structSTCK_1a6e402e15150676c7edbc8f7f6aa05684" kindref="member">val</ref>[stack-&gt;<ref refid="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" kindref="member">esp</ref>-1]^stack-&gt;<ref refid="structSTCK_1a6e402e15150676c7edbc8f7f6aa05684" kindref="member">val</ref>[stack-&gt;<ref refid="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" kindref="member">esp</ref>];</highlight></codeline>
-<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>stack-&gt;<ref refid="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" kindref="member">esp</ref>--;</highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>OPERATION_SGN(_name,_sinal)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="4"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>double<sp/>double_##_name(DADOS<sp/>b,DADOS<sp/>a){<sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="5"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if(hastype(a,DOUBLE)){<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="6"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if(hastype(b,DOUBLE)){<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="7"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>a.DOUBLE<sp/>_sinal<sp/>b.DOUBLE;\</highlight></codeline>
+<codeline lineno="8"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="9"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>else{<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="10"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>a.DOUBLE<sp/>_sinal<sp/>b.LNG;<sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="11"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="12"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="13"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>else{<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="14"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>a.LNG<sp/>_sinal<sp/>b.DOUBLE;<sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="15"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="16"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>}<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="17"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>long<sp/>int<sp/>long_##_name(DADOS<sp/>b,DADOS<sp/>a){<sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="18"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>a.LNG<sp/>_sinal<sp/>b.LNG;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="19"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>}<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="20"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><ref refid="mat_8c_1a701404759312a78f01ae0801093ba508" kindref="member">OPERATION_SGN</ref>(ADD,+)</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><ref refid="mat_8c_1a701404759312a78f01ae0801093ba508" kindref="member">OPERATION_SGN</ref>(SUB,-)</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><ref refid="mat_8c_1a701404759312a78f01ae0801093ba508" kindref="member">OPERATION_SGN</ref>(MUL,*)</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><ref refid="mat_8c_1a701404759312a78f01ae0801093ba508" kindref="member">OPERATION_SGN</ref>(DIV,/)</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="mat_8c_1ab9097fc1c2819dc4e8e259cbc24988b9" kindref="member">potencia</ref>(<ref refid="structSTCK" kindref="compound">STCK</ref>*<sp/>stack,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>token){</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(strcmp(token,</highlight><highlight class="stringliteral">&quot;#&quot;</highlight><highlight class="normal">)==0){</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<ref refid="stack_8c_1ac9f012eb4dc51ca67047fa45e47fe2d5" kindref="member">hastype</ref>(stack-&gt;val[stack-&gt;esp],<ref refid="stack_8h_1a0bc6723d5d4776ab7cdc646728b775f7a33465d1d419b1074fb259ef444609e92" kindref="member">DOUBLE</ref>)){</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<ref refid="stack_8c_1ac9f012eb4dc51ca67047fa45e47fe2d5" kindref="member">hastype</ref>(stack-&gt;val[stack-&gt;esp-1],<ref refid="stack_8h_1a0bc6723d5d4776ab7cdc646728b775f7a33465d1d419b1074fb259ef444609e92" kindref="member">DOUBLE</ref>)){</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>stack-&gt;val[stack-&gt;esp-1].DOUBLE<sp/>=<sp/>pow(stack-&gt;val[stack-&gt;esp-1].DOUBLE,stack-&gt;val[stack-&gt;esp].DOUBLE);</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>stack-&gt;val[stack-&gt;esp-1].type<sp/>=<sp/><ref refid="stack_8h_1a0bc6723d5d4776ab7cdc646728b775f7a33465d1d419b1074fb259ef444609e92" kindref="member">DOUBLE</ref>;</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>stack-&gt;esp--;</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>stack-&gt;val[stack-&gt;esp-1].DOUBLE<sp/>=<sp/>pow(stack-&gt;val[stack-&gt;esp-1].LNG,stack-&gt;val[stack-&gt;esp].DOUBLE);</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>stack-&gt;val[stack-&gt;esp-1].type<sp/>=<sp/><ref refid="stack_8h_1a0bc6723d5d4776ab7cdc646728b775f7a33465d1d419b1074fb259ef444609e92" kindref="member">DOUBLE</ref>;</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>stack-&gt;esp--;</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<ref refid="stack_8c_1ac9f012eb4dc51ca67047fa45e47fe2d5" kindref="member">hastype</ref>(stack-&gt;val[stack-&gt;esp-1],<ref refid="stack_8h_1a0bc6723d5d4776ab7cdc646728b775f7a33465d1d419b1074fb259ef444609e92" kindref="member">DOUBLE</ref>)){</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>stack-&gt;val[stack-&gt;esp-1].DOUBLE<sp/>=<sp/>pow(stack-&gt;val[stack-&gt;esp-1].LNG,stack-&gt;val[stack-&gt;esp].DOUBLE);</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>stack-&gt;val[stack-&gt;esp-1].type<sp/>=<sp/><ref refid="stack_8h_1a0bc6723d5d4776ab7cdc646728b775f7a33465d1d419b1074fb259ef444609e92" kindref="member">DOUBLE</ref>;</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>stack-&gt;esp--;</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>stack-&gt;val[stack-&gt;esp-1].LNG<sp/>=<sp/>pow(stack-&gt;val[stack-&gt;esp-1].LNG,stack-&gt;val[stack-&gt;esp].LNG);</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>stack-&gt;val[stack-&gt;esp-1].type<sp/>=<sp/><ref refid="stack_8h_1a0bc6723d5d4776ab7cdc646728b775f7a03789e2426cb0fa2831e1db323804f08" kindref="member">LNG</ref>;</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>stack-&gt;esp--;</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//stack-&gt;val[stack-&gt;esp-1]=pow(stack-&gt;val[stack-&gt;esp-1],stack-&gt;val[stack-&gt;esp]);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>1;</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
+<codeline lineno="65"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="mat_8c_1af5e3dd39a55bf6264b51cf6d9e596aa3" kindref="member">add</ref>(<ref refid="structSTCK" kindref="compound">STCK</ref>*<sp/>stack,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>token){</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(strcmp(token,</highlight><highlight class="stringliteral">&quot;+&quot;</highlight><highlight class="normal">)==0){</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<ref refid="stack_8c_1ac9f012eb4dc51ca67047fa45e47fe2d5" kindref="member">hastype</ref>(stack-&gt;<ref refid="structSTCK_1a17103f2db12ee943761c3da86afa0257" kindref="member">val</ref>[stack-&gt;<ref refid="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" kindref="member">esp</ref>],<ref refid="stack_8h_1a0bc6723d5d4776ab7cdc646728b775f7a33465d1d419b1074fb259ef444609e92" kindref="member">DOUBLE</ref>)||<ref refid="stack_8c_1ac9f012eb4dc51ca67047fa45e47fe2d5" kindref="member">hastype</ref>(stack-&gt;<ref refid="structSTCK_1a17103f2db12ee943761c3da86afa0257" kindref="member">val</ref>[stack-&gt;<ref refid="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" kindref="member">esp</ref>-1],<ref refid="stack_8h_1a0bc6723d5d4776ab7cdc646728b775f7a33465d1d419b1074fb259ef444609e92" kindref="member">DOUBLE</ref>)){</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>tmp<sp/>=<sp/><ref refid="mat_8c_1a77bc1ace73e81f8216c8ae00aa8be593" kindref="member">double_ADD</ref>(stack-&gt;<ref refid="structSTCK_1a17103f2db12ee943761c3da86afa0257" kindref="member">val</ref>[stack-&gt;<ref refid="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" kindref="member">esp</ref>],stack-&gt;<ref refid="structSTCK_1a17103f2db12ee943761c3da86afa0257" kindref="member">val</ref>[stack-&gt;<ref refid="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" kindref="member">esp</ref>-1]);</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>stack-&gt;<ref refid="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" kindref="member">esp</ref>-=2;</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="stack_8c_1ac31322a8f3e64a94f3d9e9dbe6053502" kindref="member">push_DOUBLE</ref>(stack,tmp);</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>tmp<sp/>=<sp/><ref refid="mat_8c_1a4d37d74f058a5abc49ac5bed738eef88" kindref="member">long_ADD</ref>(stack-&gt;<ref refid="structSTCK_1a17103f2db12ee943761c3da86afa0257" kindref="member">val</ref>[stack-&gt;<ref refid="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" kindref="member">esp</ref>],stack-&gt;<ref refid="structSTCK_1a17103f2db12ee943761c3da86afa0257" kindref="member">val</ref>[stack-&gt;<ref refid="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" kindref="member">esp</ref>-1]);</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>stack-&gt;<ref refid="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" kindref="member">esp</ref>-=2;</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="stack_8c_1aee09561e0f65dd8f32359f3ce910ae5d" kindref="member">push_LNG</ref>(stack,tmp);</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>1;</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
+<codeline lineno="88"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="mat_8c_1aebac5b1209e7c0f16e7d4cb03a9722ea" kindref="member">sub</ref>(<ref refid="structSTCK" kindref="compound">STCK</ref>*<sp/>stack,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>token){</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(strcmp(token,</highlight><highlight class="stringliteral">&quot;-&quot;</highlight><highlight class="normal">)==0){</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<ref refid="stack_8c_1ac9f012eb4dc51ca67047fa45e47fe2d5" kindref="member">hastype</ref>(stack-&gt;<ref refid="structSTCK_1a17103f2db12ee943761c3da86afa0257" kindref="member">val</ref>[stack-&gt;<ref refid="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" kindref="member">esp</ref>],<ref refid="stack_8h_1a0bc6723d5d4776ab7cdc646728b775f7a33465d1d419b1074fb259ef444609e92" kindref="member">DOUBLE</ref>)||<ref refid="stack_8c_1ac9f012eb4dc51ca67047fa45e47fe2d5" kindref="member">hastype</ref>(stack-&gt;<ref refid="structSTCK_1a17103f2db12ee943761c3da86afa0257" kindref="member">val</ref>[stack-&gt;<ref refid="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" kindref="member">esp</ref>-1],<ref refid="stack_8h_1a0bc6723d5d4776ab7cdc646728b775f7a33465d1d419b1074fb259ef444609e92" kindref="member">DOUBLE</ref>)){</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>tmp<sp/>=<sp/><ref refid="mat_8c_1acab2490213ff96d50b3a523f01b173c0" kindref="member">double_SUB</ref>(stack-&gt;<ref refid="structSTCK_1a17103f2db12ee943761c3da86afa0257" kindref="member">val</ref>[stack-&gt;<ref refid="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" kindref="member">esp</ref>],stack-&gt;<ref refid="structSTCK_1a17103f2db12ee943761c3da86afa0257" kindref="member">val</ref>[stack-&gt;<ref refid="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" kindref="member">esp</ref>-1]);</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>stack-&gt;<ref refid="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" kindref="member">esp</ref>-=2;</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="stack_8c_1ac31322a8f3e64a94f3d9e9dbe6053502" kindref="member">push_DOUBLE</ref>(stack,tmp);</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>tmp<sp/>=<sp/><ref refid="mat_8c_1ab6cd0dab5baac6ab5df3bfb1b956ffcc" kindref="member">long_SUB</ref>(stack-&gt;<ref refid="structSTCK_1a17103f2db12ee943761c3da86afa0257" kindref="member">val</ref>[stack-&gt;<ref refid="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" kindref="member">esp</ref>],stack-&gt;<ref refid="structSTCK_1a17103f2db12ee943761c3da86afa0257" kindref="member">val</ref>[stack-&gt;<ref refid="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" kindref="member">esp</ref>-1]);</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>stack-&gt;<ref refid="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" kindref="member">esp</ref>-=2;</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="stack_8c_1aee09561e0f65dd8f32359f3ce910ae5d" kindref="member">push_LNG</ref>(stack,tmp);</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>1;</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
+<codeline lineno="110"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="mat_8c_1ac3440da6134dbed0b4055f528bba2338" kindref="member">divisao</ref>(<ref refid="structSTCK" kindref="compound">STCK</ref>*<sp/>stack,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>token){</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(strcmp(token,</highlight><highlight class="stringliteral">&quot;/&quot;</highlight><highlight class="normal">)==0){</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<ref refid="stack_8c_1ac9f012eb4dc51ca67047fa45e47fe2d5" kindref="member">hastype</ref>(stack-&gt;<ref refid="structSTCK_1a17103f2db12ee943761c3da86afa0257" kindref="member">val</ref>[stack-&gt;<ref refid="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" kindref="member">esp</ref>],<ref refid="stack_8h_1a0bc6723d5d4776ab7cdc646728b775f7a33465d1d419b1074fb259ef444609e92" kindref="member">DOUBLE</ref>)||<ref refid="stack_8c_1ac9f012eb4dc51ca67047fa45e47fe2d5" kindref="member">hastype</ref>(stack-&gt;<ref refid="structSTCK_1a17103f2db12ee943761c3da86afa0257" kindref="member">val</ref>[stack-&gt;<ref refid="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" kindref="member">esp</ref>-1],<ref refid="stack_8h_1a0bc6723d5d4776ab7cdc646728b775f7a33465d1d419b1074fb259ef444609e92" kindref="member">DOUBLE</ref>)){</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>tmp<sp/>=<sp/><ref refid="mat_8c_1a6bc70857908c44ae8157b214a3d30121" kindref="member">double_DIV</ref>(stack-&gt;<ref refid="structSTCK_1a17103f2db12ee943761c3da86afa0257" kindref="member">val</ref>[stack-&gt;<ref refid="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" kindref="member">esp</ref>],stack-&gt;<ref refid="structSTCK_1a17103f2db12ee943761c3da86afa0257" kindref="member">val</ref>[stack-&gt;<ref refid="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" kindref="member">esp</ref>-1]);</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>stack-&gt;<ref refid="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" kindref="member">esp</ref>-=2;</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="stack_8c_1ac31322a8f3e64a94f3d9e9dbe6053502" kindref="member">push_DOUBLE</ref>(stack,tmp);</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>tmp<sp/>=<sp/><ref refid="mat_8c_1a928e5d3a807e1eb0314c0d34326e1f76" kindref="member">long_DIV</ref>(stack-&gt;<ref refid="structSTCK_1a17103f2db12ee943761c3da86afa0257" kindref="member">val</ref>[stack-&gt;<ref refid="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" kindref="member">esp</ref>],stack-&gt;<ref refid="structSTCK_1a17103f2db12ee943761c3da86afa0257" kindref="member">val</ref>[stack-&gt;<ref refid="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" kindref="member">esp</ref>-1]);</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>stack-&gt;<ref refid="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" kindref="member">esp</ref>-=2;</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="stack_8c_1aee09561e0f65dd8f32359f3ce910ae5d" kindref="member">push_LNG</ref>(stack,tmp);</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>1;</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
+<codeline lineno="132"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="mat_8c_1a4566559094a7ee1abead04b130a5dce3" kindref="member">mul</ref>(<ref refid="structSTCK" kindref="compound">STCK</ref>*<sp/>stack,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>token){</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(strcmp(token,</highlight><highlight class="stringliteral">&quot;*&quot;</highlight><highlight class="normal">)==0){</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<ref refid="stack_8c_1ac9f012eb4dc51ca67047fa45e47fe2d5" kindref="member">hastype</ref>(stack-&gt;<ref refid="structSTCK_1a17103f2db12ee943761c3da86afa0257" kindref="member">val</ref>[stack-&gt;<ref refid="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" kindref="member">esp</ref>],<ref refid="stack_8h_1a0bc6723d5d4776ab7cdc646728b775f7a33465d1d419b1074fb259ef444609e92" kindref="member">DOUBLE</ref>)||<ref refid="stack_8c_1ac9f012eb4dc51ca67047fa45e47fe2d5" kindref="member">hastype</ref>(stack-&gt;<ref refid="structSTCK_1a17103f2db12ee943761c3da86afa0257" kindref="member">val</ref>[stack-&gt;<ref refid="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" kindref="member">esp</ref>-1],<ref refid="stack_8h_1a0bc6723d5d4776ab7cdc646728b775f7a33465d1d419b1074fb259ef444609e92" kindref="member">DOUBLE</ref>)){</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>tmp<sp/>=<sp/><ref refid="mat_8c_1a7576cd142d98654bd4bacf5d7826719e" kindref="member">double_MUL</ref>(stack-&gt;<ref refid="structSTCK_1a17103f2db12ee943761c3da86afa0257" kindref="member">val</ref>[stack-&gt;<ref refid="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" kindref="member">esp</ref>],stack-&gt;<ref refid="structSTCK_1a17103f2db12ee943761c3da86afa0257" kindref="member">val</ref>[stack-&gt;<ref refid="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" kindref="member">esp</ref>-1]);</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>stack-&gt;<ref refid="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" kindref="member">esp</ref>-=2;</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="stack_8c_1ac31322a8f3e64a94f3d9e9dbe6053502" kindref="member">push_DOUBLE</ref>(stack,tmp);</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>tmp<sp/>=<sp/><ref refid="mat_8c_1a5b8fb17bb9a402b258b3b77edd4eb9da" kindref="member">long_MUL</ref>(stack-&gt;<ref refid="structSTCK_1a17103f2db12ee943761c3da86afa0257" kindref="member">val</ref>[stack-&gt;<ref refid="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" kindref="member">esp</ref>],stack-&gt;<ref refid="structSTCK_1a17103f2db12ee943761c3da86afa0257" kindref="member">val</ref>[stack-&gt;<ref refid="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" kindref="member">esp</ref>-1]);</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>stack-&gt;<ref refid="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" kindref="member">esp</ref>-=2;</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="stack_8c_1aee09561e0f65dd8f32359f3ce910ae5d" kindref="member">push_LNG</ref>(stack,tmp);</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>1;</highlight></codeline>
 <codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
 <codeline lineno="154"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="161"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="mat_8c_1a633f6b4e9f63180a615d44695ec78ed7" kindref="member">not</ref>(<ref refid="structSTCK" kindref="compound">STCK</ref>*<sp/>stack,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>token){</highlight></codeline>
-<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(strcmp(token,</highlight><highlight class="stringliteral">&quot;~&quot;</highlight><highlight class="normal">)==0){</highlight></codeline>
-<codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>stack-&gt;<ref refid="structSTCK_1a6e402e15150676c7edbc8f7f6aa05684" kindref="member">val</ref>[stack-&gt;<ref refid="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" kindref="member">esp</ref>]=<sp/>~stack-&gt;<ref refid="structSTCK_1a6e402e15150676c7edbc8f7f6aa05684" kindref="member">val</ref>[stack-&gt;<ref refid="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" kindref="member">esp</ref>];</highlight></codeline>
-<codeline lineno="164"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>1;</highlight></codeline>
-<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="166"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
-<codeline lineno="167"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="mat_8c_1af886e313002ac8c230ca64e60f1db668" kindref="member">incr</ref>(<ref refid="structSTCK" kindref="compound">STCK</ref>*<sp/>stack,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>token){</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(strcmp(token,</highlight><highlight class="stringliteral">&quot;)&quot;</highlight><highlight class="normal">)==0){</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<ref refid="stack_8c_1ac9f012eb4dc51ca67047fa45e47fe2d5" kindref="member">hastype</ref>(stack-&gt;<ref refid="structSTCK_1a17103f2db12ee943761c3da86afa0257" kindref="member">val</ref>[stack-&gt;<ref refid="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" kindref="member">esp</ref>],<ref refid="stack_8h_1a0bc6723d5d4776ab7cdc646728b775f7a33465d1d419b1074fb259ef444609e92" kindref="member">DOUBLE</ref>)){</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>stack-&gt;<ref refid="structSTCK_1a17103f2db12ee943761c3da86afa0257" kindref="member">val</ref>[stack-&gt;<ref refid="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" kindref="member">esp</ref>].<ref refid="structDADOS_1ab3c8b5db467f41229e732cbf95eedd93" kindref="member">DOUBLE</ref>++;</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<ref refid="stack_8c_1ac9f012eb4dc51ca67047fa45e47fe2d5" kindref="member">hastype</ref>(stack-&gt;<ref refid="structSTCK_1a17103f2db12ee943761c3da86afa0257" kindref="member">val</ref>[stack-&gt;<ref refid="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" kindref="member">esp</ref>],<ref refid="stack_8h_1a0bc6723d5d4776ab7cdc646728b775f7a03789e2426cb0fa2831e1db323804f08" kindref="member">LNG</ref>)){</highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>stack-&gt;<ref refid="structSTCK_1a17103f2db12ee943761c3da86afa0257" kindref="member">val</ref>[stack-&gt;<ref refid="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" kindref="member">esp</ref>].<ref refid="structDADOS_1a7ed43f8ac7af42bd57146ce46860fd20" kindref="member">LNG</ref>++;</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>stack-&gt;<ref refid="structSTCK_1a17103f2db12ee943761c3da86afa0257" kindref="member">val</ref>[stack-&gt;<ref refid="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" kindref="member">esp</ref>].<ref refid="structDADOS_1a6fd3fd46a4f510ab6de67d740faaa3e6" kindref="member">CHR</ref>++;</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>1;</highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
+<codeline lineno="176"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="177"><highlight class="normal"></highlight></codeline>
+<codeline lineno="185"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="mat_8c_1ad8c16d88523592d92cde7f83ec54c5d6" kindref="member">decr</ref>(<ref refid="structSTCK" kindref="compound">STCK</ref>*<sp/>stack,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>token){</highlight></codeline>
+<codeline lineno="186"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(strcmp(token,</highlight><highlight class="stringliteral">&quot;(&quot;</highlight><highlight class="normal">)==0){</highlight></codeline>
+<codeline lineno="187"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<ref refid="stack_8c_1ac9f012eb4dc51ca67047fa45e47fe2d5" kindref="member">hastype</ref>(stack-&gt;<ref refid="structSTCK_1a17103f2db12ee943761c3da86afa0257" kindref="member">val</ref>[stack-&gt;<ref refid="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" kindref="member">esp</ref>],<ref refid="stack_8h_1a0bc6723d5d4776ab7cdc646728b775f7a33465d1d419b1074fb259ef444609e92" kindref="member">DOUBLE</ref>)){</highlight></codeline>
+<codeline lineno="188"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>stack-&gt;<ref refid="structSTCK_1a17103f2db12ee943761c3da86afa0257" kindref="member">val</ref>[stack-&gt;<ref refid="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" kindref="member">esp</ref>].<ref refid="structDADOS_1ab3c8b5db467f41229e732cbf95eedd93" kindref="member">DOUBLE</ref>--;</highlight></codeline>
+<codeline lineno="189"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="190"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<ref refid="stack_8c_1ac9f012eb4dc51ca67047fa45e47fe2d5" kindref="member">hastype</ref>(stack-&gt;<ref refid="structSTCK_1a17103f2db12ee943761c3da86afa0257" kindref="member">val</ref>[stack-&gt;<ref refid="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" kindref="member">esp</ref>],<ref refid="stack_8h_1a0bc6723d5d4776ab7cdc646728b775f7a03789e2426cb0fa2831e1db323804f08" kindref="member">LNG</ref>)){</highlight></codeline>
+<codeline lineno="191"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>stack-&gt;<ref refid="structSTCK_1a17103f2db12ee943761c3da86afa0257" kindref="member">val</ref>[stack-&gt;<ref refid="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" kindref="member">esp</ref>].<ref refid="structDADOS_1a7ed43f8ac7af42bd57146ce46860fd20" kindref="member">LNG</ref>--;</highlight></codeline>
+<codeline lineno="192"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="193"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="194"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>stack-&gt;<ref refid="structSTCK_1a17103f2db12ee943761c3da86afa0257" kindref="member">val</ref>[stack-&gt;<ref refid="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" kindref="member">esp</ref>].<ref refid="structDADOS_1a6fd3fd46a4f510ab6de67d740faaa3e6" kindref="member">CHR</ref>--;</highlight></codeline>
+<codeline lineno="195"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="196"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>1;</highlight></codeline>
+<codeline lineno="197"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="198"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
+<codeline lineno="199"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="200"><highlight class="normal"></highlight></codeline>
+<codeline lineno="207"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="mat_8c_1a10872927e5bc4d19b7b5b0fa217592a0" kindref="member">module</ref>(<ref refid="structSTCK" kindref="compound">STCK</ref>*<sp/>stack,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>token){</highlight></codeline>
+<codeline lineno="208"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(strcmp(token,</highlight><highlight class="stringliteral">&quot;%&quot;</highlight><highlight class="normal">)==0){</highlight></codeline>
+<codeline lineno="209"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<ref refid="stack_8c_1ac9f012eb4dc51ca67047fa45e47fe2d5" kindref="member">hastype</ref>(stack-&gt;<ref refid="structSTCK_1a17103f2db12ee943761c3da86afa0257" kindref="member">val</ref>[stack-&gt;<ref refid="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" kindref="member">esp</ref>],<ref refid="stack_8h_1a0bc6723d5d4776ab7cdc646728b775f7a03789e2426cb0fa2831e1db323804f08" kindref="member">LNG</ref>)){</highlight></codeline>
+<codeline lineno="210"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>tmp<sp/>=<sp/>stack-&gt;<ref refid="structSTCK_1a17103f2db12ee943761c3da86afa0257" kindref="member">val</ref>[stack-&gt;<ref refid="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" kindref="member">esp</ref>-1].<ref refid="structDADOS_1a7ed43f8ac7af42bd57146ce46860fd20" kindref="member">LNG</ref>%stack-&gt;<ref refid="structSTCK_1a17103f2db12ee943761c3da86afa0257" kindref="member">val</ref>[stack-&gt;<ref refid="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" kindref="member">esp</ref>].<ref refid="structDADOS_1a7ed43f8ac7af42bd57146ce46860fd20" kindref="member">LNG</ref>;</highlight></codeline>
+<codeline lineno="211"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>stack-&gt;<ref refid="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" kindref="member">esp</ref>-=2;</highlight></codeline>
+<codeline lineno="212"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="stack_8c_1aee09561e0f65dd8f32359f3ce910ae5d" kindref="member">push_LNG</ref>(stack,tmp);</highlight></codeline>
+<codeline lineno="213"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="214"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>1;</highlight></codeline>
+<codeline lineno="215"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="216"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
+<codeline lineno="217"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="224"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="mat_8c_1a3a2a12ec5b0397929d42dea052e6cd1c" kindref="member">and</ref>(<ref refid="structSTCK" kindref="compound">STCK</ref>*<sp/>stack,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>token){</highlight></codeline>
+<codeline lineno="225"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(strcmp(token,</highlight><highlight class="stringliteral">&quot;&amp;&quot;</highlight><highlight class="normal">)==0){</highlight></codeline>
+<codeline lineno="226"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<ref refid="stack_8c_1ac9f012eb4dc51ca67047fa45e47fe2d5" kindref="member">hastype</ref>(stack-&gt;<ref refid="structSTCK_1a17103f2db12ee943761c3da86afa0257" kindref="member">val</ref>[stack-&gt;<ref refid="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" kindref="member">esp</ref>],<ref refid="stack_8h_1a0bc6723d5d4776ab7cdc646728b775f7a03789e2426cb0fa2831e1db323804f08" kindref="member">LNG</ref>)){</highlight></codeline>
+<codeline lineno="227"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>tmp<sp/>=<sp/>stack-&gt;<ref refid="structSTCK_1a17103f2db12ee943761c3da86afa0257" kindref="member">val</ref>[stack-&gt;<ref refid="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" kindref="member">esp</ref>].<ref refid="structDADOS_1a7ed43f8ac7af42bd57146ce46860fd20" kindref="member">LNG</ref>&amp;stack-&gt;<ref refid="structSTCK_1a17103f2db12ee943761c3da86afa0257" kindref="member">val</ref>[stack-&gt;<ref refid="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" kindref="member">esp</ref>-1].<ref refid="structDADOS_1a7ed43f8ac7af42bd57146ce46860fd20" kindref="member">LNG</ref>;</highlight></codeline>
+<codeline lineno="228"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>stack-&gt;<ref refid="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" kindref="member">esp</ref>-=2;</highlight></codeline>
+<codeline lineno="229"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="stack_8c_1aee09561e0f65dd8f32359f3ce910ae5d" kindref="member">push_LNG</ref>(stack,tmp);</highlight></codeline>
+<codeline lineno="230"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="231"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>1;</highlight></codeline>
+<codeline lineno="232"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="233"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
+<codeline lineno="234"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="241"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="mat_8c_1a9759eeeac4495ee96d8f24e7611bfeec" kindref="member">or</ref>(<ref refid="structSTCK" kindref="compound">STCK</ref>*<sp/>stack,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>token){</highlight></codeline>
+<codeline lineno="242"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(strcmp(token,</highlight><highlight class="stringliteral">&quot;|&quot;</highlight><highlight class="normal">)==0){</highlight></codeline>
+<codeline lineno="243"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<ref refid="stack_8c_1ac9f012eb4dc51ca67047fa45e47fe2d5" kindref="member">hastype</ref>(stack-&gt;<ref refid="structSTCK_1a17103f2db12ee943761c3da86afa0257" kindref="member">val</ref>[stack-&gt;<ref refid="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" kindref="member">esp</ref>],<ref refid="stack_8h_1a0bc6723d5d4776ab7cdc646728b775f7a03789e2426cb0fa2831e1db323804f08" kindref="member">LNG</ref>)){</highlight></codeline>
+<codeline lineno="244"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>tmp<sp/>=<sp/>stack-&gt;<ref refid="structSTCK_1a17103f2db12ee943761c3da86afa0257" kindref="member">val</ref>[stack-&gt;<ref refid="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" kindref="member">esp</ref>].<ref refid="structDADOS_1a7ed43f8ac7af42bd57146ce46860fd20" kindref="member">LNG</ref>|stack-&gt;<ref refid="structSTCK_1a17103f2db12ee943761c3da86afa0257" kindref="member">val</ref>[stack-&gt;<ref refid="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" kindref="member">esp</ref>-1].<ref refid="structDADOS_1a7ed43f8ac7af42bd57146ce46860fd20" kindref="member">LNG</ref>;</highlight></codeline>
+<codeline lineno="245"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>stack-&gt;<ref refid="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" kindref="member">esp</ref>-=2;</highlight></codeline>
+<codeline lineno="246"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="stack_8c_1aee09561e0f65dd8f32359f3ce910ae5d" kindref="member">push_LNG</ref>(stack,tmp);</highlight></codeline>
+<codeline lineno="247"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="248"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>1;</highlight></codeline>
+<codeline lineno="249"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="250"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
+<codeline lineno="251"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="258"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="mat_8c_1a25f499f2994be33325cbd0c0fb4e43fd" kindref="member">xor</ref>(<ref refid="structSTCK" kindref="compound">STCK</ref>*<sp/>stack,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>token){</highlight></codeline>
+<codeline lineno="259"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(strcmp(token,</highlight><highlight class="stringliteral">&quot;^&quot;</highlight><highlight class="normal">)==0){</highlight></codeline>
+<codeline lineno="260"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<ref refid="stack_8c_1ac9f012eb4dc51ca67047fa45e47fe2d5" kindref="member">hastype</ref>(stack-&gt;<ref refid="structSTCK_1a17103f2db12ee943761c3da86afa0257" kindref="member">val</ref>[stack-&gt;<ref refid="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" kindref="member">esp</ref>],<ref refid="stack_8h_1a0bc6723d5d4776ab7cdc646728b775f7a03789e2426cb0fa2831e1db323804f08" kindref="member">LNG</ref>)){</highlight></codeline>
+<codeline lineno="261"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>tmp<sp/>=<sp/>stack-&gt;<ref refid="structSTCK_1a17103f2db12ee943761c3da86afa0257" kindref="member">val</ref>[stack-&gt;<ref refid="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" kindref="member">esp</ref>].<ref refid="structDADOS_1a7ed43f8ac7af42bd57146ce46860fd20" kindref="member">LNG</ref>^stack-&gt;<ref refid="structSTCK_1a17103f2db12ee943761c3da86afa0257" kindref="member">val</ref>[stack-&gt;<ref refid="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" kindref="member">esp</ref>-1].<ref refid="structDADOS_1a7ed43f8ac7af42bd57146ce46860fd20" kindref="member">LNG</ref>;</highlight></codeline>
+<codeline lineno="262"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>stack-&gt;<ref refid="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" kindref="member">esp</ref>-=2;</highlight></codeline>
+<codeline lineno="263"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="stack_8c_1aee09561e0f65dd8f32359f3ce910ae5d" kindref="member">push_LNG</ref>(stack,tmp);</highlight></codeline>
+<codeline lineno="264"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="265"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>1;</highlight></codeline>
+<codeline lineno="266"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="267"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
+<codeline lineno="268"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="277"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="mat_8c_1a633f6b4e9f63180a615d44695ec78ed7" kindref="member">not</ref>(<ref refid="structSTCK" kindref="compound">STCK</ref>*<sp/>stack,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>token){</highlight></codeline>
+<codeline lineno="278"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(strcmp(token,</highlight><highlight class="stringliteral">&quot;~&quot;</highlight><highlight class="normal">)==0){</highlight></codeline>
+<codeline lineno="279"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<ref refid="stack_8c_1ac9f012eb4dc51ca67047fa45e47fe2d5" kindref="member">hastype</ref>(stack-&gt;<ref refid="structSTCK_1a17103f2db12ee943761c3da86afa0257" kindref="member">val</ref>[stack-&gt;<ref refid="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" kindref="member">esp</ref>],<ref refid="stack_8h_1a0bc6723d5d4776ab7cdc646728b775f7a03789e2426cb0fa2831e1db323804f08" kindref="member">LNG</ref>)){</highlight></codeline>
+<codeline lineno="280"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>stack-&gt;<ref refid="structSTCK_1a17103f2db12ee943761c3da86afa0257" kindref="member">val</ref>[stack-&gt;<ref refid="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" kindref="member">esp</ref>].<ref refid="structDADOS_1a7ed43f8ac7af42bd57146ce46860fd20" kindref="member">LNG</ref><sp/>=<sp/>~(stack-&gt;<ref refid="structSTCK_1a17103f2db12ee943761c3da86afa0257" kindref="member">val</ref>[stack-&gt;<ref refid="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" kindref="member">esp</ref>].<ref refid="structDADOS_1a7ed43f8ac7af42bd57146ce46860fd20" kindref="member">LNG</ref>);</highlight></codeline>
+<codeline lineno="281"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="282"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>1;</highlight></codeline>
+<codeline lineno="283"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="284"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
+<codeline lineno="285"><highlight class="normal">}</highlight></codeline>
     </programlisting>
     <location file="mat.c"/>
   </compounddef>

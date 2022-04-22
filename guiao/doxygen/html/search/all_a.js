@@ -1,7 +1,6 @@
 var searchData=
 [
-  ['stack_2ec_18',['stack.c',['../stack_8c.html',1,'']]],
-  ['stack_2eh_19',['stack.h',['../stack_8h.html',1,'']]],
-  ['stck_20',['STCK',['../structSTCK.html',1,'STCK'],['../stack_8h.html#af9c94bf76d813977b391547f01ee1e27',1,'STCK():&#160;stack.h']]],
-  ['sub_21',['sub',['../mat_8c.html#aebac5b1209e7c0f16e7d4cb03a9722ea',1,'sub(STCK *stack, char *token):&#160;mat.c'],['../mat_8h.html#aebac5b1209e7c0f16e7d4cb03a9722ea',1,'sub(STCK *stack, char *token):&#160;mat.c']]]
+  ['op_5fstack_34',['OP_STACK',['../stack_8c.html#a10c09d1da8dbe896ecfdf21d89d0b102',1,'stack.c']]],
+  ['operation_5fsgn_35',['OPERATION_SGN',['../mat_8c.html#a701404759312a78f01ae0801093ba508',1,'mat.c']]],
+  ['or_36',['or',['../mat_8c.html#a9759eeeac4495ee96d8f24e7611bfeec',1,'or(STCK *stack, char *token):&#160;mat.c'],['../mat_8h.html#a9759eeeac4495ee96d8f24e7611bfeec',1,'or(STCK *stack, char *token):&#160;mat.c']]]
 ];

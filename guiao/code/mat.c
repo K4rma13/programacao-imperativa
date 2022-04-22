@@ -18,10 +18,10 @@
 		return a.LNG _sinal b.LNG;				\
 	}											\
 
-OPERATION_SGN(ADD,+);
-OPERATION_SGN(SUB,-);
-OPERATION_SGN(MUL,*);
-OPERATION_SGN(DIV,/);
+OPERATION_SGN(ADD,+)
+OPERATION_SGN(SUB,-)
+OPERATION_SGN(MUL,*)
+OPERATION_SGN(DIV,/)
 
 /**
  * \brief Esta funcao exponencia o segundo valor no topo da stack pelo primeiro
@@ -35,26 +35,26 @@ int potencia(STCK* stack, char* token){
 	if(strcmp(token,"#")==0){
 		if(hastype(stack->val[stack->esp],DOUBLE)){
 			if(hastype(stack->val[stack->esp-1],DOUBLE)){
-				double tmp = pow(stack->val[stack->esp-1].DOUBLE,stack->val[stack->esp].DOUBLE);
-				stack->esp-=2;
-				push_DOUBLE(stack, tmp);
+				stack->val[stack->esp-1].DOUBLE = pow(stack->val[stack->esp-1].DOUBLE,stack->val[stack->esp].DOUBLE);
+				stack->val[stack->esp-1].type = DOUBLE;
+				stack->esp--;
 			}
 			else{
-				double tmp = pow(stack->val[stack->esp-1].LNG,stack->val[stack->esp].DOUBLE);
-				stack->esp-=2;
-				push_DOUBLE(stack, tmp);
+				stack->val[stack->esp-1].DOUBLE = pow(stack->val[stack->esp-1].LNG,stack->val[stack->esp].DOUBLE);
+				stack->val[stack->esp-1].type = DOUBLE;
+				stack->esp--;
 			}
 		}
 		else{
 			if(hastype(stack->val[stack->esp-1],DOUBLE)){
-				double tmp = pow(stack->val[stack->esp-1].LNG,stack->val[stack->esp].DOUBLE);
-				stack->esp-=2;
-				push_DOUBLE(stack, tmp);
+				stack->val[stack->esp-1].DOUBLE = pow(stack->val[stack->esp-1].LNG,stack->val[stack->esp].DOUBLE);
+				stack->val[stack->esp-1].type = DOUBLE;
+				stack->esp--;
 			}
 			else{
-				long int tmp = pow(stack->val[stack->esp-1].LNG,stack->val[stack->esp].LNG);
-				stack->esp-=2;
-				push_LNG(stack, tmp);
+				stack->val[stack->esp-1].LNG = pow(stack->val[stack->esp-1].LNG,stack->val[stack->esp].LNG);
+				stack->val[stack->esp-1].type = LNG;
+				stack->esp--;
 			}
 		}
 
@@ -164,9 +164,12 @@ int incr(STCK* stack, char* token){
 		if(hastype(stack->val[stack->esp],DOUBLE)){
 			stack->val[stack->esp].DOUBLE++;
 		}
-		else{
+		else if(hastype(stack->val[stack->esp],LNG)){
 			stack->val[stack->esp].LNG++;
 		}
+		else{
+			stack->val[stack->esp].CHR++;
+		}		
 		return 1;
 	}
 	return 0;
@@ -184,8 +187,11 @@ int decr(STCK* stack, char* token){
 		if(hastype(stack->val[stack->esp],DOUBLE)){
 			stack->val[stack->esp].DOUBLE--;
 		}
-		else{
+		else if(hastype(stack->val[stack->esp],LNG)){
 			stack->val[stack->esp].LNG--;
+		}
+		else{
+			stack->val[stack->esp].CHR--;
 		}
 		return 1;
 	}
@@ -201,7 +207,7 @@ int decr(STCK* stack, char* token){
 int module(STCK* stack, char* token){
 	if(strcmp(token,"%")==0){
 		if(hastype(stack->val[stack->esp],LNG)){
-			long int tmp = stack->val[stack->esp].LNG%stack->val[stack->esp-1].LNG;
+			long int tmp = stack->val[stack->esp-1].LNG%stack->val[stack->esp].LNG;
 			stack->esp-=2;
 			push_LNG(stack,tmp);
 		}

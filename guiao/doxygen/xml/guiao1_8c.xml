@@ -13,6 +13,9 @@
         <label>stdbool.h</label>
       </node>
       <node id="7">
+        <label>assert.h</label>
+      </node>
+      <node id="8">
         <label>mat.h</label>
         <link refid="mat_8h"/>
         <childnode refid="2" relation="include">
@@ -21,7 +24,7 @@
         </childnode>
         <childnode refid="4" relation="include">
         </childnode>
-        <childnode refid="8" relation="include">
+        <childnode refid="9" relation="include">
         </childnode>
         <childnode refid="6" relation="include">
         </childnode>
@@ -42,7 +45,7 @@
         </childnode>
         <childnode refid="6" relation="include">
         </childnode>
-        <childnode refid="7" relation="include">
+        <childnode refid="8" relation="include">
         </childnode>
       </node>
       <node id="6">
@@ -50,11 +53,19 @@
         <link refid="stack_8h"/>
         <childnode refid="2" relation="include">
         </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
       </node>
       <node id="4">
         <label>string.h</label>
       </node>
-      <node id="8">
+      <node id="9">
         <label>math.h</label>
       </node>
       <node id="2">
@@ -62,48 +73,6 @@
       </node>
     </incdepgraph>
       <sectiondef kind="func">
-      <memberdef kind="function" id="guiao1_8c_1ab99d560990b64f0b33f9d1ff11fae4ea" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>int</type>
-        <definition>int valor</definition>
-        <argsstring>(STCK *stack, char *token)</argsstring>
-        <name>valor</name>
-        <param>
-          <type><ref refid="structSTCK" kindref="compound">STCK</ref> *</type>
-          <declname>stack</declname>
-        </param>
-        <param>
-          <type>char *</type>
-          <declname>token</declname>
-        </param>
-        <briefdescription>
-<para>Esta funcao adiciona valores no topo da stack. </para>
-        </briefdescription>
-        <detaileddescription>
-<para><simplesect kind="return"><para>Retorna 1 </para>
-</simplesect>
-<parameterlist kind="param"><parameteritem>
-<parameternamelist>
-<parametername>stack</parametername>
-</parameternamelist>
-<parameterdescription>
-<para>A stack </para>
-</parameterdescription>
-</parameteritem>
-<parameteritem>
-<parameternamelist>
-<parametername>token</parametername>
-</parameternamelist>
-<parameterdescription>
-<para>Valor a ser interpretado </para>
-</parameterdescription>
-</parameteritem>
-</parameterlist>
-</para>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="guiao1.c" line="20" column="5" bodyfile="guiao1.c" bodystart="20" bodyend="24"/>
-      </memberdef>
       <memberdef kind="function" id="guiao1_8c_1af72dedd4418899680c0a27d9f7e61ba0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void handler</definition>
@@ -142,7 +111,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="guiao1.c" line="31" column="6" bodyfile="guiao1.c" bodystart="31" bodyend="37"/>
+        <location file="guiao1.c" line="18" column="6" bodyfile="guiao1.c" bodystart="18" bodyend="25"/>
       </memberdef>
       <memberdef kind="function" id="guiao1_8c_1ae66f6b31b5ad750f1fe042a706a4e3d4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -156,7 +125,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="guiao1.c" line="44" column="5" bodyfile="guiao1.c" bodystart="44" bodyend="64"/>
+        <location file="guiao1.c" line="32" column="5" bodyfile="guiao1.c" bodystart="32" bodyend="50"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -172,42 +141,34 @@
 <codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="stack_8h" kindref="compound">stack.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="mat_8h" kindref="compound">mat.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="12"><highlight class="normal"></highlight></codeline>
-<codeline lineno="13"><highlight class="normal"></highlight></codeline>
-<codeline lineno="20"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="guiao1_8c_1ab99d560990b64f0b33f9d1ff11fae4ea" kindref="member">valor</ref>(<ref refid="structSTCK" kindref="compound">STCK</ref>*<sp/>stack,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>token){</highlight></codeline>
-<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/>stack-&gt;<ref refid="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" kindref="member">esp</ref>++;</highlight></codeline>
-<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/>stack-&gt;<ref refid="structSTCK_1a6e402e15150676c7edbc8f7f6aa05684" kindref="member">val</ref>[stack-&gt;<ref refid="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" kindref="member">esp</ref>]=atoi(token);<sp/></highlight></codeline>
-<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>1;</highlight></codeline>
-<codeline lineno="24"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="25"><highlight class="normal"></highlight></codeline>
-<codeline lineno="31"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="guiao1_8c_1af72dedd4418899680c0a27d9f7e61ba0" kindref="member">handler</ref>(<ref refid="structSTCK" kindref="compound">STCK</ref>*<sp/>stack,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>token){</highlight></codeline>
-<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(!(<ref refid="mat_8c_1ab9097fc1c2819dc4e8e259cbc24988b9" kindref="member">potencia</ref>(stack,token)<sp/>||<sp/><ref refid="mat_8c_1af5e3dd39a55bf6264b51cf6d9e596aa3" kindref="member">add</ref>(stack,token)<sp/>||<sp/><ref refid="mat_8c_1aebac5b1209e7c0f16e7d4cb03a9722ea" kindref="member">sub</ref>(stack,token)<sp/>||<sp/><ref refid="mat_8c_1a4566559094a7ee1abead04b130a5dce3" kindref="member">mul</ref>(stack,token)<sp/>||<sp/></highlight></codeline>
-<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="mat_8c_1af886e313002ac8c230ca64e60f1db668" kindref="member">incr</ref>(stack,token)<sp/>||<sp/><ref refid="mat_8c_1ad8c16d88523592d92cde7f83ec54c5d6" kindref="member">decr</ref>(stack,token)<sp/>||<sp/><ref refid="mat_8c_1ac3440da6134dbed0b4055f528bba2338" kindref="member">divisao</ref>(stack,token)<sp/>||<sp/><ref refid="mat_8c_1a10872927e5bc4d19b7b5b0fa217592a0" kindref="member">module</ref>(stack,token)||</highlight></codeline>
-<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="mat_8c_1a3a2a12ec5b0397929d42dea052e6cd1c" kindref="member">and</ref>(stack,token)<sp/>||<sp/><ref refid="mat_8c_1a9759eeeac4495ee96d8f24e7611bfeec" kindref="member">or</ref>(stack,token)<sp/>||<sp/><ref refid="mat_8c_1a25f499f2994be33325cbd0c0fb4e43fd" kindref="member">xor</ref>(stack,token)<sp/>||<sp/><ref refid="mat_8c_1a633f6b4e9f63180a615d44695ec78ed7" kindref="member">not</ref>(stack,token)<sp/>||<sp/><ref refid="guiao1_8c_1ab99d560990b64f0b33f9d1ff11fae4ea" kindref="member">valor</ref>(stack,token))){</highlight></codeline>
-<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;Erro\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="37"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="38"><highlight class="normal"></highlight></codeline>
-<codeline lineno="44"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="guiao1_8c_1ae66f6b31b5ad750f1fe042a706a4e3d4" kindref="member">main</ref>(){</highlight></codeline>
-<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structSTCK" kindref="compound">STCK</ref><sp/>stack;</highlight></codeline>
-<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/>stack.<ref refid="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" kindref="member">esp</ref>=-1;</highlight></codeline>
-<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>n=0;</highlight></codeline>
-<codeline lineno="48"><highlight class="normal"></highlight></codeline>
-<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>buffer[10000],<sp/>aux[10],*b;</highlight></codeline>
-<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(fgets(buffer,<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(buffer),<sp/>stdin)!=<sp/>NULL){</highlight></codeline>
-<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>buffer[strlen(buffer)-1]=</highlight><highlight class="charliteral">&apos;\0&apos;</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>b=buffer;</highlight></codeline>
-<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal">(*b!=</highlight><highlight class="charliteral">&apos;\0&apos;</highlight><highlight class="normal">){</highlight></codeline>
-<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>sscanf(b,</highlight><highlight class="stringliteral">&quot;%s<sp/>%n&quot;</highlight><highlight class="normal">,aux,&amp;n);</highlight></codeline>
-<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>b+=n;</highlight></codeline>
-<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="guiao1_8c_1af72dedd4418899680c0a27d9f7e61ba0" kindref="member">handler</ref>(&amp;stack,aux);</highlight></codeline>
-<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i=0;i&lt;=stack.<ref refid="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" kindref="member">esp</ref>;i++){</highlight></codeline>
-<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;%d&quot;</highlight><highlight class="normal">,stack.<ref refid="structSTCK_1a6e402e15150676c7edbc8f7f6aa05684" kindref="member">val</ref>[i]);</highlight></codeline>
-<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
-<codeline lineno="64"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="guiao1_8c_1af72dedd4418899680c0a27d9f7e61ba0" kindref="member">handler</ref>(<ref refid="structSTCK" kindref="compound">STCK</ref>*<sp/>stack,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>token){</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(!(<ref refid="mat_8c_1af5e3dd39a55bf6264b51cf6d9e596aa3" kindref="member">add</ref>(stack,token)<sp/>||<sp/><ref refid="mat_8c_1aebac5b1209e7c0f16e7d4cb03a9722ea" kindref="member">sub</ref>(stack,token)<sp/>||<sp/><ref refid="mat_8c_1a4566559094a7ee1abead04b130a5dce3" kindref="member">mul</ref>(stack,token)|<sp/><ref refid="mat_8c_1ac3440da6134dbed0b4055f528bba2338" kindref="member">divisao</ref>(stack,token)<sp/>||<sp/><ref refid="stack_8c_1a625a986b17beb38129097bf9ac403feb" kindref="member">toLNG</ref>(stack,token)<sp/>||<sp/><ref refid="stack_8c_1a596ca2d5b13b268c1714e5979ed65b42" kindref="member">toDouble</ref>(stack,token)<sp/>||</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><ref refid="mat_8c_1a3a2a12ec5b0397929d42dea052e6cd1c" kindref="member">and</ref>(stack,token)<sp/>||<sp/><ref refid="mat_8c_1a9759eeeac4495ee96d8f24e7611bfeec" kindref="member">or</ref>(stack,token)<sp/>||<sp/><ref refid="mat_8c_1a25f499f2994be33325cbd0c0fb4e43fd" kindref="member">xor</ref>(stack,token)<sp/>||<sp/><ref refid="mat_8c_1a10872927e5bc4d19b7b5b0fa217592a0" kindref="member">module</ref>(stack,token)<sp/>||<sp/><ref refid="mat_8c_1af886e313002ac8c230ca64e60f1db668" kindref="member">incr</ref>(stack,token)<sp/>||<sp/><ref refid="mat_8c_1ad8c16d88523592d92cde7f83ec54c5d6" kindref="member">decr</ref>(stack,token)<sp/>||<sp/><ref refid="mat_8c_1a633f6b4e9f63180a615d44695ec78ed7" kindref="member">not</ref>(stack,token)<sp/>||</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="mat_8c_1ab9097fc1c2819dc4e8e259cbc24988b9" kindref="member">potencia</ref>(stack,token)<sp/>||<sp/><ref refid="stack_8c_1a91c2fe69e03b8331244324bfcac8c7b5" kindref="member">lestring</ref>(stack,token)<sp/>||<sp/><ref refid="stack_8c_1a9ec0a1d2de19f5140e265199df8cf606" kindref="member">longToCHR</ref>(stack,token)<sp/>||<sp/><ref refid="stack_8c_1af005ea1c2e5e98f020cbb8165af6d9d0" kindref="member">removeTop</ref>(stack,token)<sp/>||<sp/><ref refid="stack_8c_1ab0eed3e0da6b16dfb8650f1cd824c627" kindref="member">duplicar</ref>(stack,token)<sp/>||<sp/><ref refid="stack_8c_1a4c79ff9c81bbdc5761d03270bb82029a" kindref="member">trocar</ref>(stack,token)||</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="stack_8c_1a854928d7006572f68e68d51141b58fe0" kindref="member">rodar</ref>(stack,token)<sp/>||<sp/><ref refid="stack_8c_1a0c4d2dda9d8387985cef75414ee7a1bd" kindref="member">cpyStack</ref>(stack,token)<sp/>||<sp/><ref refid="stack_8c_1a330799f36d0f454ed9d5b29bf756c3df" kindref="member">valor_Double</ref>(stack,token)<sp/>||<sp/><ref refid="stack_8c_1ab99d560990b64f0b33f9d1ff11fae4ea" kindref="member">valor</ref>(stack,token))){</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;Erro\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="25"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="guiao1_8c_1ae66f6b31b5ad750f1fe042a706a4e3d4" kindref="member">main</ref>(){</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structSTCK" kindref="compound">STCK</ref><sp/>stack;</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/>stack.<ref refid="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" kindref="member">esp</ref>=-1;</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>n=0;</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>buffer[10000],<sp/>aux[10],*b;</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(fgets(buffer,<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(buffer),<sp/>stdin)!=<sp/>NULL){</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>buffer[strlen(buffer)-1]=</highlight><highlight class="charliteral">&apos;\0&apos;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>b=buffer;</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal">(*b!=</highlight><highlight class="charliteral">&apos;\0&apos;</highlight><highlight class="normal">){</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>sscanf(b,</highlight><highlight class="stringliteral">&quot;%s<sp/>%n&quot;</highlight><highlight class="normal">,aux,&amp;n);</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>b+=n;</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="guiao1_8c_1af72dedd4418899680c0a27d9f7e61ba0" kindref="member">handler</ref>(&amp;stack,aux);</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="stack_8c_1a3a8371bcd9e71fad357defd8e77f8434" kindref="member">printstack</ref>(stack);</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
+<codeline lineno="50"><highlight class="normal">}</highlight></codeline>
     </programlisting>
     <location file="guiao1.c"/>
   </compounddef>
