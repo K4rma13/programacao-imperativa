@@ -7,6 +7,8 @@
 #include <math.h>
 #include "stack.h"
 
+double addition(DADOS a,DADOS b);
+
 int potencia(STCK* stack, char* token);
 
 int add(STCK* stack, char* token);

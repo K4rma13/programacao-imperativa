@@ -10,16 +10,16 @@
 #include "stack.h"
 #include "mat.h"
 
-
 /**
  * \brief Esta funcao decide qual é a funcao que deve ser executada dependendo do valor que foi lido do input
  * @param stack A stack
  * @param token Valor a ser interpretado
  */
 void handler(STCK* stack, char* token){
-	if(!(potencia(stack,token) || add(stack,token) || sub(stack,token) || mul(stack,token) || 
-		incr(stack,token) || decr(stack,token) || divisao(stack,token) || module(stack,token)||
-		and(stack,token) || or(stack,token) || xor(stack,token) || not(stack,token) || toint(stack,token)|| valor(stack,token))){
+	if(!(add(stack,token) || sub(stack,token) || mul(stack,token)| divisao(stack,token) || stringToLNG(stack,token) || stringToDouble(stack,token) ||
+	 and(stack,token) || or(stack,token) || xor(stack,token) || module(stack,token) || incr(stack,token) || decr(stack,token) || not(stack,token) ||
+	  potencia(stack,token) || lestring(stack,token) || longToCHR(stack,token) || removeTop(stack,token) || duplicar(stack,token) || trocar(stack,token)||
+	  rodar(stack,token) || cpyStack(stack,token) || valor_Double(stack,token) || valor(stack,token))){
 		printf("Erro\n");
 	}
 }
@@ -44,6 +44,7 @@ int main(){
 			handler(&stack,aux);
 		}
 		printstack(stack);
+		printf("\n");
 	}
 	return 0;
 }
