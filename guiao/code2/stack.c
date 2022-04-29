@@ -61,7 +61,6 @@ bool hastype(DADOS dado, TYPE tipo){
 	return dado.type == tipo;
 }
 
-
 /**			
  * \brief Imprime para o stdout a stack fornecida
  * @param stack A stack

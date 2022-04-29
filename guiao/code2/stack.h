@@ -16,8 +16,8 @@ typedef enum{CHR = 0, LNG = 1, STR=2, DOUBLE=3}TYPE;
 typedef struct DADOS{
 	TYPE type;
 	char CHR;
-	long int LNG;
 	char* STR;
+	long int LNG;
 	double DOUBLE;
 }DADOS;
 
