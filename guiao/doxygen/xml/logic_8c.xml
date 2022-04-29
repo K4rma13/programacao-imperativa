@@ -1,0 +1,591 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="logic_8c" kind="file" language="C++">
+    <compoundname>logic.c</compoundname>
+    <includes refid="logic_8h" local="yes">logic.h</includes>
+    <incdepgraph>
+      <node id="6">
+        <label>stdbool.h</label>
+      </node>
+      <node id="8">
+        <label>assert.h</label>
+      </node>
+      <node id="5">
+        <label>stdlib.h</label>
+      </node>
+      <node id="4">
+        <label>stack.h</label>
+        <link refid="stack_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>string.h</label>
+      </node>
+      <node id="1">
+        <label>logic.c</label>
+        <link refid="logic_8c"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>stdio.h</label>
+      </node>
+      <node id="2">
+        <label>logic.h</label>
+        <link refid="logic_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="logic_8c_1a701404759312a78f01ae0801093ba508" prot="public" static="no">
+        <name>OPERATION_SGN</name>
+        <param><defname>_name</defname></param>
+        <param><defname>_sinal</defname></param>
+        <initializer>	bool OP_##_name(<ref refid="structDADOS" kindref="compound">DADOS</ref> b,<ref refid="structDADOS" kindref="compound">DADOS</ref> a){		\
+		if(<ref refid="stack_8h_1ac9f012eb4dc51ca67047fa45e47fe2d5" kindref="member">hastype</ref>(a,<ref refid="stack_8h_1a0bc6723d5d4776ab7cdc646728b775f7a33465d1d419b1074fb259ef444609e92" kindref="member">DOUBLE</ref>)){					\
+			if(<ref refid="stack_8h_1ac9f012eb4dc51ca67047fa45e47fe2d5" kindref="member">hastype</ref>(b,<ref refid="stack_8h_1a0bc6723d5d4776ab7cdc646728b775f7a33465d1d419b1074fb259ef444609e92" kindref="member">DOUBLE</ref>)){				\
+				return <ref refid="stack_8h_1a0bc6723d5d4776ab7cdc646728b775f7a33465d1d419b1074fb259ef444609e92" kindref="member">a.DOUBLE</ref> _sinal <ref refid="stack_8h_1a0bc6723d5d4776ab7cdc646728b775f7a33465d1d419b1074fb259ef444609e92" kindref="member">b.DOUBLE</ref>;\
+			}									\
+			else{								\
+				return <ref refid="stack_8h_1a0bc6723d5d4776ab7cdc646728b775f7a33465d1d419b1074fb259ef444609e92" kindref="member">a.DOUBLE</ref> _sinal <ref refid="stack_8h_1a0bc6723d5d4776ab7cdc646728b775f7a03789e2426cb0fa2831e1db323804f08" kindref="member">b.LNG</ref>;	\
+			}									\
+		}										\
+		else if(<ref refid="stack_8h_1ac9f012eb4dc51ca67047fa45e47fe2d5" kindref="member">hastype</ref>(b,<ref refid="stack_8h_1a0bc6723d5d4776ab7cdc646728b775f7a33465d1d419b1074fb259ef444609e92" kindref="member">DOUBLE</ref>)){				\
+			return <ref refid="stack_8h_1a0bc6723d5d4776ab7cdc646728b775f7a03789e2426cb0fa2831e1db323804f08" kindref="member">a.LNG</ref> _sinal <ref refid="stack_8h_1a0bc6723d5d4776ab7cdc646728b775f7a33465d1d419b1074fb259ef444609e92" kindref="member">b.DOUBLE</ref>;		\
+		}										\
+		else{									\
+			return <ref refid="stack_8h_1a0bc6723d5d4776ab7cdc646728b775f7a03789e2426cb0fa2831e1db323804f08" kindref="member">a.LNG</ref> _sinal <ref refid="stack_8h_1a0bc6723d5d4776ab7cdc646728b775f7a03789e2426cb0fa2831e1db323804f08" kindref="member">b.LNG</ref>;			\
+		}										\
+	}											\</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="logic.c" line="3" column="9" bodyfile="logic.c" bodystart="3" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="logic_8c_1acb0eb1b374e8db86014fd756dc14baaa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool OP_EQUAL</definition>
+        <argsstring>(DADOS b, DADOS a)</argsstring>
+        <name>OP_EQUAL</name>
+        <param>
+          <type><ref refid="structDADOS" kindref="compound">DADOS</ref></type>
+          <declname>b</declname>
+        </param>
+        <param>
+          <type><ref refid="structDADOS" kindref="compound">DADOS</ref></type>
+          <declname>a</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="logic.c" line="21" column="6" bodyfile="logic.c" bodystart="21" bodyend="21"/>
+      </memberdef>
+      <memberdef kind="function" id="logic_8c_1a12bff09a38738dcf96796d803002067b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool OP_SMALL</definition>
+        <argsstring>(DADOS b, DADOS a)</argsstring>
+        <name>OP_SMALL</name>
+        <param>
+          <type><ref refid="structDADOS" kindref="compound">DADOS</ref></type>
+          <declname>b</declname>
+        </param>
+        <param>
+          <type><ref refid="structDADOS" kindref="compound">DADOS</ref></type>
+          <declname>a</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="logic.c" line="22" column="6" bodyfile="logic.c" bodystart="22" bodyend="22"/>
+      </memberdef>
+      <memberdef kind="function" id="logic_8c_1aee1c7f9e83ee61068a86b0af11b2ca87" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool OP_BIG</definition>
+        <argsstring>(DADOS b, DADOS a)</argsstring>
+        <name>OP_BIG</name>
+        <param>
+          <type><ref refid="structDADOS" kindref="compound">DADOS</ref></type>
+          <declname>b</declname>
+        </param>
+        <param>
+          <type><ref refid="structDADOS" kindref="compound">DADOS</ref></type>
+          <declname>a</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="logic.c" line="23" column="6" bodyfile="logic.c" bodystart="23" bodyend="23"/>
+      </memberdef>
+      <memberdef kind="function" id="logic_8c_1aaf123b796e8119cdec09928b71be5d7a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool OP_FALSE</definition>
+        <argsstring>(DADOS a)</argsstring>
+        <name>OP_FALSE</name>
+        <param>
+          <type><ref refid="structDADOS" kindref="compound">DADOS</ref></type>
+          <declname>a</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="logic.c" line="24" column="6" bodyfile="logic.c" bodystart="24" bodyend="31"/>
+      </memberdef>
+      <memberdef kind="function" id="logic_8c_1a9a40fd7850f3b71b8044f209051f2f9c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool OP_TRUE</definition>
+        <argsstring>(DADOS b, DADOS a)</argsstring>
+        <name>OP_TRUE</name>
+        <param>
+          <type><ref refid="structDADOS" kindref="compound">DADOS</ref></type>
+          <declname>b</declname>
+        </param>
+        <param>
+          <type><ref refid="structDADOS" kindref="compound">DADOS</ref></type>
+          <declname>a</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="logic.c" line="33" column="6" bodyfile="logic.c" bodystart="33" bodyend="48"/>
+      </memberdef>
+      <memberdef kind="function" id="logic_8c_1a949de0d6f891c2dc1eff8a2068dcf3e3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool OP_veryFALSE</definition>
+        <argsstring>(DADOS b, DADOS a)</argsstring>
+        <name>OP_veryFALSE</name>
+        <param>
+          <type><ref refid="structDADOS" kindref="compound">DADOS</ref></type>
+          <declname>b</declname>
+        </param>
+        <param>
+          <type><ref refid="structDADOS" kindref="compound">DADOS</ref></type>
+          <declname>a</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="logic.c" line="50" column="6" bodyfile="logic.c" bodystart="50" bodyend="65"/>
+      </memberdef>
+      <memberdef kind="function" id="logic_8c_1ad90808034d12bb9206675ca393c44c2c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int isFalse</definition>
+        <argsstring>(STCK *stack, char *token)</argsstring>
+        <name>isFalse</name>
+        <param>
+          <type><ref refid="structSTCK" kindref="compound">STCK</ref> *</type>
+          <declname>stack</declname>
+        </param>
+        <param>
+          <type>char *</type>
+          <declname>token</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="logic.c" line="69" column="5" bodyfile="logic.c" bodystart="69" bodyend="89"/>
+      </memberdef>
+      <memberdef kind="function" id="logic_8c_1a410b71aa57c657afc46e689c2088a859" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int isEqual</definition>
+        <argsstring>(STCK *stack, char *token)</argsstring>
+        <name>isEqual</name>
+        <param>
+          <type><ref refid="structSTCK" kindref="compound">STCK</ref> *</type>
+          <declname>stack</declname>
+        </param>
+        <param>
+          <type>char *</type>
+          <declname>token</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="logic.c" line="91" column="5" bodyfile="logic.c" bodystart="91" bodyend="100"/>
+      </memberdef>
+      <memberdef kind="function" id="logic_8c_1a738a6890d1461a8404eb031c24fd04d3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int isSmall</definition>
+        <argsstring>(STCK *stack, char *token)</argsstring>
+        <name>isSmall</name>
+        <param>
+          <type><ref refid="structSTCK" kindref="compound">STCK</ref> *</type>
+          <declname>stack</declname>
+        </param>
+        <param>
+          <type>char *</type>
+          <declname>token</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="logic.c" line="102" column="5" bodyfile="logic.c" bodystart="102" bodyend="111"/>
+      </memberdef>
+      <memberdef kind="function" id="logic_8c_1aabc31e7c235c86bd90177370ec66e7de" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int isBig</definition>
+        <argsstring>(STCK *stack, char *token)</argsstring>
+        <name>isBig</name>
+        <param>
+          <type><ref refid="structSTCK" kindref="compound">STCK</ref> *</type>
+          <declname>stack</declname>
+        </param>
+        <param>
+          <type>char *</type>
+          <declname>token</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="logic.c" line="114" column="5" bodyfile="logic.c" bodystart="114" bodyend="123"/>
+      </memberdef>
+      <memberdef kind="function" id="logic_8c_1a44b1abc60f9c35e93958b66fa4d70380" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int ifThenElse</definition>
+        <argsstring>(STCK *stack, char *token)</argsstring>
+        <name>ifThenElse</name>
+        <param>
+          <type><ref refid="structSTCK" kindref="compound">STCK</ref> *</type>
+          <declname>stack</declname>
+        </param>
+        <param>
+          <type>char *</type>
+          <declname>token</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="logic.c" line="125" column="5" bodyfile="logic.c" bodystart="125" bodyend="133"/>
+      </memberdef>
+      <memberdef kind="function" id="logic_8c_1a185849a7db34bc74c0404230e3a3b1a3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int logicalAnd</definition>
+        <argsstring>(STCK *stack, char *token)</argsstring>
+        <name>logicalAnd</name>
+        <param>
+          <type><ref refid="structSTCK" kindref="compound">STCK</ref> *</type>
+          <declname>stack</declname>
+        </param>
+        <param>
+          <type>char *</type>
+          <declname>token</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="logic.c" line="135" column="5" bodyfile="logic.c" bodystart="135" bodyend="150"/>
+      </memberdef>
+      <memberdef kind="function" id="logic_8c_1a8fac8afc7d646088b511fc0b93fd514e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int logicalOr</definition>
+        <argsstring>(STCK *stack, char *token)</argsstring>
+        <name>logicalOr</name>
+        <param>
+          <type><ref refid="structSTCK" kindref="compound">STCK</ref> *</type>
+          <declname>stack</declname>
+        </param>
+        <param>
+          <type>char *</type>
+          <declname>token</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="logic.c" line="152" column="5" bodyfile="logic.c" bodystart="152" bodyend="167"/>
+      </memberdef>
+      <memberdef kind="function" id="logic_8c_1af07e7691043d3b497bf5cd5e14b687cc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int logicalGreater</definition>
+        <argsstring>(STCK *stack, char *token)</argsstring>
+        <name>logicalGreater</name>
+        <param>
+          <type><ref refid="structSTCK" kindref="compound">STCK</ref> *</type>
+          <declname>stack</declname>
+        </param>
+        <param>
+          <type>char *</type>
+          <declname>token</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="logic.c" line="169" column="5" bodyfile="logic.c" bodystart="169" bodyend="178"/>
+      </memberdef>
+      <memberdef kind="function" id="logic_8c_1a6f28ee55cd5fc141581de8957675686a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int logicalLess</definition>
+        <argsstring>(STCK *stack, char *token)</argsstring>
+        <name>logicalLess</name>
+        <param>
+          <type><ref refid="structSTCK" kindref="compound">STCK</ref> *</type>
+          <declname>stack</declname>
+        </param>
+        <param>
+          <type>char *</type>
+          <declname>token</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="logic.c" line="180" column="5" bodyfile="logic.c" bodystart="180" bodyend="189"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;<ref refid="logic_8h" kindref="compound">logic.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>OPERATION_SGN(_name,_sinal)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="4"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>bool<sp/>OP_##_name(DADOS<sp/>b,DADOS<sp/>a){<sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="5"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if(hastype(a,DOUBLE)){<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="6"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if(hastype(b,DOUBLE)){<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="7"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>a.DOUBLE<sp/>_sinal<sp/>b.DOUBLE;\</highlight></codeline>
+<codeline lineno="8"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="9"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>else{<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="10"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>a.DOUBLE<sp/>_sinal<sp/>b.LNG;<sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="11"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="12"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="13"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>else<sp/>if(hastype(b,DOUBLE)){<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="14"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>a.LNG<sp/>_sinal<sp/>b.DOUBLE;<sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="15"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="16"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>else{<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="17"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>a.LNG<sp/>_sinal<sp/>b.LNG;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="18"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="19"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>}<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="20"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><ref refid="logic_8c_1a701404759312a78f01ae0801093ba508" kindref="member">OPERATION_SGN</ref>(EQUAL,==)</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><ref refid="logic_8c_1a701404759312a78f01ae0801093ba508" kindref="member">OPERATION_SGN</ref>(SMALL,&lt;)</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><ref refid="logic_8c_1a701404759312a78f01ae0801093ba508" kindref="member">OPERATION_SGN</ref>(BIG,&gt;)</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="logic_8c_1aaf123b796e8119cdec09928b71be5d7a" kindref="member">OP_FALSE</ref>(<ref refid="structDADOS" kindref="compound">DADOS</ref><sp/>a){<sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<ref refid="stack_8c_1ac9f012eb4dc51ca67047fa45e47fe2d5" kindref="member">hastype</ref>(a,<ref refid="stack_8h_1a0bc6723d5d4776ab7cdc646728b775f7a33465d1d419b1074fb259ef444609e92" kindref="member">DOUBLE</ref>)){<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>a.DOUBLE<sp/>==<sp/>0;<sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal">{<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>a.LNG<sp/>==<sp/>0;<sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="31"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="logic_8c_1a9a40fd7850f3b71b8044f209051f2f9c" kindref="member">OP_TRUE</ref>(<ref refid="structDADOS" kindref="compound">DADOS</ref><sp/>b,<ref refid="structDADOS" kindref="compound">DADOS</ref><sp/>a){<sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<ref refid="stack_8c_1ac9f012eb4dc51ca67047fa45e47fe2d5" kindref="member">hastype</ref>(a,<ref refid="stack_8h_1a0bc6723d5d4776ab7cdc646728b775f7a33465d1d419b1074fb259ef444609e92" kindref="member">DOUBLE</ref>)){<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<ref refid="stack_8c_1ac9f012eb4dc51ca67047fa45e47fe2d5" kindref="member">hastype</ref>(b,<ref refid="stack_8h_1a0bc6723d5d4776ab7cdc646728b775f7a33465d1d419b1074fb259ef444609e92" kindref="member">DOUBLE</ref>)){<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>a.<ref refid="structDADOS_1ab3c8b5db467f41229e732cbf95eedd93" kindref="member">DOUBLE</ref><sp/>!=0<sp/>&amp;&amp;<sp/>b.<ref refid="structDADOS_1ab3c8b5db467f41229e732cbf95eedd93" kindref="member">DOUBLE</ref><sp/>!=0;</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal">{<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>a.<ref refid="structDADOS_1ab3c8b5db467f41229e732cbf95eedd93" kindref="member">DOUBLE</ref><sp/>!=0<sp/>&amp;&amp;<sp/>b.<ref refid="structDADOS_1a7ed43f8ac7af42bd57146ce46860fd20" kindref="member">LNG</ref><sp/>!=<sp/>0;<sp/><sp/></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<ref refid="stack_8c_1ac9f012eb4dc51ca67047fa45e47fe2d5" kindref="member">hastype</ref>(b,<ref refid="stack_8h_1a0bc6723d5d4776ab7cdc646728b775f7a33465d1d419b1074fb259ef444609e92" kindref="member">DOUBLE</ref>)){<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>a.<ref refid="structDADOS_1a7ed43f8ac7af42bd57146ce46860fd20" kindref="member">LNG</ref><sp/>!=0<sp/>&amp;&amp;<sp/>b.<ref refid="structDADOS_1ab3c8b5db467f41229e732cbf95eedd93" kindref="member">DOUBLE</ref><sp/>!=<sp/>0;<sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal">{<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>a.<ref refid="structDADOS_1a7ed43f8ac7af42bd57146ce46860fd20" kindref="member">LNG</ref><sp/>!=0<sp/>&amp;&amp;<sp/>b.<ref refid="structDADOS_1a7ed43f8ac7af42bd57146ce46860fd20" kindref="member">LNG</ref><sp/>!=<sp/>0;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="48"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="logic_8c_1a949de0d6f891c2dc1eff8a2068dcf3e3" kindref="member">OP_veryFALSE</ref>(<ref refid="structDADOS" kindref="compound">DADOS</ref><sp/>b,<ref refid="structDADOS" kindref="compound">DADOS</ref><sp/>a){<sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<ref refid="stack_8c_1ac9f012eb4dc51ca67047fa45e47fe2d5" kindref="member">hastype</ref>(a,<ref refid="stack_8h_1a0bc6723d5d4776ab7cdc646728b775f7a33465d1d419b1074fb259ef444609e92" kindref="member">DOUBLE</ref>)){<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<ref refid="stack_8c_1ac9f012eb4dc51ca67047fa45e47fe2d5" kindref="member">hastype</ref>(b,<ref refid="stack_8h_1a0bc6723d5d4776ab7cdc646728b775f7a33465d1d419b1074fb259ef444609e92" kindref="member">DOUBLE</ref>)){<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>a.<ref refid="structDADOS_1ab3c8b5db467f41229e732cbf95eedd93" kindref="member">DOUBLE</ref><sp/>!=0<sp/>||<sp/>b.<ref refid="structDADOS_1ab3c8b5db467f41229e732cbf95eedd93" kindref="member">DOUBLE</ref><sp/>!=0;</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal">{<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>a.<ref refid="structDADOS_1ab3c8b5db467f41229e732cbf95eedd93" kindref="member">DOUBLE</ref><sp/>!=0<sp/>||<sp/>b.<ref refid="structDADOS_1a7ed43f8ac7af42bd57146ce46860fd20" kindref="member">LNG</ref><sp/>!=<sp/>0;<sp/><sp/></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<ref refid="stack_8c_1ac9f012eb4dc51ca67047fa45e47fe2d5" kindref="member">hastype</ref>(b,<ref refid="stack_8h_1a0bc6723d5d4776ab7cdc646728b775f7a33465d1d419b1074fb259ef444609e92" kindref="member">DOUBLE</ref>)){<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>a.<ref refid="structDADOS_1a7ed43f8ac7af42bd57146ce46860fd20" kindref="member">LNG</ref><sp/>!=0<sp/>||<sp/>b.<ref refid="structDADOS_1ab3c8b5db467f41229e732cbf95eedd93" kindref="member">DOUBLE</ref><sp/>!=<sp/>0;<sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal">{<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>a.<ref refid="structDADOS_1a7ed43f8ac7af42bd57146ce46860fd20" kindref="member">LNG</ref><sp/>!=0<sp/>||<sp/>b.<ref refid="structDADOS_1a7ed43f8ac7af42bd57146ce46860fd20" kindref="member">LNG</ref><sp/>!=<sp/>0;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="65"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="logic_8c_1ad90808034d12bb9206675ca393c44c2c" kindref="member">isFalse</ref>(<ref refid="structSTCK" kindref="compound">STCK</ref>*<sp/>stack,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>token){</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(strcmp(token,</highlight><highlight class="stringliteral">&quot;!&quot;</highlight><highlight class="normal">)==0){</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<ref refid="stack_8c_1ac9f012eb4dc51ca67047fa45e47fe2d5" kindref="member">hastype</ref>(stack-&gt;<ref refid="structSTCK_1a17103f2db12ee943761c3da86afa0257" kindref="member">val</ref>[stack-&gt;<ref refid="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" kindref="member">esp</ref>],<ref refid="stack_8h_1a0bc6723d5d4776ab7cdc646728b775f7a03789e2426cb0fa2831e1db323804f08" kindref="member">LNG</ref>)){</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>val<sp/>=<sp/><ref refid="logic_8c_1aaf123b796e8119cdec09928b71be5d7a" kindref="member">OP_FALSE</ref>(stack-&gt;<ref refid="structSTCK_1a17103f2db12ee943761c3da86afa0257" kindref="member">val</ref>[stack-&gt;<ref refid="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" kindref="member">esp</ref>])<sp/>?<sp/>1<sp/>:<sp/>0;</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>stack-&gt;<ref refid="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" kindref="member">esp</ref>--;</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="stack_8c_1aee09561e0f65dd8f32359f3ce910ae5d" kindref="member">push_LNG</ref>(stack,val);</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<ref refid="stack_8c_1ac9f012eb4dc51ca67047fa45e47fe2d5" kindref="member">hastype</ref>(stack-&gt;<ref refid="structSTCK_1a17103f2db12ee943761c3da86afa0257" kindref="member">val</ref>[stack-&gt;<ref refid="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" kindref="member">esp</ref>],<ref refid="stack_8h_1a0bc6723d5d4776ab7cdc646728b775f7a33465d1d419b1074fb259ef444609e92" kindref="member">DOUBLE</ref>)){</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>val<sp/>=<sp/><ref refid="logic_8c_1aaf123b796e8119cdec09928b71be5d7a" kindref="member">OP_FALSE</ref>(stack-&gt;<ref refid="structSTCK_1a17103f2db12ee943761c3da86afa0257" kindref="member">val</ref>[stack-&gt;<ref refid="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" kindref="member">esp</ref>])<sp/>?<sp/>1<sp/>:<sp/>0;</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>stack-&gt;<ref refid="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" kindref="member">esp</ref>--;</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="stack_8c_1aee09561e0f65dd8f32359f3ce910ae5d" kindref="member">push_LNG</ref>(stack,val);</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>val<sp/>=<sp/><ref refid="logic_8c_1aaf123b796e8119cdec09928b71be5d7a" kindref="member">OP_FALSE</ref>(stack-&gt;<ref refid="structSTCK_1a17103f2db12ee943761c3da86afa0257" kindref="member">val</ref>[stack-&gt;<ref refid="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" kindref="member">esp</ref>])<sp/>?<sp/>1<sp/>:<sp/>0;</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>stack-&gt;<ref refid="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" kindref="member">esp</ref>--;</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="stack_8c_1aee09561e0f65dd8f32359f3ce910ae5d" kindref="member">push_LNG</ref>(stack,val);</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>1;</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
+<codeline lineno="89"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"></highlight></codeline>
+<codeline lineno="91"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="logic_8c_1a410b71aa57c657afc46e689c2088a859" kindref="member">isEqual</ref>(<ref refid="structSTCK" kindref="compound">STCK</ref>*<sp/>stack,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>token){</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(strcmp(token,</highlight><highlight class="stringliteral">&quot;=&quot;</highlight><highlight class="normal">)==0){</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>val;</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>val<sp/>=<sp/><ref refid="logic_8c_1acb0eb1b374e8db86014fd756dc14baaa" kindref="member">OP_EQUAL</ref>(stack-&gt;<ref refid="structSTCK_1a17103f2db12ee943761c3da86afa0257" kindref="member">val</ref>[stack-&gt;<ref refid="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" kindref="member">esp</ref>],stack-&gt;<ref refid="structSTCK_1a17103f2db12ee943761c3da86afa0257" kindref="member">val</ref>[stack-&gt;<ref refid="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" kindref="member">esp</ref>-1])<sp/>?<sp/>1<sp/>:<sp/>0;</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>stack-&gt;<ref refid="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" kindref="member">esp</ref>-=2;</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="stack_8c_1aee09561e0f65dd8f32359f3ce910ae5d" kindref="member">push_LNG</ref>(stack,val);</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>1;</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
+<codeline lineno="100"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"></highlight></codeline>
+<codeline lineno="102"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="logic_8c_1a738a6890d1461a8404eb031c24fd04d3" kindref="member">isSmall</ref>(<ref refid="structSTCK" kindref="compound">STCK</ref>*<sp/>stack,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>token){</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(strcmp(token,</highlight><highlight class="stringliteral">&quot;&lt;&quot;</highlight><highlight class="normal">)==0){</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>val;</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>val<sp/>=<sp/><ref refid="logic_8c_1a12bff09a38738dcf96796d803002067b" kindref="member">OP_SMALL</ref>(stack-&gt;<ref refid="structSTCK_1a17103f2db12ee943761c3da86afa0257" kindref="member">val</ref>[stack-&gt;<ref refid="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" kindref="member">esp</ref>],stack-&gt;<ref refid="structSTCK_1a17103f2db12ee943761c3da86afa0257" kindref="member">val</ref>[stack-&gt;<ref refid="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" kindref="member">esp</ref>-1])<sp/>?<sp/>1<sp/>:<sp/>0;</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>stack-&gt;<ref refid="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" kindref="member">esp</ref>-=2;</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="stack_8c_1aee09561e0f65dd8f32359f3ce910ae5d" kindref="member">push_LNG</ref>(stack,val);</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>1;</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
+<codeline lineno="111"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"></highlight></codeline>
+<codeline lineno="113"><highlight class="normal"></highlight></codeline>
+<codeline lineno="114"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="logic_8c_1aabc31e7c235c86bd90177370ec66e7de" kindref="member">isBig</ref>(<ref refid="structSTCK" kindref="compound">STCK</ref>*<sp/>stack,</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>token){</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(strcmp(token,</highlight><highlight class="stringliteral">&quot;&gt;&quot;</highlight><highlight class="normal">)==0){</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>val;</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>val<sp/>=<sp/><ref refid="logic_8c_1aee1c7f9e83ee61068a86b0af11b2ca87" kindref="member">OP_BIG</ref>(stack-&gt;<ref refid="structSTCK_1a17103f2db12ee943761c3da86afa0257" kindref="member">val</ref>[stack-&gt;<ref refid="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" kindref="member">esp</ref>],stack-&gt;<ref refid="structSTCK_1a17103f2db12ee943761c3da86afa0257" kindref="member">val</ref>[stack-&gt;<ref refid="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" kindref="member">esp</ref>-1])<sp/>?<sp/>1<sp/>:<sp/>0;</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>stack-&gt;<ref refid="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" kindref="member">esp</ref>-=2;</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="stack_8c_1aee09561e0f65dd8f32359f3ce910ae5d" kindref="member">push_LNG</ref>(stack,val);</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>1;</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
+<codeline lineno="123"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"></highlight></codeline>
+<codeline lineno="125"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="logic_8c_1a44b1abc60f9c35e93958b66fa4d70380" kindref="member">ifThenElse</ref>(<ref refid="structSTCK" kindref="compound">STCK</ref>*<sp/>stack,</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>token){</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(strcmp(token,</highlight><highlight class="stringliteral">&quot;?&quot;</highlight><highlight class="normal">)==0){</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structDADOS" kindref="compound">DADOS</ref><sp/>tmp<sp/>=<sp/>!<ref refid="logic_8c_1aaf123b796e8119cdec09928b71be5d7a" kindref="member">OP_FALSE</ref>(stack-&gt;<ref refid="structSTCK_1a17103f2db12ee943761c3da86afa0257" kindref="member">val</ref>[stack-&gt;<ref refid="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" kindref="member">esp</ref>-2])<sp/>?<sp/>tmp=stack-&gt;<ref refid="structSTCK_1a17103f2db12ee943761c3da86afa0257" kindref="member">val</ref>[stack-&gt;<ref refid="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" kindref="member">esp</ref>-1]<sp/>:<sp/>stack-&gt;<ref refid="structSTCK_1a17103f2db12ee943761c3da86afa0257" kindref="member">val</ref>[stack-&gt;<ref refid="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" kindref="member">esp</ref>];</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>stack-&gt;<ref refid="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" kindref="member">esp</ref>-=2;</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>stack-&gt;<ref refid="structSTCK_1a17103f2db12ee943761c3da86afa0257" kindref="member">val</ref>[stack-&gt;<ref refid="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" kindref="member">esp</ref>]=tmp;</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>1;</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
+<codeline lineno="133"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"></highlight></codeline>
+<codeline lineno="135"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="logic_8c_1a185849a7db34bc74c0404230e3a3b1a3" kindref="member">logicalAnd</ref>(<ref refid="structSTCK" kindref="compound">STCK</ref>*<sp/>stack,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>token){</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(strcmp(token,</highlight><highlight class="stringliteral">&quot;e&amp;&quot;</highlight><highlight class="normal">)==0){</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structDADOS" kindref="compound">DADOS</ref><sp/>zero;</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>zero.<ref refid="structDADOS_1ae9e10266fc33543efc50d1a474ccc253" kindref="member">type</ref>=<ref refid="stack_8h_1a0bc6723d5d4776ab7cdc646728b775f7a03789e2426cb0fa2831e1db323804f08" kindref="member">LNG</ref>;</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>zero.<ref refid="structDADOS_1a7ed43f8ac7af42bd57146ce46860fd20" kindref="member">LNG</ref>=0;</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>zero.<ref refid="structDADOS_1ab3c8b5db467f41229e732cbf95eedd93" kindref="member">DOUBLE</ref>=0;</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>zero.<ref refid="structDADOS_1a6fd3fd46a4f510ab6de67d740faaa3e6" kindref="member">CHR</ref>=0;</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>zero.<ref refid="structDADOS_1a0eb2004f87d37dba7146d7fb15d687c5" kindref="member">STR</ref>=NULL;</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structDADOS" kindref="compound">DADOS</ref><sp/>val;</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>val<sp/>=<sp/><ref refid="logic_8c_1a9a40fd7850f3b71b8044f209051f2f9c" kindref="member">OP_TRUE</ref>(stack-&gt;<ref refid="structSTCK_1a17103f2db12ee943761c3da86afa0257" kindref="member">val</ref>[stack-&gt;<ref refid="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" kindref="member">esp</ref>],stack-&gt;<ref refid="structSTCK_1a17103f2db12ee943761c3da86afa0257" kindref="member">val</ref>[stack-&gt;<ref refid="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" kindref="member">esp</ref>-1])<sp/>?<sp/>(<ref refid="logic_8c_1a12bff09a38738dcf96796d803002067b" kindref="member">OP_SMALL</ref>(stack-&gt;<ref refid="structSTCK_1a17103f2db12ee943761c3da86afa0257" kindref="member">val</ref>[stack-&gt;<ref refid="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" kindref="member">esp</ref>-1],stack-&gt;<ref refid="structSTCK_1a17103f2db12ee943761c3da86afa0257" kindref="member">val</ref>[stack-&gt;<ref refid="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" kindref="member">esp</ref>])<sp/>?<sp/>stack-&gt;<ref refid="structSTCK_1a17103f2db12ee943761c3da86afa0257" kindref="member">val</ref>[stack-&gt;<ref refid="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" kindref="member">esp</ref>-1]<sp/>:<sp/>stack-&gt;<ref refid="structSTCK_1a17103f2db12ee943761c3da86afa0257" kindref="member">val</ref>[stack-&gt;<ref refid="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" kindref="member">esp</ref>])<sp/>:<sp/>zero;</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>stack-&gt;<ref refid="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" kindref="member">esp</ref>--;</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>stack-&gt;<ref refid="structSTCK_1a17103f2db12ee943761c3da86afa0257" kindref="member">val</ref>[stack-&gt;<ref refid="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" kindref="member">esp</ref>]=val;</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>1;</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
+<codeline lineno="150"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"></highlight></codeline>
+<codeline lineno="152"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="logic_8c_1a8fac8afc7d646088b511fc0b93fd514e" kindref="member">logicalOr</ref>(<ref refid="structSTCK" kindref="compound">STCK</ref>*<sp/>stack,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>token){</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(strcmp(token,</highlight><highlight class="stringliteral">&quot;e|&quot;</highlight><highlight class="normal">)==0){</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structDADOS" kindref="compound">DADOS</ref><sp/>zero;</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>zero.<ref refid="structDADOS_1ae9e10266fc33543efc50d1a474ccc253" kindref="member">type</ref>=<ref refid="stack_8h_1a0bc6723d5d4776ab7cdc646728b775f7a03789e2426cb0fa2831e1db323804f08" kindref="member">LNG</ref>;</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>zero.<ref refid="structDADOS_1a7ed43f8ac7af42bd57146ce46860fd20" kindref="member">LNG</ref>=0;</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>zero.<ref refid="structDADOS_1ab3c8b5db467f41229e732cbf95eedd93" kindref="member">DOUBLE</ref>=0;</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>zero.<ref refid="structDADOS_1a6fd3fd46a4f510ab6de67d740faaa3e6" kindref="member">CHR</ref>=0;</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>zero.<ref refid="structDADOS_1a0eb2004f87d37dba7146d7fb15d687c5" kindref="member">STR</ref>=NULL;</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structDADOS" kindref="compound">DADOS</ref><sp/>val;</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>val<sp/>=<sp/><ref refid="logic_8c_1a949de0d6f891c2dc1eff8a2068dcf3e3" kindref="member">OP_veryFALSE</ref>(stack-&gt;<ref refid="structSTCK_1a17103f2db12ee943761c3da86afa0257" kindref="member">val</ref>[stack-&gt;<ref refid="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" kindref="member">esp</ref>],stack-&gt;<ref refid="structSTCK_1a17103f2db12ee943761c3da86afa0257" kindref="member">val</ref>[stack-&gt;<ref refid="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" kindref="member">esp</ref>-1])<sp/>?<sp/>(<ref refid="logic_8c_1a12bff09a38738dcf96796d803002067b" kindref="member">OP_SMALL</ref>(stack-&gt;<ref refid="structSTCK_1a17103f2db12ee943761c3da86afa0257" kindref="member">val</ref>[stack-&gt;<ref refid="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" kindref="member">esp</ref>-1],stack-&gt;<ref refid="structSTCK_1a17103f2db12ee943761c3da86afa0257" kindref="member">val</ref>[stack-&gt;<ref refid="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" kindref="member">esp</ref>])<sp/>?<sp/>stack-&gt;<ref refid="structSTCK_1a17103f2db12ee943761c3da86afa0257" kindref="member">val</ref>[stack-&gt;<ref refid="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" kindref="member">esp</ref>-1]<sp/>:<sp/>stack-&gt;<ref refid="structSTCK_1a17103f2db12ee943761c3da86afa0257" kindref="member">val</ref>[stack-&gt;<ref refid="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" kindref="member">esp</ref>])<sp/>:<sp/>zero;</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>stack-&gt;<ref refid="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" kindref="member">esp</ref>--;</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>stack-&gt;<ref refid="structSTCK_1a17103f2db12ee943761c3da86afa0257" kindref="member">val</ref>[stack-&gt;<ref refid="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" kindref="member">esp</ref>]=val;</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>1;</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
+<codeline lineno="167"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="168"><highlight class="normal"></highlight></codeline>
+<codeline lineno="169"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="logic_8c_1af07e7691043d3b497bf5cd5e14b687cc" kindref="member">logicalGreater</ref>(<ref refid="structSTCK" kindref="compound">STCK</ref>*<sp/>stack,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>token){</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(strcmp(token,</highlight><highlight class="stringliteral">&quot;e&gt;&quot;</highlight><highlight class="normal">)==0){</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structDADOS" kindref="compound">DADOS</ref><sp/>val;</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>val<sp/>=<sp/><ref refid="logic_8c_1a12bff09a38738dcf96796d803002067b" kindref="member">OP_SMALL</ref>(stack-&gt;<ref refid="structSTCK_1a17103f2db12ee943761c3da86afa0257" kindref="member">val</ref>[stack-&gt;<ref refid="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" kindref="member">esp</ref>],stack-&gt;<ref refid="structSTCK_1a17103f2db12ee943761c3da86afa0257" kindref="member">val</ref>[stack-&gt;<ref refid="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" kindref="member">esp</ref>-1])<sp/>?<sp/>stack-&gt;<ref refid="structSTCK_1a17103f2db12ee943761c3da86afa0257" kindref="member">val</ref>[stack-&gt;<ref refid="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" kindref="member">esp</ref>]<sp/>:<sp/>stack-&gt;<ref refid="structSTCK_1a17103f2db12ee943761c3da86afa0257" kindref="member">val</ref>[stack-&gt;<ref refid="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" kindref="member">esp</ref>-1];</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>stack-&gt;<ref refid="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" kindref="member">esp</ref>--;</highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>stack-&gt;<ref refid="structSTCK_1a17103f2db12ee943761c3da86afa0257" kindref="member">val</ref>[stack-&gt;<ref refid="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" kindref="member">esp</ref>]=val;</highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>1;</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
+<codeline lineno="178"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="179"><highlight class="normal"></highlight></codeline>
+<codeline lineno="180"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="logic_8c_1a6f28ee55cd5fc141581de8957675686a" kindref="member">logicalLess</ref>(<ref refid="structSTCK" kindref="compound">STCK</ref>*<sp/>stack,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>token){</highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(strcmp(token,</highlight><highlight class="stringliteral">&quot;e&lt;&quot;</highlight><highlight class="normal">)==0){</highlight></codeline>
+<codeline lineno="182"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structDADOS" kindref="compound">DADOS</ref><sp/>val;</highlight></codeline>
+<codeline lineno="183"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>val<sp/>=<sp/><ref refid="logic_8c_1aee1c7f9e83ee61068a86b0af11b2ca87" kindref="member">OP_BIG</ref>(stack-&gt;<ref refid="structSTCK_1a17103f2db12ee943761c3da86afa0257" kindref="member">val</ref>[stack-&gt;<ref refid="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" kindref="member">esp</ref>],stack-&gt;<ref refid="structSTCK_1a17103f2db12ee943761c3da86afa0257" kindref="member">val</ref>[stack-&gt;<ref refid="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" kindref="member">esp</ref>-1])<sp/>?<sp/>stack-&gt;<ref refid="structSTCK_1a17103f2db12ee943761c3da86afa0257" kindref="member">val</ref>[stack-&gt;<ref refid="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" kindref="member">esp</ref>]<sp/>:<sp/>stack-&gt;<ref refid="structSTCK_1a17103f2db12ee943761c3da86afa0257" kindref="member">val</ref>[stack-&gt;<ref refid="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" kindref="member">esp</ref>-1];</highlight></codeline>
+<codeline lineno="184"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>stack-&gt;<ref refid="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" kindref="member">esp</ref>--;</highlight></codeline>
+<codeline lineno="185"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>stack-&gt;<ref refid="structSTCK_1a17103f2db12ee943761c3da86afa0257" kindref="member">val</ref>[stack-&gt;<ref refid="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" kindref="member">esp</ref>]=val;</highlight></codeline>
+<codeline lineno="186"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>1;</highlight></codeline>
+<codeline lineno="187"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="188"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
+<codeline lineno="189"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="logic.c"/>
+  </compounddef>
+</doxygen>

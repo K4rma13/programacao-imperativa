@@ -3,8 +3,8 @@
   <compound refid="structDADOS" kind="struct"><name>DADOS</name>
     <member refid="structDADOS_1ae9e10266fc33543efc50d1a474ccc253" kind="variable"><name>type</name></member>
     <member refid="structDADOS_1a6fd3fd46a4f510ab6de67d740faaa3e6" kind="variable"><name>CHR</name></member>
-    <member refid="structDADOS_1a0eb2004f87d37dba7146d7fb15d687c5" kind="variable"><name>STR</name></member>
     <member refid="structDADOS_1a7ed43f8ac7af42bd57146ce46860fd20" kind="variable"><name>LNG</name></member>
+    <member refid="structDADOS_1a0eb2004f87d37dba7146d7fb15d687c5" kind="variable"><name>STR</name></member>
     <member refid="structDADOS_1ab3c8b5db467f41229e732cbf95eedd93" kind="variable"><name>DOUBLE</name></member>
   </compound>
   <compound refid="structSTCK" kind="struct"><name>STCK</name>
@@ -12,8 +12,41 @@
     <member refid="structSTCK_1af6202e69c9de52d64e2121fba32b2bca" kind="variable"><name>esp</name></member>
   </compound>
   <compound refid="guiao1_8c" kind="file"><name>guiao1.c</name>
-    <member refid="guiao1_8c_1af72dedd4418899680c0a27d9f7e61ba0" kind="function"><name>handler</name></member>
+    <member refid="guiao1_8c_1a308652ee0cddf161e26c2f6d1dfdaaca" kind="function"><name>handler</name></member>
     <member refid="guiao1_8c_1ae66f6b31b5ad750f1fe042a706a4e3d4" kind="function"><name>main</name></member>
+  </compound>
+  <compound refid="logic_8c" kind="file"><name>logic.c</name>
+    <member refid="logic_8c_1a701404759312a78f01ae0801093ba508" kind="define"><name>OPERATION_SGN</name></member>
+    <member refid="logic_8c_1acb0eb1b374e8db86014fd756dc14baaa" kind="function"><name>OP_EQUAL</name></member>
+    <member refid="logic_8c_1a12bff09a38738dcf96796d803002067b" kind="function"><name>OP_SMALL</name></member>
+    <member refid="logic_8c_1aee1c7f9e83ee61068a86b0af11b2ca87" kind="function"><name>OP_BIG</name></member>
+    <member refid="logic_8c_1aaf123b796e8119cdec09928b71be5d7a" kind="function"><name>OP_FALSE</name></member>
+    <member refid="logic_8c_1a9a40fd7850f3b71b8044f209051f2f9c" kind="function"><name>OP_TRUE</name></member>
+    <member refid="logic_8c_1a949de0d6f891c2dc1eff8a2068dcf3e3" kind="function"><name>OP_veryFALSE</name></member>
+    <member refid="logic_8c_1ad90808034d12bb9206675ca393c44c2c" kind="function"><name>isFalse</name></member>
+    <member refid="logic_8c_1a410b71aa57c657afc46e689c2088a859" kind="function"><name>isEqual</name></member>
+    <member refid="logic_8c_1a738a6890d1461a8404eb031c24fd04d3" kind="function"><name>isSmall</name></member>
+    <member refid="logic_8c_1aabc31e7c235c86bd90177370ec66e7de" kind="function"><name>isBig</name></member>
+    <member refid="logic_8c_1a44b1abc60f9c35e93958b66fa4d70380" kind="function"><name>ifThenElse</name></member>
+    <member refid="logic_8c_1a185849a7db34bc74c0404230e3a3b1a3" kind="function"><name>logicalAnd</name></member>
+    <member refid="logic_8c_1a8fac8afc7d646088b511fc0b93fd514e" kind="function"><name>logicalOr</name></member>
+    <member refid="logic_8c_1af07e7691043d3b497bf5cd5e14b687cc" kind="function"><name>logicalGreater</name></member>
+    <member refid="logic_8c_1a6f28ee55cd5fc141581de8957675686a" kind="function"><name>logicalLess</name></member>
+  </compound>
+  <compound refid="logic_8h" kind="file"><name>logic.h</name>
+    <member refid="logic_8h_1ac5ae4c3aa3ac6d9e6e44dcccd9e3f37d" kind="define"><name>OPERATION_PROTOO</name></member>
+    <member refid="logic_8h_1a12bff09a38738dcf96796d803002067b" kind="function"><name>OP_SMALL</name></member>
+    <member refid="logic_8h_1aee1c7f9e83ee61068a86b0af11b2ca87" kind="function"><name>OP_BIG</name></member>
+    <member refid="logic_8h_1acb0eb1b374e8db86014fd756dc14baaa" kind="function"><name>OP_EQUAL</name></member>
+    <member refid="logic_8h_1ad90808034d12bb9206675ca393c44c2c" kind="function"><name>isFalse</name></member>
+    <member refid="logic_8h_1a410b71aa57c657afc46e689c2088a859" kind="function"><name>isEqual</name></member>
+    <member refid="logic_8h_1a738a6890d1461a8404eb031c24fd04d3" kind="function"><name>isSmall</name></member>
+    <member refid="logic_8h_1aabc31e7c235c86bd90177370ec66e7de" kind="function"><name>isBig</name></member>
+    <member refid="logic_8h_1a44b1abc60f9c35e93958b66fa4d70380" kind="function"><name>ifThenElse</name></member>
+    <member refid="logic_8h_1a185849a7db34bc74c0404230e3a3b1a3" kind="function"><name>logicalAnd</name></member>
+    <member refid="logic_8h_1a8fac8afc7d646088b511fc0b93fd514e" kind="function"><name>logicalOr</name></member>
+    <member refid="logic_8h_1af07e7691043d3b497bf5cd5e14b687cc" kind="function"><name>logicalGreater</name></member>
+    <member refid="logic_8h_1a6f28ee55cd5fc141581de8957675686a" kind="function"><name>logicalLess</name></member>
   </compound>
   <compound refid="mat_8c" kind="file"><name>mat.c</name>
     <member refid="mat_8c_1a701404759312a78f01ae0801093ba508" kind="define"><name>OPERATION_SGN</name></member>
@@ -110,5 +143,13 @@
     <member refid="stack_8h_1a4c79ff9c81bbdc5761d03270bb82029a" kind="function"><name>trocar</name></member>
     <member refid="stack_8h_1ab0eed3e0da6b16dfb8650f1cd824c627" kind="function"><name>duplicar</name></member>
     <member refid="stack_8h_1af005ea1c2e5e98f020cbb8165af6d9d0" kind="function"><name>removeTop</name></member>
+  </compound>
+  <compound refid="variables_8c" kind="file"><name>variables.c</name>
+    <member refid="variables_8c_1ac2b0dce341cb45d1e41196c72ecd7ae3" kind="function"><name>variablePush</name></member>
+    <member refid="variables_8c_1a6694021f0d7aa2cc1147bb1c8ec2ed38" kind="function"><name>variableGet</name></member>
+  </compound>
+  <compound refid="variables_8h" kind="file"><name>variables.h</name>
+    <member refid="variables_8h_1ac2b0dce341cb45d1e41196c72ecd7ae3" kind="function"><name>variablePush</name></member>
+    <member refid="variables_8h_1a6694021f0d7aa2cc1147bb1c8ec2ed38" kind="function"><name>variableGet</name></member>
   </compound>
 </doxygenindex>

@@ -30,19 +30,6 @@
         </inbodydescription>
         <location file="stack.h" line="18" column="6" bodyfile="stack.h" bodystart="18" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="structDADOS_1a0eb2004f87d37dba7146d7fb15d687c5" prot="public" static="no" mutable="no">
-        <type>char *</type>
-        <definition>char* DADOS::STR</definition>
-        <argsstring></argsstring>
-        <name>STR</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="stack.h" line="19" column="6" bodyfile="stack.h" bodystart="19" bodyend="-1"/>
-      </memberdef>
       <memberdef kind="variable" id="structDADOS_1a7ed43f8ac7af42bd57146ce46860fd20" prot="public" static="no" mutable="no">
         <type>long int</type>
         <definition>long int DADOS::LNG</definition>
@@ -54,7 +41,20 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="stack.h" line="20" column="10" bodyfile="stack.h" bodystart="20" bodyend="-1"/>
+        <location file="stack.h" line="19" column="10" bodyfile="stack.h" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structDADOS_1a0eb2004f87d37dba7146d7fb15d687c5" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* DADOS::STR</definition>
+        <argsstring></argsstring>
+        <name>STR</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="stack.h" line="20" column="6" bodyfile="stack.h" bodystart="20" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structDADOS_1ab3c8b5db467f41229e732cbf95eedd93" prot="public" static="no" mutable="no">
         <type>double</type>

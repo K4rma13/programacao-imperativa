@@ -1,0 +1,137 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="variables_8h" kind="file" language="C++">
+    <compoundname>variables.h</compoundname>
+    <includes refid="stack_8h" local="yes">stack.h</includes>
+    <includes local="no">stdio.h</includes>
+    <includedby refid="guiao1_8c" local="yes">guiao1.c</includedby>
+    <includedby refid="variables_8c" local="yes">variables.c</includedby>
+    <incdepgraph>
+      <node id="5">
+        <label>stdbool.h</label>
+      </node>
+      <node id="7">
+        <label>assert.h</label>
+      </node>
+      <node id="4">
+        <label>stdlib.h</label>
+      </node>
+      <node id="1">
+        <label>variables.h</label>
+        <link refid="variables_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>stack.h</label>
+        <link refid="stack_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>string.h</label>
+      </node>
+      <node id="3">
+        <label>stdio.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="3">
+        <label>variables.c</label>
+        <link refid="variables_8c"/>
+      </node>
+      <node id="1">
+        <label>variables.h</label>
+        <link refid="variables_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>guiao1.c</label>
+        <link refid="guiao1_8c"/>
+      </node>
+    </invincdepgraph>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="variables_8h_1ac2b0dce341cb45d1e41196c72ecd7ae3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int variablePush</definition>
+        <argsstring>(STCK *stack, char *token, DADOS *v)</argsstring>
+        <name>variablePush</name>
+        <param>
+          <type><ref refid="structSTCK" kindref="compound">STCK</ref> *</type>
+          <declname>stack</declname>
+        </param>
+        <param>
+          <type>char *</type>
+          <declname>token</declname>
+        </param>
+        <param>
+          <type><ref refid="structDADOS" kindref="compound">DADOS</ref> *</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="variables.h" line="7" column="5" bodyfile="variables.c" bodystart="17" bodyend="24" declfile="variables.h" declline="7" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="variables_8h_1a6694021f0d7aa2cc1147bb1c8ec2ed38" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int variableGet</definition>
+        <argsstring>(STCK *stack, char *token, DADOS *v)</argsstring>
+        <name>variableGet</name>
+        <param>
+          <type><ref refid="structSTCK" kindref="compound">STCK</ref> *</type>
+          <declname>stack</declname>
+        </param>
+        <param>
+          <type>char *</type>
+          <declname>token</declname>
+        </param>
+        <param>
+          <type><ref refid="structDADOS" kindref="compound">DADOS</ref> *</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="variables.h" line="9" column="5" bodyfile="variables.c" bodystart="26" bodyend="32" declfile="variables.h" declline="9" declcolumn="5"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>__VARIABLES_H__</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>__VARIABLES_H__</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="stack_8h" kindref="compound">stack.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdio.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="variables_8h_1ac2b0dce341cb45d1e41196c72ecd7ae3" kindref="member">variablePush</ref>(<ref refid="structSTCK" kindref="compound">STCK</ref>*<sp/>stack,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>token,<sp/><ref refid="structDADOS" kindref="compound">DADOS</ref>*<sp/>v);</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="variables_8h_1a6694021f0d7aa2cc1147bb1c8ec2ed38" kindref="member">variableGet</ref>(<ref refid="structSTCK" kindref="compound">STCK</ref>*<sp/>stack,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>token,<sp/><ref refid="structDADOS" kindref="compound">DADOS</ref>*<sp/>v);</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="variables.h"/>
+  </compounddef>
+</doxygen>
