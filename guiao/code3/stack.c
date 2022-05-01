@@ -1,7 +1,3 @@
-/**
- *@file Ficheiro que contem as funçoes da stack
- *
- */
 #include "stack.h"
 
 #define OP_STACK(_name, _type)								\
@@ -112,12 +108,15 @@ bool isdecimal(char* token){
  */
 
 int lestring(STCK* stack, char* token){
+	if(strcmp(token,"l")==0){
 		char tmp[999];
 		if(fgets(tmp, sizeof(tmp), stdin)!=NULL){
 			tmp[strlen(tmp)-1]='\0';
 			push_STR(stack, tmp);
 		}
 		return 1;
+	}
+	return 0;
 }
 
 
@@ -155,6 +154,7 @@ int valor_Double(STCK* stack, char* token){
  */
 
 int toDouble(STCK* stack, char* token){
+	if(strcmp(token,"f")==0){
 		if(hastype(stack->val[stack->esp],STR)){
 			stack->val[stack->esp].DOUBLE = atof(stack->val[stack->esp].STR);
 			free(stack->val[stack->esp].STR);
@@ -164,6 +164,8 @@ int toDouble(STCK* stack, char* token){
 		}
 		stack->val[stack->esp].type = DOUBLE;
 		return 1;
+	}
+	return 0;
 }
 
 /**
@@ -174,6 +176,7 @@ int toDouble(STCK* stack, char* token){
  */
 
 int toLNG(STCK* stack, char* token){
+	if(strcmp(token,"i")==0){
 		if(hastype(stack->val[stack->esp],STR)){
 			stack->val[stack->esp].LNG = atoi(stack->val[stack->esp].STR);
 			free(stack->val[stack->esp].STR);
@@ -183,6 +186,8 @@ int toLNG(STCK* stack, char* token){
 		}
 		stack->val[stack->esp].type = LNG;
 		return 1;
+	}
+	return 0;
 }
 
 /**
@@ -193,9 +198,12 @@ int toLNG(STCK* stack, char* token){
  */
 
 int longToCHR(STCK* stack, char* token){
+	if(strcmp(token,"c")==0){
 		stack->val[stack->esp].CHR = stack->val[stack->esp].LNG;
 		stack->val[stack->esp].type = CHR;
 		return 1;
+	}
+	return 0;
 }
 
 /**
@@ -206,11 +214,14 @@ int longToCHR(STCK* stack, char* token){
  */
 
 int cpyStack(STCK* stack, char* token){
+	if(strcmp(token,"$")==0){
 		long int index = pop_LNG(stack);
 		DADOS data = stack->val[stack->esp-index];
 		stack->esp++;
 		stack->val[stack->esp] = data;
 		return 1;
+	}
+	return 0;
 }
 
  /**
@@ -221,11 +232,14 @@ int cpyStack(STCK* stack, char* token){
  */
 
 int rodar(STCK* stack, char* token){
+	if(strcmp(token,"@")==0){
 		DADOS a = stack->val[stack->esp], b = stack->val[stack->esp-1], c = stack->val[stack->esp-2];
 		stack->val[stack->esp] = c;
 		stack->val[stack->esp-1] = a;
 		stack->val[stack->esp-2] = b;
 		return 1;
+	}
+	return 0;
 }
 
 /**
@@ -236,10 +250,13 @@ int rodar(STCK* stack, char* token){
  */
 
 int trocar(STCK* stack, char* token){
+	if(strcmp(token,"\\")==0){
 		DADOS a = stack->val[stack->esp], b = stack->val[stack->esp-1];
 		stack->val[stack->esp] = b;
 		stack->val[stack->esp-1] = a;
 		return 1;
+	}
+	return 0;
 }
 
 /**
@@ -250,10 +267,13 @@ int trocar(STCK* stack, char* token){
  */
 
 int duplicar(STCK* stack, char* token){
+	if(strcmp(token,"_")==0){
 		DADOS a = stack->val[stack->esp];
 		stack->esp++;
 		stack->val[stack->esp] = a;
 		return 1;
+	}
+	return 0;
 }
 
 /**
@@ -263,6 +283,9 @@ int duplicar(STCK* stack, char* token){
  * @returns Retorna 1 se o token for o correto se nao retorna 0
  */
 int removeTop(STCK* stack, char* token){
+	if(strcmp(token,";")==0){
 		stack->esp--;
 		return 1;
+	}
+	return 0;
 }

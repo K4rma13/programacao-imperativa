@@ -17,15 +17,60 @@
  * @param stack A stack
  * @param token Valor a ser interpretado
  */
-void handler(STCK* stack, char* token, DADOS* v){
-	if(!(add(stack,token) || sub(stack,token) || mul(stack,token)| divisao(stack,token) || toLNG(stack,token) || toDouble(stack,token) ||
-	and(stack,token) || or(stack,token) || xor(stack,token) || module(stack,token) || incr(stack,token) || decr(stack,token) || not(stack,token) ||
-	potencia(stack,token) || lestring(stack,token) || longToCHR(stack,token) || removeTop(stack,token) || duplicar(stack,token) || trocar(stack,token)||
-	rodar(stack,token) || isFalse(stack,token) || isEqual(stack,token) || isSmall(stack,token) || isBig(stack,token) || ifThenElse(stack,token) ||
-	logicalAnd(stack,token) || logicalOr(stack,token) || logicalGreater(stack,token) || logicalLess(stack,token) || variablePush(stack,token,v)
-	|| variableGet(stack,token,v) || cpyStack(stack,token) || valor_Double(stack,token) || valor(stack,token))){
-		printf("Erro\n");
+
+
+
+
+
+
+
+
+void handler(STCK* stack, char* token, DADOS* v,int (*functions[])(STCK*,char*)){
+	if(token[0]=='e'){
+		functions[127+token[1]](stack,token);
 	}
+	else if(token[0]>='0'&& token[0]<='9'){
+		valor_Double(stack,token) || valor(stack,token);
+	}
+	else if((token[0]>='A'&& token[0]<='Z')||token[0]==':'){
+		variablePush(stack,token,v) || variableGet(stack,token,v);
+	}
+	else{
+		functions[token[0]](stack,token);
+	}
+}
+
+void definefunctions(int (*functions[])(STCK*,char*)){
+	functions['+']=add;
+	functions['-']=sub;
+	functions['*']=mul;
+	functions['/']=divisao;
+	functions['i']=toLNG;
+	functions['f']=toDouble;
+	functions['&']=and;
+	functions['|']=or;
+	functions['^']=xor;
+	functions['%']=module;
+	functions[')']=incr;
+	functions['(']=decr;
+	functions['~']=not;
+	functions['#']=potencia;
+	functions['l']=lestring;
+	functions['c']=longToCHR;
+	functions[';']=removeTop;
+	functions['_']=duplicar;
+	functions['\\']=trocar;
+	functions['@']=rodar;
+	functions['!']=isFalse;
+	functions['&']=isEqual;
+	functions['<']=isSmall;
+	functions['>']=isBig;
+	functions['?']=ifThenElse;
+	functions[127+'&']=logicalAnd;
+	functions[127+'|']=logicalOr;
+	functions[127+'>']=logicalGreater;
+	functions[127+'<']=logicalLess;
+	functions['$']=cpyStack;
 }
 
 /**
@@ -34,6 +79,9 @@ void handler(STCK* stack, char* token, DADOS* v){
  */
 
 int main(){
+	int (*functions[0xff])(STCK*,char*);
+	definefunctions(functions);
+
 	DADOS v[26];
 	int i;
 	for(i=0;i<6;i++){
@@ -59,7 +107,7 @@ int main(){
 		while(*b!='\0'){
 			sscanf(b,"%s %n",aux,&n);
 			b+=n;
-			handler(&stack,aux,v);
+			handler(&stack,aux,v,functions);
 		}
 		printstack(stack);
 		printf("\n");

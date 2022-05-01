@@ -1,6 +1,3 @@
-/**
- *@file Biblioteca que contem as funcoes da stack(stack.c)
- */
 #ifndef __STACK_H__
 #define __STACK_H__
 

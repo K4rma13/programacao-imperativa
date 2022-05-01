@@ -1,7 +1,3 @@
-/**
- *@file Ficheiro que contem as funçoes matematicas (guiao 1-2)
- *
- */
 #include "mat.h"
 
 #define OPERATION_SGN(_name,_sinal)				\
@@ -36,6 +32,7 @@ OPERATION_SGN(DIV,/)
 
 
 int potencia(STCK* stack, char* token){
+	if(strcmp(token,"#")==0){
 		if(hastype(stack->val[stack->esp],DOUBLE)){
 			if(hastype(stack->val[stack->esp-1],DOUBLE)){
 				stack->val[stack->esp-1].DOUBLE = pow(stack->val[stack->esp-1].DOUBLE,stack->val[stack->esp].DOUBLE);
@@ -63,6 +60,8 @@ int potencia(STCK* stack, char* token){
 
 		//stack->val[stack->esp-1]=pow(stack->val[stack->esp-1],stack->val[stack->esp]);
 		return 1;
+	}
+	return 0;
 }
 
 /**
@@ -72,6 +71,7 @@ int potencia(STCK* stack, char* token){
  * @returns Retorna 1 se o token for o correto se nao retorna 0
  */
 int add(STCK* stack, char* token){
+	if(strcmp(token,"+")==0){
 		if(hastype(stack->val[stack->esp],DOUBLE)||hastype(stack->val[stack->esp-1],DOUBLE)){
 			double tmp = double_ADD(stack->val[stack->esp],stack->val[stack->esp-1]);
 			stack->esp-=2;
@@ -83,6 +83,8 @@ int add(STCK* stack, char* token){
 			push_LNG(stack,tmp);
 		}
 		return 1;
+	}
+	return 0;
 }
 /**
  * \brief Esta funcao subtrai o segundo valor no topo da stack pelo primeiro
@@ -91,6 +93,7 @@ int add(STCK* stack, char* token){
  * @returns Retorna 1 se o token for o correto se nao retorna 0
  */
 int sub(STCK* stack, char* token){
+	if(strcmp(token,"-")==0){
 		if(hastype(stack->val[stack->esp],DOUBLE)||hastype(stack->val[stack->esp-1],DOUBLE)){
 			double tmp = double_SUB(stack->val[stack->esp],stack->val[stack->esp-1]);
 			stack->esp-=2;
@@ -102,6 +105,8 @@ int sub(STCK* stack, char* token){
 			push_LNG(stack,tmp);
 		};
 		return 1;
+	}
+	return 0;
 }
 /**
  * \brief Esta funcao divide o segundo valor no topo da stack pelo primeiro
@@ -110,6 +115,7 @@ int sub(STCK* stack, char* token){
  * @returns Retorna 1 se o token for o correto se nao retorna 0
  */
 int divisao(STCK* stack, char* token){
+	if(strcmp(token,"/")==0){
 		if(hastype(stack->val[stack->esp],DOUBLE)||hastype(stack->val[stack->esp-1],DOUBLE)){
 			double tmp = double_DIV(stack->val[stack->esp],stack->val[stack->esp-1]);
 			stack->esp-=2;
@@ -121,6 +127,8 @@ int divisao(STCK* stack, char* token){
 			push_LNG(stack,tmp);
 		}
 		return 1;
+	}
+	return 0;
 }
 /**
  * \brief Esta funcao multiplica os dois valores no topo da stack
@@ -129,6 +137,7 @@ int divisao(STCK* stack, char* token){
  * @returns Retorna 1 se o token for o correto se nao retorna 0
  */
 int mul(STCK* stack, char* token){
+	if(strcmp(token,"*")==0){
 		if(hastype(stack->val[stack->esp],DOUBLE)||hastype(stack->val[stack->esp-1],DOUBLE)){
 			double tmp = double_MUL(stack->val[stack->esp],stack->val[stack->esp-1]);
 			stack->esp-=2;
@@ -140,6 +149,8 @@ int mul(STCK* stack, char* token){
 			push_LNG(stack,tmp);
 		}
 		return 1;
+	}
+	return 0;
 }
 /**
  * \brief Esta funcao incrementa o valor no topo da stack
@@ -149,6 +160,7 @@ int mul(STCK* stack, char* token){
  */
 
 int incr(STCK* stack, char* token){
+	if(strcmp(token,")")==0){
 		if(hastype(stack->val[stack->esp],DOUBLE)){
 			stack->val[stack->esp].DOUBLE++;
 		}
@@ -159,6 +171,8 @@ int incr(STCK* stack, char* token){
 			stack->val[stack->esp].CHR++;
 		}		
 		return 1;
+	}
+	return 0;
 }
 
 /**
@@ -169,6 +183,7 @@ int incr(STCK* stack, char* token){
  */
 
 int decr(STCK* stack, char* token){
+	if(strcmp(token,"(")==0){
 		if(hastype(stack->val[stack->esp],DOUBLE)){
 			stack->val[stack->esp].DOUBLE--;
 		}
@@ -179,6 +194,8 @@ int decr(STCK* stack, char* token){
 			stack->val[stack->esp].CHR--;
 		}
 		return 1;
+	}
+	return 0;
 }
 
 /**
@@ -188,12 +205,15 @@ int decr(STCK* stack, char* token){
  * @returns Retorna 1 se o token for o correto se nao retorna 0
  */
 int module(STCK* stack, char* token){
+	if(strcmp(token,"%")==0){
 		if(hastype(stack->val[stack->esp],LNG)){
 			long int tmp = stack->val[stack->esp-1].LNG%stack->val[stack->esp].LNG;
 			stack->esp-=2;
 			push_LNG(stack,tmp);
 		}
 		return 1;
+	}
+	return 0;
 }
 /**
  * \brief Esta funcao calcula o "and(bitwise)" entre os dois valores no topo da stack
@@ -202,12 +222,15 @@ int module(STCK* stack, char* token){
  * @returns Retorna 1 se o token for o correto se nao retorna 0
  */
 int and(STCK* stack, char* token){
+	if(strcmp(token,"&")==0){
 		if(hastype(stack->val[stack->esp],LNG)){
 			long int tmp = stack->val[stack->esp].LNG&stack->val[stack->esp-1].LNG;
 			stack->esp-=2;
 			push_LNG(stack,tmp);
 		}
 		return 1;
+	}
+	return 0;
 }
 /**
  * \brief Esta funcao calcula o "or(bitwise)" entre os dois valores no topo da stack
@@ -216,12 +239,15 @@ int and(STCK* stack, char* token){
  * @returns Retorna 1 se o token for o correto se nao retorna 0
  */
 int or(STCK* stack, char* token){
+	if(strcmp(token,"|")==0){
 		if(hastype(stack->val[stack->esp],LNG)){
 			long int tmp = stack->val[stack->esp].LNG|stack->val[stack->esp-1].LNG;
 			stack->esp-=2;
 			push_LNG(stack,tmp);
 		}
 		return 1;
+	}
+	return 0;
 }
 /**
  * \brief Esta funcao calcula o "xor(bitwise)" entre os dois valores no topo da stack
@@ -230,12 +256,15 @@ int or(STCK* stack, char* token){
  * @returns Retorna 1 se o token for o correto se nao retorna 0
  */
 int xor(STCK* stack, char* token){
+	if(strcmp(token,"^")==0){
 		if(hastype(stack->val[stack->esp],LNG)){
 			long int tmp = stack->val[stack->esp].LNG^stack->val[stack->esp-1].LNG;
 			stack->esp-=2;
 			push_LNG(stack,tmp);
 		}
 		return 1;
+	}
+	return 0;
 }
 /**
  * \brief Esta funcao calcula o "not(bitwise)" do valor no topo da stack
@@ -246,8 +275,11 @@ int xor(STCK* stack, char* token){
 
 
 int not(STCK* stack, char* token){
+	if(strcmp(token,"~")==0){
 		if(hastype(stack->val[stack->esp],LNG)){
 			stack->val[stack->esp].LNG = ~(stack->val[stack->esp].LNG);
 		}
 		return 1;
+	}
+	return 0;
 }

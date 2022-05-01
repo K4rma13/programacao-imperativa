@@ -1,6 +1,3 @@
-/**
- *@file Biblioteca que contem as funcoes logicas(logic.c)
- */
 #ifndef __LOGIC_H__
 
 #define __LOGIC_H__

@@ -1,8 +1,18 @@
-/**
- *@file Ficheiro que contem as funcoes das variaveis (guiao 3)
- *
- */
 #include "variables.h"
+/*
+A Valor por omissão: 10
+B Valor por omissão: 11
+C Valor por omissão: 12
+D Valor por omissão: 13
+E Valor por omissão: 14
+F Valor por omissão: 15
+N Valor por omissão: '\n'
+S Valor por omissão: ' '
+X Valor por omissão: 0
+Y Valor por omissão: 1
+Z Valor por omissão: 2
+*/
+
 
 int variablePush(STCK* stack, char* token, DADOS* v){
 	if(token[0] >= 'A' && token[0] <= 'Z'){
@@ -20,5 +30,3 @@ int variableGet(STCK* stack, char* token, DADOS* v){
 	}
 	return 0;
 }
- 
-
