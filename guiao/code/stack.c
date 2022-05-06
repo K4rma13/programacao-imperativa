@@ -291,25 +291,4 @@ int removeTop(STCK* stack, char* token){
 		return 1;
 }
 
-int initArr(STCK* stack, char* token){
-	stack->esp++;
-	stack->val[stack->esp].type = CHR;
-	stack->val[stack->esp].CHR = '[';
-	return 1;
-}
 
-int closeArr(STCK* stack, char* token){
-	int i,cont=0;
-	for(i=stack->esp;stack->val[i].CHR!='[';i--){
-		cont++;
-	}
-	DADOS *array = malloc(sizeof(DADOS)*(cont+10));
-	for(i=0;i<cont;i++){
-		array[i]=stack->val[stack->esp-cont+1+i];
-	}
-	stack->esp-=cont;
-	stack->val[stack->esp].ARR.array = array;
-	stack->val[stack->esp].ARR.all_size = cont+10;
-	stack->val[stack->esp].ARR.size = cont;
-	stack->val[stack->esp].type = ARR;
-}

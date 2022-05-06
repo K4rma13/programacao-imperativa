@@ -5,6 +5,7 @@
 
 #define __LOGIC_H__
 
+#include "array.h"
 #include <stdio.h>
 #include "stack.h"
 

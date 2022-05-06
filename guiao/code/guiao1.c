@@ -30,6 +30,9 @@ void handler(STCK* stack, char* token, DADOS* v,int (*functions[])(STCK*,char*))
 	if(token[0]=='e'){
 		functions[127+token[1]](stack,token);
 	}
+	else if(token[0]=='"'){
+		initString(stack,token);
+	}
 	else if(token[0]>='0'&& token[0]<='9'){
 		valor_Double(stack,token) || valor(stack,token);
 	}
@@ -63,7 +66,7 @@ void definefunctions(int (*functions[])(STCK*,char*)){
 	functions['\\']=trocar;
 	functions['@']=rodar;
 	functions['!']=isFalse;
-	functions['&']=isEqual;
+	functions['=']=isEqual;
 	functions['<']=isSmall;
 	functions['>']=isBig;
 	functions['?']=ifThenElse;
@@ -75,7 +78,6 @@ void definefunctions(int (*functions[])(STCK*,char*)){
 	functions['[']=initArr;
 	functions[']']=closeArr;
 	functions[',']=enumerate;
-	functions['>']=lastArray;
 }
 
 /**

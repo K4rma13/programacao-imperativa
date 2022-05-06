@@ -128,10 +128,15 @@ int isFalse(STCK* stack, char* token){
 
 int isEqual(STCK* stack, char* token){
   if(strcmp(token,"=")==0){
-      long int val;
-      val = OP_EQUAL(stack->val[stack->esp],stack->val[stack->esp-1]) ? 1 : 0;
-      stack->esp-=2;
-      push_LNG(stack,val);
+      if(hastype(stack->val[stack->esp-1],ARR)){
+        indexArr(stack,token);
+      }
+      else{
+        long int val;
+        val = OP_EQUAL(stack->val[stack->esp],stack->val[stack->esp-1]) ? 1 : 0;
+        stack->esp-=2;
+        push_LNG(stack,val);
+      }
     return 1;
   }
   return 0;
@@ -163,10 +168,15 @@ int isSmall(STCK* stack, char* token){
  */
 
 int isBig(STCK* stack,char* token){
-    long int val;
-    val = OP_BIG(stack->val[stack->esp],stack->val[stack->esp-1]) ? 1 : 0;
-    stack->esp-=2;
-    push_LNG(stack,val);
+    if(hastype(stack->val[stack->esp-1],ARR)){
+      lastArray(stack,token);
+    }
+    else{
+      long int val;
+      val = OP_BIG(stack->val[stack->esp],stack->val[stack->esp-1]) ? 1 : 0;
+      stack->esp-=2;
+      push_LNG(stack,val);
+    }
     return 1;
 }
 /**

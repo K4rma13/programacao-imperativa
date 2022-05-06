@@ -8,4 +8,12 @@ int enumerate(STCK* stack, char* token);
 
 int lastArray(STCK* stack, char* token);
 
+int initArr(STCK* stack, char* token);
+
+int closeArr(STCK* stack, char* token);
+
+int initString(STCK* stack, char* token);
+
+int indexArr(STCK* stack, char* token);
+
 #endif
