@@ -14,7 +14,7 @@
 #define MAXSTACK 1000
 
 
-typedef enum{CHR = 0, LNG = 1, STR=2, DOUBLE=3, ARR=4}TYPE;
+typedef enum{CHR = 0, LNG = 1, STR=2, DOUBLE=3}TYPE;
 
 typedef struct DADOS{
 	TYPE type;
@@ -22,11 +22,6 @@ typedef struct DADOS{
 	long int LNG;
 	char* STR;
 	double DOUBLE;
-	struct ARR{
-		struct DADOS *array;
-		int size;
-		int all_size;
-	}ARR;
 }DADOS;
 
 typedef struct STCK{
@@ -42,8 +37,6 @@ PROTO_FSTACK(LNG,long int)
 PROTO_FSTACK(CHR,char)
 PROTO_FSTACK(STR,char*)
 PROTO_FSTACK(DOUBLE,double)
-
-void printArr(struct ARR stack);
 
 bool hastype(DADOS dado, TYPE tipo);
 
@@ -72,9 +65,5 @@ int trocar(STCK* stack, char* token);
 int duplicar(STCK* stack, char* token);
 
 int removeTop(STCK* stack, char* token);
-
-int initArr(STCK* stack, char* token);
-
-int closeArr(STCK* stack, char* token);
 
 #endif

@@ -65,29 +65,8 @@ bool hastype(DADOS dado, TYPE tipo){
 	return dado.type == tipo;
 }
 
-void printArr(struct ARR stack){
-	for(int i=0;i<stack.size;i++){
-		if(hastype(stack.array[i],CHR)){
-			printf("%c",stack.array[i].CHR);
-		}
-		else if(hastype(stack.array[i],LNG)){
-			printf("%ld",stack.array[i].LNG);
-		}
-		else if(hastype(stack.array[i],STR)){
-			printf("%s",stack.array[i].STR);
-		}
-		else if(hastype(stack.array[i],DOUBLE)){
-			printf("%g",stack.array[i].DOUBLE);
-		}
-		else{
-			printArr(stack.array[i].ARR);
-			
-		}
-	}
-}
 
-
-/**		
+/**			
  * \brief Imprime para o stdout a stack fornecida
  * @param stack A stack
  */
@@ -105,9 +84,6 @@ void printstack(STCK stack){
 		}
 		else if(hastype(stack.val[i],DOUBLE)){
 			printf("%g",stack.val[i].DOUBLE);
-		}
-		else{
-			printArr(stack.val[i].ARR);
 		}
 	}
 }
@@ -289,27 +265,4 @@ int duplicar(STCK* stack, char* token){
 int removeTop(STCK* stack, char* token){
 		stack->esp--;
 		return 1;
-}
-
-int initArr(STCK* stack, char* token){
-	stack->esp++;
-	stack->val[stack->esp].type = CHR;
-	stack->val[stack->esp].CHR = '[';
-	return 1;
-}
-
-int closeArr(STCK* stack, char* token){
-	int i,cont=0;
-	for(i=stack->esp;stack->val[i].CHR!='[';i--){
-		cont++;
-	}
-	DADOS *array = malloc(sizeof(DADOS)*(cont+10));
-	for(i=0;i<cont;i++){
-		array[i]=stack->val[stack->esp-cont+1+i];
-	}
-	stack->esp-=cont;
-	stack->val[stack->esp].ARR.array = array;
-	stack->val[stack->esp].ARR.all_size = cont+10;
-	stack->val[stack->esp].ARR.size = cont;
-	stack->val[stack->esp].type = ARR;
 }

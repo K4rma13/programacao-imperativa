@@ -11,20 +11,12 @@
 #include "mat.h"
 #include "logic.h"
 #include "variables.h"
-#include "array.h"
 
 /**
  * \brief Esta funcao decide qual é a funcao que deve ser executada dependendo do valor que foi lido do input
  * @param stack A stack
  * @param token Valor a ser interpretado
  */
-
-
-
-
-
-
-
 
 void handler(STCK* stack, char* token, DADOS* v,int (*functions[])(STCK*,char*)){
 	if(token[0]=='e'){
@@ -63,7 +55,7 @@ void definefunctions(int (*functions[])(STCK*,char*)){
 	functions['\\']=trocar;
 	functions['@']=rodar;
 	functions['!']=isFalse;
-	functions['&']=isEqual;
+	functions['=']=isEqual;
 	functions['<']=isSmall;
 	functions['>']=isBig;
 	functions['?']=ifThenElse;
@@ -72,10 +64,6 @@ void definefunctions(int (*functions[])(STCK*,char*)){
 	functions[127+'>']=logicalGreater;
 	functions[127+'<']=logicalLess;
 	functions['$']=cpyStack;
-	functions['[']=initArr;
-	functions[']']=closeArr;
-	functions[',']=enumerate;
-	functions['>']=lastArray;
 }
 
 /**
@@ -105,7 +93,7 @@ int main(){
 	stack.esp=-1;
 	int n=0;
 
-	char buffer[10000], aux[10],*b;
+	char buffer[2000000], aux[10],*b;
 	if(fgets(buffer, sizeof(buffer), stdin)!= NULL){
 		buffer[strlen(buffer)-1]='\0';
 		b=buffer;

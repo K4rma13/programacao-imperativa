@@ -27,79 +27,6 @@ OPERATION_SGN(SUB,-)
 OPERATION_SGN(MUL,*)
 OPERATION_SGN(DIV,/)
 
-
-
-struct ARR concatArray(struct ARR array1, struct ARR array2){
-	struct ARR final;
-	final.array = malloc(sizeof(DADOS)*(array1.all_size+array2.all_size));
-	final.size = array1.size+array2.size;
-	final.all_size = array1.all_size+array2.all_size;
-	int i;
-	for(i=0; i<array1.size;i++){
-		final.array[i]=array1.array[i];
-	}
-	for(i=0; i<array2.size;i++){
-		final.array[i+array1.size]=array2.array[i];
-	}
-	return final;
-}
-
-void arrADD(STCK* stack){
-	int i;
-	if(hastype(stack->val[stack->esp],ARR)&&hastype(stack->val[stack->esp-1],ARR)){
-		stack->val[stack->esp-1].ARR = concatArray(stack->val[stack->esp-1].ARR,stack->val[stack->esp].ARR);
-		stack->esp--;
-	}
-	else if(hastype(stack->val[stack->esp],ARR)){
-		if(stack->val[stack->esp].ARR.size+1>=stack->val[stack->esp].ARR.all_size){
-			stack->val[stack->esp].ARR.array = realloc(stack->val[stack->esp].ARR.array, sizeof(DADOS)*(stack->val[stack->esp].ARR.all_size+10));
-		}
-		for(i=stack->val[stack->esp].ARR.size-1;i>=0;i--){
-			stack->val[stack->esp].ARR.array[i+1] = stack->val[stack->esp].ARR.array[i];
-		}
-		stack->val[stack->esp].ARR.size++;
-		stack->val[stack->esp].ARR.array[0] = stack->val[stack->esp-1];
-		stack->val[stack->esp-1]=stack->val[stack->esp];
-		stack->esp--;
-	}
-	else{
-		if(stack->val[stack->esp-1].ARR.size+1>=stack->val[stack->esp-1].ARR.all_size){
-			stack->val[stack->esp-1].ARR.array = realloc(stack->val[stack->esp-1].ARR.array, sizeof(DADOS)*(stack->val[stack->esp-1].ARR.all_size+10));
-		}
-		stack->val[stack->esp-1].ARR.array[stack->val[stack->esp-1].ARR.size]=stack->val[stack->esp];
-		stack->val[stack->esp-1].ARR.size++;
-		stack->esp--;
-	}
-}
-
-
-void arrMUL(STCK* stack){
-	int i;
-	long int m;
-	struct ARR arr;
-	if(hastype(stack->val[stack->esp],ARR)){
-		arr = stack->val[stack->esp].ARR;
-		m = stack->val[stack->esp-1].LNG;
-	}
-	else{
-		arr = stack->val[stack->esp-1].ARR;
-		m = stack->val[stack->esp].LNG;
-	}
-	if(arr.size*m>=arr.all_size){
-			arr.all_size*=m;
-			arr.array = realloc(arr.array, sizeof(DADOS)*arr.all_size);
-		}
-		int s = arr.size;
-		arr.size *= m;
-		for(i=0; i<arr.size;i++){
-			arr.array[i] = arr.array[i%s];
-		}
-		stack->val[stack->esp-1].ARR=arr;
-		stack->val[stack->esp-1].type=ARR;
-		stack->esp--;
-}
-
-
 /**
  * \brief Esta funcao exponencia o segundo valor no topo da stack pelo primeiro
  * @param stack A stack
@@ -149,9 +76,6 @@ int add(STCK* stack, char* token){
 			double tmp = double_ADD(stack->val[stack->esp],stack->val[stack->esp-1]);
 			stack->esp-=2;
 			push_DOUBLE(stack,tmp);
-		}
-		else if(hastype(stack->val[stack->esp],ARR)||hastype(stack->val[stack->esp-1],ARR)){
-			arrADD(stack);
 		}
 		else{
 			long int tmp = long_ADD(stack->val[stack->esp],stack->val[stack->esp-1]);
@@ -205,10 +129,7 @@ int divisao(STCK* stack, char* token){
  * @returns Retorna 1 se o token for o correto se nao retorna 0
  */
 int mul(STCK* stack, char* token){
-		if(hastype(stack->val[stack->esp],ARR)||hastype(stack->val[stack->esp-1],ARR)){
-			arrMUL(stack);
-		}
-		else if(hastype(stack->val[stack->esp],DOUBLE)||hastype(stack->val[stack->esp-1],DOUBLE)){
+		if(hastype(stack->val[stack->esp],DOUBLE)||hastype(stack->val[stack->esp-1],DOUBLE)){
 			double tmp = double_MUL(stack->val[stack->esp],stack->val[stack->esp-1]);
 			stack->esp-=2;
 			push_DOUBLE(stack,tmp);

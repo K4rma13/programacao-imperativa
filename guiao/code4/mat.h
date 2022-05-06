@@ -114,8 +114,4 @@ int xor(STCK* stack, char* token);
  */
 int not(STCK* stack, char* token);
 
-struct ARR addToArray(struct ARR arr, DADOS dado);
-
-struct ARR concatArray(struct ARR array1, struct ARR array2);
-
 #endif

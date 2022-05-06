@@ -52,7 +52,7 @@ int main(){
 	stack.esp=-1;
 	int n=0;
 
-	char buffer[10000], aux[10],*b;
+	char buffer[2000000], aux[10],*b;
 	if(fgets(buffer, sizeof(buffer), stdin)!= NULL){
 		buffer[strlen(buffer)-1]='\0';
 		b=buffer;
