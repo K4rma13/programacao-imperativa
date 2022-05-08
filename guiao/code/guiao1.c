@@ -19,11 +19,17 @@
  * @param token Valor a ser interpretado
  */
 
+void handlerValores(STCK* stack, char* token){
+	if(!(valor_Double(stack,token) || valor(stack,token))){
+		printf("erro");
+	}
+}
 
-
-
-
-
+void handlerLetras(STCK* stack, char* token, DADOS* v){
+	if(!(splitNL(stack,token) || splitSpace(stack,token) || variablePush(stack,token,v) || variableGet(stack,token,v))){
+		printf("erro");
+	}
+}
 
 
 void handler(STCK* stack, char* token, DADOS* v,int (*functions[])(STCK*,char*)){
@@ -33,14 +39,14 @@ void handler(STCK* stack, char* token, DADOS* v,int (*functions[])(STCK*,char*))
 	else if(token[0]=='"'){
 		initString(stack,token);
 	}
-	else if(token[0]>='0'&& token[0]<='9'){
-		valor_Double(stack,token) || valor(stack,token);
+	else if((token[0]=='-' && (token[1]>='0'&& token[1]<='9'))||(token[0]>='0'&& token[0]<='9')){
+		handlerValores(stack,token);
 	}
 	else if((token[0]>='A'&& token[0]<='Z')||token[0]==':'){
-		variablePush(stack,token,v) || variableGet(stack,token,v);
+		handlerLetras(stack,token,v);
 	}
 	else{
-		functions[token[0]](stack,token);
+		functions[(int)token[0]](stack,token);
 	}
 }
 
@@ -59,7 +65,7 @@ void definefunctions(int (*functions[])(STCK*,char*)){
 	functions['(']=decr;
 	functions['~']=not;
 	functions['#']=potencia;
-	functions['l']=lestring;
+	functions['l']=inputToStr;
 	functions['c']=longToCHR;
 	functions[';']=removeTop;
 	functions['_']=duplicar;
@@ -78,6 +84,7 @@ void definefunctions(int (*functions[])(STCK*,char*)){
 	functions['[']=initArr;
 	functions[']']=closeArr;
 	functions[',']=enumerate;
+	functions['t']=everythingToStr;
 }
 
 /**
@@ -103,8 +110,15 @@ int main(){
 		v[i].LNG=i-23;
 		v[i].type = LNG;
 	}
-	STCK stack;
-	stack.esp=-1;
+	STCK *stack;
+	stack = malloc(sizeof(STCK));
+	stack->val = malloc(sizeof(DADOS)*20000);
+//	stack->val[0].LNG= 65;
+//	stack->val[0].type= LNG;
+//	stack->val[1].LNG= 5;
+//	stack->val[1].type= LNG;
+	stack->esp=-1;
+//	stack->val[0].LNG += stack->val[1].LNG; 
 	int n=0;
 
 	char buffer[10000], aux[10],*b;
@@ -112,9 +126,21 @@ int main(){
 		buffer[strlen(buffer)-1]='\0';
 		b=buffer;
 		while(*b!='\0'){
-			sscanf(b,"%s %n",aux,&n);
+			if(*b=='"'){
+				sscanf(b+1,"%[^\"]s",aux+1);
+				aux[0]='"';
+				n = strlen(aux);
+				aux[n+1]='\0';
+				aux[n]='"';
+				n+=2;
+			}
+			else{
+				sscanf(b,"%s %n",aux,&n);
+				
+			}
 			b+=n;
-			handler(&stack,aux,v,functions);
+			handler(stack,aux,v,functions);
+
 		}
 		printstack(stack);
 		printf("\n");

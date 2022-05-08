@@ -19,6 +19,10 @@ OPERATION_PROTOO(BIG)
 
 OPERATION_PROTOO(EQUAL)
 
+int grStr(STCK* stack);
+
+int lStr(STCK* stack);
+
 int isFalse(STCK* stack, char* token);
 
 int isEqual(STCK* stack, char* token);

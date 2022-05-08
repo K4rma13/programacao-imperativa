@@ -15,7 +15,19 @@ int variablePush(STCK* stack, char* token, DADOS* v){
 
 int variableGet(STCK* stack, char* token, DADOS* v){
 	if(token[0] == ':'){
-		v[token[1]-65]=stack->val[stack->esp];
+		if(hastype(stack->val[stack->esp],ARR)){
+			v[token[1]-65].ARR.array = malloc(sizeof(DADOS)*stack->val[stack->esp].ARR.size+10);
+			v[token[1]-65].ARR.size = stack->val[stack->esp].ARR.size;
+			v[token[1]-65].ARR.all_size = stack->val[stack->esp].ARR.all_size;
+			int i;
+			for(i=0; i<v[token[1]-65].ARR.size; i++){
+				v[token[1]-65].ARR.array[i] = stack->val[stack->esp].ARR.array[i];
+			}
+			v[token[1]-65].type=ARR;
+		}
+		else{
+			v[token[1]-65]=stack->val[stack->esp];
+		}
 		return 1;
 	}
 	return 0;

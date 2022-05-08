@@ -4,26 +4,28 @@
  */
 #include "logic.h" 
 #define OPERATION_SGN(_name,_sinal)                                            \
-  bool OP_##_name(DADOS b,DADOS a){                                            \
-    if(hastype(a,DOUBLE)){                                                     \
-      if(hastype(b,DOUBLE)){                                                   \
-        return a.DOUBLE _sinal b.DOUBLE;                                       \
-      }                                                                        \
-      else{                                                                    \
-        return a.DOUBLE _sinal b.LNG;                                          \
-      }                                                                        \
-    }                                                                          \
-    else if(hastype(b,DOUBLE)){                                                \
-      return a.LNG _sinal b.DOUBLE;                                            \
-    }                                                                          \
-    else{                                                                      \
-      return a.LNG _sinal b.LNG;                                               \
-    }                                                                          \
-  }                                                                            \
+	bool OP_##_name(DADOS b,DADOS a){                                            \
+		if(hastype(a,DOUBLE)){                                                     \
+			if(hastype(b,DOUBLE)){                                                   \
+				return a.DOUBLE _sinal b.DOUBLE;                                       \
+			}                                                                        \
+			else{                                                                    \
+				return a.DOUBLE _sinal b.LNG;                                          \
+			}                                                                        \
+		}                                                                          \
+		else if(hastype(b,DOUBLE)){                                                \
+			return a.LNG _sinal b.DOUBLE;                                            \
+		}                                                                          \
+		else{                                                                      \
+			return a.LNG _sinal b.LNG;                                               \
+		}                                                                          \
+	}                                                                            \
 
 OPERATION_SGN(EQUAL,==)
 OPERATION_SGN(SMALL,<)
 OPERATION_SGN(BIG,>)
+
+
 
 /**
  * \brief Esta funcao faz a comparacao entre o valor do topo da stack com 0 
@@ -32,13 +34,50 @@ OPERATION_SGN(BIG,>)
 
  */
 bool OP_FALSE(DADOS a){   
-  if(hastype(a,DOUBLE)){                  
-    return a.DOUBLE == 0; 
-  }                 
-  else{       
-    return a.LNG == 0;    
-  }                   
+	if(hastype(a,DOUBLE)){                  
+		return a.DOUBLE == 0; 
+	}                 
+	else{       
+		return a.LNG == 0;    
+	}                   
 }
+
+
+int lStr(STCK* stack){
+	if(stack->val[stack->esp].ARR.size<stack->val[stack->esp-1].ARR.size){
+		return 0;
+	}
+	else if(stack->val[stack->esp].ARR.size>stack->val[stack->esp-1].ARR.size){
+		return 1;
+	}
+	else{
+		long int i,equal=1;
+		for(i=0;stack->val[stack->esp].ARR.size>i&&stack->val[stack->esp].ARR.array[i].CHR==stack->val[stack->esp-1].ARR.array[i].CHR;i++){}
+
+		if(stack->val[stack->esp].ARR.size==i||stack->val[stack->esp].ARR.array[i].CHR<stack->val[stack->esp-1].ARR.array[i].CHR){
+			equal=0;
+		}
+		return equal;
+	}
+}
+
+int grStr(STCK* stack){
+	if(stack->val[stack->esp].ARR.size>stack->val[stack->esp-1].ARR.size){
+		return 0;
+	}
+	else if(stack->val[stack->esp].ARR.size<stack->val[stack->esp-1].ARR.size){
+		return 1;
+	}
+	else{
+		long int i,equal=1;
+		for(i=0;stack->val[stack->esp].ARR.size>i&&stack->val[stack->esp].ARR.array[i].CHR==stack->val[stack->esp-1].ARR.array[i].CHR;i++){}
+		if(stack->val[stack->esp].ARR.size==i||stack->val[stack->esp].ARR.array[i].CHR>stack->val[stack->esp-1].ARR.array[i].CHR){
+			equal=0;
+		}
+		return equal;
+	}
+}
+
 /**
  * \brief Esta funcao faz a comparacao entre os 2 valores do topo da stack com 0 
  * @param DADOS Recebe um valor do tipo dados
@@ -47,20 +86,20 @@ bool OP_FALSE(DADOS a){
 
  */
 bool OP_TRUE(DADOS b,DADOS a){    
-  if(hastype(a,DOUBLE)){          
-    if(hastype(b,DOUBLE)){        
-      return a.DOUBLE !=0 && b.DOUBLE !=0;
-    }                 
-    else{               
-      return a.DOUBLE !=0 && b.LNG != 0;  
-    }                 
-  }                   
-  else if(hastype(b,DOUBLE)){       
-    return a.LNG !=0 && b.DOUBLE != 0;    
-  }                   
-  else{                 
-    return a.LNG !=0 && b.LNG != 0;     
-  }                   
+	if(hastype(a,DOUBLE)){          
+		if(hastype(b,DOUBLE)){        
+			return a.DOUBLE !=0 && b.DOUBLE !=0;
+		}                 
+		else{               
+			return a.DOUBLE !=0 && b.LNG != 0;  
+		}                 
+	}                   
+	else if(hastype(b,DOUBLE)){       
+		return a.LNG !=0 && b.DOUBLE != 0;    
+	}                   
+	else{                 
+		return a.LNG !=0 && b.LNG != 0;     
+	}                   
 }
 
 /**
@@ -72,20 +111,20 @@ bool OP_TRUE(DADOS b,DADOS a){
  */
 
 bool OP_veryFALSE(DADOS b,DADOS a){   
-  if(hastype(a,DOUBLE)){          
-    if(hastype(b,DOUBLE)){        
-      return a.DOUBLE !=0 || b.DOUBLE !=0;
-    }                 
-    else{               
-      return a.DOUBLE !=0 || b.LNG != 0;  
-    }                 
-  }                   
-  else if(hastype(b,DOUBLE)){       
-    return a.LNG !=0 || b.DOUBLE != 0;    
-  }                   
-  else{                 
-    return a.LNG !=0 || b.LNG != 0;     
-  }                   
+	if(hastype(a,DOUBLE)){          
+		if(hastype(b,DOUBLE)){        
+			return a.DOUBLE !=0 || b.DOUBLE !=0;
+		}                 
+		else{               
+			return a.DOUBLE !=0 || b.LNG != 0;  
+		}                 
+	}                   
+	else if(hastype(b,DOUBLE)){       
+		return a.LNG !=0 || b.DOUBLE != 0;    
+	}                   
+	else{                 
+		return a.LNG !=0 || b.LNG != 0;     
+	}                   
 }
 
 /**
@@ -97,25 +136,25 @@ bool OP_veryFALSE(DADOS b,DADOS a){
  */
 
 int isFalse(STCK* stack, char* token){
-  if(strcmp(token,"!")==0){
-    if(hastype(stack->val[stack->esp],LNG)){
-      long int val = OP_FALSE(stack->val[stack->esp]) ? 1 : 0;
-      stack->esp--;
-      push_LNG(stack,val);
-    }
-    else if(hastype(stack->val[stack->esp],DOUBLE)){
-      long int val = OP_FALSE(stack->val[stack->esp]) ? 1 : 0;
-      stack->esp--;
-      push_LNG(stack,val);
-    }
-    else{
-      long int val = OP_FALSE(stack->val[stack->esp]) ? 1 : 0;
-      stack->esp--;
-      push_LNG(stack,val);
-    }
-    return 1;
-  }
-  return 0;
+	if(strcmp(token,"!")==0){
+		if(hastype(stack->val[stack->esp],LNG)){
+			long int val = OP_FALSE(stack->val[stack->esp]) ? 1 : 0;
+			stack->esp--;
+			push_LNG(stack,val);
+		}
+		else if(hastype(stack->val[stack->esp],DOUBLE)){
+			long int val = OP_FALSE(stack->val[stack->esp]) ? 1 : 0;
+			stack->esp--;
+			push_LNG(stack,val);
+		}
+		else{
+			long int val = OP_FALSE(stack->val[stack->esp]) ? 1 : 0;
+			stack->esp--;
+			push_LNG(stack,val);
+		}
+		return 1;
+	}
+	return 0;
 }
 
 /**
@@ -127,19 +166,22 @@ int isFalse(STCK* stack, char* token){
  */
 
 int isEqual(STCK* stack, char* token){
-  if(strcmp(token,"=")==0){
-      if(hastype(stack->val[stack->esp-1],ARR)){
-        indexArr(stack,token);
-      }
-      else{
-        long int val;
-        val = OP_EQUAL(stack->val[stack->esp],stack->val[stack->esp-1]) ? 1 : 0;
-        stack->esp-=2;
-        push_LNG(stack,val);
-      }
-    return 1;
-  }
-  return 0;
+	if(strcmp(token,"=")==0){
+		if(hastype(stack->val[stack->esp-1],ARR)&&hastype(stack->val[stack->esp],ARR)){
+			cmpString(stack);
+		}
+		else if(hastype(stack->val[stack->esp-1],ARR)){
+			indexArr(stack,token);
+		}
+		else{
+			long int val;
+			val = OP_EQUAL(stack->val[stack->esp],stack->val[stack->esp-1]) ? 1 : 0;
+			stack->esp-=2;
+			push_LNG(stack,val);
+		}
+		return 1;
+	}
+	return 0;
 }
 /**
  * \brief Esta funcao verifica se o segundo valor do topo da stack e menor que o primeiro se sim coloca 1 no topo da stack senao coloca 0
@@ -149,14 +191,22 @@ int isEqual(STCK* stack, char* token){
 
  */
 int isSmall(STCK* stack, char* token){
-  if(strcmp(token,"<")==0){
-    long int val;
-    val = OP_SMALL(stack->val[stack->esp],stack->val[stack->esp-1]) ? 1 : 0;
-    stack->esp-=2;
-    push_LNG(stack,val);
-    return 1;
-  }
-  return 0;
+	if(strcmp(token,"<")==0){
+		if(hastype(stack->val[stack->esp-1],ARR)&&hastype(stack->val[stack->esp],ARR)){
+			lesserString(stack);
+		}
+		else if(hastype(stack->val[stack->esp-1],ARR)){
+			firstArray(stack,token);
+		}
+		else{
+			long int val;
+			val = OP_SMALL(stack->val[stack->esp],stack->val[stack->esp-1]) ? 1 : 0;
+			stack->esp-=2;
+			push_LNG(stack,val);
+		}
+		return 1;
+	}
+	return 0;
 }
 
 /**
@@ -168,16 +218,20 @@ int isSmall(STCK* stack, char* token){
  */
 
 int isBig(STCK* stack,char* token){
-    if(hastype(stack->val[stack->esp-1],ARR)){
-      lastArray(stack,token);
-    }
-    else{
-      long int val;
-      val = OP_BIG(stack->val[stack->esp],stack->val[stack->esp-1]) ? 1 : 0;
-      stack->esp-=2;
-      push_LNG(stack,val);
-    }
-    return 1;
+	if((int)token[0]==0){printf("Erro");}
+	if(hastype(stack->val[stack->esp-1],ARR)&&hastype(stack->val[stack->esp],ARR)){
+		greaterString(stack);
+	}
+	else if(hastype(stack->val[stack->esp-1],ARR)){
+		lastArray(stack,token);
+	}
+	else{
+		long int val;
+		val = OP_BIG(stack->val[stack->esp],stack->val[stack->esp-1]) ? 1 : 0;
+		stack->esp-=2;
+		push_LNG(stack,val);
+	}
+	return 1;
 }
 /**
  * \brief Esta funcao verifica se o terceiro valor do topo da stack é zero se nao for coloca no topo da stack o segundo valor, caso contrario coloca no topo da stack o primeiro valor
@@ -188,10 +242,21 @@ int isBig(STCK* stack,char* token){
  */
 
 int ifThenElse(STCK* stack,char* token){
-    DADOS tmp = !OP_FALSE(stack->val[stack->esp-2]) ? tmp=stack->val[stack->esp-1] : stack->val[stack->esp];
-    stack->esp-=2;
-    stack->val[stack->esp]=tmp;
-    return 1;
+
+	if((int)token[0]==0){printf("Erro");}
+	
+	if(hastype(stack->val[stack->esp-2],ARR)){
+		DADOS tmp = stack->val[stack->esp-2].ARR.size ? tmp=stack->val[stack->esp-1] : stack->val[stack->esp];
+		stack->esp-=2;
+		stack->val[stack->esp]=tmp;
+	}
+	else{
+		DADOS tmp = !OP_FALSE(stack->val[stack->esp-2]) ? tmp=stack->val[stack->esp-1] : stack->val[stack->esp];
+		stack->esp-=2;
+		stack->val[stack->esp]=tmp;
+	}
+	
+	return 1;
 }
 
 /**
@@ -202,17 +267,25 @@ int ifThenElse(STCK* stack,char* token){
 
  */
 int logicalAnd(STCK* stack, char* token){
-    DADOS zero;
-    zero.type=LNG;
-    zero.LNG=0;
-    zero.DOUBLE=0;
-    zero.CHR=0;
-    zero.STR=NULL;
-    DADOS val;
-    val = OP_TRUE(stack->val[stack->esp],stack->val[stack->esp-1]) ? (OP_SMALL(stack->val[stack->esp-1],stack->val[stack->esp]) ? stack->val[stack->esp-1] : stack->val[stack->esp]) : zero;
-    stack->esp--;
-    stack->val[stack->esp]=val;
-    return 1;
+	if((int)token[0]==0){printf("Erro");}
+		DADOS zero;
+		zero.type=LNG;
+		zero.LNG=0;
+		zero.DOUBLE=0;
+		zero.CHR=0;
+		zero.STR=NULL;
+		zero.ARR.size=0;
+		zero.ARR.all_size=0;
+		zero.ARR.array=NULL;
+		DADOS val;
+		val=zero;
+		if(hastype(stack->val[stack->esp],ARR)){
+
+		}
+		val = OP_TRUE(stack->val[stack->esp],stack->val[stack->esp-1]) ? (OP_SMALL(stack->val[stack->esp-1],stack->val[stack->esp]) ? stack->val[stack->esp-1] : stack->val[stack->esp]) : zero;
+		stack->esp--;
+		stack->val[stack->esp]=val;
+		return 1;
 }
 /**
  * \brief Esta funcao verifica se os dois elementos do topo da stack sao 0 se sim coloca 0 no topo da stack se nao coloca o maior deles
@@ -222,17 +295,22 @@ int logicalAnd(STCK* stack, char* token){
 
  */
 int logicalOr(STCK* stack, char* token){
-    DADOS zero;
-    zero.type=LNG;
-    zero.LNG=0;
-    zero.DOUBLE=0;
-    zero.CHR=0;
-    zero.STR=NULL;
-    DADOS val;
-    val = OP_veryFALSE(stack->val[stack->esp],stack->val[stack->esp-1]) ? (OP_SMALL(stack->val[stack->esp-1],stack->val[stack->esp]) ? stack->val[stack->esp-1] : stack->val[stack->esp]) : zero;
-    stack->esp--;
-    stack->val[stack->esp]=val;
-    return 1;
+	if((int)token[0]==0){printf("Erro");}
+		DADOS zero;
+		zero.type=LNG;
+		zero.LNG=0;
+		zero.DOUBLE=0;
+		zero.CHR=0;
+		zero.STR=NULL;
+		zero.ARR.size=0;
+		zero.ARR.all_size=0;
+		zero.ARR.array=NULL;
+		DADOS val;
+		val=zero;
+		val = OP_veryFALSE(stack->val[stack->esp],stack->val[stack->esp-1]) ? (OP_SMALL(stack->val[stack->esp-1],stack->val[stack->esp]) ? stack->val[stack->esp-1] : stack->val[stack->esp]) : zero;
+		stack->esp--;
+		stack->val[stack->esp]=val;
+		return 1;
 }
 /**
  * \brief Esta funcao analisa os dois valores do topo da stack e coloca o maior deles no topo da stack
@@ -242,11 +320,21 @@ int logicalOr(STCK* stack, char* token){
  */
 
 int logicalGreater(STCK* stack, char* token){
-    DADOS val;
-    val = OP_SMALL(stack->val[stack->esp],stack->val[stack->esp-1]) ? stack->val[stack->esp] : stack->val[stack->esp-1];
-    stack->esp--;
-    stack->val[stack->esp]=val;
-    return 1;
+	if((int)token[0]==0){printf("Erro");}
+	DADOS val;
+	if(hastype(stack->val[stack->esp],ARR)){
+		int idk = grStr(stack);
+		if(idk==0){
+			trocar(stack,token);
+		}
+	}
+	else{
+		val = OP_SMALL(stack->val[stack->esp],stack->val[stack->esp-1]) ? stack->val[stack->esp] : stack->val[stack->esp-1];
+		
+		stack->val[stack->esp-1]=val;
+	}
+	stack->esp--;
+	return 1;
 }
 
 /**
@@ -257,9 +345,19 @@ int logicalGreater(STCK* stack, char* token){
  */
 
 int logicalLess(STCK* stack, char* token){
-    DADOS val;
-    val = OP_BIG(stack->val[stack->esp],stack->val[stack->esp-1]) ? stack->val[stack->esp] : stack->val[stack->esp-1];
-    stack->esp--;
-    stack->val[stack->esp]=val;
-    return 1;
+	if((int)token[0]==0){printf("Erro");}
+		DADOS val;
+		if(hastype(stack->val[stack->esp],ARR)){
+			int idk = lStr(stack);
+			if(idk==0){
+				trocar(stack,token);
+			}
+		}
+		else{
+			val = OP_BIG(stack->val[stack->esp],stack->val[stack->esp-1]) ? stack->val[stack->esp] : stack->val[stack->esp-1];
+			stack->val[stack->esp-1]=val;
+		}
+		stack->esp--;
+		
+		return 1;
 }

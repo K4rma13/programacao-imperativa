@@ -20,34 +20,35 @@
 	}											\
 	long int long_##_name(DADOS b,DADOS a){		\
 		return a.LNG _sinal b.LNG;				\
-	}											\
+	}
 
 OPERATION_SGN(ADD,+)
 OPERATION_SGN(SUB,-)
 OPERATION_SGN(MUL,*)
 OPERATION_SGN(DIV,/)
 
+void nothing(){
 
-
-struct ARR concatArray(struct ARR array1, struct ARR array2){
-	struct ARR final;
-	final.array = malloc(sizeof(DADOS)*(array1.all_size+array2.all_size));
-	final.size = array1.size+array2.size;
-	final.all_size = array1.all_size+array2.all_size;
-	int i;
-	for(i=0; i<array1.size;i++){
-		final.array[i]=array1.array[i];
-	}
-	for(i=0; i<array2.size;i++){
-		final.array[i+array1.size]=array2.array[i];
-	}
-	return final;
 }
+
+void concatArray( typearray* array1, typearray array2){
+	int i;
+	int s;
+	s=array1->size;
+	array1->array = realloc(array1->array,sizeof(DADOS)*(array1->all_size+array2.all_size));
+	array1->size += array2.size;
+	array1->all_size += array2.all_size;
+
+	for(i=s; i<array1->size;i++){
+		array1->array[i]=array2.array[i-s];
+	}
+}
+
 
 void arrADD(STCK* stack){
 	int i;
 	if(hastype(stack->val[stack->esp],ARR)&&hastype(stack->val[stack->esp-1],ARR)){
-		stack->val[stack->esp-1].ARR = concatArray(stack->val[stack->esp-1].ARR,stack->val[stack->esp].ARR);
+		concatArray(&stack->val[stack->esp-1].ARR,stack->val[stack->esp].ARR);
 		stack->esp--;
 	}
 	else if(hastype(stack->val[stack->esp],ARR)){
@@ -109,33 +110,36 @@ void arrMUL(STCK* stack){
 
 
 int potencia(STCK* stack, char* token){
-		if(hastype(stack->val[stack->esp],DOUBLE)){
-			if(hastype(stack->val[stack->esp-1],DOUBLE)){
-				stack->val[stack->esp-1].DOUBLE = pow(stack->val[stack->esp-1].DOUBLE,stack->val[stack->esp].DOUBLE);
-				stack->val[stack->esp-1].type = DOUBLE;
-				stack->esp--;
-			}
-			else{
-				stack->val[stack->esp-1].DOUBLE = pow(stack->val[stack->esp-1].LNG,stack->val[stack->esp].DOUBLE);
-				stack->val[stack->esp-1].type = DOUBLE;
-				stack->esp--;
-			}
+	if((int)token[0]==0){printf("Erro");}
+	if(hastype(stack->val[stack->esp],ARR)){
+		findArr(stack,token);
+	}
+	else if(hastype(stack->val[stack->esp],DOUBLE)){
+		if(hastype(stack->val[stack->esp-1],DOUBLE)){
+			stack->val[stack->esp-1].DOUBLE = pow(stack->val[stack->esp-1].DOUBLE,stack->val[stack->esp].DOUBLE);
+			stack->val[stack->esp-1].type = DOUBLE;
+			stack->esp--;
 		}
 		else{
-			if(hastype(stack->val[stack->esp-1],DOUBLE)){
-				stack->val[stack->esp-1].DOUBLE = pow(stack->val[stack->esp-1].LNG,stack->val[stack->esp].DOUBLE);
-				stack->val[stack->esp-1].type = DOUBLE;
-				stack->esp--;
-			}
-			else{
-				stack->val[stack->esp-1].LNG = pow(stack->val[stack->esp-1].LNG,stack->val[stack->esp].LNG);
-				stack->val[stack->esp-1].type = LNG;
-				stack->esp--;
-			}
+			stack->val[stack->esp-1].DOUBLE = pow(stack->val[stack->esp-1].LNG,stack->val[stack->esp].DOUBLE);
+			stack->val[stack->esp-1].type = DOUBLE;
+			stack->esp--;
 		}
-
-		//stack->val[stack->esp-1]=pow(stack->val[stack->esp-1],stack->val[stack->esp]);
-		return 1;
+	}
+	else{
+		if(hastype(stack->val[stack->esp-1],DOUBLE)){
+			stack->val[stack->esp-1].DOUBLE = pow(stack->val[stack->esp-1].LNG,stack->val[stack->esp].DOUBLE);
+			stack->val[stack->esp-1].type = DOUBLE;
+			stack->esp--;
+		}
+		else{
+			stack->val[stack->esp-1].LNG = pow(stack->val[stack->esp-1].LNG,stack->val[stack->esp].LNG);
+			stack->val[stack->esp-1].type = LNG;
+			stack->esp--;
+		}
+	}
+	//stack->val[stack->esp-1]=pow(stack->val[stack->esp-1],stack->val[stack->esp]);
+	return 1;
 }
 
 /**
@@ -145,9 +149,11 @@ int potencia(STCK* stack, char* token){
  * @returns Retorna 1 se o token for o correto se nao retorna 0
  */
 int add(STCK* stack, char* token){
+	if((int)token[0]==0){printf("Erro");}
 		if(hastype(stack->val[stack->esp],DOUBLE)||hastype(stack->val[stack->esp-1],DOUBLE)){
 			double tmp = double_ADD(stack->val[stack->esp],stack->val[stack->esp-1]);
 			stack->esp-=2;
+			//printf("--%lf--\n",tmp);
 			push_DOUBLE(stack,tmp);
 		}
 		else if(hastype(stack->val[stack->esp],ARR)||hastype(stack->val[stack->esp-1],ARR)){
@@ -167,6 +173,7 @@ int add(STCK* stack, char* token){
  * @returns Retorna 1 se o token for o correto se nao retorna 0
  */
 int sub(STCK* stack, char* token){
+	if((int)token[0]==0){printf("Erro");}
 		if(hastype(stack->val[stack->esp],DOUBLE)||hastype(stack->val[stack->esp-1],DOUBLE)){
 			double tmp = double_SUB(stack->val[stack->esp],stack->val[stack->esp-1]);
 			stack->esp-=2;
@@ -186,17 +193,21 @@ int sub(STCK* stack, char* token){
  * @returns Retorna 1 se o token for o correto se nao retorna 0
  */
 int divisao(STCK* stack, char* token){
-		if(hastype(stack->val[stack->esp],DOUBLE)||hastype(stack->val[stack->esp-1],DOUBLE)){
-			double tmp = double_DIV(stack->val[stack->esp],stack->val[stack->esp-1]);
-			stack->esp-=2;
-			push_DOUBLE(stack,tmp);
-		}
-		else{
-			long int tmp = long_DIV(stack->val[stack->esp],stack->val[stack->esp-1]);
-			stack->esp-=2;
-			push_LNG(stack,tmp);
-		}
-		return 1;
+	if((int)token[0]==0){printf("Erro");}
+	if(hastype(stack->val[stack->esp],ARR)){
+		splitStr(stack,token);
+	}
+	else if(hastype(stack->val[stack->esp],DOUBLE)||hastype(stack->val[stack->esp-1],DOUBLE)){
+		double tmp = double_DIV(stack->val[stack->esp],stack->val[stack->esp-1]);
+		stack->esp-=2;
+		push_DOUBLE(stack,tmp);
+	}
+	else{
+		long int tmp = long_DIV(stack->val[stack->esp],stack->val[stack->esp-1]);
+		stack->esp-=2;
+		push_LNG(stack,tmp);
+	}
+	return 1;
 }
 /**
  * \brief Esta funcao multiplica os dois valores no topo da stack
@@ -205,6 +216,7 @@ int divisao(STCK* stack, char* token){
  * @returns Retorna 1 se o token for o correto se nao retorna 0
  */
 int mul(STCK* stack, char* token){
+	if((int)token[0]==0){printf("Erro");}
 		if(hastype(stack->val[stack->esp],ARR)||hastype(stack->val[stack->esp-1],ARR)){
 			arrMUL(stack);
 		}
@@ -228,16 +240,20 @@ int mul(STCK* stack, char* token){
  */
 
 int incr(STCK* stack, char* token){
-		if(hastype(stack->val[stack->esp],DOUBLE)){
-			stack->val[stack->esp].DOUBLE++;
-		}
-		else if(hastype(stack->val[stack->esp],LNG)){
-			stack->val[stack->esp].LNG++;
-		}
-		else{
-			stack->val[stack->esp].CHR++;
-		}		
-		return 1;
+	if((int)token[0]==0){printf("Erro");}
+	if(hastype(stack->val[stack->esp],ARR)){
+		rmLastArr(stack,token);
+	}
+	else if(hastype(stack->val[stack->esp],DOUBLE)){
+		stack->val[stack->esp].DOUBLE++;
+	}
+	else if(hastype(stack->val[stack->esp],LNG)){
+		stack->val[stack->esp].LNG++;
+	}
+	else{
+		stack->val[stack->esp].CHR++;
+	}		
+	return 1;
 }
 
 /**
@@ -248,16 +264,20 @@ int incr(STCK* stack, char* token){
  */
 
 int decr(STCK* stack, char* token){
-		if(hastype(stack->val[stack->esp],DOUBLE)){
-			stack->val[stack->esp].DOUBLE--;
-		}
-		else if(hastype(stack->val[stack->esp],LNG)){
-			stack->val[stack->esp].LNG--;
-		}
-		else{
-			stack->val[stack->esp].CHR--;
-		}
-		return 1;
+	if((int)token[0]==0){printf("Erro");}
+	if(hastype(stack->val[stack->esp],ARR)){
+		rmFirstArr(stack,token);
+	}
+	else if(hastype(stack->val[stack->esp],DOUBLE)){
+		stack->val[stack->esp].DOUBLE--;
+	}
+	else if(hastype(stack->val[stack->esp],LNG)){
+		stack->val[stack->esp].LNG--;
+	}
+	else{
+		stack->val[stack->esp].CHR--;
+	}
+	return 1;
 }
 
 /**
@@ -267,6 +287,7 @@ int decr(STCK* stack, char* token){
  * @returns Retorna 1 se o token for o correto se nao retorna 0
  */
 int module(STCK* stack, char* token){
+	if((int)token[0]==0){printf("Erro");}
 		if(hastype(stack->val[stack->esp],LNG)){
 			long int tmp = stack->val[stack->esp-1].LNG%stack->val[stack->esp].LNG;
 			stack->esp-=2;
@@ -281,6 +302,7 @@ int module(STCK* stack, char* token){
  * @returns Retorna 1 se o token for o correto se nao retorna 0
  */
 int and(STCK* stack, char* token){
+	if((int)token[0]==0){printf("Erro");}
 		if(hastype(stack->val[stack->esp],LNG)){
 			long int tmp = stack->val[stack->esp].LNG&stack->val[stack->esp-1].LNG;
 			stack->esp-=2;
@@ -295,6 +317,7 @@ int and(STCK* stack, char* token){
  * @returns Retorna 1 se o token for o correto se nao retorna 0
  */
 int or(STCK* stack, char* token){
+	if((int)token[0]==0){printf("Erro");}
 		if(hastype(stack->val[stack->esp],LNG)){
 			long int tmp = stack->val[stack->esp].LNG|stack->val[stack->esp-1].LNG;
 			stack->esp-=2;
@@ -309,6 +332,7 @@ int or(STCK* stack, char* token){
  * @returns Retorna 1 se o token for o correto se nao retorna 0
  */
 int xor(STCK* stack, char* token){
+	if((int)token[0]==0){printf("Erro");}
 		if(hastype(stack->val[stack->esp],LNG)){
 			long int tmp = stack->val[stack->esp].LNG^stack->val[stack->esp-1].LNG;
 			stack->esp-=2;
@@ -316,17 +340,20 @@ int xor(STCK* stack, char* token){
 		}
 		return 1;
 }
+
 /**
  * \brief Esta funcao calcula o "not(bitwise)" do valor no topo da stack
  * @param stack A stack
  * @param token Valor a ser interpretado
  * @returns Retorna 1 se o token for o correto se nao retorna 0
  */
-
-
 int not(STCK* stack, char* token){
+	if((int)token[0]==0){printf("Erro");}
 		if(hastype(stack->val[stack->esp],LNG)){
 			stack->val[stack->esp].LNG = ~(stack->val[stack->esp].LNG);
+		}
+		else if(hastype(stack->val[stack->esp],ARR)){
+			arrayToStack(stack,token);
 		}
 		return 1;
 }

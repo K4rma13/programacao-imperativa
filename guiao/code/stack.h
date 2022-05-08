@@ -11,7 +11,6 @@
 #include <assert.h>
 
 
-#define MAXSTACK 1000
 
 
 typedef enum{CHR = 0, LNG = 1, STR=2, DOUBLE=3, ARR=4}TYPE;
@@ -29,8 +28,10 @@ typedef struct DADOS{
 	}ARR;
 }DADOS;
 
+typedef struct ARR typearray;
+
 typedef struct STCK{
-	DADOS val[MAXSTACK];
+	DADOS* val;
 	int esp;
 }STCK;
 
@@ -49,7 +50,7 @@ bool hastype(DADOS dado, TYPE tipo);
 
 int lestring(STCK* stack, char* token);
 
-void printstack(STCK stack);
+void printstack(STCK* stack);
 
 bool isdecimal(char* token);
 
