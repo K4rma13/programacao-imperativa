@@ -19,16 +19,24 @@
  * @param token Valor a ser interpretado
  */
 
-void handlerValores(STCK* stack, char* token){
-	if(!(valor_Double(stack,token) || valor(stack,token))){
-		printf("erro");
+int handlerValores(STCK* stack, char* token){
+	if((token[0]=='-' && (token[1]>='0'&& token[1]<='9'))||(token[0]>='0'&& token[0]<='9')){
+		if(!(valor_Double(stack,token) || valor(stack,token))){
+			printf("erro");
+		}
+		return 1;
 	}
+	return 0;
 }
 
-void handlerLetras(STCK* stack, char* token, DADOS* v){
-	if(!(splitNL(stack,token) || splitSpace(stack,token) || variablePush(stack,token,v) || variableGet(stack,token,v))){
-		printf("erro");
+int handlerLetras(STCK* stack, char* token, DADOS* v){
+	if((token[0]>='A'&& token[0]<='Z')||token[0]==':'){
+		if(!(splitNL(stack,token) || splitSpace(stack,token) || variablePush(stack,token,v) || variableGet(stack,token,v))){
+			printf("erro");
+		}
+		return 1;
 	}
+	return 0;
 }
 
 
@@ -36,17 +44,10 @@ void handler(STCK* stack, char* token, DADOS* v,int (*functions[])(STCK*,char*))
 	if(token[0]=='e'){
 		functions[127+token[1]](stack,token);
 	}
-	else if(token[0]=='"'){
-		initString(stack,token);
-	}
-	else if((token[0]=='-' && (token[1]>='0'&& token[1]<='9'))||(token[0]>='0'&& token[0]<='9')){
-		handlerValores(stack,token);
-	}
-	else if((token[0]>='A'&& token[0]<='Z')||token[0]==':'){
-		handlerLetras(stack,token,v);
-	}
 	else{
-		functions[(int)token[0]](stack,token);
+		if(!(handlerValores(stack,token)||handlerLetras(stack,token,v))){
+			functions[(int)token[0]](stack,token);
+		}
 	}
 }
 
@@ -85,6 +86,7 @@ void definefunctions(int (*functions[])(STCK*,char*)){
 	functions[']']=closeArr;
 	functions[',']=enumerate;
 	functions['t']=everythingToStr;
+	functions['"']=initString;
 }
 
 /**

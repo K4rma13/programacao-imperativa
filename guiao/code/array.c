@@ -207,19 +207,11 @@ int splitStr(STCK* stack, char* token){
 	for(i=0; i<string.size;i++){
 		if(string.array[i].CHR==substr.array[cont].CHR){
 			cont++;
-			if(i-cont+1-start==0){
-				resultado[bs].ARR.array=(DADOS *)malloc(sizeof(DADOS)*(i-cont+10));
-				cpyDados(resultado[bs].ARR.array,&(string.array[start]),1);
-				resultado[bs].type=ARR;
-				resultado[bs].ARR.size=1;
+			if(i-cont+1-start==0&&substr.size==cont){
+				start=i+1;
 				cont=0;
-				bs++;
-				
-				i+=3;
-				start=i+2;
-				
 			}
-			if(substr.size==cont){
+			else if(substr.size==cont){
 				resultado[bs].ARR.array=(DADOS *)malloc(sizeof(DADOS)*(i-cont+10));
 				cpyDados(resultado[bs].ARR.array,&(string.array[start]),i-cont+1-start);
 				resultado[bs].type=ARR;
@@ -255,14 +247,42 @@ int splitStr(STCK* stack, char* token){
 }
 
 int splitSpace(STCK* stack, char* token){
+	if((int)token[0]==0){printf("Erro");}
 	if(token[0]=='S'&&token[1]=='/'){
-		stack->esp++;
-		stack->val[stack->esp].ARR.array = malloc(sizeof(DADOS));
-		stack->val[stack->esp].ARR.array[0].CHR = ' ';
-		stack->val[stack->esp].ARR.array[0].type = CHR;
-		stack->val[stack->esp].ARR.size = 1;
-		stack->val[stack->esp].type = ARR;
-		splitStr(stack,token);
+		struct ARR string = stack->val[stack->esp].ARR;
+		DADOS *resultado=(DADOS *)malloc(sizeof(DADOS)*100000);
+		int i,bs=0,start=0;
+		for(i=0; i<string.size;i++){
+			if(string.array[i].CHR==' ' || string.array[i].CHR=='\n'){
+
+				if(i-start==0){
+					start=i+1;
+				}
+				else{
+					resultado[bs].ARR.array=(DADOS *)malloc(sizeof(DADOS)*(i-start+10));
+					cpyDados(resultado[bs].ARR.array,&(string.array[start]),i-start);
+					resultado[bs].type=ARR;
+					resultado[bs].ARR.size=i-start;
+					start=i+1;
+					
+					bs++;
+				}
+			}
+		}
+		if(i!=start){
+			resultado[bs].ARR.array=(DADOS *)malloc(sizeof(DADOS)*(i-start));
+			cpyDados(resultado[bs].ARR.array,&(string.array[start]),i-start);
+			resultado[bs].type=ARR;
+			resultado[bs].ARR.size=i-start;
+			stack->val[stack->esp].ARR.array=resultado;
+			stack->val[stack->esp].ARR.size=bs+1;
+			stack->val[stack->esp].type=ARR;
+		}
+		else{
+			stack->val[stack->esp].ARR.array=resultado;
+			stack->val[stack->esp].ARR.size=bs;
+			stack->val[stack->esp].type=ARR;
+		}
 		return 1;
 	}
 	return 0;
