@@ -20,9 +20,6 @@ PROTO_OPERATION_SGN(SUB,-)
 PROTO_OPERATION_SGN(MUL,*)
 PROTO_OPERATION_SGN(DIV,/)
 
-
-void concatArray(typearray* array1, typearray array2);
-
 /**
  * \brief Funcao definida no mat.c(libraria)
  * @param DADOS valor do tipo dados

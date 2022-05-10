@@ -5,12 +5,6 @@
 #include <stdio.h>
 #include <string.h>
 
-int arrMUL(STCK* stack);
-
-int arrADD(STCK* stack);
-
-void concatArray( typearray* array1, typearray array2);
-
 int enumerate(STCK* stack, char* token);
 
 int lastArray(STCK* stack, char* token);
@@ -39,11 +33,11 @@ int splitStr(STCK* stack, char* token);
 
 int splitSpace(STCK* stack, char* token);
 
-int cmpString(STCK* stack);
+void cmpString(STCK* stack);
 
-int greaterString(STCK* stack);
+void greaterString(STCK* stack);
 
-int lesserString(STCK* stack);
+void lesserString(STCK* stack);
 
 int everythingToStr(STCK* stack, char* token);
 

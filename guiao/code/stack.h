@@ -13,7 +13,7 @@
 
 
 
-typedef enum{CHR = 0, LNG = 1, STR=2, DOUBLE=3, ARR=4}TYPE;
+typedef enum{CHR = 0, LNG = 1, STR=2, DOUBLE=3, ARR=4, BLK=6}TYPE;
 
 typedef struct DADOS{
 	TYPE type;

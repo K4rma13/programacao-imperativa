@@ -3,23 +3,23 @@
  *
  */
 #include "logic.h" 
-#define OPERATION_SGN(_name,_sinal)                                             \
-	bool OP_##_name(DADOS b,DADOS a){                                           \
-		if(hastype(a,DOUBLE)){                                                  \
-			if(hastype(b,DOUBLE)){                                              \
-				return a.DOUBLE _sinal b.DOUBLE;                                \
-			}                                                                   \
-			else{                                                               \
-				return a.DOUBLE _sinal b.LNG;                                   \
-			}                                                                   \
-		}                                                                       \
-		else if(hastype(b,DOUBLE)){                                             \
-			return a.LNG _sinal b.DOUBLE;                                       \
-		}                                                                       \
-		else{                                                                   \
-			return a.LNG _sinal b.LNG;                                          \
-		}                                                                       \
-	}                                                                           \
+#define OPERATION_SGN(_name,_sinal)                                            \
+	bool OP_##_name(DADOS b,DADOS a){                                            \
+		if(hastype(a,DOUBLE)){                                                     \
+			if(hastype(b,DOUBLE)){                                                   \
+				return a.DOUBLE _sinal b.DOUBLE;                                       \
+			}                                                                        \
+			else{                                                                    \
+				return a.DOUBLE _sinal b.LNG;                                          \
+			}                                                                        \
+		}                                                                          \
+		else if(hastype(b,DOUBLE)){                                                \
+			return a.LNG _sinal b.DOUBLE;                                            \
+		}                                                                          \
+		else{                                                                      \
+			return a.LNG _sinal b.LNG;                                               \
+		}                                                                          \
+	}                                                                            \
 
 OPERATION_SGN(EQUAL,==)
 OPERATION_SGN(SMALL,<)
@@ -167,10 +167,18 @@ int isFalse(STCK* stack, char* token){
 
 int isEqual(STCK* stack, char* token){
 	if(strcmp(token,"=")==0){
-		long int val;
-		val = OP_EQUAL(stack->val[stack->esp],stack->val[stack->esp-1]) ? 1 : 0;
-		stack->esp-=2;
-		push_LNG(stack,val);
+		if(hastype(stack->val[stack->esp-1],ARR)&&hastype(stack->val[stack->esp],ARR)){
+			cmpString(stack);
+		}
+		else if(hastype(stack->val[stack->esp-1],ARR)){
+			indexArr(stack,token);
+		}
+		else{
+			long int val;
+			val = OP_EQUAL(stack->val[stack->esp],stack->val[stack->esp-1]) ? 1 : 0;
+			stack->esp-=2;
+			push_LNG(stack,val);
+		}
 		return 1;
 	}
 	return 0;
@@ -184,10 +192,18 @@ int isEqual(STCK* stack, char* token){
  */
 int isSmall(STCK* stack, char* token){
 	if(strcmp(token,"<")==0){
-		long int val;
-		val = OP_SMALL(stack->val[stack->esp],stack->val[stack->esp-1]) ? 1 : 0;
-		stack->esp-=2;
-		push_LNG(stack,val);
+		if(hastype(stack->val[stack->esp-1],ARR)&&hastype(stack->val[stack->esp],ARR)){
+			lesserString(stack);
+		}
+		else if(hastype(stack->val[stack->esp-1],ARR)){
+			firstArray(stack,token);
+		}
+		else{
+			long int val;
+			val = OP_SMALL(stack->val[stack->esp],stack->val[stack->esp-1]) ? 1 : 0;
+			stack->esp-=2;
+			push_LNG(stack,val);
+		}
 		return 1;
 	}
 	return 0;
@@ -203,10 +219,18 @@ int isSmall(STCK* stack, char* token){
 
 int isBig(STCK* stack,char* token){
 	if((int)token[0]==0){printf("Erro");}
-	long int val;
-	val = OP_BIG(stack->val[stack->esp],stack->val[stack->esp-1]) ? 1 : 0;
-	stack->esp-=2;
-	push_LNG(stack,val);
+	if(hastype(stack->val[stack->esp-1],ARR)&&hastype(stack->val[stack->esp],ARR)){
+		greaterString(stack);
+	}
+	else if(hastype(stack->val[stack->esp-1],ARR)){
+		lastArray(stack,token);
+	}
+	else{
+		long int val;
+		val = OP_BIG(stack->val[stack->esp],stack->val[stack->esp-1]) ? 1 : 0;
+		stack->esp-=2;
+		push_LNG(stack,val);
+	}
 	return 1;
 }
 /**
@@ -214,10 +238,13 @@ int isBig(STCK* stack,char* token){
  * @param stack A stack
  * @param token Valor a ser interpretado
  * @returns Retorna 1 se for token for o correto se nao retorna 0
+
  */
 
 int ifThenElse(STCK* stack,char* token){
+
 	if((int)token[0]==0){printf("Erro");}
+	
 	if(hastype(stack->val[stack->esp-2],ARR)){
 		DADOS tmp = stack->val[stack->esp-2].ARR.size ? tmp=stack->val[stack->esp-1] : stack->val[stack->esp];
 		stack->esp-=2;
@@ -252,6 +279,9 @@ int logicalAnd(STCK* stack, char* token){
 		zero.ARR.array=NULL;
 		DADOS val;
 		val=zero;
+		if(hastype(stack->val[stack->esp],ARR)){
+
+		}
 		val = OP_TRUE(stack->val[stack->esp],stack->val[stack->esp-1]) ? (OP_SMALL(stack->val[stack->esp-1],stack->val[stack->esp]) ? stack->val[stack->esp-1] : stack->val[stack->esp]) : zero;
 		stack->esp--;
 		stack->val[stack->esp]=val;

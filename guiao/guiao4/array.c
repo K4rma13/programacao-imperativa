@@ -1,75 +1,5 @@
 #include "array.h"
 
-int arrMUL(STCK* stack){
-	int i;
-	long int m;
-	struct ARR arr;
-	if(hastype(stack->val[stack->esp],ARR)){
-		arr = stack->val[stack->esp].ARR;
-		m = stack->val[stack->esp-1].LNG;
-	}
-	else{
-		arr = stack->val[stack->esp-1].ARR;
-		m = stack->val[stack->esp].LNG;
-	}
-	if(arr.size*m>=arr.all_size){
-		arr.all_size*=m;
-		arr.array = realloc(arr.array, sizeof(DADOS)*arr.all_size);
-	}
-	int s = arr.size;
-	arr.size *= m;
-	for(i=0; i<arr.size;i++){
-		arr.array[i] = arr.array[i%s];
-	}
-	stack->val[stack->esp-1].ARR=arr;
-	stack->val[stack->esp-1].type=ARR;
-	stack->esp--;
-	return 1;
-}
-
-int arrADD(STCK* stack){
-	int i;
-	if(hastype(stack->val[stack->esp],ARR)&&hastype(stack->val[stack->esp-1],ARR)){
-		concatArray(&stack->val[stack->esp-1].ARR,stack->val[stack->esp].ARR);
-		stack->esp--;
-	}
-	else if(hastype(stack->val[stack->esp],ARR)){
-		if(stack->val[stack->esp].ARR.size+1>=stack->val[stack->esp].ARR.all_size){
-			stack->val[stack->esp].ARR.array = realloc(stack->val[stack->esp].ARR.array, sizeof(DADOS)*(stack->val[stack->esp].ARR.all_size+10));
-		}
-		for(i=stack->val[stack->esp].ARR.size-1;i>=0;i--){
-			stack->val[stack->esp].ARR.array[i+1] = stack->val[stack->esp].ARR.array[i];
-		}
-		stack->val[stack->esp].ARR.size++;
-		stack->val[stack->esp].ARR.array[0] = stack->val[stack->esp-1];
-		stack->val[stack->esp-1]=stack->val[stack->esp];
-		stack->esp--;
-	}
-	else{
-		if(stack->val[stack->esp-1].ARR.size+1>=stack->val[stack->esp-1].ARR.all_size){
-			stack->val[stack->esp-1].ARR.array = realloc(stack->val[stack->esp-1].ARR.array, sizeof(DADOS)*(stack->val[stack->esp-1].ARR.all_size+10));
-		}
-		stack->val[stack->esp-1].ARR.array[stack->val[stack->esp-1].ARR.size]=stack->val[stack->esp];
-		stack->val[stack->esp-1].ARR.size++;
-		stack->esp--;
-	}
-	return 1;
-}
-
-void concatArray( typearray* array1, typearray array2){
-	int i;
-	int s;
-	s=array1->size;
-	array1->array = realloc(array1->array,sizeof(DADOS)*(array1->all_size+array2.all_size));
-	array1->size += array2.size;
-	array1->all_size += array2.all_size;
-
-	for(i=s; i<array1->size;i++){
-		array1->array[i]=array2.array[i-s];
-	}
-}
-
-
 int enumerate(STCK* stack, char* token){
 	if((int)token[0]==0){printf("Erro");}
 	if(hastype(stack->val[stack->esp],ARR)){
@@ -358,7 +288,7 @@ int splitSpace(STCK* stack, char* token){
 	return 0;
 }
 
-int cmpString(STCK* stack){
+void cmpString(STCK* stack){
 	if(stack->val[stack->esp].ARR.size!=stack->val[stack->esp-1].ARR.size){
 		stack->esp-=2;
 		push_LNG(stack,0);
@@ -373,10 +303,9 @@ int cmpString(STCK* stack){
 		stack->esp-=2;
 		push_LNG(stack,equal);
 	}
-	return 1;
 }
 
-int greaterString(STCK* stack){
+void greaterString(STCK* stack){
 	if(stack->val[stack->esp].ARR.size>stack->val[stack->esp-1].ARR.size){
 		stack->esp-=2;
 		push_LNG(stack,0);
@@ -394,10 +323,9 @@ int greaterString(STCK* stack){
 		stack->esp-=2;
 		push_LNG(stack,equal);
 	}
-	return 1;
 }
 
-int lesserString(STCK* stack){
+void lesserString(STCK* stack){
 	if(stack->val[stack->esp].ARR.size<stack->val[stack->esp-1].ARR.size){
 		stack->esp-=2;
 		push_LNG(stack,0);
@@ -416,7 +344,6 @@ int lesserString(STCK* stack){
 		stack->esp-=2;
 		push_LNG(stack,equal);
 	}
-	return 1;
 }
 
 int everythingToStr(STCK* stack, char* token){

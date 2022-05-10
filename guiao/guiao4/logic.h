@@ -5,6 +5,7 @@
 
 #define __LOGIC_H__
 
+#include "array.h"
 #include <stdio.h>
 #include "stack.h"
 
@@ -17,6 +18,10 @@ OPERATION_PROTOO(SMALL)
 OPERATION_PROTOO(BIG)
 
 OPERATION_PROTOO(EQUAL)
+
+int grStr(STCK* stack);
+
+int lStr(STCK* stack);
 
 int isFalse(STCK* stack, char* token);
 

@@ -6,6 +6,7 @@
 #define __VARIABLES_H__
 
 #include "stack.h"
+#include "array.h"
 #include <stdio.h>
 
 /**

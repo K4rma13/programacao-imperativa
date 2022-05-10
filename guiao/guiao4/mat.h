@@ -9,6 +9,19 @@
 #include <string.h>
 #include <math.h>
 #include "stack.h"
+#include "array.h"
+
+#define PROTO_OPERATION_SGN(_name,_sinal)       \
+    double double_##_name(DADOS b,DADOS a);     \
+    long int long_##_name(DADOS b,DADOS a);     
+
+PROTO_OPERATION_SGN(ADD,+)
+PROTO_OPERATION_SGN(SUB,-)
+PROTO_OPERATION_SGN(MUL,*)
+PROTO_OPERATION_SGN(DIV,/)
+
+
+void concatArray(typearray* array1, typearray array2);
 
 /**
  * \brief Funcao definida no mat.c(libraria)
@@ -113,5 +126,7 @@ int xor(STCK* stack, char* token);
  
  */
 int not(STCK* stack, char* token);
+
+
 
 #endif

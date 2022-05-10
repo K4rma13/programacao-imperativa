@@ -65,25 +65,49 @@ bool hastype(DADOS dado, TYPE tipo){
 	return dado.type == tipo;
 }
 
+void printArr(struct ARR stack){
+	for(int i=0;i<stack.size;i++){
+		if(hastype(stack.array[i],CHR)){
+			printf("%c",stack.array[i].CHR);
+		}
+		else if(hastype(stack.array[i],LNG)){
+			printf("%ld",stack.array[i].LNG);
+		}
+		else if(hastype(stack.array[i],STR)){
+			printf("%s",stack.array[i].STR);
+		}
+		else if(hastype(stack.array[i],DOUBLE)){
+			printf("%g",stack.array[i].DOUBLE);
+		}
+		else{
+			printArr(stack.array[i].ARR);
+			
+		}
+	}
+}
 
-/**			
+
+/**		
  * \brief Imprime para o stdout a stack fornecida
  * @param stack A stack
  */
 
-void printstack(STCK stack){
-	for(int i=0;i<=stack.esp;i++){
-		if(hastype(stack.val[i],CHR)){
-			printf("%c",stack.val[i].CHR);
+void printstack(STCK* stack){
+	for(int i=0;i<=stack->esp;i++){
+		if(hastype(stack->val[i],CHR)){
+			printf("%c",stack->val[i].CHR);
 		}
-		else if(hastype(stack.val[i],LNG)){
-			printf("%ld",stack.val[i].LNG);
+		else if(hastype(stack->val[i],LNG)){
+			printf("%ld",stack->val[i].LNG);
 		}
-		else if(hastype(stack.val[i],STR)){
-			printf("%s",stack.val[i].STR);
+		else if(hastype(stack->val[i],STR)){
+			printf("%s",stack->val[i].STR);
 		}
-		else if(hastype(stack.val[i],DOUBLE)){
-			printf("%g",stack.val[i].DOUBLE);
+		else if(hastype(stack->val[i],DOUBLE)){
+			printf("%g",stack->val[i].DOUBLE);
+		}
+		else{
+			printArr(stack->val[i].ARR);
 		}
 	}
 }
@@ -112,6 +136,7 @@ bool isdecimal(char* token){
  */
 
 int lestring(STCK* stack, char* token){
+	if((int)token[0]==0){printf("Erro");}
 		char tmp[999];
 		if(fgets(tmp, sizeof(tmp), stdin)!=NULL){
 			tmp[strlen(tmp)-1]='\0';
@@ -147,6 +172,26 @@ int valor_Double(STCK* stack, char* token){
 	return 0;
 }
 
+void strToDouble(STCK* stack){
+	int s=stack->val[stack->esp].ARR.size,i;
+	char aux[s];
+	for(i=0;i<s;i++){
+		aux[i]=stack->val[stack->esp].ARR.array[i].CHR;
+	}
+	stack->val[stack->esp].DOUBLE=atof(aux);
+	stack->val[stack->esp].type=DOUBLE;
+}
+
+void strToLng(STCK* stack){
+	int s=stack->val[stack->esp].ARR.size,i;
+	char aux[s];
+	for(i=0;i<s;i++){
+		aux[i]=stack->val[stack->esp].ARR.array[i].CHR;
+	}
+	stack->val[stack->esp].LNG=atoi(aux);
+	stack->val[stack->esp].type=LNG;
+}
+
 /**
  * \brief Esta funcao muda o tipo da variavel no topo da stack para DOUBLE
  * @param stack A stack
@@ -155,9 +200,9 @@ int valor_Double(STCK* stack, char* token){
  */
 
 int toDouble(STCK* stack, char* token){
-		if(hastype(stack->val[stack->esp],STR)){
-			stack->val[stack->esp].DOUBLE = atof(stack->val[stack->esp].STR);
-			free(stack->val[stack->esp].STR);
+	if((int)token[0]==0){printf("Erro");}
+		if(hastype(stack->val[stack->esp],ARR)){
+			strToDouble(stack);
 		}
 		else if(hastype(stack->val[stack->esp],LNG)){
 			stack->val[stack->esp].DOUBLE = (double)stack->val[stack->esp].LNG;
@@ -174,9 +219,9 @@ int toDouble(STCK* stack, char* token){
  */
 
 int toLNG(STCK* stack, char* token){
-		if(hastype(stack->val[stack->esp],STR)){
-			stack->val[stack->esp].LNG = atoi(stack->val[stack->esp].STR);
-			free(stack->val[stack->esp].STR);
+	if((int)token[0]==0){printf("Erro");}
+		if(hastype(stack->val[stack->esp],ARR)){
+			strToLng(stack);
 		}
 		else if(hastype(stack->val[stack->esp],DOUBLE)){
 			stack->val[stack->esp].LNG = (long int)stack->val[stack->esp].DOUBLE;
@@ -193,6 +238,7 @@ int toLNG(STCK* stack, char* token){
  */
 
 int longToCHR(STCK* stack, char* token){
+	if((int)token[0]==0){printf("Erro");}
 		stack->val[stack->esp].CHR = stack->val[stack->esp].LNG;
 		stack->val[stack->esp].type = CHR;
 		return 1;
@@ -206,6 +252,7 @@ int longToCHR(STCK* stack, char* token){
  */
 
 int cpyStack(STCK* stack, char* token){
+	if((int)token[0]==0){printf("Erro");}
 		long int index = pop_LNG(stack);
 		DADOS data = stack->val[stack->esp-index];
 		stack->esp++;
@@ -221,6 +268,7 @@ int cpyStack(STCK* stack, char* token){
  */
 
 int rodar(STCK* stack, char* token){
+	if((int)token[0]==0){printf("Erro");}
 		DADOS a = stack->val[stack->esp], b = stack->val[stack->esp-1], c = stack->val[stack->esp-2];
 		stack->val[stack->esp] = c;
 		stack->val[stack->esp-1] = a;
@@ -236,6 +284,7 @@ int rodar(STCK* stack, char* token){
  */
 
 int trocar(STCK* stack, char* token){
+	if((int)token[0]==0){printf("Erro");}
 		DADOS a = stack->val[stack->esp], b = stack->val[stack->esp-1];
 		stack->val[stack->esp] = b;
 		stack->val[stack->esp-1] = a;
@@ -250,6 +299,7 @@ int trocar(STCK* stack, char* token){
  */
 
 int duplicar(STCK* stack, char* token){
+	if((int)token[0]==0){printf("Erro");}
 		DADOS a = stack->val[stack->esp];
 		stack->esp++;
 		stack->val[stack->esp] = a;
@@ -263,6 +313,9 @@ int duplicar(STCK* stack, char* token){
  * @returns Retorna 1 se o token for o correto se nao retorna 0
  */
 int removeTop(STCK* stack, char* token){
+	if((int)token[0]==0){printf("Erro");}
 		stack->esp--;
 		return 1;
 }
+
+
