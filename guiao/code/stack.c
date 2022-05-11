@@ -109,6 +109,26 @@ void printstack(STCK* stack){
 		else{
 			printArr(stack->val[i].ARR);
 		}
+		printf(" ");
+	}
+}
+
+int printTopo(STCK* stack, char* token){
+	if((int)token[0]==0){printf("Erro");}
+	if(hastype(stack->val[stack->esp],CHR)){
+		printf("%c",stack->val[stack->esp].CHR);
+	}
+	else if(hastype(stack->val[stack->esp],LNG)){
+		printf("%ld",stack->val[stack->esp].LNG);
+	}
+	else if(hastype(stack->val[stack->esp],STR)){
+		printf("%s",stack->val[stack->esp].STR);
+	}
+	else if(hastype(stack->val[stack->esp],DOUBLE)){
+		printf("%g",stack->val[stack->esp].DOUBLE);
+	}
+	else{
+		printArr(stack->val[stack->esp].ARR);
 	}
 }
 

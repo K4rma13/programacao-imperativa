@@ -35,7 +35,8 @@ int arrADD(STCK* stack){
 	}
 	else if(hastype(stack->val[stack->esp],ARR)){
 		if(stack->val[stack->esp].ARR.size+1>=stack->val[stack->esp].ARR.all_size){
-			stack->val[stack->esp].ARR.array = realloc(stack->val[stack->esp].ARR.array, sizeof(DADOS)*(stack->val[stack->esp].ARR.all_size+10));
+			stack->val[stack->esp].ARR.array = realloc(stack->val[stack->esp].ARR.array, sizeof(DADOS)*(stack->val[stack->esp].ARR.size+10));
+			stack->val[stack->esp-1].ARR.all_size=stack->val[stack->esp-1].ARR.size+10;
 		}
 		for(i=stack->val[stack->esp].ARR.size-1;i>=0;i--){
 			stack->val[stack->esp].ARR.array[i+1] = stack->val[stack->esp].ARR.array[i];
@@ -47,7 +48,9 @@ int arrADD(STCK* stack){
 	}
 	else{
 		if(stack->val[stack->esp-1].ARR.size+1>=stack->val[stack->esp-1].ARR.all_size){
-			stack->val[stack->esp-1].ARR.array = realloc(stack->val[stack->esp-1].ARR.array, sizeof(DADOS)*(stack->val[stack->esp-1].ARR.all_size+10));
+			printf("AQUI CARALHO: %d",sizeof(DADOS)*(stack->val[stack->esp-1].ARR.size+10));
+			stack->val[stack->esp-1].ARR.array = realloc(stack->val[stack->esp-1].ARR.array, sizeof(DADOS)*(stack->val[stack->esp-1].ARR.size+10));
+			stack->val[stack->esp-1].ARR.all_size=stack->val[stack->esp-1].ARR.size+10;
 		}
 		stack->val[stack->esp-1].ARR.array[stack->val[stack->esp-1].ARR.size]=stack->val[stack->esp];
 		stack->val[stack->esp-1].ARR.size++;
@@ -67,6 +70,7 @@ void concatArray( typearray* array1, typearray array2){
 	for(i=s; i<array1->size;i++){
 		array1->array[i]=array2.array[i-s];
 	}
+	free(array2.array);
 }
 
 
@@ -188,6 +192,7 @@ int arrayToStack(STCK* stack, char* token){
 		stack->esp++;
 	}
 	stack->esp--;
+	free(array);
 	return 1;
 }
 
@@ -254,7 +259,7 @@ int inputToStr(STCK* stack, char* token){
 
 	stack->esp++;
 	stack->val[stack->esp].ARR.array = arr;
-	stack->val[stack->esp].ARR.size = s;
+	stack->val[stack->esp].ARR.size = s-1;
 	stack->val[stack->esp].ARR.all_size = s+10;
 	stack->val[stack->esp].type = ARR;
 	return 1;

@@ -78,4 +78,6 @@ int initArr(STCK* stack, char* token);
 
 int closeArr(STCK* stack, char* token);
 
+int printTopo(STCK* stack, char* token);
+
 #endif

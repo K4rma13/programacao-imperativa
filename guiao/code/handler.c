@@ -1,9 +1,13 @@
 #include "handler.h"
 
 void parser(char* buf,STCK* stack,DADOS* v,int (*functions[])(STCK*,char*)){
-	int n;
+	int n,i,cont;
 	char aux[100];
 	while(*buf!='\0'){
+		while(*buf==' '){
+			buf++;
+		}
+		n=0;
 		if(*buf=='"'){
 			sscanf(buf+1,"%[^\"]s",aux+1);
 			aux[0]='"';
@@ -13,24 +17,36 @@ void parser(char* buf,STCK* stack,DADOS* v,int (*functions[])(STCK*,char*)){
 			n+=2;
 		}
 		else if(*buf=='{'){
-			sscanf(buf+1,"%[^}]s",aux+1);
+			cont=1;
+			for(i=1;cont!=0;i++){
+				aux[i]=buf[i];
+				if(buf[i]=='}'){
+					cont--;
+				}
+				if(buf[i]=='{'){
+					cont++;
+				}
+			}
 			aux[0]='{';
-			n = strlen(aux);
-			aux[n+1]='\0';
-			aux[n]='}';
-			n+=2;
+			aux[i]='\0';
+			n=i+1;
 		}
 		else{
 			sscanf(buf,"%s %n",aux,&n);
 		}
 		buf+=n;
+		
 		handler(stack,aux,v,functions);
+		printf("||  %s  -- %s  ||\n",aux, buf);
+		printstack(stack);
+		printf("\n----------------\n");
+
 	}
 }
 
 int handlerBlock(STCK* stack, char* token, DADOS* v,int (*functions[])(STCK*,char*)){
 	if(stack->esp>-1&&hastype(stack->val[stack->esp],BLK)){
-		return executeBlock(stack,token,v,functions);
+		return (executeBlock(stack,token,v,functions)||mapBlock(stack,token,v,functions)||foldBlock(stack,token,v,functions));
 	}
 	return 0;
 }

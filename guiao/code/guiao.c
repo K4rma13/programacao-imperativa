@@ -52,6 +52,7 @@ void definefunctions(int (*functions[])(STCK*,char*)){
 	functions['t']=everythingToStr;
 	functions['"']=initString;
 	functions['{']=createBlock;
+	functions['p']=printTopo;
 }
 
 /**
@@ -82,7 +83,7 @@ int main(){
 
 	STCK *stack;
 	stack = malloc(sizeof(STCK));
-	stack->val = malloc(sizeof(DADOS)*20000);
+	stack->val = malloc(sizeof(DADOS)*2000000);
 	stack->esp=-1;
 	int n=0;
 
