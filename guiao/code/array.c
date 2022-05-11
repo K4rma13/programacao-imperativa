@@ -48,7 +48,6 @@ int arrADD(STCK* stack){
 	}
 	else{
 		if(stack->val[stack->esp-1].ARR.size+1>=stack->val[stack->esp-1].ARR.all_size){
-			printf("AQUI CARALHO: %d",sizeof(DADOS)*(stack->val[stack->esp-1].ARR.size+10));
 			stack->val[stack->esp-1].ARR.array = realloc(stack->val[stack->esp-1].ARR.array, sizeof(DADOS)*(stack->val[stack->esp-1].ARR.size+10));
 			stack->val[stack->esp-1].ARR.all_size=stack->val[stack->esp-1].ARR.size+10;
 		}

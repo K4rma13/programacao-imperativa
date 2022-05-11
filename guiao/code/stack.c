@@ -109,7 +109,6 @@ void printstack(STCK* stack){
 		else{
 			printArr(stack->val[i].ARR);
 		}
-		printf(" ");
 	}
 }
 
@@ -130,6 +129,7 @@ int printTopo(STCK* stack, char* token){
 	else{
 		printArr(stack->val[stack->esp].ARR);
 	}
+	return 1;
 }
 
 /**			
@@ -246,6 +246,9 @@ int toLNG(STCK* stack, char* token){
 		else if(hastype(stack->val[stack->esp],DOUBLE)){
 			stack->val[stack->esp].LNG = (long int)stack->val[stack->esp].DOUBLE;
 		}
+		else if(hastype(stack->val[stack->esp],CHR)){
+			stack->val[stack->esp].LNG = (long int)stack->val[stack->esp].CHR;
+		}
 		stack->val[stack->esp].type = LNG;
 		return 1;
 }
@@ -338,4 +341,25 @@ int removeTop(STCK* stack, char* token){
 		return 1;
 }
 
-
+int toString(STCK* stack, char* token){
+	if((int)token[0]==0){printf("Erro");}
+	int i;
+	long int n = stack->val[stack->esp].LNG;
+	char aux[200];
+	for(i=0;n!=0;i++){
+		aux[i]= (char) (n % 10)+48;
+		n = n / 10;
+	}
+	aux[i]='\0';
+	stack->val[stack->esp].ARR.size=i;
+	stack->val[stack->esp].ARR.all_size=i+10;
+	stack->val[stack->esp].ARR.array = malloc(sizeof(DADOS)*(i+10));
+	stack->val[stack->esp].type=ARR;
+	i--;
+	int size = i;
+	for(;i>=0;i--){
+		stack->val[stack->esp].ARR.array[size-i].CHR=aux[i];
+		stack->val[stack->esp].ARR.array[size-i].type=CHR;
+	}
+	return 1;
+}

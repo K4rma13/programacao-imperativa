@@ -36,7 +36,10 @@ OPERATION_SGN(BIG,>)
 bool OP_FALSE(DADOS a){   
 	if(hastype(a,DOUBLE)){                  
 		return a.DOUBLE == 0; 
-	}                 
+	}
+	if(hastype(a,ARR)){
+		return a.ARR.size == 0;
+	}            
 	else{       
 		return a.LNG == 0;    
 	}                   

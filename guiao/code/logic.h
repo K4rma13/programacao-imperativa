@@ -19,6 +19,8 @@ OPERATION_PROTOO(BIG)
 
 OPERATION_PROTOO(EQUAL)
 
+bool OP_FALSE(DADOS a);
+
 int grStr(STCK* stack);
 
 int lStr(STCK* stack);

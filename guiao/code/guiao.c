@@ -53,6 +53,7 @@ void definefunctions(int (*functions[])(STCK*,char*)){
 	functions['"']=initString;
 	functions['{']=createBlock;
 	functions['p']=printTopo;
+	functions['s']=toString;
 }
 
 /**
@@ -85,9 +86,8 @@ int main(){
 	stack = malloc(sizeof(STCK));
 	stack->val = malloc(sizeof(DADOS)*2000000);
 	stack->esp=-1;
-	int n=0;
 
-	char buffer[10000], aux[10],*b;
+	char buffer[10000];
 	if(fgets(buffer, sizeof(buffer), stdin)!= NULL){
 		buffer[strlen(buffer)-1]='\0';
 		parser(buffer,stack,v,functions);
