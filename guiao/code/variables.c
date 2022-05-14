@@ -19,6 +19,10 @@ int variableGet(STCK* stack, char* token, DADOS* v){
 			v[token[1]-65].ARR = copyArr(stack->val[stack->esp].ARR);
 			v[token[1]-65].type=ARR;
 		}
+		else if(hastype(stack->val[stack->esp],BLK)){
+			v[token[1]-65].ARR = copyArr(stack->val[stack->esp].ARR);
+			v[token[1]-65].type=BLK;
+		}
 		else{
 			v[token[1]-65]=stack->val[stack->esp];
 		}
@@ -26,5 +30,3 @@ int variableGet(STCK* stack, char* token, DADOS* v){
 	}
 	return 0;
 }
- 
-

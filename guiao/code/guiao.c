@@ -84,10 +84,10 @@ int main(){
 
 	STCK *stack;
 	stack = malloc(sizeof(STCK));
-	stack->val = malloc(sizeof(DADOS)*2000000);
+	stack->val = malloc(sizeof(DADOS)*10000000);
 	stack->esp=-1;
 
-	char buffer[10000];
+	char buffer[100000];
 	if(fgets(buffer, sizeof(buffer), stdin)!= NULL){
 		buffer[strlen(buffer)-1]='\0';
 		parser(buffer,stack,v,functions);

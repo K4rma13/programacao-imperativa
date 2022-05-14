@@ -264,7 +264,14 @@ int toCHR(STCK* stack, char* token){
 int cpyStack(STCK* stack, char* token){
 	if((int)token[0]==0){printf("Erro");}
 	long int index = pop_LNG(stack);
-	DADOS data = stack->val[stack->esp-index];
+	DADOS data;
+	if(hastype(stack->val[stack->esp-index],ARR)){
+		data.ARR = copyArr(stack->val[stack->esp-index].ARR);
+		data.type = ARR;
+	}
+	else{
+		data = stack->val[stack->esp-index];
+	}
 	stack->esp++;
 	stack->val[stack->esp] = data;
 	return 1;

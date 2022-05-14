@@ -9,12 +9,20 @@
 			if(hastype(b,CHR)){													\
 				return a.CHR _sinal b.CHR;										\
 			}																	\
+			else if(hastype(b,DOUBLE)){											\
+				return a.CHR _sinal b.DOUBLE; 									\
+			}																	\
 			else{																\
 				return a.CHR _sinal b.LNG;										\
 			}																	\
 		}																		\
 		else if(hastype(b,CHR)){												\
-			return a.LNG _sinal b.CHR;											\
+			if(hastype(a,LNG)){													\
+				return a.LNG _sinal b.CHR;										\
+			}																	\
+			else{																\
+				return a.DOUBLE _sinal b.CHR;									\
+			}																	\
 		}																		\
 		else if(hastype(a,DOUBLE)){                                             \
 			if(hastype(b,DOUBLE)){                                              \
@@ -48,9 +56,12 @@ bool OP_FALSE(DADOS a){
 	if(hastype(a,DOUBLE)){                  
 		return a.DOUBLE == 0; 
 	}
-	if(hastype(a,ARR)){
+	else if(hastype(a,ARR)){
 		return a.ARR.size == 0;
-	}            
+	}
+	else if(hastype(a,CHR)){
+		return a.CHR == 0;
+	}
 	else{       
 		return a.LNG == 0;    
 	}                   
@@ -64,20 +75,7 @@ bool OP_FALSE(DADOS a){
 
  */
 bool OP_TRUE(DADOS b,DADOS a){    
-	if(hastype(a,DOUBLE)){          
-		if(hastype(b,DOUBLE)){        
-			return a.DOUBLE !=0 && b.DOUBLE !=0;
-		}                 
-		else{               
-			return a.DOUBLE !=0 && b.LNG != 0;  
-		}                 
-	}                   
-	else if(hastype(b,DOUBLE)){       
-		return a.LNG !=0 && b.DOUBLE != 0;    
-	}                   
-	else{                 
-		return a.LNG !=0 && b.LNG != 0;     
-	}                   
+	return (!OP_FALSE(a))&&(!OP_FALSE(b));                 
 }
 
 /**
@@ -89,20 +87,7 @@ bool OP_TRUE(DADOS b,DADOS a){
  */
 
 bool OP_veryFALSE(DADOS b,DADOS a){   
-	if(hastype(a,DOUBLE)){          
-		if(hastype(b,DOUBLE)){        
-			return a.DOUBLE !=0 || b.DOUBLE !=0;
-		}                 
-		else{               
-			return a.DOUBLE !=0 || b.LNG != 0;  
-		}                 
-	}                   
-	else if(hastype(b,DOUBLE)){       
-		return a.LNG !=0 || b.DOUBLE != 0;    
-	}                   
-	else{                 
-		return a.LNG !=0 || b.LNG != 0;     
-	}                   
+	return (!OP_FALSE(a))||(!OP_FALSE(b));
 }
 
 /**
@@ -114,25 +99,11 @@ bool OP_veryFALSE(DADOS b,DADOS a){
  */
 
 int isFalse(STCK* stack, char* token){
-	if(strcmp(token,"!")==0){
-		if(hastype(stack->val[stack->esp],LNG)){
-			long int val = OP_FALSE(stack->val[stack->esp]) ? 1 : 0;
-			stack->esp--;
-			push_LNG(stack,val);
-		}
-		else if(hastype(stack->val[stack->esp],DOUBLE)){
-			long int val = OP_FALSE(stack->val[stack->esp]) ? 1 : 0;
-			stack->esp--;
-			push_LNG(stack,val);
-		}
-		else{
-			long int val = OP_FALSE(stack->val[stack->esp]) ? 1 : 0;
-			stack->esp--;
-			push_LNG(stack,val);
-		}
-		return 1;
-	}
-	return 0;
+	if((int)token[0]==0){printf("Erro");}
+	long int val = OP_FALSE(stack->val[stack->esp]) ? 1 : 0;
+	stack->esp--;
+	push_LNG(stack,val);
+	return 1;
 }
 
 /**

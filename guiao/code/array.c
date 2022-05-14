@@ -254,8 +254,9 @@ int findArr(STCK* stack, char* token){
 
 int inputToStr(STCK* stack, char* token){
 	if((int)token[0]==0){printf("Erro");}
-	char aux[50000];
-	if(fgets(aux,50000,stdin)==NULL){
+	char* aux;
+	aux = malloc(1000000);
+	if(fgets(aux,1000000,stdin)==NULL){
 		return 0;
 	}
 	int s = strlen(aux), i;
@@ -265,7 +266,7 @@ int inputToStr(STCK* stack, char* token){
 		arr[i].CHR = aux[i];
 		arr[i].type=CHR;
 	}
-
+	free(aux);
 	stack->esp++;
 	stack->val[stack->esp].ARR.array = arr;
 	stack->val[stack->esp].ARR.size = s-1;
@@ -429,7 +430,8 @@ int lesserString(STCK* stack){
 
 int everythingToStr(STCK* stack, char* token){
 	if((int)token[0]==0){printf("Erro");}
-	char aux[500000];
+	char* aux;
+	aux = malloc(1000000);
 	if(scanf("%[\x1-\xff]",aux)!=1){
 		return 0;
 	}
@@ -439,7 +441,7 @@ int everythingToStr(STCK* stack, char* token){
 		arr[i].CHR = aux[i];
 		arr[i].type=CHR;
 	}
-
+	free(aux);
 	stack->esp++;
 	stack->val[stack->esp].ARR.array = arr;
 	stack->val[stack->esp].ARR.size = s;

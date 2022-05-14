@@ -28,13 +28,15 @@ int createBlock(STCK* stack, char* token){
 int executeBlock(STCK* stack, char* token,DADOS* v,int (*functions[])(STCK*,char*)){
 	if(token[0]=='~'){
 		int i;
-		char buffer[1000];
+		char* buffer;
+		buffer = malloc(stack->val[stack->esp].ARR.size);
 		for(i=1;i<stack->val[stack->esp].ARR.size-1;i++){
 			buffer[i-1]=stack->val[stack->esp].ARR.array[i].CHR;
 		}
 		buffer[i-1]='\0';
 		stack->esp--;
 		parser(buffer,stack,v,functions);
+		free(buffer);
 		return 1;
 	}
 	return 0;
@@ -43,7 +45,8 @@ int executeBlock(STCK* stack, char* token,DADOS* v,int (*functions[])(STCK*,char
 int mapBlock(STCK* stack, char* token,DADOS* v,int (*functions[])(STCK*,char*)){
 	if(token[0]=='%'){
 		int i;
-		char buffer[1000];
+		char* buffer;
+		buffer = malloc(stack->val[stack->esp].ARR.size);
 		buffer[0]=' ';
 		for(i=1;i<stack->val[stack->esp].ARR.size-1;i++){
 			buffer[i-1]=stack->val[stack->esp].ARR.array[i].CHR;
@@ -60,6 +63,7 @@ int mapBlock(STCK* stack, char* token,DADOS* v,int (*functions[])(STCK*,char*)){
 			parser(buffer,stack,v,functions);
 			stack->esp++;
 		}
+		free(buffer);
 		stack->esp--;
 		parser(" ]",stack,v,functions);
 		return 1;
@@ -70,7 +74,8 @@ int mapBlock(STCK* stack, char* token,DADOS* v,int (*functions[])(STCK*,char*)){
 int foldBlock(STCK* stack, char* token,DADOS* v,int (*functions[])(STCK*,char*)){
 	if(token[0]=='*'){
 		int i;
-		char buffer[1000];
+		char* buffer;
+		buffer = malloc(stack->val[stack->esp].ARR.size);
 		for(i=1;i<stack->val[stack->esp].ARR.size-1;i++){
 			buffer[i-1]=stack->val[stack->esp].ARR.array[i].CHR;
 		}
@@ -87,6 +92,7 @@ int foldBlock(STCK* stack, char* token,DADOS* v,int (*functions[])(STCK*,char*))
 			stack->val[stack->esp]= array[i];
 			parser(buffer,stack,v,functions);
 		}
+		free(buffer);
 		parser(" ]",stack,v,functions);
 		return 1;
 	}
@@ -132,7 +138,8 @@ int ordBlock(STCK* stack, char* token,DADOS* v,int (*functions[])(STCK*,char*)){
 int filterBlock(STCK* stack, char* token,DADOS* v,int (*functions[])(STCK*,char*)){
 	if(token[0]==','){
 		int i;
-		char buffer[1000];
+		char* buffer;
+		buffer = malloc(stack->val[stack->esp].ARR.size);
 		buffer[0]=' ';
 		for(i=1;i<stack->val[stack->esp].ARR.size-1;i++){
 			buffer[i-1]=stack->val[stack->esp].ARR.array[i].CHR;
@@ -163,6 +170,7 @@ int filterBlock(STCK* stack, char* token,DADOS* v,int (*functions[])(STCK*,char*
 		stack->val[stack->esp].ARR.array=aux;
 		stack->val[stack->esp].ARR.size=cont;
 		stack->val[stack->esp].ARR.all_size=s;
+		free(buffer);
 		return 1;
 	}
 	return 0;
@@ -171,7 +179,8 @@ int filterBlock(STCK* stack, char* token,DADOS* v,int (*functions[])(STCK*,char*
 int whileBlock(STCK* stack, char* token,DADOS* v,int (*functions[])(STCK*,char*)){
 	if(token[0]=='w'){
 		int i;
-		char buffer[1000];
+		char* buffer;
+		buffer = malloc(stack->val[stack->esp].ARR.size);
 		for(i=1;i<stack->val[stack->esp].ARR.size-1;i++){
 			buffer[i-1]=stack->val[stack->esp].ARR.array[i].CHR;
 		}
@@ -183,6 +192,7 @@ int whileBlock(STCK* stack, char* token,DADOS* v,int (*functions[])(STCK*,char*)
 			parser(buffer,stack,v,functions);
 		}
 		stack->esp--;
+		free(buffer);
 		return 1;
 	}
 	return 0;

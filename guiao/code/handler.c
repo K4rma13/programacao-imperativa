@@ -2,7 +2,7 @@
 
 void parser(char* buf,STCK* stack,DADOS* v,int (*functions[])(STCK*,char*)){
 	int n,i,cont;
-	char aux[5000];
+	char aux[100000];
 	while(*buf!='\0'){
 		while(*buf==' '){
 			buf++;
