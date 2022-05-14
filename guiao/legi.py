@@ -27,12 +27,12 @@ for file in files:
 
 
 if cc >= 10:
-	print(f'[\x1b[1;5;31m!\x1b[0m] Max CC: {cc} na função: \x1b[1;3m{functioncc}\x1b[0m')
+	print(f'[\x1b[1;5;31m!\x1b[0m] Max CC: \x1b[1;31m{cc}\x1b[0m na função: \x1b[1;3m{functioncc}\x1b[0m')
 else:
 	print(f'[\x1b[1;32m*\x1b[0m] Max CC: {cc}')
 
 if loc >= 50:
-	print(f'[\x1b[1;5;31m!\x1b[0m] Max LoC: {loc} na função: \x1b[1;3m{functionloc}\x1b[0m')
+	print(f'[\x1b[1;5;31m!\x1b[0m] Max LoC: \x1b[1;31m{loc}\x1b[0m na função: \x1b[1;3m{functionloc}\x1b[0m')
 else:
 	print(f'[\x1b[1;32m*\x1b[0m] Max LoC: {loc}')
 if loc < 50 and cc < 10:

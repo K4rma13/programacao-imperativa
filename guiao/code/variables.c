@@ -1,5 +1,5 @@
 /**
- *@file Ficheiro que contem as funcoes das variaveis (guiao 3)
+ *@file Ficheiro que contem as funcoes das variaveis
  *
  */
 #include "variables.h"

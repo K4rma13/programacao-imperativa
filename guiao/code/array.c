@@ -58,7 +58,7 @@ int arrADD(STCK* stack){
 	return 1;
 }
 
-void concatArray( typearray* array1, typearray* array2){
+void concatArray( struct ARR* array1, struct ARR* array2){
 	int i;
 	int s;
 	s=array1->size;
@@ -337,7 +337,7 @@ int splitSpace(STCK* stack, char* token){
 		DADOS *resultado=(DADOS *)malloc(sizeof(DADOS)*100000);
 		int i,bs=0,start=0;
 		for(i=0; i<string.size;i++){
-			if(string.array[i].CHR==' ' || string.array[i].CHR=='\n'){
+			if(isspace(string.array[i].CHR)){
 
 				if(i-start==0){
 					start=i+1;
@@ -390,53 +390,47 @@ int cmpString(STCK* stack){
 	return 1;
 }
 
+int lStr(STCK* stack){
+	DADOS a = stack->val[stack->esp];
+	DADOS b = stack->val[stack->esp-1];
+	long int i,ret=1;
+	for(i=0;b.ARR.size>i&&a.ARR.size>i&&a.ARR.array[i].CHR==b.ARR.array[i].CHR;i++){}
+	if((a.ARR.size==i&&b.ARR.size>a.ARR.size)||a.ARR.array[i].CHR<=b.ARR.array[i].CHR){
+		ret=0;
+	}
+	return ret;
+}
+
+int grStr(STCK* stack){
+	DADOS a = stack->val[stack->esp];
+	DADOS b = stack->val[stack->esp-1];
+	long int i,ret=1;
+	for(i=0;b.ARR.size>i&&a.ARR.size>i&&a.ARR.array[i].CHR==b.ARR.array[i].CHR;i++){}
+	if((a.ARR.size==i&&b.ARR.size<a.ARR.size)||a.ARR.array[i].CHR>=b.ARR.array[i].CHR){
+		ret=0;
+	}
+	return ret;
+}
+
+
 int greaterString(STCK* stack){
-	if(stack->val[stack->esp].ARR.size>stack->val[stack->esp-1].ARR.size){
-		stack->esp-=2;
-		push_LNG(stack,0);
-	}
-	else if(stack->val[stack->esp].ARR.size<stack->val[stack->esp-1].ARR.size){
-		stack->esp-=2;
-		push_LNG(stack,1);
-	}
-	else{
-		long int i,equal=1;
-		for(i=0;stack->val[stack->esp].ARR.size>i&&stack->val[stack->esp].ARR.array[i].CHR==stack->val[stack->esp-1].ARR.array[i].CHR;i++){}
-		if(stack->val[stack->esp].ARR.size==i||stack->val[stack->esp].ARR.array[i].CHR>stack->val[stack->esp-1].ARR.array[i].CHR){
-			equal=0;
-		}
-		stack->esp-=2;
-		push_LNG(stack,equal);
-	}
+	long int equal = grStr(stack);
+	stack->esp-=2;
+	push_LNG(stack,equal);
 	return 1;
 }
 
 int lesserString(STCK* stack){
-	if(stack->val[stack->esp].ARR.size<stack->val[stack->esp-1].ARR.size){
-		stack->esp-=2;
-		push_LNG(stack,0);
-	}
-	else if(stack->val[stack->esp].ARR.size>stack->val[stack->esp-1].ARR.size){
-		stack->esp-=2;
-		push_LNG(stack,1);
-	}
-	else{
-		long int i,equal=1;
-		for(i=0;stack->val[stack->esp].ARR.size>i&&stack->val[stack->esp].ARR.array[i].CHR==stack->val[stack->esp-1].ARR.array[i].CHR;i++){}
-
-		if(stack->val[stack->esp].ARR.size==i||stack->val[stack->esp].ARR.array[i].CHR<stack->val[stack->esp-1].ARR.array[i].CHR){
-			equal=0;
-		}
-		stack->esp-=2;
-		push_LNG(stack,equal);
-	}
+	long int equal = lStr(stack);
+	stack->esp-=2;
+	push_LNG(stack,equal);
 	return 1;
 }
 
 int everythingToStr(STCK* stack, char* token){
 	if((int)token[0]==0){printf("Erro");}
 	char aux[500000];
-	if(scanf("%[ -~\n—]s",aux)!=1){
+	if(scanf("%[\x1-\xff]",aux)!=1){
 		return 0;
 	}
 	int s = strlen(aux), i;

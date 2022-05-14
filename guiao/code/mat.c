@@ -108,17 +108,31 @@ int add(STCK* stack, char* token){
  */
 int sub(STCK* stack, char* token){
 	if((int)token[0]==0){printf("Erro");}
-		if(hastype(stack->val[stack->esp],DOUBLE)||hastype(stack->val[stack->esp-1],DOUBLE)){
-			double tmp = double_SUB(stack->val[stack->esp],stack->val[stack->esp-1]);
-			stack->esp-=2;
-			push_DOUBLE(stack,tmp);
+	if(hastype(stack->val[stack->esp],DOUBLE)||hastype(stack->val[stack->esp-1],DOUBLE)){
+		double tmp = double_SUB(stack->val[stack->esp],stack->val[stack->esp-1]);
+		stack->esp-=2;
+		push_DOUBLE(stack,tmp);
+	}
+	else if(hastype(stack->val[stack->esp],LNG)&&hastype(stack->val[stack->esp-1],LNG)){
+		long int tmp = long_SUB(stack->val[stack->esp],stack->val[stack->esp-1]);
+		stack->esp-=2;
+		push_LNG(stack,tmp);
+	}
+	else{
+		if(hastype(stack->val[stack->esp],CHR)){
+			stack->val[stack->esp].LNG = (long int)stack->val[stack->esp].CHR;
+			stack->val[stack->esp].type = LNG;
 		}
-		else{
-			long int tmp = long_SUB(stack->val[stack->esp],stack->val[stack->esp-1]);
-			stack->esp-=2;
-			push_LNG(stack,tmp);
-		};
-		return 1;
+		if(hastype(stack->val[stack->esp-1],CHR)){
+			stack->val[stack->esp-1].LNG = (long int)stack->val[stack->esp-1].CHR;
+			stack->val[stack->esp-1].type = LNG;
+		}
+		long int tmp = long_SUB(stack->val[stack->esp],stack->val[stack->esp-1]);
+		stack->esp-=2;
+		push_LNG(stack,tmp);
+		toCHR(stack,token);
+	}
+	return 1;
 }
 /**
  * \brief Esta funcao divide o segundo valor no topo da stack pelo primeiro

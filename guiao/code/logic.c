@@ -56,42 +56,6 @@ bool OP_FALSE(DADOS a){
 	}                   
 }
 
-
-int lStr(STCK* stack){
-	if(stack->val[stack->esp].ARR.size<stack->val[stack->esp-1].ARR.size){
-		return 0;
-	}
-	else if(stack->val[stack->esp].ARR.size>stack->val[stack->esp-1].ARR.size){
-		return 1;
-	}
-	else{
-		long int i,equal=1;
-		for(i=0;stack->val[stack->esp].ARR.size>i&&stack->val[stack->esp].ARR.array[i].CHR==stack->val[stack->esp-1].ARR.array[i].CHR;i++){}
-
-		if(stack->val[stack->esp].ARR.size==i||stack->val[stack->esp].ARR.array[i].CHR<stack->val[stack->esp-1].ARR.array[i].CHR){
-			equal=0;
-		}
-		return equal;
-	}
-}
-
-int grStr(STCK* stack){
-	if(stack->val[stack->esp].ARR.size>stack->val[stack->esp-1].ARR.size){
-		return 0;
-	}
-	else if(stack->val[stack->esp].ARR.size<stack->val[stack->esp-1].ARR.size){
-		return 1;
-	}
-	else{
-		long int i,equal=1;
-		for(i=0;stack->val[stack->esp].ARR.size>i&&stack->val[stack->esp].ARR.array[i].CHR==stack->val[stack->esp-1].ARR.array[i].CHR;i++){}
-		if(stack->val[stack->esp].ARR.size==i||stack->val[stack->esp].ARR.array[i].CHR>stack->val[stack->esp-1].ARR.array[i].CHR){
-			equal=0;
-		}
-		return equal;
-	}
-}
-
 /**
  * \brief Esta funcao faz a comparacao entre os 2 valores do topo da stack com 0 
  * @param DADOS Recebe um valor do tipo dados

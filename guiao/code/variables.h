@@ -1,5 +1,5 @@
 /**
- *@file Ficheiro que contem as funcoes das variaveis (variables.c)
+ *@file Ficheiro que contem as declaracoes funcoes das variaveis (variables.c)
  *
  */
 #ifndef __VARIABLES_H__

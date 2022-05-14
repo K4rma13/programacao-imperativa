@@ -27,8 +27,6 @@ typedef struct DADOS{
 	}ARR;
 }DADOS;
 
-typedef struct ARR typearray;
-
 typedef struct STCK{
 	DADOS* val;
 	int esp;

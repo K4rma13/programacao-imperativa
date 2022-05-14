@@ -21,10 +21,6 @@ OPERATION_PROTOO(EQUAL)
 
 bool OP_FALSE(DADOS a);
 
-int grStr(STCK* stack);
-
-int lStr(STCK* stack);
-
 int isFalse(STCK* stack, char* token);
 
 int isEqual(STCK* stack, char* token);
