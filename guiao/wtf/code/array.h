@@ -2,8 +2,6 @@
 #define __ARRAY_H__
 
 #include "stack.h"
-
-#include <ctype.h>
 #include <stdio.h>
 #include <string.h>
 
@@ -11,7 +9,7 @@ int arrMUL(STCK* stack);
 
 int arrADD(STCK* stack);
 
-void concatArray( struct ARR* array1, struct ARR* array2);
+void concatArray( typearray* array1, typearray array2);
 
 int enumerate(STCK* stack, char* token);
 
@@ -41,13 +39,7 @@ int splitStr(STCK* stack, char* token);
 
 int splitSpace(STCK* stack, char* token);
 
-int charToArray(STCK* stack);
-
 int cmpString(STCK* stack);
-
-int lStr(STCK* stack);
-
-int grStr(STCK* stack);
 
 int greaterString(STCK* stack);
 

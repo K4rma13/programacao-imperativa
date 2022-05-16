@@ -13,19 +13,22 @@
 
 
 
-typedef enum{CHR = 0, LNG = 1, DOUBLE=3, ARR=4, BLK=6}TYPE;
+typedef enum{CHR = 0, LNG = 1, STR=2, DOUBLE=3, ARR=4, BLK=6}TYPE;
 
 typedef struct DADOS{
 	TYPE type;
 	char CHR;
 	long int LNG;
+	char* STR;
 	double DOUBLE;
 	struct ARR{
 		struct DADOS *array;
 		int size;
 		int all_size;
-	}*ARR;
+	}ARR;
 }DADOS;
+
+typedef struct ARR typearray;
 
 typedef struct STCK{
 	DADOS* val;
@@ -38,9 +41,10 @@ typedef struct STCK{
 
 PROTO_FSTACK(LNG,long int)
 PROTO_FSTACK(CHR,char)
+PROTO_FSTACK(STR,char*)
 PROTO_FSTACK(DOUBLE,double)
 
-void printArr(struct ARR *stack);
+void printArr(struct ARR stack);
 
 bool hastype(DADOS dado, TYPE tipo);
 
@@ -54,15 +58,13 @@ int valor(STCK* stack, char* token);
 
 int valor_Double(STCK* stack, char* token);
 
-struct ARR* copyArr(struct ARR *arr);
-
 int toLNG(STCK* stack, char* token);
 
 int toDouble(STCK* stack, char* token);
 
 int cpyStack(STCK* stack, char* token);
 
-int toCHR(STCK* stack, char* token);
+int longToCHR(STCK* stack, char* token);
 
 int rodar(STCK* stack, char* token);
 

@@ -31,7 +31,7 @@ void definefunctions(int (*functions[])(STCK*,char*)){
 	functions['~']=til;
 	functions['#']=hastag;
 	functions['l']=inputToStr;
-	functions['c']=toCHR;
+	functions['c']=longToCHR;
 	functions[';']=removeTop;
 	functions['_']=duplicar;
 	functions['\\']=trocar;
@@ -64,11 +64,9 @@ void definefunctions(int (*functions[])(STCK*,char*)){
 int main(){
 	int (*functions[0xff])(STCK*,char*);
 	definefunctions(functions);
-	DADOS *v= malloc(sizeof(DADOS)*26);
+	DADOS v[26];
 	int i;
-	for(i=0; i<26;i++){
-		v[i].ARR = malloc(sizeof(struct ARR));
-	}
+
 
 	for(i=0;i<6;i++){
 		v[i].LNG=i+10;
@@ -86,15 +84,15 @@ int main(){
 
 	STCK *stack;
 	stack = malloc(sizeof(STCK));
-	stack->val = calloc(100000,sizeof(DADOS));
+	stack->val = malloc(sizeof(DADOS)*2000000);
 	stack->esp=-1;
 
-	char buffer[100000];
-	if(fgets(buffer, 100000, stdin)!= NULL){
+	char buffer[10000];
+	if(fgets(buffer, sizeof(buffer), stdin)!= NULL){
 		buffer[strlen(buffer)-1]='\0';
 		parser(buffer,stack,v,functions);
 		printstack(stack);
 		printf("\n");
 	}
 	return 0;
-} 
+}

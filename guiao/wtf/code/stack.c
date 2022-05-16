@@ -30,6 +30,30 @@ OP_STACK(LNG,long int)
 OP_STACK(CHR,char)
 OP_STACK(DOUBLE,double)
 
+/**
+ * \brief Esta função da push a uma variavel do tipo string
+ * @param stack A stack
+ * @param value Valor a colocado no topo da stack
+ */
+
+void push_STR(STCK* stack, char* value){
+	stack->esp++;
+	stack->val[stack->esp].STR = malloc(500);
+	strcpy(stack->val[stack->esp].STR,value);		
+	stack->val[stack->esp].type = STR;
+}
+/**			
+ * \brief Esta função da pop a uma variavel do tipo string 	
+ * @param stack A stack 									
+ * @returns O valor no topo da stack 						
+ */	
+
+char* pop_STR(STCK* stack){					
+	char* value = stack->val[stack->esp].STR;	
+	stack->esp--;								
+	return value;
+}
+
 /**			
  * \brief Ve se o tipo do dado é o mesmo do tipo fornecido 	
  * @param dado O Dado a ser comparado
@@ -41,23 +65,23 @@ bool hastype(DADOS dado, TYPE tipo){
 	return dado.type == tipo;
 }
 
-void printArr(struct ARR *stack){
-	for(int i=0;i<stack->size;i++){
-		if(hastype(stack->array[i],CHR)){
-			printf("%c",stack->array[i].CHR);
+void printArr(struct ARR stack){
+	for(int i=0;i<stack.size;i++){
+		if(hastype(stack.array[i],CHR)){
+			printf("%c",stack.array[i].CHR);
 		}
-		else if(hastype(stack->array[i],LNG)){
-			printf("%ld",stack->array[i].LNG);
+		else if(hastype(stack.array[i],LNG)){
+			printf("%ld",stack.array[i].LNG);
 		}
-		else if(hastype(stack->array[i],DOUBLE)){
-			printf("%g",stack->array[i].DOUBLE);
+		else if(hastype(stack.array[i],STR)){
+			printf("%s",stack.array[i].STR);
+		}
+		else if(hastype(stack.array[i],DOUBLE)){
+			printf("%g",stack.array[i].DOUBLE);
 		}
 		else{
-			//printf("[ ");
-			printArr(stack->array[i].ARR);
-			//printf(" ]");
+			printArr(stack.array[i].ARR);
 		}
-		//printf(",");
 	}
 }
 
@@ -75,15 +99,15 @@ void printstack(STCK* stack){
 		else if(hastype(stack->val[i],LNG)){
 			printf("%ld",stack->val[i].LNG);
 		}
+		else if(hastype(stack->val[i],STR)){
+			printf("%s",stack->val[i].STR);
+		}
 		else if(hastype(stack->val[i],DOUBLE)){
 			printf("%g",stack->val[i].DOUBLE);
 		}
 		else{
-			//printf("[ ");
 			printArr(stack->val[i].ARR);
-			//printf(" ]");
 		}
-	//printf("_");
 	}
 }
 
@@ -95,13 +119,15 @@ int printTopo(STCK* stack, char* token){
 	else if(hastype(stack->val[stack->esp],LNG)){
 		printf("%ld",stack->val[stack->esp].LNG);
 	}
+	else if(hastype(stack->val[stack->esp],STR)){
+		printf("%s",stack->val[stack->esp].STR);
+	}
 	else if(hastype(stack->val[stack->esp],DOUBLE)){
 		printf("%g",stack->val[stack->esp].DOUBLE);
 	}
 	else{
 		printArr(stack->val[stack->esp].ARR);
 	}
-	printf("\n");
 	return 1;
 }
 
@@ -122,15 +148,31 @@ bool isdecimal(char* token){
 }
 
 /**
+ * \brief Esta funcao le uma string do stdin e faz push
+ * @param stack A stack
+ * @param token Valor a ser interpretado
+ * @returns Retorna 1 se o token for o correto se nao retorna 0
+ */
+
+int lestring(STCK* stack, char* token){
+	if((int)token[0]==0){printf("Erro");}
+		char tmp[999];
+		if(fgets(tmp, sizeof(tmp), stdin)!=NULL){
+			tmp[strlen(tmp)-1]='\0';
+			push_STR(stack, tmp);
+		}
+		return 1;
+}
+
+
+/**
  * \brief Esta funcao adiciona valores no topo da stack
  * @returns Retorna 1
  * @param stack A stack
  * @param token Valor a ser interpretado
  */
 int valor(STCK* stack, char* token){
-	long int aux;
-	sscanf(token,"%ld",&aux);
-	push_LNG(stack,aux);
+	push_LNG(stack,atoi(token));
 	return 1;
 }
 
@@ -143,49 +185,27 @@ int valor(STCK* stack, char* token){
 
 int valor_Double(STCK* stack, char* token){
 	if(isdecimal(token)){
-		double aux;
-		sscanf(token,"%lf",&aux);
-		push_DOUBLE(stack,aux);
+		push_DOUBLE(stack,atof(token));
 		return 1;
 	}
 	return 0;
 }
 
-struct ARR* copyArr(struct ARR *arr){
-	struct ARR *ret;
-	ret = malloc(sizeof(struct ARR));
-	ret->array = malloc(sizeof(DADOS)*(arr->size));
-	ret->size = arr->size;
-	ret->all_size = arr->size;
-	int i;
-	for(i=0; i<arr->size; i++){
-		if(hastype(arr->array[i],ARR)){
-			ret->array[i].ARR=copyArr(arr->array[i].ARR);
-			ret->array[i].type=ARR;
-		}
-		else{
-			ret->array[i] = arr->array[i];
-		}
-	}
-	return ret;
-}
-
 void strToDouble(STCK* stack){
-	int s=stack->val[stack->esp].ARR->size,i;
+	int s=stack->val[stack->esp].ARR.size,i;
 	char aux[s];
 	for(i=0;i<s;i++){
-		aux[i]=stack->val[stack->esp].ARR->array[i].CHR;
+		aux[i]=stack->val[stack->esp].ARR.array[i].CHR;
 	}
-	aux[i]='\0';
 	stack->val[stack->esp].DOUBLE=atof(aux);
 	stack->val[stack->esp].type=DOUBLE;
 }
 
 void strToLng(STCK* stack){
-	int s=stack->val[stack->esp].ARR->size,i;
+	int s=stack->val[stack->esp].ARR.size,i;
 	char aux[s];
 	for(i=0;i<s;i++){
-		aux[i]=stack->val[stack->esp].ARR->array[i].CHR;
+		aux[i]=stack->val[stack->esp].ARR.array[i].CHR;
 	}
 	aux[i]='\0';
 	stack->val[stack->esp].LNG=atoi(aux);
@@ -201,17 +221,14 @@ void strToLng(STCK* stack){
 
 int toDouble(STCK* stack, char* token){
 	if((int)token[0]==0){printf("Erro");}
-	if(hastype(stack->val[stack->esp],ARR)){
-		strToDouble(stack);
-	}
-	else if(hastype(stack->val[stack->esp],LNG)){
-		stack->val[stack->esp].DOUBLE = (double)stack->val[stack->esp].LNG;
-	}
-	else if(hastype(stack->val[stack->esp],CHR)){
-		stack->val[stack->esp].DOUBLE = (double)stack->val[stack->esp].CHR;
-	}
-	stack->val[stack->esp].type = DOUBLE;
-	return 1;
+		if(hastype(stack->val[stack->esp],ARR)){
+			strToDouble(stack);
+		}
+		else if(hastype(stack->val[stack->esp],LNG)){
+			stack->val[stack->esp].DOUBLE = (double)stack->val[stack->esp].LNG;
+		}
+		stack->val[stack->esp].type = DOUBLE;
+		return 1;
 }
 
 /**
@@ -223,17 +240,17 @@ int toDouble(STCK* stack, char* token){
 
 int toLNG(STCK* stack, char* token){
 	if((int)token[0]==0){printf("Erro");}
-	if(hastype(stack->val[stack->esp],ARR)){
-		strToLng(stack);
-	}
-	else if(hastype(stack->val[stack->esp],DOUBLE)){
-		stack->val[stack->esp].LNG = (long int)stack->val[stack->esp].DOUBLE;
-	}
-	else if(hastype(stack->val[stack->esp],CHR)){
-		stack->val[stack->esp].LNG = (long int)stack->val[stack->esp].CHR;
-	}
-	stack->val[stack->esp].type = LNG;
-	return 1;
+		if(hastype(stack->val[stack->esp],ARR)){
+			strToLng(stack);
+		}
+		else if(hastype(stack->val[stack->esp],DOUBLE)){
+			stack->val[stack->esp].LNG = (long int)stack->val[stack->esp].DOUBLE;
+		}
+		else if(hastype(stack->val[stack->esp],CHR)){
+			stack->val[stack->esp].LNG = (long int)stack->val[stack->esp].CHR;
+		}
+		stack->val[stack->esp].type = LNG;
+		return 1;
 }
 
 /**
@@ -243,21 +260,11 @@ int toLNG(STCK* stack, char* token){
  * @returns Retorna 1 se o token for o correto se nao retorna 0
  */
 
-int toCHR(STCK* stack, char* token){
+int longToCHR(STCK* stack, char* token){
 	if((int)token[0]==0){printf("Erro");}
-	if(hastype(stack->val[stack->esp],LNG)){
 		stack->val[stack->esp].CHR = stack->val[stack->esp].LNG;
 		stack->val[stack->esp].type = CHR;
-	}
-	else if(hastype(stack->val[stack->esp],DOUBLE)){
-		stack->val[stack->esp].CHR = (int)stack->val[stack->esp].DOUBLE;
-		stack->val[stack->esp].type = CHR;
-	}
-	else if(hastype(stack->val[stack->esp],ARR)){
-		stack->val[stack->esp].CHR = stack->val[stack->esp].ARR->array[0].CHR;
-		stack->val[stack->esp].type = CHR;
-	}
-	return 1;
+		return 1;
 }
 
 /**
@@ -269,18 +276,11 @@ int toCHR(STCK* stack, char* token){
 
 int cpyStack(STCK* stack, char* token){
 	if((int)token[0]==0){printf("Erro");}
-	long int index = pop_LNG(stack);
-	DADOS data;
-	if(hastype(stack->val[stack->esp-index],ARR)){
-		data.ARR = copyArr(stack->val[stack->esp-index].ARR);
-		data.type = ARR;
-	}
-	else{
-		data = stack->val[stack->esp-index];
-	}
-	stack->esp++;
-	stack->val[stack->esp] = data;
-	return 1;
+		long int index = pop_LNG(stack);
+		DADOS data = stack->val[stack->esp-index];
+		stack->esp++;
+		stack->val[stack->esp] = data;
+		return 1;
 }
 
  /**
@@ -292,11 +292,11 @@ int cpyStack(STCK* stack, char* token){
 
 int rodar(STCK* stack, char* token){
 	if((int)token[0]==0){printf("Erro");}
-	DADOS a = stack->val[stack->esp], b = stack->val[stack->esp-1], c = stack->val[stack->esp-2];
-	stack->val[stack->esp] = c;
-	stack->val[stack->esp-1] = a;
-	stack->val[stack->esp-2] = b;
-	return 1;
+		DADOS a = stack->val[stack->esp], b = stack->val[stack->esp-1], c = stack->val[stack->esp-2];
+		stack->val[stack->esp] = c;
+		stack->val[stack->esp-1] = a;
+		stack->val[stack->esp-2] = b;
+		return 1;
 }
 
 /**
@@ -308,10 +308,10 @@ int rodar(STCK* stack, char* token){
 
 int trocar(STCK* stack, char* token){
 	if((int)token[0]==0){printf("Erro");}
-	DADOS a = stack->val[stack->esp], b = stack->val[stack->esp-1];
-	stack->val[stack->esp] = b;
-	stack->val[stack->esp-1] = a;
-	return 1;
+		DADOS a = stack->val[stack->esp], b = stack->val[stack->esp-1];
+		stack->val[stack->esp] = b;
+		stack->val[stack->esp-1] = a;
+		return 1;
 }
 
 /**
@@ -323,17 +323,10 @@ int trocar(STCK* stack, char* token){
 
 int duplicar(STCK* stack, char* token){
 	if((int)token[0]==0){printf("Erro");}
-	DADOS a;
-	if(hastype(stack->val[stack->esp],ARR)){
-		a.ARR = copyArr(stack->val[stack->esp].ARR);
-		a.type=ARR;
-	}
-	else{
-		a = stack->val[stack->esp];
-	}
-	stack->esp++;
-	stack->val[stack->esp] = a;
-	return 1;
+		DADOS a = stack->val[stack->esp];
+		stack->esp++;
+		stack->val[stack->esp] = a;
+		return 1;
 }
 
 /**
@@ -344,52 +337,29 @@ int duplicar(STCK* stack, char* token){
  */
 int removeTop(STCK* stack, char* token){
 	if((int)token[0]==0){printf("Erro");}
-	if(hastype(stack->val[stack->esp],ARR)){
-		free(stack->val[stack->esp].ARR->array);
-	}
-	stack->esp--;
-	return 1;
+		stack->esp--;
+		return 1;
 }
 
 int toString(STCK* stack, char* token){
 	if((int)token[0]==0){printf("Erro");}
 	int i;
-	char aux[20000];
-	stack->val[stack->esp].ARR=malloc(sizeof(struct ARR));
-	if(hastype(stack->val[stack->esp],LNG)){
-		long int n = stack->val[stack->esp].LNG;
-		sprintf(aux,"%ld",n);
-		int size=strlen(aux);
-		stack->val[stack->esp].ARR->size=size;
-		stack->val[stack->esp].ARR->all_size=size+10;
-		stack->val[stack->esp].ARR->array = malloc(sizeof(DADOS)*(size+10));
-		stack->val[stack->esp].type=ARR;
-		for(i=0;i<size;i++){
-			stack->val[stack->esp].ARR->array[i].CHR=aux[i];
-			stack->val[stack->esp].ARR->array[i].type=CHR;
-		}
+	long int n = stack->val[stack->esp].LNG;
+	char aux[200];
+	for(i=0;n!=0;i++){
+		aux[i]= (char) (n % 10)+48;
+		n = n / 10;
 	}
-	else if(hastype(stack->val[stack->esp],DOUBLE)){
-		double n = stack->val[stack->esp].DOUBLE;
-		sprintf(aux,"%g",n);
-		int size = strlen(aux);
-		stack->val[stack->esp].ARR->size=size;
-		stack->val[stack->esp].ARR->all_size=size+10;
-		stack->val[stack->esp].ARR->array = malloc(sizeof(DADOS)*(size+10));
-		stack->val[stack->esp].type=ARR;
-		for(i=0;i<size;i++){
-			stack->val[stack->esp].ARR->array[i].CHR=aux[i];
-			stack->val[stack->esp].ARR->array[i].type=CHR;
-		}
-	}
-	else if(hastype(stack->val[stack->esp],CHR)){
-		char c = stack->val[stack->esp].CHR;
-		stack->val[stack->esp].ARR->size=1;
-		stack->val[stack->esp].ARR->all_size=1+10;
-		stack->val[stack->esp].ARR->array = malloc(sizeof(DADOS)*(1+10));
-		stack->val[stack->esp].type=ARR;
-		stack->val[stack->esp].ARR->array[0].CHR = c;
-		stack->val[stack->esp].ARR->array[0].type = CHR;
+	aux[i]='\0';
+	stack->val[stack->esp].ARR.size=i;
+	stack->val[stack->esp].ARR.all_size=i+10;
+	stack->val[stack->esp].ARR.array = malloc(sizeof(DADOS)*(i+10));
+	stack->val[stack->esp].type=ARR;
+	i--;
+	int size = i;
+	for(;i>=0;i--){
+		stack->val[stack->esp].ARR.array[size-i].CHR=aux[i];
+		stack->val[stack->esp].ARR.array[size-i].type=CHR;
 	}
 	return 1;
 }

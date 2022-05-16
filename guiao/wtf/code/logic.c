@@ -9,20 +9,12 @@
 			if(hastype(b,CHR)){													\
 				return a.CHR _sinal b.CHR;										\
 			}																	\
-			else if(hastype(b,DOUBLE)){											\
-				return a.CHR _sinal b.DOUBLE; 									\
-			}																	\
 			else{																\
 				return a.CHR _sinal b.LNG;										\
 			}																	\
 		}																		\
 		else if(hastype(b,CHR)){												\
-			if(hastype(a,LNG)){													\
-				return a.LNG _sinal b.CHR;										\
-			}																	\
-			else{																\
-				return a.DOUBLE _sinal b.CHR;									\
-			}																	\
+			return a.LNG _sinal b.CHR;											\
 		}																		\
 		else if(hastype(a,DOUBLE)){                                             \
 			if(hastype(b,DOUBLE)){                                              \
@@ -56,15 +48,48 @@ bool OP_FALSE(DADOS a){
 	if(hastype(a,DOUBLE)){                  
 		return a.DOUBLE == 0; 
 	}
-	else if(hastype(a,ARR)){
-		return a.ARR->size == 0;
-	}
-	else if(hastype(a,CHR)){
-		return a.CHR == 0;
-	}
+	if(hastype(a,ARR)){
+		return a.ARR.size == 0;
+	}            
 	else{       
 		return a.LNG == 0;    
 	}                   
+}
+
+
+int lStr(STCK* stack){
+	if(stack->val[stack->esp].ARR.size<stack->val[stack->esp-1].ARR.size){
+		return 0;
+	}
+	else if(stack->val[stack->esp].ARR.size>stack->val[stack->esp-1].ARR.size){
+		return 1;
+	}
+	else{
+		long int i,equal=1;
+		for(i=0;stack->val[stack->esp].ARR.size>i&&stack->val[stack->esp].ARR.array[i].CHR==stack->val[stack->esp-1].ARR.array[i].CHR;i++){}
+
+		if(stack->val[stack->esp].ARR.size==i||stack->val[stack->esp].ARR.array[i].CHR<stack->val[stack->esp-1].ARR.array[i].CHR){
+			equal=0;
+		}
+		return equal;
+	}
+}
+
+int grStr(STCK* stack){
+	if(stack->val[stack->esp].ARR.size>stack->val[stack->esp-1].ARR.size){
+		return 0;
+	}
+	else if(stack->val[stack->esp].ARR.size<stack->val[stack->esp-1].ARR.size){
+		return 1;
+	}
+	else{
+		long int i,equal=1;
+		for(i=0;stack->val[stack->esp].ARR.size>i&&stack->val[stack->esp].ARR.array[i].CHR==stack->val[stack->esp-1].ARR.array[i].CHR;i++){}
+		if(stack->val[stack->esp].ARR.size==i||stack->val[stack->esp].ARR.array[i].CHR>stack->val[stack->esp-1].ARR.array[i].CHR){
+			equal=0;
+		}
+		return equal;
+	}
 }
 
 /**
@@ -75,7 +100,20 @@ bool OP_FALSE(DADOS a){
 
  */
 bool OP_TRUE(DADOS b,DADOS a){    
-	return (!OP_FALSE(a))&&(!OP_FALSE(b));                 
+	if(hastype(a,DOUBLE)){          
+		if(hastype(b,DOUBLE)){        
+			return a.DOUBLE !=0 && b.DOUBLE !=0;
+		}                 
+		else{               
+			return a.DOUBLE !=0 && b.LNG != 0;  
+		}                 
+	}                   
+	else if(hastype(b,DOUBLE)){       
+		return a.LNG !=0 && b.DOUBLE != 0;    
+	}                   
+	else{                 
+		return a.LNG !=0 && b.LNG != 0;     
+	}                   
 }
 
 /**
@@ -87,7 +125,20 @@ bool OP_TRUE(DADOS b,DADOS a){
  */
 
 bool OP_veryFALSE(DADOS b,DADOS a){   
-	return (!OP_FALSE(a))||(!OP_FALSE(b));
+	if(hastype(a,DOUBLE)){          
+		if(hastype(b,DOUBLE)){        
+			return a.DOUBLE !=0 || b.DOUBLE !=0;
+		}                 
+		else{               
+			return a.DOUBLE !=0 || b.LNG != 0;  
+		}                 
+	}                   
+	else if(hastype(b,DOUBLE)){       
+		return a.LNG !=0 || b.DOUBLE != 0;    
+	}                   
+	else{                 
+		return a.LNG !=0 || b.LNG != 0;     
+	}                   
 }
 
 /**
@@ -99,11 +150,25 @@ bool OP_veryFALSE(DADOS b,DADOS a){
  */
 
 int isFalse(STCK* stack, char* token){
-	if((int)token[0]==0){printf("Erro");}
-	long int val = OP_FALSE(stack->val[stack->esp]) ? 1 : 0;
-	stack->esp--;
-	push_LNG(stack,val);
-	return 1;
+	if(strcmp(token,"!")==0){
+		if(hastype(stack->val[stack->esp],LNG)){
+			long int val = OP_FALSE(stack->val[stack->esp]) ? 1 : 0;
+			stack->esp--;
+			push_LNG(stack,val);
+		}
+		else if(hastype(stack->val[stack->esp],DOUBLE)){
+			long int val = OP_FALSE(stack->val[stack->esp]) ? 1 : 0;
+			stack->esp--;
+			push_LNG(stack,val);
+		}
+		else{
+			long int val = OP_FALSE(stack->val[stack->esp]) ? 1 : 0;
+			stack->esp--;
+			push_LNG(stack,val);
+		}
+		return 1;
+	}
+	return 0;
 }
 
 /**
@@ -168,7 +233,7 @@ int isBig(STCK* stack,char* token){
 int ifThenElse(STCK* stack,char* token){
 	if((int)token[0]==0){printf("Erro");}
 	if(hastype(stack->val[stack->esp-2],ARR)){
-		DADOS tmp = stack->val[stack->esp-2].ARR->size ? tmp=stack->val[stack->esp-1] : stack->val[stack->esp];
+		DADOS tmp = stack->val[stack->esp-2].ARR.size ? tmp=stack->val[stack->esp-1] : stack->val[stack->esp];
 		stack->esp-=2;
 		stack->val[stack->esp]=tmp;
 	}
@@ -195,10 +260,10 @@ int logicalAnd(STCK* stack, char* token){
 		zero.LNG=0;
 		zero.DOUBLE=0;
 		zero.CHR=0;
-		zero.ARR = malloc(sizeof(struct ARR));
-		zero.ARR->size=0;
-		zero.ARR->all_size=0;
-		zero.ARR->array=NULL;
+		zero.STR=NULL;
+		zero.ARR.size=0;
+		zero.ARR.all_size=0;
+		zero.ARR.array=NULL;
 		DADOS val;
 		val=zero;
 		val = OP_TRUE(stack->val[stack->esp],stack->val[stack->esp-1]) ? (OP_SMALL(stack->val[stack->esp-1],stack->val[stack->esp]) ? stack->val[stack->esp-1] : stack->val[stack->esp]) : zero;
@@ -220,20 +285,13 @@ int logicalOr(STCK* stack, char* token){
 		zero.LNG=0;
 		zero.DOUBLE=0;
 		zero.CHR=0;
-		zero.ARR = malloc(sizeof(struct ARR));
-		zero.ARR->size=0;
-		zero.ARR->all_size=0;
-		zero.ARR->array=NULL;
+		zero.STR=NULL;
+		zero.ARR.size=0;
+		zero.ARR.all_size=0;
+		zero.ARR.array=NULL;
 		DADOS val;
-		if(OP_FALSE(stack->val[stack->esp-1])&&OP_FALSE(stack->val[stack->esp])){
-			val = zero;
-		}
-		else if(!OP_FALSE(stack->val[stack->esp-1])){
-			val = stack->val[stack->esp-1];
-		}
-		else{
-			val = stack->val[stack->esp];
-		}
+		val=zero;
+		val = OP_veryFALSE(stack->val[stack->esp],stack->val[stack->esp-1]) ? (OP_SMALL(stack->val[stack->esp-1],stack->val[stack->esp]) ? stack->val[stack->esp-1] : stack->val[stack->esp]) : zero;
 		stack->esp--;
 		stack->val[stack->esp]=val;
 		return 1;

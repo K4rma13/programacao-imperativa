@@ -18,6 +18,6 @@ int ordBlock(STCK* stack, char* token,DADOS* v,int (*functions[])(STCK*,char*));
 
 int filterBlock(STCK* stack, char* token,DADOS* v,int (*functions[])(STCK*,char*));
 
-int whileBlock(STCK* stack, char* token,DADOS* v,int (*functions[])(STCK*,char*)); 
+int whileBlock(STCK* stack, char* token,DADOS* v,int (*functions[])(STCK*,char*));
 
 #endif

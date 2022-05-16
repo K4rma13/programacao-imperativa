@@ -1,27 +1,8 @@
 #include "handler.h"
 
-int stringParser(char* buf, char* aux){
-	int n;
-	if(*(buf+1)=='"'){
-		aux[0]='"';
-		aux[1]='"';
-		aux[2]='\0';
-		n=3;
-	}
-	else{
-		sscanf(buf+1,"%[^\"]s",aux+1);
-		aux[0]='"';
-		n = strlen(aux);
-		aux[n+1]='\0';
-		aux[n]='"';
-		n+=2;
-	}
-	return n;
-}
-
 void parser(char* buf,STCK* stack,DADOS* v,int (*functions[])(STCK*,char*)){
 	int n,i,cont;
-	char aux[100000];
+	char aux[5000];
 	while(*buf!='\0'){
 		while(*buf==' '){
 			buf++;
@@ -29,7 +10,12 @@ void parser(char* buf,STCK* stack,DADOS* v,int (*functions[])(STCK*,char*)){
 		if(*buf!='\0'){
 			n=0;
 			if(*buf=='"'){
-				n = stringParser(buf,aux);
+				sscanf(buf+1,"%[^\"]s",aux+1);
+				aux[0]='"';
+				n = strlen(aux);
+				aux[n+1]='\0';
+				aux[n]='"';
+				n+=2;
 			}
 			else if(*buf=='{'){
 				cont=1;
@@ -73,7 +59,7 @@ int handlerLetras(STCK* stack, char* token, DADOS* v){
 }
 
 int handlerValores(STCK* stack, char* token){
-	if((token[0]=='-' && ((token[1]>='0'&& token[1]<='9')))||(token[0]>='0'&& token[0]<='9')){
+	if((token[0]=='-' && (token[1]>='0'&& token[1]<='9'))||(token[0]>='0'&& token[0]<='9')){
 		if(!(valor_Double(stack,token) || valor(stack,token))){
 			printf("erro");
 		}
@@ -102,7 +88,7 @@ int til(STCK* stack, char* token){
 	if(hastype(stack->val[stack->esp],LNG)){
 		return not(stack,token);
 	}
-	else{
+	else if(hastype(stack->val[stack->esp],ARR)){
 		return arrayToStack(stack,token);
 	}
 	return 0;
@@ -148,9 +134,6 @@ int slash(STCK* stack, char* token){
 int plus(STCK* stack, char* token){
 	if(hastype(stack->val[stack->esp],ARR)||hastype(stack->val[stack->esp-1],ARR)){
 		return arrADD(stack);
-	}
-	else if(hastype(stack->val[stack->esp],CHR)&&hastype(stack->val[stack->esp-1],CHR)){
-		return charToArray(stack);
 	}
 	else{
 		return add(stack,token);
