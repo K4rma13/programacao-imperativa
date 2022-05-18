@@ -94,7 +94,13 @@ int enumerate(STCK* stack, char* token){
 	}
 	else{
 		int i;
-		long int max = stack->val[stack->esp].LNG;
+		long int max;
+		if(hastype(stack->val[stack->esp],LNG)){
+			max = stack->val[stack->esp].LNG;
+		}
+		else{
+			max = (long int) stack->val[stack->esp].DOUBLE;
+		}
 		struct ARR *arr;
 		arr = malloc(sizeof(struct ARR));
 		arr->size = max;
@@ -147,7 +153,7 @@ int firstArray(STCK* stack, char* token){
 int initArr(STCK* stack, char* token){
 	if((int)token[0]==0){printf("Erro");}
 	stack->esp++;
-	stack->val[stack->esp].type = CHR;
+	stack->val[stack->esp].type = DOUBLE;
 	stack->val[stack->esp].CHR = '[';
 	return 1;
 }
@@ -155,7 +161,7 @@ int initArr(STCK* stack, char* token){
 int closeArr(STCK* stack, char* token){
 	if((int)token[0]==0){printf("Erro");}
 	int i,cont=0;
-	for(i=stack->esp;stack->val[i].CHR!='[';i--){
+	for(i=stack->esp;stack->val[i].CHR!='['||(!hastype(stack->val[i],DOUBLE));i--){
 		cont++;
 	}
 	stack->val[i].CHR=0;
@@ -193,7 +199,13 @@ int initString(STCK* stack, char* token){
 
 int indexArr(STCK* stack, char* token){
 	if((int)token[0]==0){printf("Erro");}
-	long int ind = stack->val[stack->esp].LNG;
+	long int ind;
+	if(hastype(stack->val[stack->esp],LNG)){
+		ind = stack->val[stack->esp].LNG;
+	}
+	else{
+		ind = stack->val[stack->esp].DOUBLE;
+	}
 	stack->esp--;
 	DADOS *teste = stack->val[stack->esp].ARR->array;
 	stack->val[stack->esp]=stack->val[stack->esp].ARR->array[ind];

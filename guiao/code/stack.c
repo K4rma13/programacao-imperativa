@@ -177,7 +177,7 @@ void strToDouble(STCK* stack){
 		aux[i]=stack->val[stack->esp].ARR->array[i].CHR;
 	}
 	aux[i]='\0';
-	stack->val[stack->esp].DOUBLE=atof(aux);
+	sscanf(aux,"%lf",&stack->val[stack->esp].DOUBLE);
 	stack->val[stack->esp].type=DOUBLE;
 }
 
@@ -188,7 +188,7 @@ void strToLng(STCK* stack){
 		aux[i]=stack->val[stack->esp].ARR->array[i].CHR;
 	}
 	aux[i]='\0';
-	stack->val[stack->esp].LNG=atoi(aux);
+	sscanf(aux,"%ld",&stack->val[stack->esp].LNG);
 	stack->val[stack->esp].type=LNG;
 }
 
@@ -269,11 +269,21 @@ int toCHR(STCK* stack, char* token){
 
 int cpyStack(STCK* stack, char* token){
 	if((int)token[0]==0){printf("Erro");}
-	long int index = pop_LNG(stack);
+	long int index;
+	if(hastype(stack->val[stack->esp],LNG)){
+		index = pop_LNG(stack);
+	}
+	else{
+		index = (long int) pop_DOUBLE(stack);
+	}
 	DADOS data;
 	if(hastype(stack->val[stack->esp-index],ARR)){
 		data.ARR = copyArr(stack->val[stack->esp-index].ARR);
 		data.type = ARR;
+	}
+	else if(hastype(stack->val[stack->esp-index],BLK)){
+		data.ARR = copyArr(stack->val[stack->esp-index].ARR);
+		data.type = BLK;
 	}
 	else{
 		data = stack->val[stack->esp-index];
@@ -328,6 +338,10 @@ int duplicar(STCK* stack, char* token){
 		a.ARR = copyArr(stack->val[stack->esp].ARR);
 		a.type=ARR;
 	}
+	else if(hastype(stack->val[stack->esp],BLK)){
+		a.ARR = copyArr(stack->val[stack->esp].ARR);
+		a.type=BLK;
+	}
 	else{
 		a = stack->val[stack->esp];
 	}
@@ -344,9 +358,6 @@ int duplicar(STCK* stack, char* token){
  */
 int removeTop(STCK* stack, char* token){
 	if((int)token[0]==0){printf("Erro");}
-	if(hastype(stack->val[stack->esp],ARR)){
-		free(stack->val[stack->esp].ARR->array);
-	}
 	stack->esp--;
 	return 1;
 }
@@ -354,7 +365,7 @@ int removeTop(STCK* stack, char* token){
 int toString(STCK* stack, char* token){
 	if((int)token[0]==0){printf("Erro");}
 	int i;
-	char aux[20000];
+	char aux[200000];
 	stack->val[stack->esp].ARR=malloc(sizeof(struct ARR));
 	if(hastype(stack->val[stack->esp],LNG)){
 		long int n = stack->val[stack->esp].LNG;

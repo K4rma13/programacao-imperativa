@@ -62,7 +62,7 @@ int mapBlock(STCK* stack, char* token,DADOS* v,int (*functions[])(STCK*,char*)){
 		int s = stack->val[stack->esp].ARR->size;
 		DADOS *array= stack->val[stack->esp].ARR->array;
 		stack->val[stack->esp].CHR='[';
-		stack->val[stack->esp].type=CHR;
+		stack->val[stack->esp].type=DOUBLE;
 		stack->esp++;
 		for(i=0; i<s;i++){
 			stack->val[stack->esp] = array[i];
@@ -91,7 +91,7 @@ int foldBlock(STCK* stack, char* token,DADOS* v,int (*functions[])(STCK*,char*))
 		int s = stack->val[stack->esp].ARR->size;
 		DADOS *array= stack->val[stack->esp].ARR->array;
 		stack->val[stack->esp].CHR='[';
-		stack->val[stack->esp].type=CHR;
+		stack->val[stack->esp].type=DOUBLE;
 		stack->esp++;
 		stack->val[stack->esp]= array[0];
 		for(i=1; i<s;i++){
@@ -162,7 +162,7 @@ int filterBlock(STCK* stack, char* token,DADOS* v,int (*functions[])(STCK*,char*
 		int s = stack->val[stack->esp].ARR->size;
 		DADOS *array= stack->val[stack->esp].ARR->array;
 		stack->val[stack->esp].CHR='[';
-		stack->val[stack->esp].type=CHR;
+		stack->val[stack->esp].type=DOUBLE;
 		stack->esp++;
 		for(i=0; i<s;i++){
 			stack->val[stack->esp] = array[i];
