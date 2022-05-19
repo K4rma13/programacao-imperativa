@@ -26,14 +26,11 @@ int variablePush(STCK* stack, char* token, DADOS* v){
 
 int variableGet(STCK* stack, char* token, DADOS* v){
 	if(token[0] == ':'){
-
 		if(hastype(stack->val[stack->esp],ARR)){
-			free(v[token[1]-65].ARR->array);
 			v[token[1]-65].ARR = copyArr(stack->val[stack->esp].ARR);
 			v[token[1]-65].type=ARR;
 		}
 		else if(hastype(stack->val[stack->esp],BLK)){
-			free(v[token[1]-65].ARR->array);
 			v[token[1]-65].ARR = copyArr(stack->val[stack->esp].ARR);
 			v[token[1]-65].type=BLK;
 		}

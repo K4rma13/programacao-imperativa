@@ -366,6 +366,8 @@ int toString(STCK* stack, char* token){
 	if((int)token[0]==0){printf("Erro");}
 	int i;
 	char aux[200000];
+	struct ARR* tmp;
+	tmp = stack->val[stack->esp].ARR;
 	stack->val[stack->esp].ARR=malloc(sizeof(struct ARR));
 	if(hastype(stack->val[stack->esp],LNG)){
 		long int n = stack->val[stack->esp].LNG;
@@ -401,6 +403,9 @@ int toString(STCK* stack, char* token){
 		stack->val[stack->esp].type=ARR;
 		stack->val[stack->esp].ARR->array[0].CHR = c;
 		stack->val[stack->esp].ARR->array[0].type = CHR;
+	}
+	else{
+		stack->val[stack->esp].ARR = tmp;
 	}
 	return 1;
 }

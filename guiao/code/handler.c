@@ -136,7 +136,7 @@ int asterisco(STCK* stack, char* token){
 }
 
 int slash(STCK* stack, char* token){
-	if(hastype(stack->val[stack->esp],ARR)){
+	if(hastype(stack->val[stack->esp-1],ARR)){
 		splitStr(stack,token);
 	}
 	else{

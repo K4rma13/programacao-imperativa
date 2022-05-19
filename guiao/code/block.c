@@ -160,12 +160,20 @@ int filterBlock(STCK* stack, char* token,DADOS* v,int (*functions[])(STCK*,char*
 		free(stack->val[stack->esp].ARR->array);
 		stack->esp--;
 		int s = stack->val[stack->esp].ARR->size;
-		DADOS *array= stack->val[stack->esp].ARR->array;
+		DADOS arr;
+		arr.ARR = copyArr(stack->val[stack->esp].ARR);
+		arr.type=ARR;
 		stack->val[stack->esp].CHR='[';
 		stack->val[stack->esp].type=DOUBLE;
 		stack->esp++;
 		for(i=0; i<s;i++){
-			stack->val[stack->esp] = array[i];
+			if(hastype(arr.ARR->array[i],ARR)){
+				stack->val[stack->esp].ARR = copyArr(arr.ARR->array[i].ARR);
+				stack->val[stack->esp].type=ARR;
+			}
+			else{
+				stack->val[stack->esp] = arr.ARR->array[i];
+			}
 			parser(buffer,stack,v,functions);
 			stack->esp++;
 		}
@@ -175,8 +183,8 @@ int filterBlock(STCK* stack, char* token,DADOS* v,int (*functions[])(STCK*,char*
 		aux= malloc(sizeof(DADOS)*s);
 		int cont=0;
 		for(i=0;i<s;i++){
-			if(stack->val[stack->esp].ARR->array[i].LNG!=0){
-				aux[cont]=array[i];
+			if(!OP_FALSE(stack->val[stack->esp].ARR->array[i])){
+				aux[cont]=arr.ARR->array[i];
 				cont++;
 			}
 		}

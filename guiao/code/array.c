@@ -22,6 +22,13 @@ int arrMUL(STCK* stack){
 			m = (long int)stack->val[stack->esp].DOUBLE;
 		}
 	}
+	if(m<0){
+		m=-m;
+		struct ARR *rev = copyArr(arr);
+		for(i=0; i<arr->size;i++){
+			arr->array[i]=rev->array[arr->size-i-1];
+		}
+	}
 	if(arr->size*m>=arr->all_size){
 		arr->all_size*=m;
 		arr->array = realloc(arr->array, sizeof(DADOS)*arr->all_size);
@@ -207,10 +214,18 @@ int indexArr(STCK* stack, char* token){
 		ind = stack->val[stack->esp].DOUBLE;
 	}
 	stack->esp--;
-	DADOS *teste = stack->val[stack->esp].ARR->array;
-	stack->val[stack->esp]=stack->val[stack->esp].ARR->array[ind];
-	
-	free(teste);
+	if(ind>=0 && ind< stack->val[stack->esp].ARR->size){
+		if(hastype(stack->val[stack->esp].ARR->array[ind],ARR)){
+			stack->val[stack->esp].ARR = copyArr(stack->val[stack->esp].ARR->array[ind].ARR);
+			stack->val[stack->esp].type = ARR;
+		}
+		else{
+			stack->val[stack->esp]=stack->val[stack->esp].ARR->array[ind];
+		}
+	}
+	else{
+		stack->esp--;
+	}
 	return 1;
 }
 
@@ -482,10 +497,9 @@ int lesserString(STCK* stack){
 int everythingToStr(STCK* stack, char* token){
 	if((int)token[0]==0){printf("Erro");}
 	char* aux;
-	aux = malloc(1000000);
-	if(scanf("%[\x1-\xff]",aux)!=1){
-		return 0;
-	}
+	aux = malloc(5000000);
+	if(scanf("%[\x1-\xff]",aux)!=1){}
+	getchar();
 	int s = strlen(aux), i;
 	DADOS *arr = malloc(sizeof(DADOS)*(s+10));
 	for(i=0; i<s;i++){

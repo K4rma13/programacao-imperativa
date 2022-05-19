@@ -68,6 +68,7 @@ int main(){
 	int i;
 	for(i=0; i<26;i++){
 		v[i].ARR = malloc(sizeof(struct ARR));
+		v[i].ARR->array = NULL;
 	}
 
 	for(i=0;i<6;i++){
