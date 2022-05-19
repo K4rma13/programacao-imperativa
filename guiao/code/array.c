@@ -355,6 +355,7 @@ int splitStr(STCK* stack, char* token){
 	if((int)token[0]==0){printf("Erro");}
 	struct ARR *string = stack->val[stack->esp-1].ARR;
 	struct ARR *substr = stack->val[stack->esp].ARR;
+	if(substr->size!=0){
 		DADOS *resultado=(DADOS *)malloc(sizeof(DADOS)*stack->val[stack->esp-1].ARR->size);
 		int i,cont=0,bs=0,start=0;
 		for(i=0; i<string->size;i++){
@@ -392,6 +393,10 @@ int splitStr(STCK* stack, char* token){
 		stack->val[stack->esp].ARR->array=resultado;
 		stack->val[stack->esp].ARR->size=bs;
 		stack->val[stack->esp].type=ARR;
+	}
+	else{
+		stack->esp--;
+	}
 	return 1;
 }
 
