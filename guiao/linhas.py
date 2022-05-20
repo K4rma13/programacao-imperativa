@@ -11,7 +11,7 @@ for file in files:
 	if file:
 		with open(f'code/{file.decode()}',"r") as f:
 			data = f.read()
-		lines = len([line for line in data.split("\n") if len(line)>0])
+		lines = len([line for line in data.split("\n") if line])
 		count+=lines
 		print(f'{file.decode():<{tabsize+3}} {lines}')
 print(f'{"Total":<{tabsize+3}} {count}')
