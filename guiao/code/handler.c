@@ -1,5 +1,10 @@
 #include "handler.h"
 
+/**
+ * \brief Esta funcao auxiliar le uma linha que contem uma string que comeca e acaba com um '"' e separa-a
+ * @param buf Linha que contem uma string
+ * @param aux String interpretada
+ */
 int stringParser(char* buf, char* aux){
 	int n;
 	if(*(buf+1)=='"'){
@@ -19,6 +24,13 @@ int stringParser(char* buf, char* aux){
 	return n;
 }
 
+/**
+ * \brief Esta funcao separa a linha do input em cada uma das operaçoes e valores a serem interpretados
+ * @param buf Linha com as intrucoes a serem processadas
+ * @param stack A stack
+ * @param v Variaveis A-Z
+ * @param functions Array com os pointers para as funcoes a ser chamadas
+ */
 void parser(char* buf,STCK* stack,DADOS* v,int (*functions[])(STCK*,char*)){
 	int n,i,cont;
 	char aux[100000];
@@ -61,6 +73,14 @@ void parser(char* buf,STCK* stack,DADOS* v,int (*functions[])(STCK*,char*)){
 	}
 }
 
+/**
+ * \brief Esta funcao chama a funcao apropriada para lidar com blocos
+ * @param token Valor/operacao a ser interpretada
+ * @param stack A stack
+ * @param v Variaveis A-Z
+ * @param functions Array com os pointers para as funcoes a ser chamadas
+ * @returns 1 se o token trabalhar com blocos, se nao 0
+ */
 int handlerBlock(STCK* stack, char* token, DADOS* v,int (*functions[])(STCK*,char*)){
 	if(stack->esp>-1&&hastype(stack->val[stack->esp],BLK)){
 		return (whileBlock(stack,token,v,functions) ||filterBlock(stack,token,v,functions) || ordBlock(stack,token,v,functions) || executeBlock(stack,token,v,functions)||mapBlock(stack,token,v,functions)||foldBlock(stack,token,v,functions));
@@ -68,10 +88,23 @@ int handlerBlock(STCK* stack, char* token, DADOS* v,int (*functions[])(STCK*,cha
 	return 0;
 }
 
+/**
+ * \brief Esta funcao chama a funcao apropriada se o token tiver um caracter de A-Z
+ * @param token Valor/operacao a ser interpretada
+ * @param stack A stack
+ * @param v Variaveis A-Z
+ * @returns 1 se o token tiver um caracter de A-Z, se nao 0
+ */
 int handlerLetras(STCK* stack, char* token, DADOS* v){
 	return (splitNL(stack,token) || splitSpace(stack,token) || variablePush(stack,token,v) || variableGet(stack,token,v));
 }
 
+/**
+ * \brief Esta funcao chama a funcao apropriada para lidar com o valores numericos
+ * @param token Valor/operacao a ser interpretada
+ * @param stack A stack
+ * @returns 1 se o token for um numero, se nao 0
+ */
 int handlerValores(STCK* stack, char* token){
 	if((token[0]=='-' && ((token[1]>='0'&& token[1]<='9')))||(token[0]>='0'&& token[0]<='9')){
 		if(!(valor_Double(stack,token) || valor(stack,token))){
@@ -83,9 +116,11 @@ int handlerValores(STCK* stack, char* token){
 }
 
 /**
- * \brief Esta funcao decide qual é a funcao que deve ser executada dependendo do valor que foi lido do input
+ * \brief Esta funcao chama a funcao apropriada para lidar com o valor que esta no token
+ * @param token Valor/operacao a ser interpretada
  * @param stack A stack
- * @param token Valor a ser interpretado
+ * @param v Variaveis A-Z
+ * @param functions Array com os pointers para as funcoes a ser chamadas
  */
 void handler(STCK* stack, char* token, DADOS* v,int (*functions[])(STCK*,char*)){
 	if(token[0]=='e'){
@@ -98,6 +133,12 @@ void handler(STCK* stack, char* token, DADOS* v,int (*functions[])(STCK*,char*))
 	}
 }
 
+/**
+ * \brief Esta funcao chama a funcao apropriada quando o token é '~'
+ * @param token Valor/operacao a ser interpretada
+ * @param stack A stack
+ * @returns 1 se o token for '~', se nao 0
+ */
 int til(STCK* stack, char* token){
 	if(hastype(stack->val[stack->esp],LNG)){
 		return not(stack,token);
@@ -108,6 +149,12 @@ int til(STCK* stack, char* token){
 	return 0;
 }
 
+/**
+ * \brief Esta funcao chama a funcao apropriada quando o token é '('
+ * @param token Valor/operacao a ser interpretada
+ * @param stack A stack
+ * @returns 1 se o token for '(', se nao 0
+ */
 int parOpen(STCK* stack, char* token){
 	if(hastype(stack->val[stack->esp],ARR)){
 		return rmFirstArr(stack,token);
@@ -117,6 +164,12 @@ int parOpen(STCK* stack, char* token){
 	}
 }
 
+/**
+ * \brief Esta funcao chama a funcao apropriada quando o token é ')'
+ * @param token Valor/operacao a ser interpretada
+ * @param stack A stack
+ * @returns 1 se o token for ')', se nao 0
+ */
 int parClose(STCK* stack, char* token){
 	if(hastype(stack->val[stack->esp],ARR)){
 		return rmLastArr(stack,token);
@@ -126,6 +179,12 @@ int parClose(STCK* stack, char* token){
 	}
 }
 
+/**
+ * \brief Esta funcao chama a funcao apropriada quando o token é '*'
+ * @param token Valor/operacao a ser interpretada
+ * @param stack A stack
+ * @returns 1 se o token for '*', se nao 0
+ */
 int asterisco(STCK* stack, char* token){
 	if(hastype(stack->val[stack->esp],ARR)||hastype(stack->val[stack->esp-1],ARR)){
 		return arrMUL(stack);
@@ -135,6 +194,12 @@ int asterisco(STCK* stack, char* token){
 	}
 }
 
+/**
+ * \brief Esta funcao chama a funcao apropriada quando o token é '/'
+ * @param token Valor/operacao a ser interpretada
+ * @param stack A stack
+ * @returns 1 se o token for '/', se nao 0
+ */
 int slash(STCK* stack, char* token){
 	if(hastype(stack->val[stack->esp-1],ARR)){
 		splitStr(stack,token);
@@ -145,6 +210,12 @@ int slash(STCK* stack, char* token){
 	return 0;
 }
 
+/**
+ * \brief Esta funcao chama a funcao apropriada quando o token é '+'
+ * @param token Valor/operacao a ser interpretada
+ * @param stack A stack
+ * @returns 1 se o token for '+', se nao 0
+ */
 int plus(STCK* stack, char* token){
 	if(hastype(stack->val[stack->esp],ARR)||hastype(stack->val[stack->esp-1],ARR)){
 		return arrADD(stack);
@@ -157,6 +228,12 @@ int plus(STCK* stack, char* token){
 	}
 }
 
+/**
+ * \brief Esta funcao chama a funcao apropriada quando o token é '#'
+ * @param token Valor/operacao a ser interpretada
+ * @param stack A stack
+ * @returns 1 se o token for '#', se nao 0
+ */
 int hastag(STCK* stack, char* token){
 	if(hastype(stack->val[stack->esp],ARR)||hastype(stack->val[stack->esp],CHR)){
 		return findArr(stack,token);
@@ -166,6 +243,12 @@ int hastag(STCK* stack, char* token){
 	}
 }
 
+/**
+ * \brief Esta funcao chama a funcao apropriada quando o token é '='
+ * @param token Valor/operacao a ser interpretada
+ * @param stack A stack
+ * @returns 1 se o token for '=', se nao 0
+ */
 int equal(STCK* stack, char* token){
 	if(hastype(stack->val[stack->esp-1],ARR)&&hastype(stack->val[stack->esp],ARR)){
 		return cmpString(stack);
@@ -178,6 +261,12 @@ int equal(STCK* stack, char* token){
 	}
 }
 
+/**
+ * \brief Esta funcao chama a funcao apropriada quando o token é '<'
+ * @param token Valor/operacao a ser interpretada
+ * @param stack A stack
+ * @returns 1 se o token for '<', se nao 0
+ */
 int lessSign(STCK* stack, char* token){
 	if(hastype(stack->val[stack->esp-1],ARR)&&hastype(stack->val[stack->esp],ARR)){
 		return lesserString(stack);
@@ -190,6 +279,12 @@ int lessSign(STCK* stack, char* token){
 	}
 }
 
+/**
+ * \brief Esta funcao chama a funcao apropriada quando o token é '>'
+ * @param token Valor/operacao a ser interpretada
+ * @param stack A stack
+ * @returns 1 se o token for '>', se nao 0
+ */
 int greaterSign(STCK* stack, char* token){
 	if(hastype(stack->val[stack->esp-1],ARR)&&hastype(stack->val[stack->esp],ARR)){
 		return greaterString(stack);

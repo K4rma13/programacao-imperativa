@@ -15,6 +15,11 @@
 #include "handler.h"
 #include "block.h"
 
+/**
+ * \brief Funcao inicializa o array functions com os pointers das funcoes e os devidos indexes
+ * @param functions Array com os pointers para as funcoes a ser chamadas
+ */
+
 void definefunctions(int (*functions[])(STCK*,char*)){
 	functions['+']=plus;
 	functions['-']=sub;
@@ -58,7 +63,7 @@ void definefunctions(int (*functions[])(STCK*,char*)){
 
 /**
  * \brief Funcao main
- * Inicia variaveis e le a linha do input para ser passada para o handler
+ * Inicia variaveis e le a linha do input para ser passada para o parser
  */
 
 int main(){

@@ -1,5 +1,10 @@
 #include "array.h"
 
+/**
+ * \brief Funcao concatena o array n vezes
+ * @param stack A stack
+ * @returns Retorna 1
+ */
 int arrMUL(STCK* stack){
 	int i;
 	long int m;
@@ -44,6 +49,11 @@ int arrMUL(STCK* stack){
 	return 1;
 }
 
+/**
+ * \brief Funcao concatena um array com um valor ou outro array
+ * @param stack A stack
+ * @returns Retorna 1
+ */
 int arrADD(STCK* stack){
 	int i;
 	if(hastype(stack->val[stack->esp],ARR)&&hastype(stack->val[stack->esp-1],ARR)){
@@ -75,6 +85,11 @@ int arrADD(STCK* stack){
 	return 1;
 }
 
+/**
+ * \brief Funcao concatena dois arrays
+ * @param array1 Primeiro array
+ * @param array2 Segundo array
+ */
 void concatArray( struct ARR* array1, struct ARR* array2){
 	int i;
 	int s;
@@ -91,7 +106,12 @@ void concatArray( struct ARR* array1, struct ARR* array2){
 	}
 }
 
-
+/**
+ * \brief Funcao caso o topo da stack seja um numero da o range desse numero caso seja uma array diz o seu tamanho
+ * @param stack A stack
+ * @param token Valor a ser interpretado
+ * @returns Retorna 1
+ */
 int enumerate(STCK* stack, char* token){
 	if((int)token[0]==0){printf("Erro");}
 	if(hastype(stack->val[stack->esp],ARR)){
@@ -123,6 +143,12 @@ int enumerate(STCK* stack, char* token){
 	return 1;
 }
 
+/**
+ * \brief Funcao devolve um array com os n ultimos valores do array no topo
+ * @param stack A stack
+ * @param token Valor a ser interpretado
+ * @returns Retorna 1
+ */
 int lastArray(STCK* stack, char* token){
 	if((int)token[0]==0){printf("Erro");}
 	struct ARR *arr;
@@ -140,6 +166,12 @@ int lastArray(STCK* stack, char* token){
 	return 1;
 }
 
+/**
+ * \brief Funcao devolve um array com os n primeiros valores do array no topo
+ * @param stack A stack
+ * @param token Valor a ser interpretado
+ * @returns Retorna 1
+ */
 int firstArray(STCK* stack, char* token){
 	if((int)token[0]==0){printf("Erro");}
 	struct ARR *arr;
@@ -156,7 +188,12 @@ int firstArray(STCK* stack, char* token){
 	return 1;
 }
 
-
+/**
+ * \brief Funcao chamada para inicializar um array
+ * @param stack A stack
+ * @param token Valor a ser interpretado
+ * @returns Retorna 1
+ */
 int initArr(STCK* stack, char* token){
 	if((int)token[0]==0){printf("Erro");}
 	stack->esp++;
@@ -165,6 +202,12 @@ int initArr(STCK* stack, char* token){
 	return 1;
 }
 
+/**
+ * \brief Funcao chamada para finalizar um array
+ * @param stack A stack
+ * @param token Valor a ser interpretado
+ * @returns Retorna 1
+ */
 int closeArr(STCK* stack, char* token){
 	if((int)token[0]==0){printf("Erro");}
 	int i,cont=0;
@@ -185,6 +228,12 @@ int closeArr(STCK* stack, char* token){
 	return 1;
 }
 
+/**
+ * \brief Funcao chamada para ler uma string entre '"' e guarda-la no topo da stack
+ * @param stack A stack
+ * @param token Valor a ser interpretado
+ * @returns Retorna 1
+ */
 int initString(STCK* stack, char* token){
 	int cont=1,i;
 	for(i=1;token[i]!='"';i++){
@@ -204,6 +253,12 @@ int initString(STCK* stack, char* token){
 	return 1;
 }
 
+/**
+ * \brief Funcao Poem no topo da stack o valor de index n do array que esta no topo da stack
+ * @param stack A stack
+ * @param token Valor a ser interpretado
+ * @returns Retorna 1
+ */
 int indexArr(STCK* stack, char* token){
 	if((int)token[0]==0){printf("Erro");}
 	long int ind;
@@ -229,6 +284,12 @@ int indexArr(STCK* stack, char* token){
 	return 1;
 }
 
+/**
+ * \brief Funcao poem os elementos do array na stack
+ * @param stack A stack
+ * @param token Valor a ser interpretado
+ * @returns Retorna 1
+ */
 int arrayToStack(STCK* stack, char* token){
 	if((int)token[0]==0){printf("Erro");}
 	int i;
@@ -243,6 +304,12 @@ int arrayToStack(STCK* stack, char* token){
 	return 1;
 }
 
+/**
+ * \brief Funcao remove o ultimo elem do array e poem o no topo da stack
+ * @param stack A stack
+ * @param token Valor a ser interpretado
+ * @returns Retorna 1
+ */
 int rmLastArr(STCK* stack, char* token){
 	if((int)token[0]==0){printf("Erro");}
 	stack->val[stack->esp].ARR->size--;
@@ -251,6 +318,13 @@ int rmLastArr(STCK* stack, char* token){
 	stack->val[stack->esp] = last;
 	return 1;
 }
+
+/**
+ * \brief Funcao remove o primeiro elem do array e poem o no topo da stack
+ * @param stack A stack
+ * @param token Valor a ser interpretado
+ * @returns Retorna 1
+ */
 int rmFirstArr(STCK* stack, char* token){
 	if((int)token[0]==0){printf("Erro");}
 	DADOS first = stack->val[stack->esp].ARR->array[0];
@@ -264,6 +338,12 @@ int rmFirstArr(STCK* stack, char* token){
 	return 1;
 }
 
+/**
+ * \brief Funcao procura uma string noutra string e coloca no topo da stack o index da primeira ocurrencia
+ * @param stack A stack
+ * @param token Valor a ser interpretado
+ * @returns Retorna 1
+ */
 int findArr(STCK* stack, char* token){
 	if((int)token[0]==0){printf("Erro");}
 	struct ARR *string = stack->val[stack->esp-1].ARR;
@@ -303,6 +383,12 @@ int findArr(STCK* stack, char* token){
 	return 1;
 }
 
+/**
+ * \brief Funcao le uma linha e guarda-a como uma string no topo da stack
+ * @param stack A stack
+ * @param token Valor a ser interpretado
+ * @returns Retorna 1
+ */
 int inputToStr(STCK* stack, char* token){
 	if((int)token[0]==0){printf("Erro");}
 	char* aux;
@@ -327,6 +413,11 @@ int inputToStr(STCK* stack, char* token){
 	return 1;
 }
 
+/**
+ * \brief Funcao coloca dois caracteres numa nova string
+ * @param stack A stack
+ * @returns Retorna 1
+ */
 int charToArray(STCK* stack){
 	char a = stack->val[stack->esp].CHR;
 	stack->esp--;
@@ -343,6 +434,12 @@ int charToArray(STCK* stack){
 	return 1;
 }
 
+/**
+ * \brief Funcao auxiliar copia uma string, de tamanho n, b para a
+ * @param a String destino
+ * @param b String source
+ * @param n tamanho da string source
+ */
 void cpyDados(DADOS *a, DADOS *b, int n){
 	int i;
 	for(i=0;i<n;i++){
@@ -351,6 +448,12 @@ void cpyDados(DADOS *a, DADOS *b, int n){
 	}
 }
 
+/**
+ * \brief Funcao da split a uma string sempre que encontra a substring
+ * @param stack A stack
+ * @param token Valor a ser interpretado
+ * @returns Retorna 1
+ */
 int splitStr(STCK* stack, char* token){
 	if((int)token[0]==0){printf("Erro");}
 	struct ARR *string = stack->val[stack->esp-1].ARR;
@@ -400,6 +503,12 @@ int splitStr(STCK* stack, char* token){
 	return 1;
 }
 
+/**
+ * \brief Funcao da split a uma string sempre que encontra um whitespace
+ * @param stack A stack
+ * @param token Valor a ser interpretado
+ * @returns Retorna 1
+ */
 int splitSpace(STCK* stack, char* token){
 	if((int)token[0]==0){printf("Erro");}
 	if(token[0]=='S'&&token[1]=='/'){
@@ -444,6 +553,11 @@ int splitSpace(STCK* stack, char* token){
 	return 0;
 }
 
+/**
+ * \brief Funcao compara a igualdade das 2 strings no topo da stack e poem no topo da stack o resultado logico
+ * @param stack A stack
+ * @returns Retorna 1
+ */
 int cmpString(STCK* stack){
 	if(stack->val[stack->esp].ARR->size!=stack->val[stack->esp-1].ARR->size){
 		stack->esp-=2;
@@ -462,6 +576,11 @@ int cmpString(STCK* stack){
 	return 1;
 }
 
+/**
+ * \brief Funcao Funcao compara se a string no topo da stack é menor do que a que esta em segundo na stack
+ * @param stack A stack
+ * @returns Retorna o valor logico da comparacao
+ */
 int lStr(STCK* stack){
 	DADOS a = stack->val[stack->esp];
 	DADOS b = stack->val[stack->esp-1];
@@ -473,6 +592,11 @@ int lStr(STCK* stack){
 	return ret;
 }
 
+/**
+ * \brief Funcao Funcao compara se a string no topo da stack é maior do que a que esta em segundo na stack
+ * @param stack A stack
+ * @returns Retorna o valor logico da comparacao
+ */
 int grStr(STCK* stack){
 	DADOS a = stack->val[stack->esp];
 	DADOS b = stack->val[stack->esp-1];
@@ -485,6 +609,11 @@ int grStr(STCK* stack){
 }
 
 
+/**
+ * \brief Funcao Funcao compara se a string no topo da stack é maior do que a que esta em segundo na stack e poem no topo da stack o resultado logico
+ * @param stack A stack
+ * @returns Retorna 1
+ */
 int greaterString(STCK* stack){
 	long int equal = grStr(stack);
 	stack->esp-=2;
@@ -492,6 +621,11 @@ int greaterString(STCK* stack){
 	return 1;
 }
 
+/**
+ * \brief Funcao Funcao compara se a string no topo da stack é menor do que a que esta em segundo na stack e poem no topo da stack o resultado logico
+ * @param stack A stack
+ * @returns Retorna 1
+ */
 int lesserString(STCK* stack){
 	long int equal = lStr(stack);
 	stack->esp-=2;
@@ -499,6 +633,12 @@ int lesserString(STCK* stack){
 	return 1;
 }
 
+/**
+ * \brief Funcao le do stdin ate encontrar um null byte depois guarda os valores lidos numa string e faz push dessa string para a stack
+ * @param stack A stack
+ * @param token Valor a ser interpretado
+ * @returns Retorna 1
+ */
 int everythingToStr(STCK* stack, char* token){
 	if((int)token[0]==0){printf("Erro");}
 	char* aux;
@@ -521,6 +661,12 @@ int everythingToStr(STCK* stack, char* token){
 	return 1;
 }
 
+/**
+ * \brief Funcao da split a uma string sempre que encontra um newline
+ * @param stack A stack
+ * @param token Valor a ser interpretado
+ * @returns Retorna 1
+ */
 int splitNL(STCK* stack, char* token){
 	if(token[0]=='N'&&token[1]=='/'){
 		stack->esp++;

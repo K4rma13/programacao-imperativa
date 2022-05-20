@@ -1,5 +1,13 @@
 #include "block.h"
 
+/**
+ * \brief Funcao cria um bloco
+ * @param stack A stack
+ * @param token Valor a ser interpretado
+ * @param v Variaveis A-Z
+ * @param functions Array com os pointers para as funcoes a ser chamadas
+ * @returns Retorna 1
+ */
 int createBlock(STCK* stack, char* token){
 	int cont=1,i, x=1;
 	for(i=1;x!=0;i++){
@@ -29,6 +37,14 @@ int createBlock(STCK* stack, char* token){
 	return 1;
 }
 
+/**
+ * \brief Funcao executa o bloco no topo da stack
+ * @param stack A stack
+ * @param token Valor a ser interpretado
+ * @param v Variaveis A-Z
+ * @param functions Array com os pointers para as funcoes a ser chamadas
+ * @returns Retorna 1
+ */
 int executeBlock(STCK* stack, char* token,DADOS* v,int (*functions[])(STCK*,char*)){
 	if(token[0]=='~'){
 		int i;
@@ -47,6 +63,14 @@ int executeBlock(STCK* stack, char* token,DADOS* v,int (*functions[])(STCK*,char
 	return 0;
 }
 
+/**
+ * \brief Funcao aplica o bloco no topo da stack ao array/string em segundo na stack
+ * @param stack A stack
+ * @param token Valor a ser interpretado
+ * @param v Variaveis A-Z
+ * @param functions Array com os pointers para as funcoes a ser chamadas
+ * @returns Retorna 1
+ */
 int mapBlock(STCK* stack, char* token,DADOS* v,int (*functions[])(STCK*,char*)){
 	if(token[0]=='%'){
 		int i;
@@ -77,6 +101,14 @@ int mapBlock(STCK* stack, char* token,DADOS* v,int (*functions[])(STCK*,char*)){
 	return 0;
 }
 
+/**
+ * \brief Funcao faz fold sobre array em segundo na stack usando o bloco no topo da stack
+ * @param stack A stack
+ * @param token Valor a ser interpretado
+ * @param v Variaveis A-Z
+ * @param functions Array com os pointers para as funcoes a ser chamadas
+ * @returns Retorna 1
+ */
 int foldBlock(STCK* stack, char* token,DADOS* v,int (*functions[])(STCK*,char*)){
 	if(token[0]=='*'){
 		int i;
@@ -106,6 +138,11 @@ int foldBlock(STCK* stack, char* token,DADOS* v,int (*functions[])(STCK*,char*))
 	return 0;
 }
 
+/**
+ * \brief Funcao compara se a string a é menor do que a string b
+ * @param stack A stack
+ * @returns Retorna o valor logico da comparacao
+ */
 bool smallArray(DADOS a, DADOS b){
 	long int i,ret=1;
 	for(i=0;b.ARR->size>i&&a.ARR->size>i&&a.ARR->array[i].CHR==b.ARR->array[i].CHR;i++){}
@@ -115,6 +152,14 @@ bool smallArray(DADOS a, DADOS b){
 	return ret;
 }
 
+/**
+ * \brief Funcao ordena usando o bloco
+ * @param stack A stack
+ * @param token Valor a ser interpretado
+ * @param v Variaveis A-Z
+ * @param functions Array com os pointers para as funcoes a ser chamadas
+ * @returns Retorna 1
+ */
 int ordBlock(STCK* stack, char* token,DADOS* v,int (*functions[])(STCK*,char*)){
 	if(token[0]=='$'){
 		int i;
@@ -147,6 +192,14 @@ int ordBlock(STCK* stack, char* token,DADOS* v,int (*functions[])(STCK*,char*)){
 	return 0;
 }
 
+/**
+ * \brief Funcao filtra um array/string utilizando um bloco
+ * @param stack A stack
+ * @param token Valor a ser interpretado
+ * @param v Variaveis A-Z
+ * @param functions Array com os pointers para as funcoes a ser chamadas
+ * @returns Retorna 1
+ */
 int filterBlock(STCK* stack, char* token,DADOS* v,int (*functions[])(STCK*,char*)){
 	if(token[0]==','){
 		int i;
@@ -197,6 +250,14 @@ int filterBlock(STCK* stack, char* token,DADOS* v,int (*functions[])(STCK*,char*
 	return 0;
 }
 
+/**
+ * \brief Funcao executa o bloco enquanto ele deixar um truthy no topo da stack; Remove o truthy
+ * @param stack A stack
+ * @param token Valor a ser interpretado
+ * @param v Variaveis A-Z
+ * @param functions Array com os pointers para as funcoes a ser chamadas
+ * @returns Retorna 1
+ */
 int whileBlock(STCK* stack, char* token,DADOS* v,int (*functions[])(STCK*,char*)){
 	if(token[0]=='w'){
 		int i;

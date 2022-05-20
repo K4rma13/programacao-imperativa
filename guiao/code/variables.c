@@ -4,6 +4,13 @@
  */
 #include "variables.h"
 
+/**
+ * \brief Funcao faz push da variavel correspondente para a stack
+ * @param stack A stack
+ * @param token Valor a ser interpretado
+ * @param DADOS Variaveis A-Z
+ * @returns Retorna 1 se o token for o correto se nao retorna 0
+ */
 int variablePush(STCK* stack, char* token, DADOS* v){
 	if(token[0] >= 'A' && token[0] <= 'Z'){
 		stack->esp++;
@@ -24,6 +31,13 @@ int variablePush(STCK* stack, char* token, DADOS* v){
 	return 0;
 }
 
+/**
+ * \brief Funcao copia o topo da stack e guarda o na variavel correspondente
+ * @param stack A stack
+ * @param token Valor a ser interpretado
+ * @param DADOS Variaveis A-Z
+ * @returns Retorna 1 se o token for o correto se nao retorna 0
+ */
 int variableGet(STCK* stack, char* token, DADOS* v){
 	if(token[0] == ':'){
 		if(hastype(stack->val[stack->esp],ARR)){

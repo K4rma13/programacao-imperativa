@@ -1,5 +1,5 @@
 /**
- *@file Ficheiro que contem as declaracoes funcoes das variaveis (variables.c)
+ * @file Ficheiro que contem as declaracoes das funcoes das variaveis
  *
  */
 #ifndef __VARIABLES_H__
@@ -10,22 +10,22 @@
 #include <stdio.h>
 
 /**
- * \brief Funcao definida no variables.c(libraria)
+ * \brief Funcao faz push da variavel correspondente para a stack
  * @param stack A stack
  * @param token Valor a ser interpretado
- * @param DADOS Valor do tipo dados
+ * @param DADOS Variaveis A-Z
+ * @returns Retorna 1 se o token for o correto se nao retorna 0
  */
 
 int variablePush(STCK* stack, char* token, DADOS* v);
 
 /**
- * \brief Funcao definida no variables.c(libraria)
+ * \brief Funcao copia o topo da stack e guarda o na variavel correspondente
  * @param stack A stack
  * @param token Valor a ser interpretado
- * @param DADOS Valor do tipo dados
+ * @param DADOS Variaveis A-Z
+ * @returns Retorna 1 se o token for o correto se nao retorna 0
  */
-
-
 int variableGet(STCK* stack, char* token, DADOS* v);
 
 #endif

@@ -1,9 +1,13 @@
 /**
- *@file Ficheiro que contem as funçoes matematicas (guiao 1-2)
+ *@file Ficheiro que contem as funçoes matematicas
  *
  */
 #include "mat.h"
 
+/**
+ * \def OPERATION_SGN(_name,_sinal)
+ * Cria funcoes que efetuam operacoes matematicas ( \a _sinal ) entre a e b do tipo DADOS
+ */
 #define OPERATION_SGN(_name,_sinal)				\
 	double double_##_name(DADOS b,DADOS a){		\
 		if(hastype(a,DOUBLE)){					\
@@ -27,9 +31,7 @@ OPERATION_SGN(SUB,-)
 OPERATION_SGN(MUL,*)
 OPERATION_SGN(DIV,/)
 
-void nothing(){
 
-}
 /**
  * \brief Esta funcao exponencia o segundo valor no topo da stack pelo primeiro
  * @param stack A stack

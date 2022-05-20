@@ -1,8 +1,13 @@
 /**
- *@file Ficheiro que contem as funçoes logicas (guiao 3)
+ *@file Ficheiro que contem as funçoes logicas
  *
  */
 #include "logic.h" 
+/**
+ * \def OPERATION_SGN(_name,_sinal)
+ * Cria funcoes que aplicam comparaçoes ( \a _sinal ) entre a e b do tipo DADOS
+ */
+
 #define OPERATION_SGN(_name,_sinal)                                             \
 	bool OP_##_name(DADOS b,DADOS a){                                           \
 		if(hastype(a,CHR)){														\
@@ -50,7 +55,6 @@ OPERATION_SGN(BIG,>)
  * \brief Esta funcao faz a comparacao entre o valor do topo da stack com 0 
  * @param DADOS Recebe um valor do tipo dados
  * @returns Retorna False se o valor for igual a zero e True caso contrario
-
  */
 bool OP_FALSE(DADOS a){   
 	if(hastype(a,DOUBLE)){                  
@@ -72,7 +76,6 @@ bool OP_FALSE(DADOS a){
  * @param DADOS Recebe um valor do tipo dados
  * @param DADOS Recebe um valor do tipo dados
  * @returns Retorna True se ambos os valores forem diferentes a zero caso contrario False
-
  */
 bool OP_TRUE(DADOS b,DADOS a){    
 	return (!OP_FALSE(a))&&(!OP_FALSE(b));                 
@@ -83,9 +86,7 @@ bool OP_TRUE(DADOS b,DADOS a){
  * @param DADOS Recebe um valor do tipo dados
  * @param DADOS Recebe um valor do tipo dados
  * @returns Retorna True se um dos dois valores for igual a 0
-
  */
-
 bool OP_veryFALSE(DADOS b,DADOS a){   
 	return (!OP_FALSE(a))||(!OP_FALSE(b));
 }
@@ -95,7 +96,6 @@ bool OP_veryFALSE(DADOS b,DADOS a){
  * @param stack A stack
  * @param token Valor a ser interpretado
  * @returns Retorna 1 se for token for o correto se nao retorna 0
-
  */
 
 int isFalse(STCK* stack, char* token){
@@ -111,7 +111,6 @@ int isFalse(STCK* stack, char* token){
  * @param stack A stack
  * @param token Valor a ser interpretado
  * @returns Retorna 1 se for token for o correto se nao retorna 0
-
  */
 
 int isEqual(STCK* stack, char* token){
@@ -129,7 +128,6 @@ int isEqual(STCK* stack, char* token){
  * @param stack A stack
  * @param token Valor a ser interpretado
  * @returns Retorna 1 se for token for o correto se nao retorna 0
-
  */
 int isSmall(STCK* stack, char* token){
 	if(strcmp(token,"<")==0){
@@ -147,7 +145,6 @@ int isSmall(STCK* stack, char* token){
  * @param stack A stack
  * @param token Valor a ser interpretado
  * @returns Retorna 1 se for token for o correto se nao retorna 0
-
  */
 
 int isBig(STCK* stack,char* token){
@@ -182,11 +179,10 @@ int ifThenElse(STCK* stack,char* token){
 }
 
 /**
- * \brief Esta funcao verifica se algum dos dois elementos do topo da stack é 0 coloca 0 no topo da stack senao coloca o maior deles
+ * \brief Esta funcao faz um AND(shortcut) com os 2 valores no topo da stack
  * @param stack A stack
  * @param token Valor a ser interpretado
  * @returns Retorna 1 se for token for o correto se nao retorna 0
-
  */
 int logicalAnd(STCK* stack, char* token){
 	if((int)token[0]==0){printf("Erro");}
@@ -206,12 +202,12 @@ int logicalAnd(STCK* stack, char* token){
 		stack->val[stack->esp]=val;
 		return 1;
 }
+
 /**
- * \brief Esta funcao verifica se os dois elementos do topo da stack sao 0 se sim coloca 0 no topo da stack se nao coloca o maior deles
+ * \brief Esta funcao faz um OR(shortcut) com os 2 valores no topo da stack
  * @param stack A stack
  * @param token Valor a ser interpretado
  * @returns Retorna 1 se for token for o correto se nao retorna 0
-
  */
 int logicalOr(STCK* stack, char* token){
 	if((int)token[0]==0){printf("Erro");}
@@ -238,13 +234,13 @@ int logicalOr(STCK* stack, char* token){
 		stack->val[stack->esp]=val;
 		return 1;
 }
+
 /**
  * \brief Esta funcao analisa os dois valores do topo da stack e coloca o maior deles no topo da stack
  * @param stack A stack
  * @param token Valor a ser interpretado
  * @returns Retorna 1 se for token for o correto se nao retorna 0
  */
-
 int logicalGreater(STCK* stack, char* token){
 	if((int)token[0]==0){printf("Erro");}
 	DADOS val;
@@ -269,7 +265,6 @@ int logicalGreater(STCK* stack, char* token){
  * @param token Valor a ser interpretado
  * @returns Retorna 1 se for token for o correto se nao retorna 0
  */
-
 int logicalLess(STCK* stack, char* token){
 	if((int)token[0]==0){printf("Erro");}
 		DADOS val;

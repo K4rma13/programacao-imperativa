@@ -4,6 +4,10 @@
  */
 #include "stack.h"
 
+/**
+ * \def OP_STACK(_name, _type)
+ * Cria funcoes fazem push e pop a valores de diferentes tipos ( \a _type )
+ */
 #define OP_STACK(_name, _type)								\
 /**															\
  * \brief Esta função da push a uma variavel do tipo _name \
@@ -36,11 +40,14 @@ OP_STACK(DOUBLE,double)
  * @param tipo O Tipo a ser testado
  * @returns true se o dado tiver o mesmo tipo ou caso contrario false						
  */	
-
 bool hastype(DADOS dado, TYPE tipo){
 	return dado.type == tipo;
 }
 
+/**
+ * \brief Funcao que faz print para o stdout dos valores de um array do tipo DADOS
+ * @param stack A stack
+ */
 void printArr(struct ARR *stack){
 	for(int i=0;i<stack->size;i++){
 		if(hastype(stack->array[i],CHR)){
@@ -66,7 +73,6 @@ void printArr(struct ARR *stack){
  * \brief Imprime para o stdout a stack fornecida
  * @param stack A stack
  */
-
 void printstack(STCK* stack){
 	for(int i=0;i<=stack->esp;i++){
 		if(hastype(stack->val[i],CHR)){
@@ -87,6 +93,12 @@ void printstack(STCK* stack){
 	}
 }
 
+/**
+ * \brief Esta funcao faz print para o stdout do valor no topo da stack
+ * @param stack A stack
+ * @param token Valor a ser interpretado
+ * @returns Retorna 1 se o token for o correto se nao retorna 0
+ */
 int printTopo(STCK* stack, char* token){
 	if((int)token[0]==0){printf("Erro");}
 	if(hastype(stack->val[stack->esp],CHR)){
@@ -110,7 +122,6 @@ int printTopo(STCK* stack, char* token){
  * @param token String a ser testada
  * @returns true se a string possuir um '.', caso contrario false						
  */	
-
 bool isdecimal(char* token){
 	int i;
 	for(i=0;token[i]!='\0';i++){
@@ -140,7 +151,6 @@ int valor(STCK* stack, char* token){
  * @param token Valor a ser interpretado
  * @returns Retorna 1 se o token for o correto se nao retorna 0
  */
-
 int valor_Double(STCK* stack, char* token){
 	if(isdecimal(token)){
 		double aux;
@@ -151,6 +161,11 @@ int valor_Double(STCK* stack, char* token){
 	return 0;
 }
 
+/**
+ * \brief Deepcopy de um Array
+ * @param arr Array a ser copiado
+ * @returns Pointer para o novo Array
+ */
 struct ARR* copyArr(struct ARR *arr){
 	struct ARR *ret;
 	ret = malloc(sizeof(struct ARR));
@@ -170,6 +185,10 @@ struct ARR* copyArr(struct ARR *arr){
 	return ret;
 }
 
+/**
+ * \brief Esta funcao transforma uma string no topo da stack para um double
+ * @param stack A stack
+ */
 void strToDouble(STCK* stack){
 	int s=stack->val[stack->esp].ARR->size,i;
 	char aux[s];
@@ -181,6 +200,10 @@ void strToDouble(STCK* stack){
 	stack->val[stack->esp].type=DOUBLE;
 }
 
+/**
+ * \brief Esta funcao transforma uma string no topo da stack para um long
+ * @param stack A stack
+ */
 void strToLng(STCK* stack){
 	int s=stack->val[stack->esp].ARR->size,i;
 	char aux[s];
@@ -198,7 +221,6 @@ void strToLng(STCK* stack){
  * @param token Valor a ser interpretado
  * @returns Retorna 1 se o token for o correto se nao retorna 0
  */
-
 int toDouble(STCK* stack, char* token){
 	if((int)token[0]==0){printf("Erro");}
 	if(hastype(stack->val[stack->esp],ARR)){
@@ -220,7 +242,6 @@ int toDouble(STCK* stack, char* token){
  * @param token Valor a ser interpretado
  * @returns Retorna 1 se o token for o correto se nao retorna 0
  */
-
 int toLNG(STCK* stack, char* token){
 	if((int)token[0]==0){printf("Erro");}
 	if(hastype(stack->val[stack->esp],ARR)){
@@ -242,7 +263,6 @@ int toLNG(STCK* stack, char* token){
  * @param token Valor a ser interpretado
  * @returns Retorna 1 se o token for o correto se nao retorna 0
  */
-
 int toCHR(STCK* stack, char* token){
 	if((int)token[0]==0){printf("Erro");}
 	if(hastype(stack->val[stack->esp],LNG)){
@@ -266,7 +286,6 @@ int toCHR(STCK* stack, char* token){
  * @param token Valor a ser interpretado
  * @returns Retorna 1 se o token for o correto se nao retorna 0
  */
-
 int cpyStack(STCK* stack, char* token){
 	if((int)token[0]==0){printf("Erro");}
 	long int index;
@@ -299,7 +318,6 @@ int cpyStack(STCK* stack, char* token){
  * @param token Valor a ser interpretado
  * @returns Retorna 1 se o token for o correto se nao retorna 0
  */
-
 int rodar(STCK* stack, char* token){
 	if((int)token[0]==0){printf("Erro");}
 	DADOS a = stack->val[stack->esp], b = stack->val[stack->esp-1], c = stack->val[stack->esp-2];
@@ -315,7 +333,6 @@ int rodar(STCK* stack, char* token){
  * @param token Valor a ser interpretado
  * @returns Retorna 1 se o token for o correto se nao retorna 0
  */
-
 int trocar(STCK* stack, char* token){
 	if((int)token[0]==0){printf("Erro");}
 	DADOS a = stack->val[stack->esp], b = stack->val[stack->esp-1];
@@ -330,7 +347,6 @@ int trocar(STCK* stack, char* token){
  * @param token Valor a ser interpretado
  * @returns Retorna 1 se o token for o correto se nao retorna 0
  */
-
 int duplicar(STCK* stack, char* token){
 	if((int)token[0]==0){printf("Erro");}
 	DADOS a;
@@ -362,6 +378,12 @@ int removeTop(STCK* stack, char* token){
 	return 1;
 }
 
+/**
+ * \brief Esta funcao passa o topo da stack para o tipo de string
+ * @param stack A stack
+ * @param token Valor a ser interpretado
+ * @returns Retorna 1 se o token for o correto se nao retorna 0
+ */
 int toString(STCK* stack, char* token){
 	if((int)token[0]==0){printf("Erro");}
 	int i;
